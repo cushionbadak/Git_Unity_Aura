@@ -1,0 +1,55 @@
+지금 참고하고 있는 글 :
+http://seungngil.tistory.com/148
+여기서 "Edit" - "ProjectSettings" - "Editor"
+에서 Mode를 Mode에서 Visible Meta Files로 바꿈.
+
+git 폴더에서 git 밖 폴더 프로젝트를 복붙했다.
+근데 unity5.1.1에서 프로젝트 열기 힘들어 보인다. 아직 인터넷 보고 따라하는중
+
+
+gitignore 추가한 내용
+reference:
+http://stackoverflow.com/questions/21573405/how-to-prepare-a-unity-project-for-git
+
+################################
+# =============== #
+# Unity generated #
+# =============== #
+Temp/
+Obj/
+UnityGenerated/
+Library/
+Assets/AssetStoreTools*
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+##################################################
+
+
+
+
+프로젝트는 git폴더 채로 열면 열린다.
