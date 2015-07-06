@@ -21,6 +21,19 @@ public class GameManager : MonoBehaviour {
 		}
 	}//attackToPlayer End.
 
-	//public void attckToEnemy(AttackInterface attk, CharacterInterface character){
-	//}
+	public void attckToEnemy(AttackInterface attk, CharacterInterface character){
+		//attackToPlayer과 같다.
+		float tempHP = character.currentHP - attk.damage;
+		character.currentHP = (tempHP <= 0) ? 0.0f : tempHP;
+		if (tempHP <= 0)
+			character.Die ();
+		else {
+			if(attk.knockbackVector.magnitude > 0.0f)
+				character.haveKnockback(attk.knockbackVector);
+			if(attk.stunTime > 0.0f)
+				character.haveStun(attk.stunTime);
+			else if(attk.snareTime > 0.0f)
+				character.haveSnare(attk.snareTime);
+		}
+	}//attackToEnemy End.
 }
