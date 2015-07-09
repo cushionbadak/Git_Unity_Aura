@@ -1,0 +1,159 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class MeleeAI : MonoBehaviour, EnemyAIInterface{
+	// states
+	enum states {
+		idle,
+		move,
+		rest,
+        stun,
+        snare
+	}
+
+	private states current_state = states.idle;
+	private bool is_paused = false;
+    private bool can_update
+    {
+        get
+        {
+            return !is_paused;
+        }
+    }
+
+	// timer
+	public float rest_time = 1.0f;
+	public float move_time = 3.0f;
+	private float state_timer = 0.0f;
+
+	// search
+	public float search_range = 5.0f;
+
+	// move
+	private float max_speed;
+
+
+	// unit status
+    private EnemyUnit status;
+	private GameObject target;
+	private NavMeshAgent pathfinder;
+
+
+	// Use this for initialization
+	void Start () {
+        status = GetComponent<EnemyUnit>();
+		if (status == null) {
+            Debug.LogError(gameObject.name + ".MeleeAI : No EnemyUnit script found");
+			Application.Quit();
+		}
+
+		target = GameObject.Find ("Player");
+		if (target == null) {
+			Debug.LogError(gameObject.name + ".MeleeAI : No Player object found");
+			Application.Quit();
+		}
+		pathfinder = GetComponent<NavMeshAgent> ();
+		if (pathfinder == null) {
+			Debug.LogError(gameObject.name + ".MeleeAI : No NavMeshAgent script found");
+			Application.Quit();
+		}
+
+		pathfinder.enabled = true;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		// do nothing if script is paused
+        if (!can_update)
+			return;
+
+		UpdateState ();
+
+		if (current_state == states.idle) {
+			// do idle action
+
+
+		} else if (current_state == states.move) {
+			// do move action
+
+			// Move
+			Move ();
+		} else if (current_state == states.rest) {
+			// do rest action
+
+			// Rest
+			Rest ();
+		}
+
+	}
+
+	private void UpdateState() {
+		state_timer += Time.deltaTime;
+
+		if (current_state == states.idle) {
+			if (CanFindTarget ()) {
+				ChangeState (states.move);
+			}
+		} else if (current_state == states.move) {
+			if(state_timer > move_time && rest_time != 0) {
+				ChangeState(states.rest);
+			}
+		} else if (current_state == states.rest) {
+			if(state_timer > rest_time && move_time != 0){
+				ChangeState(states.move);
+			}
+		}
+	}
+
+	private void ChangeState(states next_state) {
+		state_timer = 0;
+
+		current_state = next_state;
+	}
+
+	private void Move() {
+		// move
+		pathfinder.speed = status.currentSpeed;
+		pathfinder.destination = target.transform.position;
+	}
+
+
+	private void Rest(){
+		// move
+		pathfinder.speed = 0;
+		pathfinder.destination = target.transform.position;
+	}
+
+	private bool CanFindTarget() {
+		if (Vector3.Magnitude (target.transform.position - transform.position) < search_range) {
+			return true;
+		}
+
+		return false;
+	}
+
+
+	// stop AI working
+    public void PauseEnemy()
+    {
+		is_paused = true;
+		pathfinder.enabled = false;
+	}
+
+	// start AI working
+    public void StartEnemy()
+    {
+		is_paused = false;
+		pathfinder.enabled = true;
+	}
+
+    public void GiveBuff(ENEMY_BUFF buffnum, float rate, float time)
+    {
+
+    }
+
+    public void GiveKnockBack(Vector3 direction, float amount, float time)
+    {
+
+    }
+}
