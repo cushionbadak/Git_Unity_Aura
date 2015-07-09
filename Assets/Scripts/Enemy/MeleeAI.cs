@@ -42,6 +42,7 @@ public class MeleeAI : MonoBehaviour, EnemyAIInterface{
     // attack
     public float damage = 5;
     public float aura_size = 3;
+    private GameObject aura;
 
 	// Use this for initialization
 	void Start () {
@@ -65,7 +66,7 @@ public class MeleeAI : MonoBehaviour, EnemyAIInterface{
 		pathfinder.enabled = true;
 
         // create aura
-        GameObject aura = (GameObject)Instantiate(Resources.Load("Prefabs/EnemyAura"), transform.position, new Quaternion());
+        aura = (GameObject)Instantiate(Resources.Load("Prefabs/EnemyAura"), transform.position, new Quaternion());
         aura.transform.parent = transform;
         var aura_script = aura.GetComponent<EnemyAuraAttack>();
         aura_script.damage = 5;
