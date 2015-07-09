@@ -1,20 +1,18 @@
-﻿using System;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-interface EnemyAIInterface : EnemyScriptInterface
+public enum ENEMY_BUFF
 {
-    public enum ENEMY_BUFF
-    {
-        STUN,
-        SNARE,
-        STUTTERING
-    };
+    STUN,
+    SNARE
+};
 
-    void GiveBuff(EnemyAIInterface.ENEMY_BUFF buffnum, float rate, float time)
-    {
+public interface EnemyAIInterface : EnemyScriptInterface
+{
+    
 
-    }
+    void GiveBuff(ENEMY_BUFF buffnum, float rate, float time);
+    void GiveKnockBack(Vector3 direction, float amount, float time);
 }
 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyScriptInterface
+public interface EnemyScriptInterface
 {
     void PauseEnemy();
     void StartEnemy();
