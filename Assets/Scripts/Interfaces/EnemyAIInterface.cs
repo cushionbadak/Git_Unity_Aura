@@ -8,7 +8,6 @@ interface EnemyAIInterface : EnemyScriptInterface
     public enum ENEMY_BUFF
     {
         STUN,
-        SLOW,
         STUTTERING
     };
 
