@@ -75,14 +75,15 @@ public class EnemyAuraAttack : MonoBehaviour, AttackInterface {
 
 
     void OnTriggerEnter(Collider col)
-    {
-        if (col.gameObject.name == "Player")
+	{
+		Debug.Log(col.gameObject.name);
+        if (col.gameObject.name == "PlayerCollider")
             player_inside = true;
     }
 
     void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.name == "Player")
+		if (col.gameObject.name == "PlayerCollider")
             player_inside = false;
     }
 
