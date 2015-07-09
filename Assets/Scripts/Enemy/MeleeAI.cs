@@ -39,6 +39,10 @@ public class MeleeAI : MonoBehaviour, EnemyAIInterface{
 	private NavMeshAgent pathfinder;
 
 
+    // attack
+    public float damage = 5;
+    public float aura_size = 3;
+
 	// Use this for initialization
 	void Start () {
         status = GetComponent<EnemyUnit>();
@@ -59,6 +63,14 @@ public class MeleeAI : MonoBehaviour, EnemyAIInterface{
 		}
 
 		pathfinder.enabled = true;
+
+        // create aura
+        GameObject aura = (GameObject)Instantiate(Resources.Load("Prefabs/EnemyAura"), transform.position, new Quaternion());
+        aura.transform.parent = transform;
+        var aura_script = aura.GetComponent<EnemyAuraAttack>();
+        aura_script.damage = 5;
+        aura_script.SetAuraSize(aura_size);
+
 	}
 	
 	// Update is called once per frame
