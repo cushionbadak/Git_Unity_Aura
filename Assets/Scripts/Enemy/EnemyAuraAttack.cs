@@ -88,6 +88,6 @@ public class EnemyAuraAttack : MonoBehaviour, AttackInterface {
 
     public void SetAuraSize(float aura_size)
     {
-        transform.localScale = new Vector3(aura_size, 1, aura_size);
+        transform.localScale = new Vector3(aura_size, 0.1f, aura_size);
     }
 }
