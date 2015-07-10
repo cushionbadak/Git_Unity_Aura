@@ -10,9 +10,12 @@ public class MainScreen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//Test
+		//Purpose : To test whether TotalManager.I.setCurrentScene works well.
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			TotalManager.I.setCurrentScene("Test_Chapter1");
 			Debug.Log (TotalManager.I.getCurrentScene());
 		}
+		//Test End.
 	}
 }

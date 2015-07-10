@@ -6,6 +6,8 @@ public class TotalManager : MonoBehaviour {
 	private static TotalManager uniqueInstance = null;
 	public static TotalManager I { get { return uniqueInstance; } }
 
+	public string SceneToStart;
+
 	void Awake(){
 		DontDestroyOnLoad (this.gameObject);
 	}
@@ -19,7 +21,7 @@ public class TotalManager : MonoBehaviour {
 		else
 			Destroy (this.gameObject);
 
-		TotalManager.I.currentScene = "Test_MainScreen";
+		TotalManager.I.currentScene = SceneToStart;
 	}
 	
 	// Update is called once per frame
