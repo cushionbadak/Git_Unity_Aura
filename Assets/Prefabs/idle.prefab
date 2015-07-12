@@ -12,7 +12,7 @@ GameObject:
   - 95: {fileID: 9509230}
   - 114: {fileID: 11439934}
   m_Layer: 0
-  m_Name: AnimationTest_idle
+  m_Name: idle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
