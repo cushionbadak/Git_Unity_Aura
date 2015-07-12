@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Attack {
+public class Attack : MonoBehaviour {
 	public float damage;				//데미지의 크기.
 	public Vector3 knockbackVector;		//넉백의 크기.
 	public float stunTime;				//기절시간. 기절동안에는 오오라가 사라진다
