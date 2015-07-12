@@ -4,16 +4,4 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/menuScene.unity
-  - enabled: 1
-    path: Assets/Scenes/MakingSystem002/Test_Chapter1.unity
-  - enabled: 1
-    path: Assets/Scenes/MakingSystem002/Test_Chapter2.unity
-  - enabled: 1
-    path: Assets/Scenes/MakingSystem002/Test_Chapter3.unity
-  - enabled: 1
-    path: Assets/Scenes/MakingSystem002/Test_Chapter4.unity
-  - enabled: 1
-    path: Assets/Scenes/MakingSystem002/Test_MainScreen.unity
+  m_Scenes: []

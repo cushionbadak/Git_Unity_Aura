@@ -35,7 +35,7 @@ public class TotalManager : MonoBehaviour {
 		
 	}
 
-	private string[] Scenes = {"TestScene, MainScreen"};
+	private string[] Scenes = {"TestScene"};
 	private string currentScene;
 	public string getCurrentScene(){return currentScene;}
 	public void setCurrentScene(string value){

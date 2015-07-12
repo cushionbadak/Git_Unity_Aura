@@ -23,12 +23,8 @@ public class PlayerLevelData : MonoBehaviour {
 	public StatusStruct[] Status;
 	
 	void Awake(){
-		DontDestroyOnLoad (this.gameObject);
-	}
-	
-	
-	// Use this for initialization
-	void Start () {
+		DontDestroyOnLoad (this.gameObject);	
+
 		//Singleton
 		if (uniqueInstance == null)
 			uniqueInstance = this;
@@ -75,13 +71,5 @@ public class PlayerLevelData : MonoBehaviour {
 		}
 		//Datas End.
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-
-
+	}//Awake End.
 }

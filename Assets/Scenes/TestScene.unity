@@ -97,7 +97,7 @@ GameObject:
   - 4: {fileID: 12183901}
   - 114: {fileID: 12183902}
   m_Layer: 0
-  m_Name: TotalManager
+  m_Name: TotalManagerObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -291,7 +291,7 @@ GameObject:
   - 4: {fileID: 431667159}
   - 114: {fileID: 431667160}
   m_Layer: 0
-  m_Name: PlayerLevelData
+  m_Name: PlayerLevelDataObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -548,7 +548,7 @@ GameObject:
   - 4: {fileID: 864428463}
   - 114: {fileID: 864428462}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: GameManagerObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -790,7 +790,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 149560, guid: 811737808dc4de44a95ca2212d22ac02, type: 2}
       propertyPath: m_Name
-      value: GameManager
+      value: GameManagerObject
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 811737808dc4de44a95ca2212d22ac02, type: 2}
