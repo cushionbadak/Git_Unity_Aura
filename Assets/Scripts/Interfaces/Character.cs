@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Character {
+public class Character : MonoBehaviour{
 
 	public float maxHP;		
 	public float currentHP;
