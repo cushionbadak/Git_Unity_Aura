@@ -22,6 +22,12 @@ public class TotalManager : MonoBehaviour {
 			Destroy (this.gameObject);
 
 		TotalManager.I.currentScene = SceneToStart;
+
+		//test: if PlayerLevelData works well
+		//	TotalManager will log 'level 8' Player's maxHP and 'level 20' player's needEXP
+		Debug.Log ("Level 8 player's HP : " + PlayerLevelData.I.Status[8].maxHP);
+		Debug.Log ("Level 20 player's needEXP : " + PlayerLevelData.I.Status[20].needEXP);
+		//test end.
 	}
 	
 	// Update is called once per frame
@@ -29,7 +35,7 @@ public class TotalManager : MonoBehaviour {
 		
 	}
 
-	private string[] Scenes = {"Test_MainScreen", "Test_Chapter1", "Test_Chapter2", "Test_Chapter3", "Test_Chapter4"};
+	private string[] Scenes = {"TestScene, MainScreen"};
 	private string currentScene;
 	public string getCurrentScene(){return currentScene;}
 	public void setCurrentScene(string value){
