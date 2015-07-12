@@ -9,12 +9,12 @@ public class Character : MonoBehaviour{
 	public float originalSpeed;
 	public float currentSpeed;
 
-	//public void haveKnockback(Vector3 moveVector){}
-	//public void haveStun(float time){}
-	//public void haveSnare(float time){}
-	//public void Die(){}
+	public void haveKnockback(Vector3 moveVector){}
+	public void haveStun(float time){}
+	public void haveSnare(float time){}
+	public void Die(){}
 
-	//public void pause(){}
-	//public void resume(){}
+	public void pause(){}
+	public void resume(){}
 
 }
