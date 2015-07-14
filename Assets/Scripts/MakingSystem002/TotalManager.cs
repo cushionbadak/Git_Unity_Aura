@@ -35,7 +35,7 @@ public class TotalManager : MonoBehaviour {
 		
 	}
 
-	private string[] Scenes = {"TestScene"};
+	private string[] Scenes = {"menuScene", "TestScene"};
 	private string currentScene;
 	public string getCurrentScene(){return currentScene;}
 	public void setCurrentScene(string value){
@@ -45,5 +45,10 @@ public class TotalManager : MonoBehaviour {
 				Application.LoadLevel (value);
 			}
 		}
+	}
+
+	//플레이어가 죽어을 때 전체적인 처리.
+	public void PlayerDie(){
+		Debug.Log ("TotalManager: Player Die.");
 	}
 }
