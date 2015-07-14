@@ -3,12 +3,6 @@ using System.Collections;
 
 public class EnemyAuraAttack : Attack
 {
-    public float damage = 10;
-    public Vector3 knockbackVector = new Vector3(0, 0, 0);
-    public float stunTime = 0;
-    public float snareTime = 0;
-    public float speed = 0;
-
     public float attack_cooldown = 1;
     private float attack_timer = 0;
     private bool player_inside = false;
