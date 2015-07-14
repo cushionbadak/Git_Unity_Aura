@@ -1,48 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyUnit : MonoBehaviour, EnemyInterface
+public class EnemyUnit : Enemy
 {
-    public float _max_hp = 100;
-    public float maxHP
-    { 
-        get { return _max_hp; }
-        set { _max_hp = value; }
-    }
-
-    public float _current_hp = 100;
-    public float currentHP 
-    {
-        get { return _current_hp; }
-        set
-        {
-            if (value < 0)
-                _current_hp = 0;
-            else
-                _current_hp = value;
-        }
-    }
-
-    private int _level = 0;
-    public int level
-    {
-        get { return _level; }
-        set { }
-    }
-
-    public float _original_speed = 100;
-    public float originalSpeed 
-    {
-        get { return _original_speed; }
-        set { _original_speed = value; }
-    }
-
-    public float currentSpeed
-    {
-        get { return _original_speed; }
-        set { }
-    }
-
     EnemyAIInterface enemyAI;
 
 	// Use this for initialization
@@ -85,5 +45,15 @@ public class EnemyUnit : MonoBehaviour, EnemyInterface
     public void Die()
     {
 
+    }
+
+    public void pause()
+    {
+        enemyAI.pauseAI();
+    }
+
+    public void resume()
+    {
+        enemyAI.resumeAI();
     }
 }
