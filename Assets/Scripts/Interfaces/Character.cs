@@ -9,6 +9,7 @@ public class Character : MonoBehaviour{
 	public float originalSpeed;
 	public float currentSpeed;
 
+	public void haveDamage(float damage){}
 	public void haveKnockback(Vector3 moveVector){}
 	public void haveStun(float time){}
 	public void haveSnare(float time){}
