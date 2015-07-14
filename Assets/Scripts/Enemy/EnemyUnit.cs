@@ -25,8 +25,8 @@ public class EnemyUnit : MonoBehaviour, EnemyInterface
 
     private int _level = 0;
     public int level
-    { 
-        get { return 0; }
+    {
+        get { return _level; }
         set { }
     }
 
