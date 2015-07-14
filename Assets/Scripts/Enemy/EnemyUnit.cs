@@ -24,35 +24,35 @@ public class EnemyUnit : Enemy
 
 	}
 
-    public void haveKnockback(Vector3 moveVector)
+    public override void haveKnockback(Vector3 moveVector)
     {
         if (enemyAI != null)
             enemyAI.GiveKnockBack(Vector3.Normalize(moveVector), Vector3.Magnitude(moveVector), 0.5f);
     }
 
-    public void haveStun(float time)
+    public override void haveStun(float time)
     {
         if (enemyAI != null)
             enemyAI.GiveBuff(ENEMY_BUFF.STUN, 0, 3);
     }
 
-    public void haveSnare(float time)
+    public override void haveSnare(float time)
     {
         if (enemyAI != null)
             enemyAI.GiveBuff(ENEMY_BUFF.SNARE, 0, 3);
     }
 
-    public void Die()
+    public override void Die()
     {
 
     }
 
-    public void pause()
+    public override void pause()
     {
         enemyAI.pauseAI();
     }
 
-    public void resume()
+    public override void resume()
     {
         enemyAI.resumeAI();
     }
