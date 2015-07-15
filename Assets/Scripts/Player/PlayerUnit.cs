@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerUnit : Player {
     // New Variables
     private Rigidbody rb;
+    private GameObject parent;
 
 	// Use this for initialization
 	void Start () {
@@ -32,6 +33,7 @@ public class PlayerUnit : Player {
 
         // Others
         rb = GetComponent<Rigidbody>();
+        parent = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
@@ -56,10 +58,9 @@ public class PlayerUnit : Player {
 
     protected void Move(float xDir, float yDir)
     {
-        Vector3 start = rb.position;
-        Vector3 end = start + new Vector3(xDir * currentSpeed, 0, yDir * currentSpeed);
-        Vector3 newPos = end * Time.deltaTime;
-        rb.MovePosition(newPos);
+        Vector3 start = parent.transform.position;
+        Vector3 end = start + new Vector3(xDir * currentSpeed * Time.deltaTime, 0, yDir * currentSpeed * Time.deltaTime);
+
+        parent.transform.position = end;
     }
-    
 }
