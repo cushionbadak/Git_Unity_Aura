@@ -15,7 +15,7 @@ public class Player : Character{
 	public float rangeUpPotionScale;
 
 	//경험치
-	public float EXP;
+	public int EXP;
 
 	//기타 아이템의 보유여부
 	public bool isThunderShoes;			//오오라 내의 적 하나에게 일정 시간마다 임의의 적에게 데미지와 경직을 주는 번개를 만든다.								

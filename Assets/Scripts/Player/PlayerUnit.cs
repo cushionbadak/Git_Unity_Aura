@@ -10,7 +10,7 @@ public class PlayerUnit : Player {
 	void Start () {
         // Player Status
         level = 1;
-        EXP = .0f;
+        EXP = 0;
 
         maxHP = PlayerLevelData.I.Status[level].maxHP;
         currentHP = maxHP;
