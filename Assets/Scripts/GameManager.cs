@@ -53,6 +53,30 @@ public class GameManager : MonoBehaviour {
 		}
 	}//attackToPlayer End.
 
+
+	public void attackToPlayer(Attack attk) {
+		GameObject playerobject = GameObject.FindWithTag ("PlayerBody");
+		Player player = playerobject.GetComponent<PlayerUnit> ();
+		float tempHP = player.currentHP - attk.damage;
+		if (tempHP <= 0)
+			TotalManager.I.PlayerDie ();
+		else {
+			player.currentHP -= attk.damage;
+			if (attk.isknockbackVectorNeed) {
+				player.haveKnockback (attk.knockbackVector * attk.knockbackForce);
+			} else {
+				Vector3 temp = player.transform.position - attk.transform.position;
+				temp.Normalize();
+				player.haveKnockback(temp * attk.knockbackForce);
+			}
+			if(attk.stunTime > 0.0f)
+				player.haveStun(attk.stunTime);
+			else if(attk.snareTime > 0.0f)
+				player.haveSnare (attk.snareTime);
+		}
+
+	}
+
 	public void attckToEnemy(Attack attk, Character character){
 		float tempHP = character.currentHP - attk.damage;
 		if (tempHP <= 0) {

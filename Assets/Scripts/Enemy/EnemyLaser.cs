@@ -44,17 +44,18 @@ public class EnemyLaser : Attack {
     void Attack()
     {
         Debug.Log(gameObject.name + ".EnemyLaser : Attack damage : " + damage);
+		GameManager.I.attackToPlayer (this);
     }
 
     void OnTriggerEnter(Collider col)
     {
-		if (col.gameObject.name == "PlayerBody")
+		if (col.gameObject.tag == "PlayerBody")
             player_inside = true;
     }
 
     void OnTriggerExit(Collider col)
     {
-		if (col.gameObject.name == "PlayerBody")
+		if (col.gameObject.tag == "PlayerBody")
             player_inside = false;
     }
 
