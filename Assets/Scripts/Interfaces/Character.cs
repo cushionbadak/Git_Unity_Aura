@@ -9,6 +9,8 @@ public class Character : MonoBehaviour{
 	public float originalSpeed;
 	public float currentSpeed;
 
+	public int giveEXP = 1;
+
 	public virtual void haveDamage(float damage){}
     public virtual void haveKnockback(Vector3 moveVector) { }
     public virtual void haveStun(float time) { }
