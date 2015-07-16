@@ -137,7 +137,7 @@ MonoBehaviour:
   dumbling_cooldown: 1
   search_range: 5
   dumbling_speed: 10
-  attack_object: {fileID: 156190, guid: 5021f3147f5d9c34b87935cdf70a2691, type: 2}
+  attack_object: {fileID: 137528, guid: fcff1c77437b1754597e2e4520d714f8, type: 2}
   attack_range: 5
   aura_size: 3
   mov_to_dumble_rate: .100000001
