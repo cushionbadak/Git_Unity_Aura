@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour {
 		//만약 데미지를 받은 뒤 플레이어가 죽을 체력이면 Die함수를 호출한다.
 		//스턴과 경직 둘 다 있는 경우 스턴만 적용된다.
 		if (objectThing.tag == "PlayerBody") {
-			Player player = GetComponent<Player> (objectThing);
+			Player player = objectThing.GetComponent<Player>();
 			float tempHP = player.currentHP - attk.damage;
 			if (tempHP <= 0)
 				TotalManager.I.PlayerDie ();
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour {
 
 	public void attckToEnemy(Attack attk, GameObject objectThing){
 		if(objectThing.tag == "EnemyBody"){
-			Character character = GetComponenet<Character>(objectThing);
+			Character character = objectThing.GetComponent<Character>();
 			float tempHP = character.currentHP - attk.damage;
 			if (tempHP <= 0) {
 				findPlayer ().EXPIncrease (character.giveEXP);
@@ -83,7 +83,29 @@ public class GameManager : MonoBehaviour {
 				else if(attk.snareTime > 0.0f)
 					character.haveSnare (attk.snareTime);
 			}
+        }
+    }
+	public void attackToPlayer(Attack attk) {
+		GameObject playerobject = GameObject.FindWithTag ("PlayerBody");
+		Player player = playerobject.GetComponent<PlayerUnit> ();
+		float tempHP = player.currentHP - attk.damage;
+		if (tempHP <= 0)
+			TotalManager.I.PlayerDie ();
+		else {
+			player.currentHP -= attk.damage;
+			if (attk.isknockbackVectorNeed) {
+				player.haveKnockback (attk.knockbackVector * attk.knockbackForce);
+			} else {
+				Vector3 temp = player.transform.position - attk.transform.position;
+				temp.Normalize();
+				player.haveKnockback(temp * attk.knockbackForce);
+			}
+			if(attk.stunTime > 0.0f)
+				player.haveStun(attk.stunTime);
+			else if(attk.snareTime > 0.0f)
+				player.haveSnare (attk.snareTime);
 		}
+
 	}
 
 		//attackToPlayer과 같다.
@@ -102,7 +124,7 @@ public class GameManager : MonoBehaviour {
 
 		}
 		*/
-	}//attackToEnemy End.
+	//attackToEnemy End.
 
 	public void savePlayerInfo(int slot, Player player){
 		if (slot < 1 || slot > 3) {
@@ -178,8 +200,8 @@ public class GameManager : MonoBehaviour {
 		return temp;
 	}
 
-	private Player findPlayer(){
-		return GameObject.FindWithTag ("Player");
+	public Player findPlayer(){
+		return GameObject.FindWithTag ("Player").GetComponent<Player>();
 	}
 
 

@@ -44,20 +44,21 @@ public class EnemyAuraAttack : Attack
 
     void GiveAttack()
     {
+
         Debug.Log(gameObject.name + ".EnemyAuraAttack : Attack damage : " + damage);
+		GameManager.I.attackToPlayer (this);
     }
 
 
     void OnTriggerEnter(Collider col)
 	{
-		Debug.Log(col.gameObject.name);
-        if (col.gameObject.name == "PlayerCollider")
+        if (col.gameObject.tag == "PlayerBody")
             player_inside = true;
     }
 
     void OnTriggerExit(Collider col)
     {
-		if (col.gameObject.name == "PlayerCollider")
+		if (col.gameObject.tag == "PlayerBody")
             player_inside = false;
     }
 

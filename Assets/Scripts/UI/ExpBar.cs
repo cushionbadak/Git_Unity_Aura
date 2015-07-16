@@ -11,7 +11,7 @@ public class ExpBar : MonoBehaviour
 	
 	
 	void Start(){
-		p = GameObject.FindWithTag ("PlayerBody");
+		p = GameManager.I.findPlayer();
 		expSlider.maxValue = p.EXP;
 		expSlider.value = 0;
 	}

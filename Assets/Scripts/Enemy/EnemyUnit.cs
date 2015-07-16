@@ -20,8 +20,7 @@ public class EnemyUnit : Enemy
 	// Update is called once per frame
 	void Update ()
     {
-	    // do nothing
-
+		currentSpeed = originalSpeed;
 	}
 
     public override void haveKnockback(Vector3 moveVector)

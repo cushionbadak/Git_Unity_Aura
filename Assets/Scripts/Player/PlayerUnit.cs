@@ -33,7 +33,8 @@ public class PlayerUnit : Player {
 
         // Others
         rb = GetComponent<Rigidbody>();
-        parent = GameObject.FindGameObjectWithTag("Player");
+        parent = transform.parent.gameObject;
+		Debug.Log (parent.gameObject.name);
 	}
 	
 	// Update is called once per frame

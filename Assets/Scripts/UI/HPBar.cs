@@ -10,7 +10,7 @@ public class HPBar : MonoBehaviour
 	Player p= null;
 
 	void Start(){
-		p = GameObject.FindWithTag ("PlayerBody");
+		p = GameManager.I.findPlayer();
 		currentHealth = p.maxHP;
 		hpSlider.maxValue = p.maxHP;
 	}

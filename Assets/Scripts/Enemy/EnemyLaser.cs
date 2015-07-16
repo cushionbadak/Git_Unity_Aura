@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class EnemyLaser : Attack {
-
     public float predelay_time = 1;
     public float postdelay_time = 1;
 
@@ -14,7 +13,7 @@ public class EnemyLaser : Attack {
 
 	// Use this for initialization
 	void Start () {
-	
+		
 	}
 	
 	// Update is called once per frame
@@ -45,19 +44,18 @@ public class EnemyLaser : Attack {
     void Attack()
     {
         Debug.Log(gameObject.name + ".EnemyLaser : Attack damage : " + damage);
+		GameManager.I.attackToPlayer (this);
     }
-
 
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log(col.gameObject.name);
-        if (col.gameObject.name == "PlayerCollider")
+		if (col.gameObject.tag == "PlayerBody")
             player_inside = true;
     }
 
     void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.name == "PlayerCollider")
+		if (col.gameObject.tag == "PlayerBody")
             player_inside = false;
     }
 
