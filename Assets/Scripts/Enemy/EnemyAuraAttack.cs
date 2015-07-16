@@ -50,13 +50,13 @@ public class EnemyAuraAttack : Attack
 
     void OnTriggerEnter(Collider col)
 	{
-        if (col.gameObject.name == "PlayerCollider")
+        if (col.gameObject.name == "PlayerBody")
             player_inside = true;
     }
 
     void OnTriggerExit(Collider col)
     {
-		if (col.gameObject.name == "PlayerCollider")
+		if (col.gameObject.name == "PlayerBody")
             player_inside = false;
     }
 
