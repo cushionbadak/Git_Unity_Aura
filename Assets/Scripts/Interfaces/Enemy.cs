@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Enemy : Character{
 
+
 	//public void haveKnockback(Vector3 moveVector){}
 	//public void haveStun(float time){}
 	//public void haveSnare(float time){}

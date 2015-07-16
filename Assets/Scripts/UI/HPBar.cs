@@ -7,17 +7,17 @@ public class HPBar : MonoBehaviour
 	public float currentHealth;
 	public Slider hpSlider;
 	bool damaged;
-	Character currentHealthPoint = new Character();
+	Player p= null;
 
-
-	void Awake(){
-		hpSlider.maxValue = PlayerLevelData.I.Status [1].maxHP;
-		currentHealth = PlayerLevelData.I.Status [1].maxHP;
+	void Start(){
+		p = GameObject.FindWithTag ("PlayerBody");
+		currentHealth = p.maxHP;
+		hpSlider.maxValue = p.maxHP;
 	}
 	
 	void Update(){
 		if (damaged) {												//damaged must be fixed
-			currentHealth = currentHealthPoint.currentHP;
+			currentHealth = p.currentHP;
 			hpSlider.value = currentHealth;
 		}
 	}

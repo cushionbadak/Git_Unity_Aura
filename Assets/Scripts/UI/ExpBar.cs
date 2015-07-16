@@ -6,12 +6,13 @@ public class ExpBar : MonoBehaviour
 {
 	public float currentExp;
 	public Slider expSlider;
-	Character currentExpPoint = new Character();
 	bool killMonster;
+	Player p = null;
 	
 	
-	void Awake(){
-		expSlider.maxValue = PlayerLevelData.I.Status [1].needEXP;
+	void Start(){
+		p = GameObject.FindWithTag ("PlayerBody");
+		expSlider.maxValue = p.EXP;
 		expSlider.value = 0;
 	}
 	

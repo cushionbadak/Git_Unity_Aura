@@ -24,6 +24,9 @@ public class Player : Character{
 	public bool isCriticalKnuckle;		//10%확률로 2배의 데미지를 준다.								
 	public bool isSpecialThing;			//오오라의 크기가 150%로 증가하고, Space Bar를 눌러 매우 짧은 쿨타임으로 텔레포트 스킬을 사용할 수 있다.
 
+	public void EXPIncrease(int num){
+		EXP += num;
+	}
 	//public void haveKnockback(Vector3 moveVector){}
 	//public void haveStun(float time){}
 	//public void haveSnare(float time){}
