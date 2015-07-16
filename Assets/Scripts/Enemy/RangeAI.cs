@@ -287,14 +287,14 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
     }
 
     // stop AI working
-    public void PauseEnemy()
+    public void pauseAI()
     {
         is_paused = true;
         pathfinder.enabled = false;
     }
 
     // start AI working
-    public void StartEnemy()
+    public void resumeAI()
     {
         is_paused = false;
         pathfinder.enabled = true;

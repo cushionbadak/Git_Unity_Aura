@@ -1,42 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyAuraAttack : MonoBehaviour, AttackInterface {
-
-    private float _damage;
-    public float damage
-    {
-        get { return _damage; }
-        set { _damage = value; }
-    }
-
-    public Vector3 knockbackVector
-    {
-        get { return new Vector3(0, 0, 0); }
-        set { }
-    }
-
-    public float stunTime
-    {
-        get { return 0; }
-        set { }
-    }
-
-    public float snareTime
-    {
-        get { return 0; }
-        set { }
-    }
-
-    public float speed
-    {
-        get { return 0; }
-        set { }
-    }
-
+public class EnemyAuraAttack : Attack
+{
     public float attack_cooldown = 1;
     private float attack_timer = 0;
     private bool player_inside = false;
+
+    private bool isPaused = false;
     
 
     // Use this for initialization
@@ -59,6 +30,9 @@ public class EnemyAuraAttack : MonoBehaviour, AttackInterface {
 	// Update is called once per frame
 	void Update ()
     {
+        if (isPaused)
+            return;
+
         attack_timer += Time.deltaTime;
 
         if (attack_timer > attack_cooldown && player_inside)
@@ -90,5 +64,15 @@ public class EnemyAuraAttack : MonoBehaviour, AttackInterface {
     public void SetAuraSize(float aura_size)
     {
         transform.localScale = new Vector3(aura_size, 0.1f, aura_size);
+    }
+
+    public override void pause()
+    {
+        isPaused = true;
+    }
+
+    public override void resume()
+    {
+        isPaused = false;
     }
 }
