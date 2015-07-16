@@ -28,11 +28,12 @@ public class TotalManager : MonoBehaviour {
 		Debug.Log ("Level 8 player's HP : " + PlayerLevelData.I.Status[8].maxHP);
 		Debug.Log ("Level 20 player's needEXP : " + PlayerLevelData.I.Status[20].needEXP);
 		//test end.
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
 	private string[] Scenes = {"menuScene", "TestScene"};

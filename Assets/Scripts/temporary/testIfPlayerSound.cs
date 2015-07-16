@@ -65,17 +65,10 @@ public class testIfPlayerSound : Player {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			if(level <30){
-				level++;
-				Debug.Log("레벨업 하셨습니다!");
-				Debug.Log("현재 당신의 레벨은 "+ PlayerLevelData.I.Status[level].level + "입니다");
-				Debug.Log("당신의 공격력은 " + PlayerLevelData.I.Status[level].damage + "입니다");
-			}
-			else{
-				Debug.Log ("당신은 현재 레벨업 할 수 없습니다");
-			}
+			//AddMore about saving playerinformation
+			GameManager.I.savePlayerInfo(2, this);
+			Debug.Log ("save completed");
 		}
-		
 	}
 	
 	
