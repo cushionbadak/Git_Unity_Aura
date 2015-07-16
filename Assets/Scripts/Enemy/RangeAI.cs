@@ -39,7 +39,7 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
     private float max_speed;
 
     // attack
-    public string attack_object = "";
+    public GameObject attack_object = null;
     public float attack_range = 3;
     public float aura_size = 3;
     private bool need_attack = false;
@@ -247,7 +247,17 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
     private void Attack()
     {
         need_attack = false;
-        Debug.Log(gameObject.name + ".RangeMobAI.Attack() : Create Object '" + attack_object + "'");
+        //Debug.Log(gameObject.name + ".RangeMobAI.Attack() : Create Object '" + attack_object + "'");
+		if (attack_object != null) 
+		{
+			Vector3 diff = target.transform.position - transform.position;
+			float angle = Vector3.Angle(new Vector3(0, 0, 1), diff);
+			if(diff.y - diff.x > 0)
+				angle = 360 - angle;
+			Vector3 euler = new Vector3(0, angle, 0);
+
+			Instantiate(attack_object, transform.position, Quaternion.Euler(euler));
+		}
     }
 
     private void Dumbling()

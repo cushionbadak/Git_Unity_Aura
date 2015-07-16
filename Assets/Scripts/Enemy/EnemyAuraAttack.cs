@@ -50,7 +50,6 @@ public class EnemyAuraAttack : Attack
 
     void OnTriggerEnter(Collider col)
 	{
-		Debug.Log(col.gameObject.name);
         if (col.gameObject.name == "PlayerCollider")
             player_inside = true;
     }
