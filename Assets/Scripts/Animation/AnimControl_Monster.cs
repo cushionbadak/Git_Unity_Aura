@@ -113,7 +113,6 @@ public class AnimControl_Monster : MonoBehaviour {
 
     void changeAnim()
     {
-        Debug.Log(finalSt);
         obj.GetComponent<Animator>().SetInteger("state",(int)finalSt);
     }
 
