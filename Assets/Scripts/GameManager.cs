@@ -64,13 +64,14 @@ public class GameManager : MonoBehaviour {
 
 	public void attckToEnemy(Attack attk, GameObject objectThing){
 		if(objectThing.tag == "EnemyBody"){
-			Character character = objectThing.GetComponent<Character>();
+
+            Character character = objectThing.GetComponent<Character>();
 			float tempHP = character.currentHP - attk.damage;
 			if (tempHP <= 0) {
 				findPlayer ().EXPIncrease (character.giveEXP);
 				character.Die ();
 			} else {
-				character.haveDamage (attk.damage);
+                character.haveDamage (attk.damage);
 				if (attk.isknockbackVectorNeed) {
 					character.haveKnockback (attk.knockbackVector * attk.knockbackForce);
 				} else {

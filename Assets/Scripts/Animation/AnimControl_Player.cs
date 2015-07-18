@@ -106,7 +106,6 @@ public class AnimControl_Player : MonoBehaviour
 
     void changeAnim()
     {
-        Debug.Log(finalSt);
         obj.GetComponent<Animator>().SetInteger("state", (int)finalSt);
     }
 }
