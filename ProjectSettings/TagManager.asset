@@ -13,6 +13,8 @@ TagManager:
   - Wall
   - Floor
   - Item
+  - PlayerTeam
+  - EnemyTeam
   layers:
   - Default
   - TransparentFX

@@ -3,8 +3,8 @@ using System.Collections;
 
 public class PlayerUnit : Player {
     // New Variables
-    private Rigidbody rb;
-    private GameObject parent;
+    //private Rigidbody rb;
+    //private GameObject parent;
 
 	// Use this for initialization
 	void Start () {
@@ -32,9 +32,9 @@ public class PlayerUnit : Player {
         isSpecialThing = false;
 
         // Others
-        rb = GetComponent<Rigidbody>();
-        parent = transform.parent.gameObject;
-		Debug.Log (parent.gameObject.name);
+        //rb = GetComponent<Rigidbody>();
+        //parent = transform.parent.gameObject;
+		//Debug.Log (parent.gameObject.name);
 	}
 	
 	// Update is called once per frame
@@ -55,13 +55,18 @@ public class PlayerUnit : Player {
         else if (Key_down) { yDir = -1.0f; }
 
         Move(xDir, yDir);
+
+        if (Input.GetKeyDown(KeyCode.O)) { }    //SaveKey
 	}
 
-    protected void Move(float xDir, float yDir)
+    private void Move(float xDir, float yDir)
     {
-        Vector3 start = parent.transform.position;
+        Vector3 start = transform.position;
         Vector3 end = start + new Vector3(xDir * currentSpeed * Time.deltaTime, 0, yDir * currentSpeed * Time.deltaTime);
 
-        parent.transform.position = end;
+        transform.position = end;
     }
+
+    private void pause() { }
+    private void resume() { }
 }
