@@ -48,11 +48,13 @@ public class EnemyUnit : Enemy
 
     public override void pause()
     {
-        enemyAI.pauseAI();
+        if (enemyAI != null)
+            enemyAI.pauseAI();
     }
 
     public override void resume()
     {
-        enemyAI.resumeAI();
+        if (enemyAI != null)
+            enemyAI.resumeAI();
     }
 }
