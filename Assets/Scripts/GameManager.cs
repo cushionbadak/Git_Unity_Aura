@@ -9,13 +9,6 @@ public class GameManager : MonoBehaviour {
 	private static GameManager uniqueInstance = null;
 	public static GameManager I { get { return uniqueInstance; } }
 
-	//temp Player for getPlayerInfo method.
-	private Player temp = null;
-	//temp Player, Enemy for attackToPlayer & attackToEnemy
-	private Player player = null;
-	private Character character = null;
-
-	
 	void Awake(){
 		DontDestroyOnLoad (this.gameObject);
 	}
@@ -27,10 +20,6 @@ public class GameManager : MonoBehaviour {
 			uniqueInstance = this;
 		else
 			Destroy (this.gameObject);
-
-		temp = new Player ();
-		player = new Player();
-		character = new Character ();
 
 	}
 
@@ -170,6 +159,7 @@ public class GameManager : MonoBehaviour {
 		//slot num이 1~3 이 아니면 에러가 날 가능성이 높습니다.
 		string path = Application.dataPath + "/StreamingAssets/PlayerSlot" + slot.ToString() + ".dat";
 
+		Player temp = new Player();
 		string[] trash = new string[1];
 		StreamReader sr = new StreamReader (path);
 
