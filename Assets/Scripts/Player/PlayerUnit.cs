@@ -3,6 +3,9 @@ using System.Collections;
 
 public class PlayerUnit : Player {
     // New Variables
+    //private GameObject parent;
+    private Rigidbody rb;
+
     private float snare_time_store = 0.0f;
     private float snare_duration = 0.0f;
     private bool isSnare = false;
@@ -32,6 +35,9 @@ public class PlayerUnit : Player {
         isCriticalKnuckle = false;
         isSpecialThing = false;
 
+        // Others
+        //parent = transform.parent.gameObject;
+        rb = GetComponent<Rigidbody>();
     }
 	
 	// Update is called once per frame
@@ -64,18 +70,26 @@ public class PlayerUnit : Player {
                 snare_time_store = 0.0f;
                 snare_duration = 0.0f;
                 isSnare = false;
+                currentSpeed = originalSpeed;
             }
         }
 
         // Save Function
         if (Input.GetKeyDown(KeyCode.O)) { }    
+
+        // Die Check
+        if (currentHP <= 0) { Die(); }
+
+        // Position Sync
+        transform.parent.position = transform.position;
+        transform.localPosition = new Vector3(0, 0, 0);
 	}
 
     private void Move(float xDir, float yDir)
     {
         Vector3 start = transform.position;
         Vector3 end = start + new Vector3(xDir * currentSpeed * Time.deltaTime, 0, yDir * currentSpeed * Time.deltaTime);
-    
+
         transform.position = end;
     }
 
@@ -84,9 +98,9 @@ public class PlayerUnit : Player {
         currentHP -= damage;
     }
 
-    //Dont Used
-    //public override void haveKnockback(Vector3 moveVector) { }
-    //public override void haveStun(float time) { }
+    
+    public override void haveKnockback(Vector3 moveVector) { }
+    public override void haveStun(float time) { }
 
     public override void haveSnare(float time)
     {
@@ -94,7 +108,10 @@ public class PlayerUnit : Player {
         snare_duration = time;
     }
 
-    public override void Die() { }
+    public override void Die()
+    {
+
+    }
 
     public override void pause() { }
     public override void resume() { }
