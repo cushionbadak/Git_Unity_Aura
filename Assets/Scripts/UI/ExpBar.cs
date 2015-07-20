@@ -6,7 +6,6 @@ public class ExpBar : MonoBehaviour
 {
 	public float currentExp;
 	public Slider expSlider;
-	bool killMonster;
 	Player p = null;
 	
 	
@@ -16,10 +15,9 @@ public class ExpBar : MonoBehaviour
 		expSlider.value = 0;
 	}
 	
-	void Update(){
-		if (killMonster) {												//killMonster must be fixed
+	void Update(){											//killMonster must be fixed
 			currentExp = currentExp + 5;
 			expSlider.value = currentExp;
-		}
+		
 	}
 }

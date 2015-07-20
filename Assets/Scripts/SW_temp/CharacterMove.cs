@@ -26,12 +26,8 @@ public class CharacterMove : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
-        
-        currentPos = transform.position;
-        float v, h;
-        v = Input.GetAxis("Vertical");
-        h = Input.GetAxis("Horizontal");
-        dir = new Vector3(h, 0, v);
+
+
 
         /*
         if(Physics.Raycast(currentPos, dir * 10.0f,out hit, 0.5f))
@@ -81,10 +77,12 @@ public class CharacterMove : MonoBehaviour {
 
         }
         */
-
-        string s = "v : " + v + "h : " + h;
+        currentPos = transform.position;
+        float v, h;
+        v = Input.GetAxis("Vertical");
+        h = Input.GetAxis("Horizontal");
+        dir = new Vector3(h, 0, v);
     
-
         Vector3 speedVec = new Vector3(h,0 , v) * Time.deltaTime * speed;
         // transform.Translate(speedVec);
 

@@ -11,17 +11,18 @@ public class HPBar : MonoBehaviour
 
 	void Start(){
 
-        p = GameManager.I.findPlayer();
-
-        Debug.Log("초기화시키고 있음");
+        p = GameObject.FindWithTag("PlayerBody").GetComponent<Player>();
+        
         currentHealth = p.maxHP;
-		hpSlider.maxValue = p.maxHP;
 
     }
 	
-	void Update(){											//damaged must be fixed
-			currentHealth = p.currentHP;
+	void Update(){
+        //damaged must be fixed
+        hpSlider.maxValue = p.maxHP;
+        currentHealth = p.currentHP;
 			hpSlider.value = currentHealth;
 
-	}
+
+    }
 }

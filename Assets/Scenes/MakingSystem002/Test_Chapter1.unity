@@ -5865,6 +5865,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11418546, guid: fca27140ddb23448abfdbd157b736993, type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 22425688, guid: fca27140ddb23448abfdbd157b736993, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5939,19 +5943,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22416626, guid: fca27140ddb23448abfdbd157b736993, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: .349999994
       objectReference: {fileID: 0}
     - target: {fileID: 22416626, guid: fca27140ddb23448abfdbd157b736993, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22448750, guid: fca27140ddb23448abfdbd157b736993, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22448750, guid: fca27140ddb23448abfdbd157b736993, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418546, guid: fca27140ddb23448abfdbd157b736993, type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418546, guid: fca27140ddb23448abfdbd157b736993, type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418546, guid: fca27140ddb23448abfdbd157b736993, type: 2}
+      propertyPath: m_Value
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fca27140ddb23448abfdbd157b736993, type: 2}
