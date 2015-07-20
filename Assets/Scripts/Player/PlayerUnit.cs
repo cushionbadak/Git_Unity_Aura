@@ -4,19 +4,25 @@ using System.Collections;
 public class PlayerUnit : Player {
     // New Variables
     //private GameObject parent;
-    private Rigidbody rb;
-
+    private Rigidbody rigid;
+    private Vector3 currentPos;
     private float snare_time_store = 0.0f;
     private float snare_duration = 0.0f;
     private bool isSnare = false;
+    private Vector3 dir;
 
 	// Use this for initialization
 	void Start () {
+
+        rigid = gameObject.GetComponent<Rigidbody>();
+
+
         // Player Status
         level = 1;  // Player의 현재 레벨 받아오기 필요. 게임매니저에 저장해서 받아오기
         EXP = 0;
 
         maxHP = PlayerLevelData.I.Status[level].maxHP;
+        
         currentHP = maxHP;
         
         originalSpeed = 50.0f;
@@ -37,14 +43,23 @@ public class PlayerUnit : Player {
 
         // Others
         //parent = transform.parent.gameObject;
-        rb = GetComponent<Rigidbody>();
     }
 	
 	// Update is called once per frame
-	void Update () {
-	    
+	void FixedUpdate () {
+
+        currentPos = transform.position;
+        float v, h;
+        v = Input.GetAxis("Vertical");
+        h = Input.GetAxis("Horizontal");
+        dir = new Vector3(h, 0, v);
+    
+        Vector3 speedVec = new Vector3(h, 0, v) * Time.deltaTime * currentSpeed;
+        // transform.Translate(speedVec);
+
+        rigid.velocity = speedVec;
         // Movement xDir = x-coord, yDir = z-coord
-        bool Key_left = Input.GetKey(KeyCode.LeftArrow);
+        /*bool Key_left = Input.GetKey(KeyCode.LeftArrow);
         bool Key_right = Input.GetKey(KeyCode.RightArrow);
         bool Key_up = Input.GetKey(KeyCode.UpArrow);
         bool Key_down = Input.GetKey(KeyCode.DownArrow);
@@ -58,7 +73,8 @@ public class PlayerUnit : Player {
         else if (Key_down) { yDir = -1.0f; }
 
         Move(xDir, yDir);
-
+        
+        */
         // Snare Check
         if (isSnare)
         {
@@ -73,16 +89,15 @@ public class PlayerUnit : Player {
                 currentSpeed = originalSpeed;
             }
         }
-
+        // Position Sync
+        transform.parent.position = transform.position;
+        transform.localPosition = new Vector3(0, 0, 0);
         // Save Function
         if (Input.GetKeyDown(KeyCode.O)) { }    
 
         // Die Check
         if (currentHP <= 0) { Die(); }
 
-        // Position Sync
-        transform.parent.position = transform.position;
-        transform.localPosition = new Vector3(0, 0, 0);
 	}
 
     private void Move(float xDir, float yDir)
