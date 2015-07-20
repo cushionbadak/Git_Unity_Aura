@@ -54,7 +54,7 @@ public class PlayerUnit : Player {
         h = Input.GetAxis("Horizontal");
         dir = new Vector3(h, 0, v);
     
-        Vector3 speedVec = new Vector3(h, 0, v) * Time.deltaTime * currentSpeed;
+        Vector3 speedVec = new Vector3(h, 0, v) * Time.deltaTime * currentSpeed*10.0f;
         // transform.Translate(speedVec);
 
         rigid.velocity = speedVec;
