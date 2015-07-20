@@ -78,10 +78,18 @@ public class AnimControl_Monster : MonoBehaviour {
                             isRight = true;
                             finalSt = STATE.R_RUN;
                         }
-                        if (lookDir.x < 0)
+                        else if (lookDir.x < 0)
                         {
                             isRight = false;
                             finalSt = STATE.L_RUN;
+                        }
+                        else
+                        {
+
+                            if (isRight)
+                                finalSt = STATE.R_RUN;
+                            else
+                                finalSt = STATE.L_RUN;
                         }
                         break;
                     }

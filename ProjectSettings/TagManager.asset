@@ -15,6 +15,7 @@ TagManager:
   - Item
   - PlayerTeam
   - EnemyTeam
+  - MapObject
   layers:
   - Default
   - TransparentFX
