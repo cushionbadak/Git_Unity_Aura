@@ -3,19 +3,20 @@ using System.Collections;
 
 public class PlayerUnit : Player {
     // New Variables
-    //private Rigidbody rb;
-    //private GameObject parent;
+    private float snare_time_store = 0.0f;
+    private float snare_duration = 0.0f;
+    private bool isSnare = false;
 
 	// Use this for initialization
 	void Start () {
         // Player Status
-        level = 1;
+        level = 1;  // Player의 현재 레벨 받아오기 필요. 게임매니저에 저장해서 받아오기
         EXP = 0;
 
         maxHP = PlayerLevelData.I.Status[level].maxHP;
         currentHP = maxHP;
         
-        originalSpeed = 100.0f;
+        originalSpeed = 50.0f;
         currentSpeed = originalSpeed;
 
         powerUpPotion = 0;
@@ -31,11 +32,7 @@ public class PlayerUnit : Player {
         isCriticalKnuckle = false;
         isSpecialThing = false;
 
-        // Others
-        //rb = GetComponent<Rigidbody>();
-        //parent = transform.parent.gameObject;
-		//Debug.Log (parent.gameObject.name);
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -56,7 +53,22 @@ public class PlayerUnit : Player {
 
         Move(xDir, yDir);
 
-        if (Input.GetKeyDown(KeyCode.O)) { }    //SaveKey
+        // Snare Check
+        if (isSnare)
+        {
+            currentSpeed = originalSpeed * 0.7f;
+            if (snare_duration > snare_time_store)
+                snare_time_store += Time.deltaTime;
+            else
+            {
+                snare_time_store = 0.0f;
+                snare_duration = 0.0f;
+                isSnare = false;
+            }
+        }
+
+        // Save Function
+        if (Input.GetKeyDown(KeyCode.O)) { }    
 	}
 
     private void Move(float xDir, float yDir)
@@ -67,6 +79,23 @@ public class PlayerUnit : Player {
         transform.position = end;
     }
 
-    private void pause() { }
-    private void resume() { }
+    public override void haveDamage(float damage)
+    {
+        currentHP -= damage;
+    }
+
+    //Dont Used
+    //public override void haveKnockback(Vector3 moveVector) { }
+    //public override void haveStun(float time) { }
+
+    public override void haveSnare(float time)
+    {
+        isSnare = true;
+        snare_duration = time;
+    }
+
+    public override void Die() { }
+
+    public override void pause() { }
+    public override void resume() { }
 }

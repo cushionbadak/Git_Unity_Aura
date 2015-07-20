@@ -9,7 +9,8 @@ public class PlayerSkills : Attack {
     
 	// Use this for initialization
 	void Start () {
-	    
+        knockbackForce = 100.0f;
+
 	}
 	
 	// Update is called once per frame
@@ -21,13 +22,21 @@ public class PlayerSkills : Attack {
 
     void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.tag == "EnemyBody")
+        if (col.gameObject.tag == "EnemyBody")
             Debug.Log("target : " + col.gameObject.name);
     }
     
     void skill_Knockback()
     {
-        Debug.Log("Skill Casting : Knockback");
+        Collider[] targets = Physics.OverlapSphere(this.transform.position, 10.0f);
+        
+        foreach (Collider col in targets)
+        {
+            knockbackVector = col.gameObject.transform.position - this.transform.position;
+            isknockbackVectorNeed = true;
+            damage = .0f;
+            GameManager.I.attckToEnemy(this, col.gameObject);
+        }
     }
 
     void skill_SpinningCross() {}   //추가 오라 객체를 만들어서 거기에 붙여야 할라나?
