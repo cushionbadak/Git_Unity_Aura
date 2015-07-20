@@ -108,10 +108,7 @@ public class PlayerUnit : Player {
         snare_duration = time;
     }
 
-    public override void Die()
-    {
-
-    }
+    public override void Die() { TotalManager.I.PlayerDie(); }
 
     public override void pause() { }
     public override void resume() { }
