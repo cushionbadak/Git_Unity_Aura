@@ -15,11 +15,12 @@ public class UnitTransformSync : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void LateUpdate () 
+	void Update () 
     {
         if (hasParent)
         {
             transform.parent.position = transform.position;
+            //transform.localPosition = new Vector3(0, 0, 0);
         }
 	}
 }
