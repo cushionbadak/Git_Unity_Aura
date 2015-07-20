@@ -15,7 +15,7 @@ public class UnitTransformSync : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void LateUpdate () 
     {
         if (hasParent)
         {
