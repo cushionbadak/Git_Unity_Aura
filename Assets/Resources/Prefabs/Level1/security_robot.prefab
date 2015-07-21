@@ -111,9 +111,9 @@ MonoBehaviour:
   level: 0
   originalSpeed: 20
   currentSpeed: 0
-  damage: 20
+  damage: 5
   AuraRange: 0
-  giveEXP: 1
+  giveEXP: 3
 --- !u!114 &11482734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rest_time: 1
   move_time: 3
-  search_range: 5
+  search_range: 7
   damage: 5
   aura_size: 3
 --- !u!135 &13503530
@@ -207,7 +207,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: search_range
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 148846}

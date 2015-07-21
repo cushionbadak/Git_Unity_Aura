@@ -84,7 +84,10 @@ public class GameManager : MonoBehaviour
         GameObject dmgText = (GameObject)Instantiate(DamageText,obj.transform.position,Quaternion.Euler(90,0,0));
         string damage = attk.damage.ToString();
         dmgText.GetComponent<TextMesh>().text = damage;
-        dmgText.transform.Translate(Vector3.forward*10.0f);
+        if(obj.tag=="PlayerBody")
+        {
+            dmgText.GetComponent<TextMesh>().color = Color.yellow;
+        }
         Destroy(dmgText, 1.0f);
         yield return null;
     }
@@ -253,13 +256,14 @@ public class GameManager : MonoBehaviour
 
     public Player findPlayer()
     {
-        return GameObject.FindWithTag("Player").GetComponent<Player>();
+        return GameObject.FindWithTag("PlayerBody").GetComponent<Player>();
     }
 
     public void EXPIncrease(int num,Vector3 pos) {
         int exp = num;
         Player player = findPlayer();
         StartCoroutine(makeEXPEffect(pos));
+        Debug.Log(exp);
         player.EXPIncrease(exp);
     }
 

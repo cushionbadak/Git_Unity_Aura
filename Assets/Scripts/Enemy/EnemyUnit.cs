@@ -24,7 +24,6 @@ public class EnemyUnit : Enemy
 		currentSpeed = originalSpeed;
         if(currentHP<=0)
         {
-            Debug.Log(transform.parent.gameObject.name);
             transform.parent.gameObject.SetActive(false);
             GameManager.I.EXPIncrease(giveEXP,transform.position);
         }

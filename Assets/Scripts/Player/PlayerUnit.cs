@@ -10,6 +10,8 @@ public class PlayerUnit : Player {
     private float snare_duration = 0.0f;
     private bool isSnare = false;
     private Vector3 dir;
+    public GameObject expText;
+    public GameObject resultUI;
 
 	// Use this for initialization
 	void Start () {
@@ -124,7 +126,17 @@ public class PlayerUnit : Player {
         snare_duration = time;
     }
 
-    public override void Die() { TotalManager.I.PlayerDie(); }
+    public override void Die() {
+        Time.timeScale = 0.0f;
+        resultUI.SetActive(true);
+        expText.SetActive(false);
+    }
+
+    void reGame()
+    {
+        Time.timeScale = 1.0f;
+        Application.LoadLevel("Test_Chapter1");
+    }
 
     public override void pause() { }
     public override void resume() {}
