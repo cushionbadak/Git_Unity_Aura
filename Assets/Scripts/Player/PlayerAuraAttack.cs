@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerAuraAttack : Attack {
 
@@ -8,40 +9,53 @@ public class PlayerAuraAttack : Attack {
     private float auraAttackCooldown = 1.0f;  //초당 1회 공격 - 추후 수정 가능성 있음
     private bool isPaused = false;
     private bool isAttacking = false;
+    public List<GameObject> listOfObjects;
     
-    private PlayerUnit _p;
+    public PlayerUnit _p;
 
     
 	// Use this for initialization
 	void Start () {
-        _p = GetComponentInParent<PlayerUnit>();
+        listOfObjects = new List<GameObject>();
+        listOfObjects.AddRange(GameObject.FindGameObjectsWithTag("EnemyBody"));
+    }
+
+    // Update is called once per frame
+    void Update () {
+        time_store += Time.deltaTime;
         damage = PlayerLevelData.I.Status[_p.level].damage;
+        if (time_store > 5.0f)
+        {
+            listOfObjects.Clear();
+            listOfObjects.AddRange(GameObject.FindGameObjectsWithTag("EnemyBody"));
+        }
         speed = _p.currentSpeed;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-    
-    
     }
     
     void OnTriggerStay(Collider col)
     {
-        if (col.gameObject.tag == "EnemyBody")
-            giveAttack(col.gameObject);
-    }
-
-    private void giveAttack(GameObject enemy)
-    {
-        if (isAttacking == true)
-        {
-            time_store += Time.deltaTime;
             if (auraAttackCooldown <= time_store)
+        {
+            if (col.gameObject.tag == "EnemyBody")
             {
-                time_store = 0.0f;
-                GameManager.I.attckToEnemy(this, enemy);
+                Collider[] colls = Physics.OverlapSphere(transform.position, 5.0f);
+                foreach (GameObject go in listOfObjects)
+                {
+                    foreach (Collider coll in colls)
+                        if (go.transform == coll.transform)
+                        {
+                            time_store = 0.0f;
+                            giveAttack(coll.gameObject);
+                        }
+                }
             }
         }
+    }
+    
+
+    private void giveAttack(GameObject enemy)
+    { 
+        GameManager.I.attckToEnemy(this, enemy);
     }
 
     void pause() { }

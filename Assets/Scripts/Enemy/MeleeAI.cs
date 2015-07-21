@@ -74,7 +74,7 @@ public class MeleeAI : MonoBehaviour, EnemyAIInterface{
         aura.transform.parent = transform;
        
         var aura_script = aura.GetComponent<EnemyAuraAttack>();
-        aura_script.damage = 5;
+        aura_script.damage = GetComponent<Character>().damage;
         aura_script.SetAuraSize(aura_size);
 
         pathfinder.updateRotation = false;

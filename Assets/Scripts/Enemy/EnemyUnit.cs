@@ -8,6 +8,7 @@ public class EnemyUnit : Enemy
 	// Use this for initialization
 	void Start ()
     {
+        currentHP = maxHP;
         // find AI
         enemyAI = GetComponent<EnemyAIInterface>();
         if (enemyAI == null)
@@ -21,6 +22,12 @@ public class EnemyUnit : Enemy
 	void Update ()
     {
 		currentSpeed = originalSpeed;
+        if(currentHP<=0)
+        {
+            Debug.Log(transform.parent.gameObject.name);
+            transform.parent.gameObject.SetActive(false);
+            GameManager.I.EXPIncrease(giveEXP,transform.position);
+        }
 	}
 
     public override void haveKnockback(Vector3 moveVector)

@@ -127,5 +127,5 @@ public class PlayerUnit : Player {
     public override void Die() { TotalManager.I.PlayerDie(); }
 
     public override void pause() { }
-    public override void resume() { }
+    public override void resume() {}
 }

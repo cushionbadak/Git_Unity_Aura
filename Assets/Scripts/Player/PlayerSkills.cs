@@ -22,8 +22,7 @@ public class PlayerSkills : Attack {
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "EnemyBody")
-            Debug.Log("target : " + col.gameObject.name);
+        if (col.gameObject.tag == "EnemyBody") { }
     }
     
     void skill_Knockback()

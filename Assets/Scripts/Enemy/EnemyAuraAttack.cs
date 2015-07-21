@@ -45,8 +45,7 @@ public class EnemyAuraAttack : Attack
 
     void GiveAttack()
     {
-
-        Debug.Log(gameObject.name + ".EnemyAuraAttack : Attack damage : " + damage);
+        
 		GameManager.I.attackToPlayer (this);
     }
 

@@ -30,6 +30,7 @@ GameObject:
   - 114: {fileID: 11485472}
   - 114: {fileID: 11439396}
   - 114: {fileID: 11482734}
+  - 54: {fileID: 5468584}
   m_Layer: 9
   m_Name: EnemyCollider
   m_TagString: EnemyBody
@@ -43,9 +44,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191936}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 430832}
   m_RootOrder: 0
@@ -55,13 +56,28 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148846}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.8509016, y: 0, z: -1.55828631}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
+  m_LocalPosition: {x: 41.8400002, y: 0, z: 51.8108139}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 416720}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!54 &5468584
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191936}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
 --- !u!95 &9585880
 Animator:
   serializedVersion: 3
@@ -90,11 +106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dfed056995ae9242bc8ed4d80d0df16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 0
+  maxHP: 150
   currentHP: 0
   level: 0
-  originalSpeed: 5
+  originalSpeed: 20
   currentSpeed: 0
+  damage: 20
+  AuraRange: 0
   giveEXP: 1
 --- !u!114 &11482734
 MonoBehaviour:
@@ -145,7 +163,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 191936}
   m_Enabled: 1
   m_Radius: .5
-  m_Speed: 3.5
+  m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
