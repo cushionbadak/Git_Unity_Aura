@@ -15,7 +15,7 @@ GameObject:
   - 54: {fileID: 5481064}
   m_Layer: 0
   m_Name: EnemyAura
-  m_TagString: Untagged
+  m_TagString: EnemyAura
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,6 +121,22 @@ Prefab:
       propertyPath: damageText
       value: 
       objectReference: {fileID: 121886, guid: 29932e2c5b1f1af4f8385a3e521f4470, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: EnemyAura
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 117474}

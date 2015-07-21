@@ -1,35 +1,16 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &148846
+--- !u!1 &152374
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 430832}
-  - 114: {fileID: 11409418}
-  - 114: {fileID: 11481502}
-  - 195: {fileID: 19508318}
-  - 114: {fileID: 11449658}
-  m_Layer: 0
-  m_Name: Level1_Robot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &191936
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 416720}
-  - 33: {fileID: 3363052}
-  - 135: {fileID: 13503530}
-  - 23: {fileID: 2358834}
+  - 4: {fileID: 445402}
+  - 33: {fileID: 3374102}
+  - 135: {fileID: 13544112}
+  - 23: {fileID: 2353836}
   m_Layer: 0
   m_Name: EnemyCollider
   m_TagString: Untagged
@@ -37,42 +18,60 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &416720
+--- !u!1 &153672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 491092}
+  - 114: {fileID: 11456080}
+  - 114: {fileID: 11473600}
+  - 195: {fileID: 19570056}
+  m_Layer: 0
+  m_Name: turret_laser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &445402
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 191936}
+  m_GameObject: {fileID: 152374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 430832}
+  m_Father: {fileID: 491092}
   m_RootOrder: 0
---- !u!4 &430832
+--- !u!4 &491092
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148846}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: -7.82000017, y: 0, z: -5.71999979}
+  m_GameObject: {fileID: 153672}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.80797291, y: 0, z: .5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 416720}
+  - {fileID: 445402}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2358834
+--- !u!23 &2353836
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 191936}
+  m_GameObject: {fileID: 152374}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 404d7dd4e6ad96a4a96175e72e2712de, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -86,19 +85,19 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3363052
+--- !u!33 &3374102
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 191936}
+  m_GameObject: {fileID: 152374}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &11409418
+--- !u!114 &11456080
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148846}
+  m_GameObject: {fileID: 153672}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5dfed056995ae9242bc8ed4d80d0df16, type: 3}
@@ -107,53 +106,50 @@ MonoBehaviour:
   maxHP: 0
   currentHP: 0
   level: 0
-  originalSpeed: 5
+  originalSpeed: 0
   currentSpeed: 0
---- !u!114 &11449658
+  giveEXP: 1
+--- !u!114 &11473600
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148846}
+  m_GameObject: {fileID: 153672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a121f0f587c9b4449a2e16c773c6bec, type: 3}
+  m_Script: {fileID: 11500000, guid: 0777dfff4eb384e4aaa8500644c8749a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11481502
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e43be86ced530554e8a6057e02df5e3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rest_time: 1
-  move_time: 3
+  attack_predelay_time: 1
+  attack_postdelay_time: 3
+  dumbling_time: .200000003
+  dumbling_cooldown: 1
   search_range: 5
-  damage: 5
+  dumbling_speed: 10
+  attack_object: {fileID: 137528, guid: fcff1c77437b1754597e2e4520d714f8, type: 2}
+  attack_range: 5
   aura_size: 3
---- !u!135 &13503530
+  mov_to_dumble_rate: .100000001
+  atk_to_dumble_rate: .100000001
+  can_dumbling: 0
+--- !u!135 &13544112
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 191936}
+  m_GameObject: {fileID: 152374}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: .5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!195 &19508318
+--- !u!195 &19570056
 NavMeshAgent:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148846}
+  m_GameObject: {fileID: 153672}
   m_Enabled: 1
   m_Radius: .5
   m_Speed: 3.5
@@ -177,5 +173,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 148846}
+  m_RootGameObject: {fileID: 153672}
   m_IsPrefabParent: 1

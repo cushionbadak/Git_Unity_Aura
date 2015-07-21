@@ -192,7 +192,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public Player findPlayer(){
-		return GameObject.FindWithTag ("Player").GetComponent<Player>();
+         return GameObject.FindWithTag ("Player").GetComponent<Player>();
 	}
 
 

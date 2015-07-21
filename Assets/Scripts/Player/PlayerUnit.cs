@@ -25,7 +25,7 @@ public class PlayerUnit : Player {
         
         currentHP = maxHP;
         
-        originalSpeed = 50.0f;
+        originalSpeed = 5.0f;
         currentSpeed = originalSpeed;
 
         powerUpPotion = 0;
@@ -47,17 +47,18 @@ public class PlayerUnit : Player {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-
+        
         currentPos = transform.position;
         float v, h;
         v = Input.GetAxis("Vertical");
         h = Input.GetAxis("Horizontal");
         dir = new Vector3(h, 0, v);
     
-        Vector3 speedVec = new Vector3(h, 0, v) * Time.deltaTime * currentSpeed*10.0f;
+        Vector3 speedVec = new Vector3(h, 0, v) * Time.deltaTime * currentSpeed*100.0f;
         // transform.Translate(speedVec);
-
+        
         rigid.velocity = speedVec;
+        
         // Movement xDir = x-coord, yDir = z-coord
         /*bool Key_left = Input.GetKey(KeyCode.LeftArrow);
         bool Key_right = Input.GetKey(KeyCode.RightArrow);
@@ -73,8 +74,8 @@ public class PlayerUnit : Player {
         else if (Key_down) { yDir = -1.0f; }
 
         Move(xDir, yDir);
-        
         */
+        
         // Snare Check
         if (isSnare)
         {

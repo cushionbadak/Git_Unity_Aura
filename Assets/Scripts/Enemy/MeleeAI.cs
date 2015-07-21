@@ -2,6 +2,9 @@
 using System.Collections;
 
 public class MeleeAI : MonoBehaviour, EnemyAIInterface{
+    // Animation script
+    EnemyAnimation anim;
+
 	// states
 	enum states {
 		idle,
@@ -10,7 +13,6 @@ public class MeleeAI : MonoBehaviour, EnemyAIInterface{
         stun,
         snare
 	}
-
 	private states current_state = states.idle;
 	private bool is_paused = false;
     private bool can_update
@@ -46,8 +48,10 @@ public class MeleeAI : MonoBehaviour, EnemyAIInterface{
 
 	// Use this for initialization
 	void Start () {
+        anim = GetComponent<EnemyAnimation>();
         status = GetComponent<EnemyUnit>();
-		if (status == null) {
+
+        if (status == null) {
             Debug.LogError(gameObject.name + ".MeleeAI : No EnemyUnit script found");
 			Application.Quit();
 		}
@@ -68,14 +72,16 @@ public class MeleeAI : MonoBehaviour, EnemyAIInterface{
         // create aura
         aura = (GameObject)Instantiate(Resources.Load("Prefabs/EnemyAura"), transform.position, new Quaternion());
         aura.transform.parent = transform;
+       
         var aura_script = aura.GetComponent<EnemyAuraAttack>();
         aura_script.damage = 5;
         aura_script.SetAuraSize(aura_size);
 
-	}
+        pathfinder.updateRotation = false;
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		// do nothing if script is paused
         if (!can_update)
 			return;
@@ -83,19 +89,21 @@ public class MeleeAI : MonoBehaviour, EnemyAIInterface{
 		UpdateState ();
 
 		if (current_state == states.idle) {
-			// do idle action
+            // do idle action
 
+            anim.applyState(STATE_MONSTER.IDLE);
 
-		} else if (current_state == states.move) {
-			// do move action
-
+        } else if (current_state == states.move) {
+            // do move action
+            anim.applyState(STATE_MONSTER.RUN);
 			// Move
 			Move ();
 		} else if (current_state == states.rest) {
-			// do rest action
+            // do rest action
 
-			// Rest
-			Rest ();
+            anim.applyState(STATE_MONSTER.IDLE);
+            // Rest
+            Rest ();
 		}
 
 	}
