@@ -255,7 +255,7 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
 			if(diff.y - diff.x > 0)
 				angle = 360 - angle;
 			Vector3 euler = new Vector3(0, angle, 0);
-
+            Debug.Log(euler);
 			Instantiate(attack_object, transform.position, Quaternion.Euler(euler));
 		}
     }

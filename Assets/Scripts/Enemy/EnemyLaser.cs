@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class EnemyLaser : Attack {
-    public float predelay_time = 1;
-    public float postdelay_time = 1;
+    public float predelay_time = 1f;
+    public float postdelay_time = 1f;
 
     private float timer = 0;
     private bool player_inside = false;
@@ -13,7 +13,7 @@ public class EnemyLaser : Attack {
 
 	// Use this for initialization
 	void Start () {
-		
+        GetComponentInChildren<ParticleSystem>().startRotation = transform.localEulerAngles.y * Mathf.PI / 180;
 	}
 	
 	// Update is called once per frame
@@ -49,13 +49,14 @@ public class EnemyLaser : Attack {
 
     void OnTriggerEnter(Collider col)
     {
-		if (col.gameObject.tag == "PlayerBody")
+        if (col.gameObject.tag == "PlayerBody")
+        {
             player_inside = true;
+        }
     }
-
     void OnTriggerExit(Collider col)
     {
-		if (col.gameObject.tag == "PlayerBody")
+        if (col.gameObject.tag == "PlayerBody")
             player_inside = false;
     }
 

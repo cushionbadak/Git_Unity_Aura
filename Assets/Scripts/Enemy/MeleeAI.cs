@@ -90,11 +90,13 @@ public class MeleeAI : MonoBehaviour, EnemyAIInterface{
 
 		if (current_state == states.idle) {
             // do idle action
-
+            //애니메이션 스크립트에서 IDLE상태로 바꿈
             anim.applyState(STATE_MONSTER.IDLE);
 
         } else if (current_state == states.move) {
             // do move action
+
+            //애니메이션 스크립트에서 RUN상태로 바꿈
             anim.applyState(STATE_MONSTER.RUN);
 			// Move
 			Move ();
@@ -175,6 +177,7 @@ public class MeleeAI : MonoBehaviour, EnemyAIInterface{
 
     public void GiveKnockBack(Vector3 direction, float amount, float time)
     {
+        //amount,time은 쓰지 않음
         Debug.Log("넉백");
         gameObject.GetComponent<Rigidbody>().AddForce(direction);
         StartCoroutine(kinematicOnOff());
@@ -182,7 +185,7 @@ public class MeleeAI : MonoBehaviour, EnemyAIInterface{
 
     IEnumerator kinematicOnOff()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.2f);//Kinematic을 켰다 켜 무한히 튕겨나가지 않도록 한다.
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
         yield return new WaitForFixedUpdate();

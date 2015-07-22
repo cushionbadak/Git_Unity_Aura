@@ -229,6 +229,7 @@ public class PlayerUnit : Player {
     }
 
     public override void Die() {
+        //죽었을때 게임정지, UI띄우기
         Time.timeScale = 0.0f;
         resultUI.SetActive(true);
         expText.SetActive(false);
