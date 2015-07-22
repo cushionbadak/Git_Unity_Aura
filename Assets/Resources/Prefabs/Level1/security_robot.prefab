@@ -111,9 +111,9 @@ MonoBehaviour:
   level: 0
   originalSpeed: 20
   currentSpeed: 0
-  damage: 5
+  damage: 10
   AuraRange: 0
-  giveEXP: 3
+  giveEXP: 20
 --- !u!114 &11482734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,6 +251,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_UseGravity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: giveEXP
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

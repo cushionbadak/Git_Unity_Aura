@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject expEffect;
     public GameObject knockbackEffect;
     public GameObject knockbackEffect_enemy;
+    public GameObject knockbackEffect_player;
 
     //Singleton
     private static GameManager uniqueInstance = null;
@@ -116,6 +117,18 @@ public class GameManager : MonoBehaviour
         eff.transform.parent = obj.transform;
         Destroy(eff, 5.0f);
         yield return null;
+    }
+    IEnumerator createKnockbackEffect_Player(GameObject obj)
+    {
+        GameObject eff = (GameObject)Instantiate(knockbackEffect_player, obj.transform.position, Quaternion.identity);
+      
+        Destroy(eff, 5.0f);
+        yield return null;
+    }
+    public void makeKnockbackEffect_Player()
+    {
+        Player player=findPlayer();
+        StartCoroutine(createKnockbackEffect_Player(player.gameObject));
     }
 
     public void makeKnockbackEffect()

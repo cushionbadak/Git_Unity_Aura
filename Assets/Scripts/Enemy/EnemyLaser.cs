@@ -23,15 +23,16 @@ public class EnemyLaser : Attack {
             return;
 
         timer += Time.deltaTime;
-
-        if (timer > predelay_time && isHit == false)
+        if (timer > predelay_time &&timer<predelay_time+1.0f&& isHit == false)//1초동안 발사된다고 가정
         {
+            
             if (player_inside)
             {
                 Attack();
+
+                isHit = true;
             }
 
-            isHit = true;
         }
 
         if (timer > predelay_time + postdelay_time)
@@ -43,7 +44,7 @@ public class EnemyLaser : Attack {
 
     void Attack()
     {
-        Debug.Log(gameObject.name + ".EnemyLaser : Attack damage : " + damage);
+        GameManager.I.makeKnockbackEffect_Player();
 		GameManager.I.attackToPlayer (this);
     }
 
@@ -57,7 +58,9 @@ public class EnemyLaser : Attack {
     void OnTriggerExit(Collider col)
     {
         if (col.gameObject.tag == "PlayerBody")
+        {
             player_inside = false;
+        }
     }
 
 
