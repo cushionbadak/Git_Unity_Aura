@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     public GameObject DamageText;
     public GameObject attackEffect;
     public GameObject expEffect;
+    public GameObject knockbackEffect;
+    public GameObject knockbackEffect_enemy;
+
     //Singleton
     private static GameManager uniqueInstance = null;
     public static GameManager I { get { return uniqueInstance; } }
@@ -99,7 +102,27 @@ public class GameManager : MonoBehaviour
         character.currentSpeed = character.originalSpeed;
     }
 
+    IEnumerator createKnockbackEffect(GameObject obj)
+    {
+        GameObject eff = (GameObject)Instantiate(knockbackEffect, obj.transform.position, Quaternion.identity);
+        eff.transform.parent = obj.transform;
+        Destroy(eff, 5.0f);
+        yield return null;
+    }
 
+    IEnumerator createKnockbackEffect_Enemy(GameObject obj)
+    {
+        GameObject eff = (GameObject)Instantiate(knockbackEffect_enemy, obj.transform.position, Quaternion.identity);
+        eff.transform.parent = obj.transform;
+        Destroy(eff, 5.0f);
+        yield return null;
+    }
+
+    public void makeKnockbackEffect()
+    {
+        StartCoroutine(createKnockbackEffect(findPlayer().gameObject));
+    }
+    
     //오류있음 !!! 이 부분은 바뀌어야 한다.
     public void attckToEnemy(Attack attk, GameObject objectThing)
     {
@@ -114,15 +137,20 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(createDamageText(objectThing, attk));
             }
             character.giveDamage(attk.damage);
-            if (attk.isknockbackVectorNeed)
+            if (attk.knockbackForce > 0)
             {
-                character.giveKnockback(attk.knockbackVector * attk.knockbackForce);
-            }
-            else
-            {
-                Vector3 temp = character.transform.position - attk.transform.position;
-                temp.Normalize();
-                character.giveKnockback(temp * attk.knockbackForce);
+                if (attk.isknockbackVectorNeed)
+                {
+                    character.giveKnockback(attk.knockbackVector * attk.knockbackForce);
+                    StartCoroutine(createKnockbackEffect_Enemy(objectThing));
+                }
+                else
+                {
+                    StartCoroutine(createKnockbackEffect_Enemy(objectThing));
+                    Vector3 temp = character.transform.position - attk.transform.position;
+                    temp.Normalize();
+                    // character.giveKnockback(temp * attk.knockbackForce);
+                }
             }
             if (attk.stunTime > 0.0f)
                 character.giveStun(attk.stunTime);
@@ -155,7 +183,6 @@ public class GameManager : MonoBehaviour
             player.giveStun(attk.stunTime);
         else if (attk.snareTime > 0.0f)
             StartCoroutine(applySnare(player, attk));
-
     }
 
     //attackToPlayer과 같다.

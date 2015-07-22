@@ -15,7 +15,6 @@ public class EnemyUnit : Enemy
         {
             Debug.Log(gameObject.name + ".EnemyUnit : No EnemyAI Found");
         }
-
 	}
 	
 	// Update is called once per frame
@@ -29,10 +28,10 @@ public class EnemyUnit : Enemy
         }
 	}
 
-    public override void haveKnockback(Vector3 moveVector)
+    public override void giveKnockback(Vector3 moveVector)
     {
         if (enemyAI != null)
-            enemyAI.GiveKnockBack(Vector3.Normalize(moveVector), Vector3.Magnitude(moveVector), 0.5f);
+            enemyAI.GiveKnockBack(moveVector, Vector3.Magnitude(moveVector), 0.5f);
     }
 
     public override void haveStun(float time)

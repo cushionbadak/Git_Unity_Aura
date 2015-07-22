@@ -76,12 +76,12 @@ public class MeleeAI : MonoBehaviour, EnemyAIInterface{
         var aura_script = aura.GetComponent<EnemyAuraAttack>();
         aura_script.damage = GetComponent<Character>().damage;
         aura_script.SetAuraSize(aura_size);
-
+        
         pathfinder.updateRotation = false;
     }
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		// do nothing if script is paused
         if (!can_update)
 			return;
@@ -175,6 +175,18 @@ public class MeleeAI : MonoBehaviour, EnemyAIInterface{
 
     public void GiveKnockBack(Vector3 direction, float amount, float time)
     {
+        Debug.Log("넉백");
+        gameObject.GetComponent<Rigidbody>().AddForce(direction);
+        StartCoroutine(kinematicOnOff());
+    }
 
+    IEnumerator kinematicOnOff()
+    {
+        yield return new WaitForSeconds(0.2f);
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+
+        yield return new WaitForFixedUpdate();
+
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 }

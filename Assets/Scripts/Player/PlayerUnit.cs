@@ -12,9 +12,12 @@ public class PlayerUnit : Player {
     private Vector3 dir;
     public GameObject expText;
     public GameObject resultUI;
+    bool HorizontalCheck = false;
+    bool VerticalCheck = false;
+    RaycastHit hit;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
         rigid = gameObject.GetComponent<Rigidbody>();
 
@@ -25,9 +28,10 @@ public class PlayerUnit : Player {
 
         maxHP = PlayerLevelData.I.Status[level].maxHP;
         
+        
         currentHP = maxHP;
         
-        originalSpeed = 5.0f;
+        originalSpeed = 10.0f;
         currentSpeed = originalSpeed;
 
         powerUpPotion = 0;
@@ -48,18 +52,115 @@ public class PlayerUnit : Player {
     }
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
         
         currentPos = transform.position;
         float v, h;
         v = Input.GetAxis("Vertical");
         h = Input.GetAxis("Horizontal");
         dir = new Vector3(h, 0, v);
-    
-        Vector3 speedVec = new Vector3(h, 0, v) * Time.deltaTime * currentSpeed*100.0f;
-        // transform.Translate(speedVec);
+
+        //움직임 보정 코드
+        if (Physics.Raycast(currentPos, dir * 10.0f, out hit, 0.5f))
+        {
+            if (hit.collider.tag == "MapObject")
+            {
+                if(h>=0&&v>=0)
+                {
+                    if (Physics.Raycast(currentPos, Vector3.right, out hit, 0.5f))
+                    {
+                        if (hit.collider.tag == "MapObject")
+                        {
+                            HorizontalCheck = true;
+                        }
+                    }
+                    if (Physics.Raycast(currentPos, Vector3.forward, out hit, 0.5f))
+                    {
+                        if (hit.collider.tag == "MapObject")
+                        {
+                            VerticalCheck = true;
+                        }
+                    }
+                }
+                else if(h<=0&&v>=0)
+                {
+                    if (Physics.Raycast(currentPos, Vector3.left, out hit, 0.5f))
+                    {
+                        if (hit.collider.tag == "MapObject")
+                        {
+                            HorizontalCheck = true;
+                        }
+                    }
+
+                    if (Physics.Raycast(currentPos, Vector3.forward, out hit, 0.5f))
+                    {
+                        if (hit.collider.tag == "MapObject")
+                        {
+                            VerticalCheck = true;
+                        }
+                    }
+                }
+                else if(h<=0&&v<=0)
+                {
+
+                    if (Physics.Raycast(currentPos, Vector3.left, out hit, 0.5f))
+                    {
+                        if (hit.collider.tag == "MapObject")
+                        {
+                            HorizontalCheck = true;
+                        }
+                    }
+
+                    if (Physics.Raycast(currentPos, Vector3.back, out hit, 0.5f))
+                    {
+                        if (hit.collider.tag == "MapObject")
+                        {
+                            VerticalCheck = true;
+                        }
+                    }
+                }
+
+                else if(h>=0&&v<=0)
+                {
+
+                    if (Physics.Raycast(currentPos, Vector3.right, out hit, 0.5f))
+                    {
+                        if (hit.collider.tag == "MapObject")
+                        {
+                            HorizontalCheck = true;
+                        }
+                    }
+
+                    if (Physics.Raycast(currentPos, Vector3.back, out hit, 0.5f))
+                    {
+                        if (hit.collider.tag == "MapObject")
+                        {
+                            VerticalCheck = true;
+                        }
+                    }
+                }
+                if (HorizontalCheck && !VerticalCheck)
+                    h = 0;
+                if (VerticalCheck && !HorizontalCheck)
+                    v = 0;
+
+                if (VerticalCheck && HorizontalCheck)
+                {
+                    h = 0;
+                    v = 0;
+                }
+                    HorizontalCheck = false;
+                VerticalCheck = false;
+            }
+        }
+         
+        //움직임
+        Vector3 speedVec = new Vector3(h, v, 0) * currentSpeed *Time.deltaTime;
+        transform.Translate(speedVec);
+       
         
-        rigid.velocity = speedVec;
+
+        //rigid.velocity = speedVec;
         
         // Movement xDir = x-coord, yDir = z-coord
         /*bool Key_left = Input.GetKey(KeyCode.LeftArrow);
@@ -100,8 +201,9 @@ public class PlayerUnit : Player {
 
         // Die Check
         if (currentHP <= 0) { Die(); }
-
+        
 	}
+
 
     private void Move(float xDir, float yDir)
     {
