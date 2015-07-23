@@ -7538,6 +7538,18 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1585825366}
+    - target: {fileID: 11437112, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 11404264, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 11404264, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
+      propertyPath: m_FontData.m_FontStyle
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
   m_IsPrefabParent: 0
