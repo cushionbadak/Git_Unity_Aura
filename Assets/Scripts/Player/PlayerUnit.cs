@@ -230,15 +230,10 @@ public class PlayerUnit : Player {
 
     public override void Die() {
         //죽었을때 게임정지, UI띄우기
-        Time.timeScale = 0.0f;
-        resultUI.SetActive(true);
-        expText.SetActive(false);
     }
 
     void reGame()
     {
-        Time.timeScale = 1.0f;
-        Application.LoadLevel("Test_Chapter1");
     }
 
     public override void pause() { }
