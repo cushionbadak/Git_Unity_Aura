@@ -45,7 +45,7 @@ public class EnemyAuraAttack : Attack
 
     void GiveAttack()
     {
-        
+    
 		GameManager.I.attackToPlayer (this);
     }
 

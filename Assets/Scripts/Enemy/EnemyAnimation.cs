@@ -17,6 +17,6 @@ public class EnemyAnimation : MonoBehaviour {
 
     public void applyState(STATE_MONSTER st)
     {
-        anim.UpdateAnim(st);
+      //  anim.UpdateAnim(st);
     }
 }
