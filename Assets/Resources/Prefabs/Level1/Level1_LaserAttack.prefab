@@ -44,7 +44,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 10.3999996, y: 0, z: 3.5999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 488122}
@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 7.5}
+  m_LocalPosition: {x: 0, y: 0, z: 17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 424300}
@@ -118,7 +118,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .699999988, y: .699999988, z: 15}
+  m_Size: {x: 1.20000005, y: .699999988, z: 35}
   m_Center: {x: 5.96046448e-08, y: 0, z: -8.94069672e-08}
 --- !u!114 &11406870
 MonoBehaviour:
@@ -307,7 +307,7 @@ ParticleSystem:
         rgba: 1912602623
       minMaxState: 0
     startSize:
-      scalar: .5
+      scalar: .699999988
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -364,7 +364,7 @@ ParticleSystem:
     length: 5
     boxX: 0
     boxY: 0
-    boxZ: 10
+    boxZ: 30
     arc: 360
     placementMode: 0
     m_Mesh: {fileID: 0}
@@ -1185,8 +1185,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120528}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_Materials:
   - {fileID: 2100000, guid: 4f3f03179f95c624586aa1d4fc22eff4, type: 2}
   m_SubsetIndices: 
@@ -1263,6 +1263,22 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: InitialModule.startRotation.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.z
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EmissionModule.cnt0
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -116,7 +116,7 @@ MonoBehaviour:
   search_range: 10
   dumbling_speed: 10
   attack_object: {fileID: 137528, guid: fcff1c77437b1754597e2e4520d714f8, type: 2}
-  attack_range: 12
+  attack_range: 30
   aura_size: .800000012
   mov_to_dumble_rate: .100000001
   atk_to_dumble_rate: .100000001
@@ -206,6 +206,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: damage
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: attack_range
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
