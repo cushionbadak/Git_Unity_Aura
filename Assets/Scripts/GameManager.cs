@@ -314,4 +314,9 @@ public class GameManager : MonoBehaviour
         Destroy(expEff, 5.0f);
         yield return null;   
     }
+
+    public void givePlayerSlow(float time, float ratio)
+    {
+
+    }
 }
