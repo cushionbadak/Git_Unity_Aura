@@ -973,6 +973,18 @@ Prefab:
       propertyPath: isSpecialThing
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 473986, guid: c6f347a7ef462514a8781f914c15a78b, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 473986, guid: c6f347a7ef462514a8781f914c15a78b, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 473986, guid: c6f347a7ef462514a8781f914c15a78b, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6f347a7ef462514a8781f914c15a78b, type: 2}
   m_IsPrefabParent: 0
@@ -7516,19 +7528,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22441828, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22441828, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22493874, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: .349999994
       objectReference: {fileID: 0}
     - target: {fileID: 22493874, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400842, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: player
@@ -7549,6 +7561,10 @@ Prefab:
     - target: {fileID: 11404264, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_FontData.m_FontStyle
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460756, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
+      propertyPath: m_UiScaleMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
