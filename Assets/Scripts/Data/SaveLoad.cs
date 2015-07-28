@@ -14,11 +14,7 @@ public static class SaveLoad {
         Game.current.exp = p.EXP;
         Game.current.level = p.level;
         Debug.Log(GameManager.I.findPlayer().gameObject.transform.position);
-        Game.current.playerPosition.x = GameManager.I.findPlayer().gameObject.transform.position.x;
-
-        Game.current.playerPosition.y = GameManager.I.findPlayer().gameObject.transform.position.y;
-
-        Game.current.playerPosition.z = GameManager.I.findPlayer().gameObject.transform.position.z;
+        Game.current.playerPosition = GameManager.I.findPlayer().gameObject.transform.position;
         savedGames.Add(Game.current);
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/savedGames.gd");

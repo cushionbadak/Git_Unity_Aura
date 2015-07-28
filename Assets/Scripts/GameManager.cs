@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Current Max Slot : " + SaveLoad.savedGames.Count);
             for(int i=0;i< SaveLoad.savedGames.Count;i++)
             {
-                Debug.Log(i + "번째 슬롯의 pos : " + SaveLoad.savedGames[i].playerPositionX);
+                Debug.Log(i + "번째 슬롯의 pos : " + SaveLoad.savedGames[i].playerPosition);
             }
         }
 

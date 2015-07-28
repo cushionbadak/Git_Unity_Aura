@@ -6,23 +6,24 @@ public class Game  {
     public float hp;
     public int level;
     public int exp;
-    [System.NonSerialized]
-    public Vector3 playerPosition;
-    public float playerPositionX
+    private WB_Vector3 _someVector3Info;
+    public Vector3 playerPosition
     {
-            get{return playerPosition.x;}
-            set { playerPosition.x = value; }
-    }
-    public float playerPositionY
-    {
-            get{ return playerPosition.y;}
-            set { playerPosition.y = value; }
+        get
+        {
+            if (_someVector3Info == null)
+            {
+                return Vector3.zero;
+            }
+            else
+            {
+                return (Vector3)_someVector3Info;
+            }
+        }
+        set
+        {
+            _someVector3Info = (WB_Vector3)value;
+        }
     }
 
-    public float playerPositionZ
-    {
-        get { return playerPosition.z; }
-        set { playerPosition.z = value; }
-    }
- 
 }
