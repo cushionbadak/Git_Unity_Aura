@@ -4,7 +4,6 @@ using System.Collections;
 public class EnemyLaser : Attack {
     public float predelay_time = 1f;
     public float postdelay_time = 1f;
-
     private float timer = 0;
     private bool player_inside = false;
     private bool isHit = false;
@@ -44,7 +43,7 @@ public class EnemyLaser : Attack {
 
     void Attack()
     {
-        GameManager.I.makeKnockbackEffect_Player();
+        EffectManager.I.createLongHitEffect(GameManager.I.findPlayer().gameObject);
 		GameManager.I.attackToPlayer (this);
     }
 

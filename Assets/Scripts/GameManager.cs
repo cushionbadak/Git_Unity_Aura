@@ -12,11 +12,6 @@ struct Temp
 public class GameManager : MonoBehaviour
 {
     public GameObject DamageText;
-    public GameObject attackEffect;
-    public GameObject expEffect;
-    public GameObject knockbackEffect;
-    public GameObject knockbackEffect_enemy;
-    public GameObject knockbackEffect_player;
 
     //Singleton
     private static GameManager uniqueInstance = null;
@@ -51,8 +46,7 @@ public class GameManager : MonoBehaviour
             if(attk.damage>0)
             {
                 StartCoroutine(createDamageText(objectThing,attk));
-
-                StartCoroutine(createEffect(objectThing));
+                EffectManager.I.createAttackEffect(objectThing);
             }
 
             if (attk.isknockbackVectorNeed)
@@ -75,13 +69,7 @@ public class GameManager : MonoBehaviour
         }
     }//attackToPlayer End.
 
-    IEnumerator createEffect(GameObject obj)
-    {
-        GameObject eff = (GameObject)Instantiate(attackEffect, obj.transform.position, Quaternion.Euler(90, 0, 0));
-        eff.transform.parent = obj.transform;
-        Destroy(eff, 5.0f);
-        yield return null;  
-    }
+    
 
     IEnumerator createDamageText(GameObject obj,Attack attk)
     {
@@ -102,39 +90,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(attk.snareTime);
         character.currentSpeed = character.originalSpeed;
     }
-
-    IEnumerator createKnockbackEffect(GameObject obj)
-    {
-        GameObject eff = (GameObject)Instantiate(knockbackEffect, obj.transform.position, Quaternion.identity);
-        eff.transform.parent = obj.transform;
-        Destroy(eff, 5.0f);
-        yield return null;
-    }
-
-    IEnumerator createKnockbackEffect_Enemy(GameObject obj)
-    {
-        GameObject eff = (GameObject)Instantiate(knockbackEffect_enemy, obj.transform.position, Quaternion.identity);
-        eff.transform.parent = obj.transform;
-        Destroy(eff, 5.0f);
-        yield return null;
-    }
-    IEnumerator createKnockbackEffect_Player(GameObject obj)
-    {
-        GameObject eff = (GameObject)Instantiate(knockbackEffect_player, obj.transform.position, Quaternion.identity);
-      
-        Destroy(eff, 5.0f);
-        yield return null;
-    }
-    public void makeKnockbackEffect_Player()
-    {
-        Player player=findPlayer();
-        StartCoroutine(createKnockbackEffect_Player(player.gameObject));
-    }
-
-    public void makeKnockbackEffect()
-    {
-        StartCoroutine(createKnockbackEffect(findPlayer().gameObject));
-    }
+    
     
     //오류있음 !!! 이 부분은 바뀌어야 한다.
     public void attckToEnemy(Attack attk, GameObject objectThing)
@@ -146,7 +102,7 @@ public class GameManager : MonoBehaviour
 
             if (attk.damage > 0)
             {
-                StartCoroutine(createEffect(objectThing));
+                EffectManager.I.createAttackEffect(objectThing);
                 StartCoroutine(createDamageText(objectThing, attk));
             }
             character.giveDamage(attk.damage);
@@ -155,11 +111,11 @@ public class GameManager : MonoBehaviour
                 if (attk.isknockbackVectorNeed)
                 {
                     character.giveKnockback(attk.knockbackVector * attk.knockbackForce);
-                    StartCoroutine(createKnockbackEffect_Enemy(objectThing));
+                    EffectManager.I.createShortHitEffect(objectThing);
                 }
                 else
                 {
-                    StartCoroutine(createKnockbackEffect_Enemy(objectThing));
+                    EffectManager.I.createShortHitEffect(objectThing);
                     Vector3 temp = character.transform.position - attk.transform.position;
                     temp.Normalize();
                     // character.giveKnockback(temp * attk.knockbackForce);
@@ -171,6 +127,10 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(applySnare(character, attk));
         }
     }
+    public void makeKnockbackEffect()
+    {
+        EffectManager.I.createKnockbackEffect(GameManager.I.findPlayer().gameObject);
+    }
     public void attackToPlayer(Attack attk)
     {
         GameObject playerobject = GameObject.FindWithTag("PlayerBody");
@@ -179,7 +139,7 @@ public class GameManager : MonoBehaviour
 
         if (attk.damage > 0)
         {
-            StartCoroutine(createEffect(player.gameObject));
+            EffectManager.I.createAttackEffect(player.gameObject);
             StartCoroutine(createDamageText(player.gameObject, attk));
         }
         if (attk.isknockbackVectorNeed)
@@ -302,18 +262,13 @@ public class GameManager : MonoBehaviour
     public void EXPIncrease(int num,Vector3 pos) {
         int exp = num;
         Player player = findPlayer();
-        StartCoroutine(makeEXPEffect(pos));
+        EffectManager.I.createEXPEffect(pos);
         Debug.Log(exp);
         player.EXPIncrease(exp);
     }
 
 
-    IEnumerator makeEXPEffect(Vector3 pos)
-    {
-        GameObject expEff = (GameObject)Instantiate(expEffect, pos, Quaternion.identity);
-        Destroy(expEff, 5.0f);
-        yield return null;   
-    }
+    
 
     public void givePlayerSlow(float time, float ratio)
     {
