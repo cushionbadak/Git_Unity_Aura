@@ -9,6 +9,7 @@ public class EffectManager : MonoBehaviour {
     public GameObject hit_short;
     public GameObject hit_long;
     public GameObject EXP;
+    public GameObject Fire;
 
     private static EffectManager uniqueInstance = null;
     public static EffectManager I { get { return uniqueInstance; } }
@@ -55,6 +56,21 @@ public class EffectManager : MonoBehaviour {
         StartCoroutine(EXPEffect(pos));
     }
 
+    public void createFireBallEffect(GameObject obj)
+    {
+        StartCoroutine(createFireBall(obj));
+    }
+
+    IEnumerator createFireBall(GameObject obj)
+    {
+        
+        GameObject eff = (GameObject)Instantiate(Fire, obj.transform.position, Quaternion.Euler(90, 0, 0));
+        eff.transform.parent = obj.transform;
+        Destroy(eff, 5.0f);
+        yield return null;
+    }
+
+
     IEnumerator AttackEffect(GameObject obj)
     {
         GameObject eff = (GameObject)Instantiate(attackEffect, obj.transform.position, Quaternion.Euler(90, 0, 0));
@@ -78,6 +94,7 @@ public class EffectManager : MonoBehaviour {
         Destroy(eff, 5.0f);
         yield return null;
     }
+
     IEnumerator longHitEffect(GameObject obj)
     {
         GameObject eff = (GameObject)Instantiate(hit_long, obj.transform.position, Quaternion.identity);

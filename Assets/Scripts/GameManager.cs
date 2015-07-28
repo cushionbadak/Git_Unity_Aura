@@ -25,11 +25,46 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Game.current = new Game();//현재게임상태 초기화
         //Singleton
         if (uniqueInstance == null)
             uniqueInstance = this;
         else
             Destroy(this.gameObject);
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            SaveLoad.Save();
+            Debug.Log("Saved");
+        }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            SaveLoad.Load();
+            Debug.Log("Loaded");
+            Debug.Log("Current Max Slot : " + SaveLoad.savedGames.Count);
+            for(int i=0;i< SaveLoad.savedGames.Count;i++)
+            {
+                Debug.Log(i + "번째 슬롯의 pos : " + SaveLoad.savedGames[i].playerPositionX);
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            GameObject player = GameManager.I.findPlayer().gameObject;
+
+            SaveLoad.Load();
+            int curSlot=SaveLoad.savedGames.Count-1;
+            player.transform.parent.transform.position = SaveLoad.savedGames[curSlot].playerPosition;
+            player.GetComponent<PlayerUnit>().currentHP = SaveLoad.savedGames[curSlot].hp;
+
+            player.GetComponent<PlayerUnit>().EXP = SaveLoad.savedGames[curSlot].exp;
+            player.GetComponent<PlayerUnit>().level = SaveLoad.savedGames[curSlot].level;
+            Debug.Log("Loaded");
+        }
     }
 
     public void attackToPlayer(Attack attk, GameObject objectThing)
