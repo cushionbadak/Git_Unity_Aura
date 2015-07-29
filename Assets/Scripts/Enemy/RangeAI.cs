@@ -9,11 +9,15 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
     {
         idle,
         move,
-        attack_predelay,
-        attack_postdelay,
+        attack,
         dumbling
     }
     private states current_state = states.idle;
+    private states next_state = states.idle;
+    private bool is_state_changed = true;
+    private bool is_state_changed_on_frame = false;
+
+
     private bool is_paused = false;
     private bool can_update
     {
@@ -34,6 +38,8 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
 
     // search
     public float search_range = 5;
+    public bool search_out_on = true;
+    public float search_out_range = 20;
 
     // move
     public float dumbling_speed = 10.0f;
@@ -85,6 +91,7 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
 
         aura = (GameObject)Instantiate(Resources.Load("Prefabs/EnemyAura"), transform.position, new Quaternion());
         aura.transform.parent = transform;
+
         var aura_script = aura.GetComponent<EnemyAuraAttack>();
         aura_script.damage = 5;
         aura_script.SetAuraSize(aura_size);
@@ -98,152 +105,174 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
         // do nothing if script is paused
         if (!can_update)
             return;
+        is_state_changed_on_frame = false;
 
-        UpdateState();
-
-        // actions for each state
-        if (current_state == states.idle)
+        switch (current_state)
         {
-            anim.applyState(STATE_MONSTER.IDLE);
-            // do idle action
-        }
-        else if (current_state == states.move)
-        {
-            // do move action
-
-            // Move
-            Move();
-        }
-        else if (current_state == states.dumbling)
-        {
-            // do dumbling action
-
-            // Dumbling
-            Dumbling();
-        }
-        else if (current_state == states.attack_predelay)
-        {
-            anim.applyState(STATE_MONSTER.ATTACK1);
-
-            // do predelay action
-        }
-        else if (current_state == states.attack_postdelay)
-        {
-            anim.applyState(STATE_MONSTER.ATTACK1);
-            // do postdelay action
-        }
-
-        // Attack
-        if (need_attack)
-        {
-            anim.applyState(STATE_MONSTER.ATTACK1);
-            Attack();
+            case states.idle:
+                StateIdle();
+                break;
+            case states.move:
+                StateMove();
+                break;
+            case states.attack:
+                StateAttack();
+                break;
+            case states.dumbling:
+                StateDumbling();
+                break;
         }
     }
 
-    private void UpdateState()
+    void LateUpdate()
     {
-        timer += Time.deltaTime;
-        dumbling_timer += Time.deltaTime;
 
-        if (current_state == states.idle)
+        if (is_state_changed_on_frame)
+            is_state_changed = true;
+        else
+            is_state_changed = false;
+
+        if (is_state_changed)
         {
-            if (CanFindTarget())
-            {
-                if (CanAttackTarget())
-                {
-                    ChangeState(states.attack_predelay);
-                }
-                else
-                {
-                    ChangeState(states.move);
-                }
-            }
-        }
-        else if (current_state == states.move)
-        {
-            if (CanAttackTarget())
-            {
-                ChangeState(states.attack_predelay);
-            }
-            else if (CanDumbling() && Random.Range(0.0f, 1.0f) < mov_to_dumble_rate)
-            {
-                ChangeState(states.dumbling);
-            }
-        }
-        else if (current_state == states.attack_predelay)
-        {
-            if (timer > attack_predelay_time)
-            {
-                ChangeState(states.attack_postdelay);
-            }
-        }
-        else if (current_state == states.attack_postdelay)
-        {
-            if (timer > attack_postdelay_time)
-            {
-                if (CanDumbling() && Random.Range(0.0f, 1.0f) < atk_to_dumble_rate)
-                {
-                    ChangeState(states.dumbling);
-                }
-                else if (CanAttackTarget())
-                {
-                    ChangeState(states.attack_predelay);
-                }
-                else
-                {
-                    ChangeState(states.move);
-                }
-            }
-        }
-        else if (current_state == states.dumbling)
-        {
-            if (timer > dumbling_time)
-            {
-                if (CanAttackTarget())
-                {
-                    ChangeState(states.attack_predelay);
-                }
-                else
-                {
-                    ChangeState(states.move);
-                }
-            }
+            current_state = next_state;
         }
     }
 
     private void ChangeState(states next_state)
     {
-        timer = 0;
+        this.next_state = next_state;
+        is_state_changed_on_frame = true;
+    }
 
-        if (current_state == states.dumbling)
+    private void StateIdle()
+    {
+        if (is_state_changed)
         {
-            dumbling_timer = 0;
+            pathfinder.enabled = false;
         }
 
-        if (next_state == states.attack_predelay)
-        {
-            
-            // make pathfinder not move
-            pathfinder.destination = transform.position;
+        // do idle animation
+        anim.applyState(STATE_MONSTER.IDLE);
 
+        // find target
+        if (CanFindTarget())
+        {
+            if (CanAttackTarget())
+            {
+                ChangeState(states.attack);
+            }
+            else
+            {
+                ChangeState(states.move);
+            }
         }
-        else if (next_state == states.attack_postdelay)
-        {
-            // make pathfinder not move
+    }
 
-            // attack flag
+    private void StateMove()
+    {
+        if (is_state_changed)
+        {
+            pathfinder.enabled = true;
+        }
+
+        Move();
+
+        if (CanAttackTarget())
+        {
+
+            need_attack = true;
+            ChangeState(states.attack);
+        }
+        else if (!IsFoundedTargetInSight())
+        {
+            ChangeState(states.idle);
+        }
+        else if (CanDumbling() && Random.Range(0.0f, 1.0f) < mov_to_dumble_rate)
+        {
+            ChangeState(states.dumbling);
+        }
+
+
+    }
+
+    private void StateAttack()
+    {
+        if (is_state_changed)
+        {
+            pathfinder.enabled = false;
+            timer = 0;
             need_attack = true;
         }
-        else if (next_state == states.dumbling)
+
+        timer += Time.deltaTime;
+
+        anim.applyState(STATE_MONSTER.ATTACK1);
+        
+        if(need_attack && timer > attack_predelay_time)
+            Attack();
+
+
+
+        // state change
+        if (timer > attack_postdelay_time + attack_predelay_time)
+        {
+            if (CanDumbling() && Random.Range(0.0f, 1.0f) < atk_to_dumble_rate)
+            {
+                ChangeState(states.dumbling);
+            }
+            else if (!IsFoundedTargetInSight())
+            {
+                ChangeState(states.idle);
+            }
+            else if (CanAttackTarget())
+            {
+                ChangeState(states.attack);
+            }
+            else
+            {
+                ChangeState(states.move);
+            }
+        }
+    }
+
+    private void StateDumbling()
+    {
+        if (is_state_changed)
         {
             Vector3 dumbling_dir = new Vector3(Random.Range(-1.0f, 1.1f), 0, Random.Range(-1.0f, 1.0f));
             dumbling_dir.Normalize();
             dumbling_position = transform.position + dumbling_dir * dumbling_speed * dumbling_time;
+
+            timer = 0;
         }
 
-        current_state = next_state;
+
+        dumbling_timer += Time.deltaTime;
+
+        // dumbling
+        Dumbling();
+
+
+        // state change
+        if (timer > dumbling_time)
+        {
+            dumbling_timer = 0;
+
+            if (CanAttackTarget())
+            {
+                ChangeState(states.attack);
+            }
+            else if (!IsFoundedTargetInSight())
+            {
+                ChangeState(states.idle);
+            }
+            else
+            {
+                ChangeState(states.move);
+            }
+        }
     }
+
     private void Move()
     {
         max_speed = status.currentSpeed;
@@ -304,6 +333,17 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
         }
 
         return false;
+    }
+
+    private bool IsFoundedTargetInSight()
+    {
+        Debug.Log("A");
+        if (Vector3.Magnitude(target.transform.position - transform.position) > search_out_range && search_out_on)
+        {
+            return false;
+        }
+
+        return true;
     }
 
     // stop AI working
