@@ -8,7 +8,7 @@ public class ItemManager : MonoBehaviour {
     PlayerUnit playerUnit;
 	void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.tag == "PlayerBody")
         {
             player = col.gameObject;
             playerUnit = col.gameObject.GetComponent<PlayerUnit>();

@@ -4,22 +4,18 @@ using System.Collections;
 
 public class ExpBar : MonoBehaviour
 {
-	public float currentExp;
 	public Slider expSlider;
-	bool killMonster;
 	Player p = null;
-	
-	
+	int expneed;
+
 	void Start(){
-		p = GameManager.I.findPlayer();
-		expSlider.maxValue = p.EXP;
-		expSlider.value = 0;
+		p = GameObject.FindWithTag("PlayerBody").GetComponent<Player>();
+		expneed = PlayerLevelData.I.Status[p.level +1].needEXP;
 	}
 	
 	void Update(){
-		if (killMonster) {												//killMonster must be fixed
-			currentExp = currentExp + 5;
-			expSlider.value = currentExp;
-		}
+		expneed = PlayerLevelData.I.Status [p.level + 1].needEXP;
+		expSlider.maxValue = expneed;
+		expSlider.value = p.EXP;
 	}
 }

@@ -22,6 +22,7 @@ public class EnemyAuraAttack : Attack
         {
             rigidbody.isKinematic = true;
             rigidbody.useGravity = false;
+            GetComponent<CapsuleCollider>().isTrigger = true;
         }
 
 
@@ -44,8 +45,7 @@ public class EnemyAuraAttack : Attack
 
     void GiveAttack()
     {
-
-        Debug.Log(gameObject.name + ".EnemyAuraAttack : Attack damage : " + damage);
+    
 		GameManager.I.attackToPlayer (this);
     }
 

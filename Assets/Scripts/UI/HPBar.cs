@@ -4,21 +4,17 @@ using System.Collections;
 
 public class HPBar : MonoBehaviour
 {
-	public float currentHealth;
 	public Slider hpSlider;
-	bool damaged;
 	Player p= null;
 
 	void Start(){
-		p = GameManager.I.findPlayer();
-		currentHealth = p.maxHP;
+        p = GameObject.FindWithTag("PlayerBody").GetComponent<Player>();
 		hpSlider.maxValue = p.maxHP;
-	}
+        hpSlider.value = p.maxHP;
+    }
 	
 	void Update(){
-		if (damaged) {												//damaged must be fixed
-			currentHealth = p.currentHP;
-			hpSlider.value = currentHealth;
-		}
-	}
+        hpSlider.maxValue = p.maxHP;
+		hpSlider.value = p.currentHP;
+    }
 }

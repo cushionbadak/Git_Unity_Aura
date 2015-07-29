@@ -8,25 +8,30 @@ public class EnemyUnit : Enemy
 	// Use this for initialization
 	void Start ()
     {
+        currentHP = maxHP;
         // find AI
         enemyAI = GetComponent<EnemyAIInterface>();
         if (enemyAI == null)
         {
             Debug.Log(gameObject.name + ".EnemyUnit : No EnemyAI Found");
         }
-
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
 		currentSpeed = originalSpeed;
+        if(currentHP<=0)
+        {
+            transform.parent.gameObject.SetActive(false);
+            GameManager.I.EXPIncrease(giveEXP,transform.position);
+        }
 	}
 
-    public override void haveKnockback(Vector3 moveVector)
+    public override void giveKnockback(Vector3 moveVector)
     {
         if (enemyAI != null)
-            enemyAI.GiveKnockBack(Vector3.Normalize(moveVector), Vector3.Magnitude(moveVector), 0.5f);
+            enemyAI.GiveKnockBack(moveVector, Vector3.Magnitude(moveVector), 0.5f);
     }
 
     public override void haveStun(float time)

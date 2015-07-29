@@ -3,6 +3,7 @@ using System.Collections;
 
 public class RangeAI : MonoBehaviour, EnemyAIInterface
 {
+    EnemyAnimation anim;
     // states
     enum states
     {
@@ -60,6 +61,7 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
     // Use this for initialization
     void Start()
     {
+         anim=GetComponent<EnemyAnimation>();
         status = GetComponent<EnemyUnit>();
         if (status == null)
         {
@@ -86,6 +88,8 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
         var aura_script = aura.GetComponent<EnemyAuraAttack>();
         aura_script.damage = 5;
         aura_script.SetAuraSize(aura_size);
+        pathfinder.updateRotation = false;
+
     }
 
     // Update is called once per frame
@@ -100,6 +104,7 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
         // actions for each state
         if (current_state == states.idle)
         {
+            anim.applyState(STATE_MONSTER.IDLE);
             // do idle action
         }
         else if (current_state == states.move)
@@ -118,16 +123,20 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
         }
         else if (current_state == states.attack_predelay)
         {
+            anim.applyState(STATE_MONSTER.ATTACK1);
+
             // do predelay action
         }
         else if (current_state == states.attack_postdelay)
         {
+            anim.applyState(STATE_MONSTER.ATTACK1);
             // do postdelay action
         }
 
         // Attack
         if (need_attack)
         {
+            anim.applyState(STATE_MONSTER.ATTACK1);
             Attack();
         }
     }
@@ -214,6 +223,7 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
 
         if (next_state == states.attack_predelay)
         {
+            
             // make pathfinder not move
             pathfinder.destination = transform.position;
 
@@ -255,8 +265,8 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
 			if(diff.y - diff.x > 0)
 				angle = 360 - angle;
 			Vector3 euler = new Vector3(0, angle, 0);
-
-			Instantiate(attack_object, transform.position, Quaternion.Euler(euler));
+			GameObject laser=(GameObject)Instantiate(attack_object, transform.position, Quaternion.Euler(euler));
+            laser.GetComponent<EnemyLaser>().damage = gameObject.GetComponent<EnemyUnit>().damage;
 		}
     }
 
