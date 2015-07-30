@@ -117,43 +117,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void attackToPlayer(Attack attk, GameObject objectThing)
-    {
-        //player가 효과를 받는 attack이 일어났을 때 일어날 일들 중
-        //데미지, 넉백, 기절, 경직 정보를 읽어서 player에게 넘겨준다.
-        //만약 데미지를 받은 뒤 플레이어가 죽을 체력이면 Die함수를 호출한다.
-        //스턴과 경직 둘 다 있는 경우 스턴만 적용된다.
-        if (objectThing.tag == "PlayerBody")
-        {
-            Player player = objectThing.GetComponent<Player>();
-            player.currentHP -= attk.damage;
-
-            if(attk.damage>0)
-            {
-                StartCoroutine(createDamageText(objectThing,attk));
-                EffectManager.I.createAttackEffect(objectThing);
-            }
-
-            if (attk.isknockbackVectorNeed)
-            {
-                player.giveKnockback(attk.knockbackVector * attk.knockbackForce);
-            }
-            else
-            {
-                Vector3 temp = player.transform.position - attk.transform.position;
-                temp.Normalize();
-                player.giveKnockback(temp * attk.knockbackForce);
-            }
-            if (attk.stunTime > 0.0f)
-                player.giveStun(attk.stunTime);
-            else if (attk.snareTime > 0.0f)
-            {
-                StartCoroutine(applySnare(player, attk));
-            }
-
-        }
-    }//attackToPlayer End.
-
     
 
     IEnumerator createDamageText(GameObject obj,Attack attk)
@@ -190,32 +153,31 @@ public class GameManager : MonoBehaviour
                 EffectManager.I.createAttackEffect(objectThing);
                 StartCoroutine(createDamageText(objectThing, attk));
             }
-            character.giveDamage(attk.damage);
-            if (attk.knockbackForce > 0)
-            {
-                if (attk.isknockbackVectorNeed)
-                {
-                    character.giveKnockback(attk.knockbackVector * attk.knockbackForce);
-                    EffectManager.I.createShortHitEffect(objectThing);
-                }
-                else
-                {
-                    EffectManager.I.createShortHitEffect(objectThing);
-                    Vector3 temp = character.transform.position - attk.transform.position;
-                    temp.Normalize();
-                    // character.giveKnockback(temp * attk.knockbackForce);
-                }
-            }
-            if (attk.stunTime > 0.0f)
-                character.giveStun(attk.stunTime);
-            else if (attk.snareTime > 0.0f)
-                StartCoroutine(applySnare(character, attk));
         }
     }
+
+    public void giveStunToEnemy(GameObject enemy,float time)
+    {
+        enemy.GetComponent<Character>().giveStun(time);
+    }
+
+    public void giveSnareToEnemy(GameObject enemy, float time)
+    {
+        enemy.GetComponent<Character>().giveSnare(time);
+    }
+
+    public void giveKnockbackToEnemy(Vector3 force,GameObject enemy)
+    {
+
+        enemy.GetComponent<Character>().giveKnockback(force);
+         EffectManager.I.createShortHitEffect(enemy);
+    }
+
     public void makeKnockbackEffect()
     {
         EffectManager.I.createKnockbackEffect(GameManager.I.findPlayer().gameObject);
     }
+
     public void attackToPlayer(Attack attk)
     {
         GameObject playerobject = GameObject.FindWithTag("PlayerBody");
@@ -227,20 +189,18 @@ public class GameManager : MonoBehaviour
             EffectManager.I.createAttackEffect(player.gameObject);
             StartCoroutine(createDamageText(player.gameObject, attk));
         }
-        if (attk.isknockbackVectorNeed)
-        {
-            player.giveKnockback(attk.knockbackVector * attk.knockbackForce);
-        }
-        else
-        {
-            Vector3 temp = player.transform.position - attk.transform.position;
-            temp.Normalize();
-            player.giveKnockback(temp * attk.knockbackForce);
-        }
-        if (attk.stunTime > 0.0f)
-            player.giveStun(attk.stunTime);
-        else if (attk.snareTime > 0.0f)
-            StartCoroutine(applySnare(player, attk));
+    }
+
+    public void giveStunToPlayer(float time)
+    {
+        GameObject player = findPlayer().gameObject;
+        player.GetComponent<PlayerUnit>().giveStun(time);
+    }
+
+    public void giveSnareToPlayer(float time)
+    {
+        GameObject player = findPlayer().gameObject;
+        player.GetComponent<PlayerUnit>().giveSnare(time);
     }
 
     //attackToPlayer과 같다.
@@ -251,11 +211,11 @@ public class GameManager : MonoBehaviour
         character.Die ();
     else {
         if(attk.knockbackVector.magnitude > 0.0f)
-            character.haveKnockback(attk.knockbackVector);
+            character.giveKnockback(attk.knockbackVector);
         if(attk.stunTime > 0.0f)
-            character.haveStun(attk.stunTime);
+            character.giveStun(attk.stunTime);
         else if(attk.snareTime > 0.0f)
-            character.haveSnare(attk.snareTime);
+            character.giveSnare(attk.snareTime);
 
     }
     */

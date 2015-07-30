@@ -213,16 +213,16 @@ public class PlayerUnit : Player {
         transform.position = end;
     }
 
-    public override void haveDamage(float damage)
+    public override void giveDamage(float damage)
     {
         currentHP -= damage;
     }
 
     
-    public override void haveKnockback(Vector3 moveVector) { }
-    public override void haveStun(float time) { }
+    public override void giveKnockback(Vector3 moveVector) { }
+    public override void giveStun(float time) { }
 
-    public override void haveSnare(float time)
+    public override void giveSnare(float time)
     {
         isSnare = true;
         snare_duration = time;

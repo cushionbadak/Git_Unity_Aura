@@ -43,10 +43,14 @@ public class PlayerSkills : Attack {
         
         foreach (Collider col in targets)
         {
-            knockbackVector = (col.gameObject.transform.position - this.transform.position).normalized;
-            isknockbackVectorNeed = true;
-            damage = .0f;
-            GameManager.I.attckToEnemy(this, col.gameObject);
+            if (col.tag == "EnemyBody")
+            {
+                knockbackVector = (col.gameObject.transform.position - this.transform.position).normalized;
+                knockbackVector = knockbackVector * knockbackForce;
+                isknockbackVectorNeed = true;
+                damage = .0f;
+                GameManager.I.giveKnockbackToEnemy(knockbackVector, col.gameObject);
+            }
         }
         GameManager.I.makeKnockbackEffect();
     }
