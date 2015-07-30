@@ -3912,6 +3912,7 @@ MonoBehaviour:
   hit_long: {fileID: 134436, guid: e5e886b99ca3a354c820a3abbaeae591, type: 2}
   EXP: {fileID: 130788, guid: 6c99426e2d801c141ba7e9877e8f0448, type: 2}
   Fire: {fileID: 0}
+  BombEffect: {fileID: 0}
   PressT: {fileID: 146268, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
 --- !u!4 &499473441
 Transform:
@@ -5965,6 +5966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageText: {fileID: 118930, guid: 9e660c2fe652ca64d99a0169116fe9bf, type: 2}
+  mapM: {fileID: 0}
 --- !u!4 &835537532
 Transform:
   m_ObjectHideFlags: 0
