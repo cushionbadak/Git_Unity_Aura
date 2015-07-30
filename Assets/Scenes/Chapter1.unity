@@ -18067,8 +18067,6 @@ MonoBehaviour:
   hit_long: {fileID: 134436, guid: e5e886b99ca3a354c820a3abbaeae591, type: 2}
   EXP: {fileID: 130788, guid: 6c99426e2d801c141ba7e9877e8f0448, type: 2}
   Fire: {fileID: 196366, guid: bc30e2734e271a3439050cc6793373e5, type: 2}
-  BombEffect: {fileID: 146268, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
-  PressT: {fileID: 0}
 --- !u!4 &1905678052
 Transform:
   m_ObjectHideFlags: 0
