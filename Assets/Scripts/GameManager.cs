@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
             GameObject player = GameManager.I.findPlayer().gameObject;
 
             SaveLoad.Load();
-            int curSlot=SaveLoad.savedGames.Count-1;
+            int curSlot = SaveLoad.savedGames.Count - 1;
             player.transform.parent.transform.position = SaveLoad.savedGames[curSlot].playerPosition;
             player.GetComponent<PlayerUnit>().currentHP = SaveLoad.savedGames[curSlot].hp;
 

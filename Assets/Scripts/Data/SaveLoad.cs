@@ -13,6 +13,8 @@ public static class SaveLoad {
         Game.current.hp = p.currentHP;
         Game.current.exp = p.EXP;
         Game.current.level = p.level;
+        Game.current.currentChapter = GameObject.Find("Managers").GetComponentInChildren<MapManager>().CurrentChapter;
+        Game.current.roomStatus= GameObject.Find("Managers").GetComponentInChildren<MapManager>().getRoomStatus();
         Debug.Log(GameManager.I.findPlayer().gameObject.transform.position);
         Game.current.playerPosition = GameManager.I.findPlayer().gameObject.transform.position;
         savedGames.Add(Game.current);
