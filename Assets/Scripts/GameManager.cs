@@ -59,7 +59,8 @@ public class GameManager : MonoBehaviour
 
     public void Load(int i)
     {
-        Game.current = SaveLoad.savedGames[i-1];
+        SaveLoad.LoadAll();
+        Game.current = SaveLoad.savedGames[i];
         Time.timeScale = 1.0f;
        
         Application.LoadLevel(0);
@@ -67,7 +68,7 @@ public class GameManager : MonoBehaviour
 
     public void Save(int i)
     {
-        SaveLoad.Save(i);
+        SaveLoad.Save(i-1);
         SaveLoad.LoadAll();
         Debug.Log("Slot " + i + " Saved");
     }
@@ -80,28 +81,28 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Save(1);
+            Save(0);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Save(2);
+            Save(1);
         }
         if(Input.GetKeyDown(KeyCode.Alpha3))
         {
-            Save(3);
+            Save(2);
         }
 
         if(Input.GetKeyDown(KeyCode.Alpha4))
         {
-            Load(1);
+            Load(0);
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            Load(2);
+            Load(1);
         }
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            Load(3);
+            Load(2);
         }
 
         if (Input.GetKeyDown(KeyCode.J))

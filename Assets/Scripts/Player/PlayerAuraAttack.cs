@@ -32,12 +32,15 @@ public class PlayerAuraAttack : Attack {
         speed = _p.currentSpeed;
     }
     
+
     void OnTriggerStay(Collider col)
     {
             if (auraAttackCooldown <= time_store)
         {
+            
             if (col.gameObject.tag == "EnemyBody")
             {
+
                 Collider[] colls = Physics.OverlapSphere(transform.position, 5.0f);//5.0f -> 오오라의 크기로 바꿔야 함
                 foreach (GameObject go in listOfObjects)
                 {

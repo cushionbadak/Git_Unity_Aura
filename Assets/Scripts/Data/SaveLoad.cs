@@ -6,9 +6,10 @@ using System.IO;
 public static class SaveLoad {
     [SerializeField]
     public static List<Game> savedGames = new List<Game>();
-    public const int SLOTS=3;
+    public const int SLOTS=9;
     public static void Init()
     {
+        savedGames.Clear();
         for(int i=0;i<SLOTS;i++)
         {
             savedGames.Add(null);
@@ -27,7 +28,7 @@ public static class SaveLoad {
             Game.current.roomStatus = GameObject.Find("Managers").GetComponentInChildren<MapManager>().getRoomStatus();
             Debug.Log(GameManager.I.findPlayer().gameObject.transform.position);
             Game.current.playerPosition = GameManager.I.findPlayer().gameObject.transform.position;
-            savedGames[i-1] = Game.current;
+            savedGames[i] = Game.current;
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Create(Application.persistentDataPath + "/savedGames.gd");
             Debug.Log(Application.persistentDataPath);
