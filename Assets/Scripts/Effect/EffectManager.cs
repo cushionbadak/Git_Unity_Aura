@@ -11,6 +11,7 @@ public class EffectManager : MonoBehaviour {
     public GameObject EXP;
     public GameObject Fire;
 	public GameObject BombEffect;
+	public GameObject LevelUpEffect;
 	public GameObject PressT;
 
     private static EffectManager uniqueInstance = null;
@@ -65,6 +66,10 @@ public class EffectManager : MonoBehaviour {
 	{
 		StartCoroutine (createBomb (obj));
 	}
+	public void createLevelUpEffect(GameObject obj)
+	{
+		StartCoroutine (createLevelUp (obj));
+	}
 
 	public void createPressTEffect(GameObject obj)
 	{
@@ -83,6 +88,13 @@ public class EffectManager : MonoBehaviour {
 		yield return null;
 	}
 
+	IEnumerator createLevelUp(GameObject obj)
+	{
+		GameObject eff = (GameObject)Instantiate (BombEffect, obj.transform.position, Quaternion.identity);
+		eff.transform.parent = obj.transform;
+		Destroy (eff, 5.0f);
+		yield return null;
+	}
 	IEnumerator createBomb(GameObject obj)
 	{
 		GameObject eff = (GameObject)Instantiate (BombEffect, obj.transform.position, Quaternion.identity);

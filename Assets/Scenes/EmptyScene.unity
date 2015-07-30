@@ -3912,7 +3912,9 @@ MonoBehaviour:
   hit_long: {fileID: 134436, guid: e5e886b99ca3a354c820a3abbaeae591, type: 2}
   EXP: {fileID: 130788, guid: 6c99426e2d801c141ba7e9877e8f0448, type: 2}
   Fire: {fileID: 0}
-  PressT: {fileID: 146268, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
+  BombEffect: {fileID: 0}
+  LevelUpEffect: {fileID: 160822, guid: 1362bee4775ecc040bb6215d95d77491, type: 2}
+  PressT: {fileID: 160822, guid: 1362bee4775ecc040bb6215d95d77491, type: 2}
 --- !u!4 &499473441
 Transform:
   m_ObjectHideFlags: 0
@@ -5965,6 +5967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageText: {fileID: 118930, guid: 9e660c2fe652ca64d99a0169116fe9bf, type: 2}
+  mapM: {fileID: 0}
 --- !u!4 &835537532
 Transform:
   m_ObjectHideFlags: 0
@@ -11998,7 +12001,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 56c46a16d9e2d494b81ae12edb258a96, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: 56c46a16d9e2d494b81ae12edb258a96, type: 2}
       propertyPath: m_IsActive
@@ -15068,60 +15071,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 491092, guid: 4227f8539ed8d2b4ab024369289435ef, type: 2}
   m_PrefabInternal: {fileID: 1933585847}
---- !u!1001 &1940139269
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 505832088}
-    m_Modifications:
-    - target: {fileID: 436306, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 436306, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 436306, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 436306, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -.707106829
-      objectReference: {fileID: 0}
-    - target: {fileID: 436306, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 436306, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 436306, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: .707106709
-      objectReference: {fileID: 0}
-    - target: {fileID: 436306, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 19839972, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19839972, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
-      propertyPath: InitialModule.startLifetime.minMaxState
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19839972, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: .400000006
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1941108895
 GameObject:
   m_ObjectHideFlags: 0
@@ -16481,19 +16430,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22441828, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22441828, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22493874, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: .349999994
       objectReference: {fileID: 0}
     - target: {fileID: 22493874, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400842, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: player
