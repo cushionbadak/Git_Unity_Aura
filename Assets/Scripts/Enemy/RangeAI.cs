@@ -381,7 +381,6 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
 
     public void GiveBuff(ENEMY_BUFF buffnum, float rate, float time)
     {
-        Debug.Log("A");
         switch (buffnum)
         {
             case ENEMY_BUFF.SNARE:
