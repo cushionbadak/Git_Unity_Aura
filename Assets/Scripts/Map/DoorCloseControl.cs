@@ -17,7 +17,7 @@ public class DoorCloseControl : MonoBehaviour {
 
     void OnTriggerExit(Collider col)
     {
-        if(MapManager.GetComponent<MapManager>().getRoomStatus()[RoomNum]==false)
+        if((bool)MapManager.GetComponent<MapManager>().getRoomStatus()[RoomNum]==false)
         if(col.tag=="PlayerBody")
         {
             door.GetComponent<ChangeAlpha>().isTrans = false;

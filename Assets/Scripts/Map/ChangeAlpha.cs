@@ -13,7 +13,10 @@ public class ChangeAlpha : MonoBehaviour {
     public int roomNum;
 	// Use this for initialization
 	void Start () {
-
+        if((bool)mapM.GetComponent<MapManager>().getRoomStatus()[roomNum]==true)
+        {
+            isTrans = true;
+        }
          Color1 = gameObject.GetComponent<SpriteRenderer>().color;
          Color2 = gameObject.GetComponent<SpriteRenderer>().color;
         Color2.a = 0;

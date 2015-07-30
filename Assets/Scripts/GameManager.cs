@@ -12,20 +12,44 @@ struct Temp
 public class GameManager : MonoBehaviour
 {
     public GameObject DamageText;
-
+    public MapManager mapM;
     //Singleton
     private static GameManager uniqueInstance = null;
     public static GameManager I { get { return uniqueInstance; } }
 
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        if (Game.current == null)
+        {
+            SaveLoad.Init();
+            Game.current = new Game();
+
+        }
+        else
+        {
+            SaveLoad.LoadAll();
+            //Load시 게임 초기화
+            mapM.CurrentChapter = Game.current.currentChapter;
+            switch (mapM.CurrentChapter)
+            {
+                case 1:
+                    {
+                        mapM.chap1 = Game.current.roomStatus;
+                        break;
+                    }
+            }
+            GameObject player = GameManager.I.findPlayer().gameObject;
+            player.transform.parent.transform.position = Game.current.playerPosition;
+            player.GetComponent<PlayerUnit>().currentHP = Game.current.hp;
+            player.GetComponent<PlayerUnit>().EXP = Game.current.exp;
+            player.GetComponent<PlayerUnit>().level = Game.current.level;
+            DontDestroyOnLoad(this.gameObject);
+        }
     }
 
     // Use this for initialization
     void Start()
     {
-        Game.current = new Game();//현재게임상태 초기화
         //Singleton
         if (uniqueInstance == null)
             uniqueInstance = this;
@@ -33,37 +57,62 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
     }
 
+    public void Load(int i)
+    {
+        Game.current = SaveLoad.savedGames[i-1];
+        Time.timeScale = 1.0f;
+       
+        Application.LoadLevel(0);
+    }
+
+    public void Save(int i)
+    {
+        SaveLoad.Save(i);
+        SaveLoad.LoadAll();
+        Debug.Log("Slot " + i + " Saved");
+    }
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K))
+        if(findPlayer().gameObject.GetComponent<PlayerUnit>().currentHP<0)
         {
-            SaveLoad.Save();
-            Debug.Log("Saved");
+            Time.timeScale = 0.01f;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Save(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Save(2);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            Save(3);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            Load(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            Load(2);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            Load(3);
         }
 
         if (Input.GetKeyDown(KeyCode.J))
         {
-            SaveLoad.Load();
+            SaveLoad.LoadAll();
             Debug.Log("Loaded");
             Debug.Log("Current Max Slot : " + SaveLoad.savedGames.Count);
             for(int i=0;i< SaveLoad.savedGames.Count;i++)
             {
                 Debug.Log(i + "번째 슬롯의 pos : " + SaveLoad.savedGames[i].playerPosition);
             }
-        }
-
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            GameObject player = GameManager.I.findPlayer().gameObject;
-
-            SaveLoad.Load();
-            int curSlot = SaveLoad.savedGames.Count - 1;
-            player.transform.parent.transform.position = SaveLoad.savedGames[curSlot].playerPosition;
-            player.GetComponent<PlayerUnit>().currentHP = SaveLoad.savedGames[curSlot].hp;
-
-            player.GetComponent<PlayerUnit>().EXP = SaveLoad.savedGames[curSlot].exp;
-            player.GetComponent<PlayerUnit>().level = SaveLoad.savedGames[curSlot].level;
-            Debug.Log("Loaded");
         }
     }
 

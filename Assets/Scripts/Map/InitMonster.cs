@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class InitMonster : MonoBehaviour {
-
+    public MapManager mapM;
 	// Use this for initialization
 	void Start () {
 	

@@ -3,16 +3,39 @@ using System.Collections;
 
 public class MapManager : MonoBehaviour {
     public int CurrentChapter;
-    public bool[] chap1 = new bool[8];//깨면 true
+    public ArrayList chap1 = new ArrayList();//깨면 true
     public GameObject[] chap1Doors = new GameObject[8];
 
-	// Use this for initialization
-	void Start () {
-        for(int i=0;i<chap1.Length;i++)
+    void Awake()
+    {
+        if (Game.current == null)
         {
-            chap1[i] = false;
+            switch (CurrentChapter)
+            {
+                case 1:
+                    {
+                        for (int i = 0; i < 9; i++)
+                            chap1.Add(false);
+                        break;
+                    }
+            }
         }
-	
+        else
+        {
+            switch (CurrentChapter)
+            {
+                case 1:
+                    {
+                        chap1 = Game.current.roomStatus;
+                        break;
+                    }
+            }
+        }
+    }
+
+    // Use this for initialization
+    void Start() {
+        
 	}
 	
 	// Update is called once per frame
@@ -33,7 +56,7 @@ public class MapManager : MonoBehaviour {
         }
     }
 
-    public bool[] getRoomStatus()
+    public ArrayList getRoomStatus()
     {
         switch(CurrentChapter)
         {

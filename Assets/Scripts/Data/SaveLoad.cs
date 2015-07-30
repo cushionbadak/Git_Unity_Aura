@@ -6,26 +6,42 @@ using System.IO;
 public static class SaveLoad {
     [SerializeField]
     public static List<Game> savedGames = new List<Game>();
-
-    public static void Save()
+    public const int SLOTS=3;
+    public static void Init()
     {
-        PlayerUnit p=GameManager.I.findPlayer().gameObject.GetComponent<PlayerUnit>();
-        Game.current.hp = p.currentHP;
-        Game.current.exp = p.EXP;
-        Game.current.level = p.level;
-        Game.current.currentChapter = GameObject.Find("Managers").GetComponentInChildren<MapManager>().CurrentChapter;
-        Game.current.roomStatus= GameObject.Find("Managers").GetComponentInChildren<MapManager>().getRoomStatus();
-        Debug.Log(GameManager.I.findPlayer().gameObject.transform.position);
-        Game.current.playerPosition = GameManager.I.findPlayer().gameObject.transform.position;
-        savedGames.Add(Game.current);
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/savedGames.gd");
-        Debug.Log(Application.persistentDataPath);
-        bf.Serialize(file, SaveLoad.savedGames);
-        file.Close();
+        for(int i=0;i<SLOTS;i++)
+        {
+            savedGames.Add(null);
+        }
     }
 
-    public static void Load()
+    public static void Save(int i)
+    {
+        if (i > 0 && i < SLOTS+1)
+        {
+            PlayerUnit p = GameManager.I.findPlayer().gameObject.GetComponent<PlayerUnit>();
+            Game.current.hp = p.currentHP;
+            Game.current.exp = p.EXP;
+            Game.current.level = p.level;
+            Game.current.currentChapter = GameObject.Find("Managers").GetComponentInChildren<MapManager>().CurrentChapter;
+            Game.current.roomStatus = GameObject.Find("Managers").GetComponentInChildren<MapManager>().getRoomStatus();
+            Debug.Log(GameManager.I.findPlayer().gameObject.transform.position);
+            Game.current.playerPosition = GameManager.I.findPlayer().gameObject.transform.position;
+            savedGames[i-1] = Game.current;
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Create(Application.persistentDataPath + "/savedGames.gd");
+            Debug.Log(Application.persistentDataPath);
+            Debug.Log(Application.persistentDataPath);
+            bf.Serialize(file, SaveLoad.savedGames);
+            file.Close();
+        }
+        else
+        {
+            Debug.Log("슬롯이 없습니다.");
+        }
+    }
+
+    public static void LoadAll()
     {
         if(File.Exists(Application.persistentDataPath+"/savedGames.gd"))
         {
@@ -35,6 +51,7 @@ public static class SaveLoad {
             file.Close();
         }
     }
+    
 
 }
 

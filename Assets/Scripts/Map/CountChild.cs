@@ -8,7 +8,7 @@ public class CountChild : MonoBehaviour {
     float Timesum;
     // Use this for initialization
     void Start () {
-	    if(mapM.GetComponent<MapManager>().getRoomStatus()[roomNum]==true)
+	    if((bool)mapM.GetComponent<MapManager>().getRoomStatus()[roomNum]==true)
         {
             Transform[] trChild = GetComponentsInChildren<Transform>();
             foreach(Transform tr in trChild)
