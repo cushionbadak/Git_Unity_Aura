@@ -10,7 +10,8 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
         idle,
         move,
         attack,
-        dumbling
+        dumbling,
+        stunned
     }
     private states current_state = states.idle;
     private states next_state = states.idle;
@@ -107,6 +108,11 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
             return;
         is_state_changed_on_frame = false;
 
+        // dumbling cool down always go regardless of any state
+        dumbling_timer -= Time.deltaTime;
+        if (dumbling_timer < 0)
+            dumbling_timer = 0;
+
         switch (current_state)
         {
             case states.idle:
@@ -120,6 +126,9 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
                 break;
             case states.dumbling:
                 StateDumbling();
+                break;
+            case states.stunned:
+                StateStunned();
                 break;
         }
     }
@@ -200,21 +209,21 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
         if (is_state_changed)
         {
             pathfinder.enabled = false;
-            timer = 0;
+            timer = attack_postdelay_time + attack_predelay_time;
             need_attack = true;
         }
 
-        timer += Time.deltaTime;
+        timer -= Time.deltaTime;
 
         anim.applyState(STATE_MONSTER.ATTACK1);
         
-        if(need_attack && timer > attack_predelay_time)
+        if(need_attack && timer < attack_postdelay_time)
             Attack();
 
 
 
         // state change
-        if (timer > attack_postdelay_time + attack_predelay_time)
+        if (timer < 0)
         {
             if (CanDumbling() && Random.Range(0.0f, 1.0f) < atk_to_dumble_rate)
             {
@@ -243,20 +252,17 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
             dumbling_dir.Normalize();
             dumbling_position = transform.position + dumbling_dir * dumbling_speed * dumbling_time;
 
-            timer = 0;
+            timer = dumbling_time;
+            dumbling_timer = dumbling_cooldown;
         }
-
-
-        dumbling_timer += Time.deltaTime;
 
         // dumbling
         Dumbling();
 
 
         // state change
-        if (timer > dumbling_time)
+        if (timer < 0)
         {
-            dumbling_timer = 0;
 
             if (CanAttackTarget())
             {
@@ -270,6 +276,20 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
             {
                 ChangeState(states.move);
             }
+        }
+    }
+
+
+    private void StateStunned()
+    {
+        if (is_state_changed)
+        {
+            pathfinder.enabled = false;
+        }
+
+        if (timer < 0)
+        {
+            ChangeState(states.idle);
         }
     }
 
@@ -309,7 +329,7 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
 
     private bool CanDumbling()
     {
-        if (can_dumbling && dumbling_timer > dumbling_cooldown)
+        if (can_dumbling && dumbling_timer <= 0)
             return true;
 
         return false;
@@ -337,7 +357,6 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
 
     private bool IsFoundedTargetInSight()
     {
-        Debug.Log("A");
         if (Vector3.Magnitude(target.transform.position - transform.position) > search_out_range && search_out_on)
         {
             return false;
@@ -362,7 +381,43 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
 
     public void GiveBuff(ENEMY_BUFF buffnum, float rate, float time)
     {
+        Debug.Log("A");
+        switch (buffnum)
+        {
+            case ENEMY_BUFF.SNARE:
+                {
+                    StartCoroutine(PauseAI(time));
+                    break;
+                }
+            case ENEMY_BUFF.STUN:
+                {
+                    StartCoroutine(PauseAura(time));
+                    StartCoroutine(PauseAI(time));
+                    break;
+                }
+        }
+    }
 
+
+    IEnumerator PauseAura(float time)
+    {
+        var aura_script = aura.GetComponent<EnemyAuraAttack>();
+        aura_script.SetAuraSize(0);
+        yield return new WaitForSeconds(time);
+
+        aura_script.SetAuraSize(aura_size);
+    }
+
+    IEnumerator PauseAI(float time)
+    {
+        // stop
+        ChangeState(states.stunned);
+
+        // wait
+        yield return new WaitForSeconds(time);
+
+        // set to idle
+        ChangeState(states.idle);
     }
 
     public void GiveKnockBack(Vector3 direction, float amount, float time)
