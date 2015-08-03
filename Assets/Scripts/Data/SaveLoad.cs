@@ -18,7 +18,7 @@ public static class SaveLoad {
 
     public static void Save(int i)
     {
-        if (i > 0 && i < SLOTS+1)
+        if (i >= 0 && i < SLOTS)
         {
             PlayerUnit p = GameManager.I.findPlayer().gameObject.GetComponent<PlayerUnit>();
             Game.current.hp = p.currentHP;

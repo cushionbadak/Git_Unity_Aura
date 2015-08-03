@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
 
     public void Save(int i)
     {
-        SaveLoad.Save(i-1);
+        SaveLoad.Save(i);
         SaveLoad.LoadAll();
         Debug.Log("Slot " + i + " Saved");
     }
