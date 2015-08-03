@@ -19369,6 +19369,7 @@ MonoBehaviour:
   EXP: {fileID: 130788, guid: 6c99426e2d801c141ba7e9877e8f0448, type: 2}
   Fire: {fileID: 196366, guid: bc30e2734e271a3439050cc6793373e5, type: 2}
   BombEffect: {fileID: 0}
+  LevelUpEffect: {fileID: 0}
   PressT: {fileID: 0}
 --- !u!4 &1905678052
 Transform:
