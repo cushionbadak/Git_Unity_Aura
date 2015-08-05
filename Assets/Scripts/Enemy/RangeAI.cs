@@ -18,7 +18,9 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
     private bool is_state_changed = true;
     private bool is_state_changed_on_frame = false;
 
+    public EnemyUnit tmp;
 
+    // paused by calling pauseAI();
     private bool is_paused = false;
     private bool can_update
     {
@@ -386,31 +388,29 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
         {
             case ENEMY_BUFF.SNARE:
                 {
-                    StartCoroutine(PauseAI(time));
+                    StartCoroutine(BuffPauseAI(time));
                     break;
                 }
             case ENEMY_BUFF.STUN:
                 {
-                    StartCoroutine(PauseAura(time));
-                    StartCoroutine(PauseAI(time));
+                    StartCoroutine(BuffPauseAura(time));
+                    StartCoroutine(BuffPauseAI(time));
                     break;
                 }
         }
     }
 
 
-    IEnumerator PauseAura(float time)
+    IEnumerator BuffPauseAura(float time)
     {
-        Debug.Log("Aura Paused");
         var aura_script = aura.GetComponent<EnemyAuraAttack>();
         aura_script.SetAuraSize(0);
-        yield return StartCoroutine(DelayedTimer.WaitForCustomDeltaTime(time, () => { return Time.deltaTime; }));
+        yield return StartCoroutine(DelayedTimer.WaitForCustomDeltaTime(time, GetDeltaTime));
 
-        Debug.Log("Aura Returned");
         aura_script.SetAuraSize(aura_size);
     }
 
-    IEnumerator PauseAI(float time)
+    IEnumerator BuffPauseAI(float time)
     {
         // stop
         ChangeState(states.stunned);
@@ -425,5 +425,13 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
     public void GiveKnockBack(Vector3 direction, float amount, float time)
     {
 
+    }
+
+    float GetDeltaTime()
+    {
+        if (!can_update)
+            return 0;
+
+        return Time.deltaTime;
     }
 }

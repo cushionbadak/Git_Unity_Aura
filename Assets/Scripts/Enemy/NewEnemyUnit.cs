@@ -1,0 +1,183 @@
+﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
+public abstract class NewEnemyUnit : Enemy
+{
+    enum unit_states
+    {
+        none,
+        hide,
+        hidetoact,
+        act,
+        actpause,
+        acttodie,
+        die
+    }
+    StateMachine<unit_states> unit_state = null;
+
+    protected EnemyAuraAttack aura;
+
+    // timer to coroutine
+    protected float delta_time
+    {
+        get
+        {
+            if(unit_state.GetCurrentState() != unit_states.act)
+                return 0;
+            return Time.deltaTime;
+        }
+    }
+
+    protected bool is_acting
+    {
+        get
+        {
+            return unit_state.GetCurrentState() == unit_states.act;
+        }
+    }
+
+    // this should be called before its sibling
+    public virtual void Start()
+    {
+        // initialize state machine
+        unit_state = new StateMachine<unit_states>();
+        unit_state.AddState(unit_states.none, () => { });
+        unit_state.AddState(unit_states.act, UnitStateAct);
+        unit_state.AddState(unit_states.actpause, UnitStateActPause);
+        unit_state.SetInitState(unit_states.act);
+
+
+        // add aura
+        GameObject aura_object = (GameObject)Instantiate(Resources.Load("Prefabs/EnemyAura"), transform.position, new Quaternion());
+        aura_object.transform.parent = transform;
+
+        aura = aura_object.GetComponent<EnemyAuraAttack>();
+        aura.SetAuraSize(0);
+    }
+
+    // this should be called before its sibling
+    public virtual void Update()
+    {
+        unit_state.UpdateState();
+    }
+
+    // this should be called before its sibling
+    public virtual void LateUpdate()
+    {
+        unit_state.LateUpdateState();
+    }
+
+
+    void UnitStateHide()
+    {
+
+    }
+
+    void UnitStateHideToAct()
+    {
+
+    }
+
+    void UnitStateAct()
+    {
+        aura.damage = damage;
+        aura.SetAuraSize(AuraRange);
+    }
+
+    void UnitStateActPause()
+    {
+
+    }
+
+    void UnitStateActToDie()
+    {
+    }
+
+    void UnitStateDie()
+    {
+
+    }
+
+    protected abstract void OnDamaged(float damage);
+    protected abstract void OnKnockBack(Vector3 vector);
+    protected abstract void OnStun(float time);
+    protected abstract void OnSnare(float time);
+
+    protected abstract void OnPause();
+    protected abstract void OnResume();
+    protected abstract void OnDie();
+
+    public virtual void giveDamage(float damage)
+    {
+        if (unit_state.GetCurrentState() == unit_states.act)
+            OnDamaged(damage);
+    }
+    public void giveKnockback(Vector3 moveVector)
+    {
+        if (unit_state.GetCurrentState() == unit_states.act)
+            OnKnockBack(moveVector);
+    }
+
+    public void giveStun(float time)
+    {
+        if (unit_state.GetCurrentState() == unit_states.act)
+            OnStun(time);
+    }
+
+    public void giveSnare(float time)
+    {
+        if (unit_state.GetCurrentState() == unit_states.act)
+            OnSnare(time);
+    }
+
+    public void pause()
+    {
+        OnPause();
+        unit_state.ChangeState(unit_states.actpause);
+    }
+
+    public void resume()
+    {
+        OnResume();
+        unit_state.ChangeState(unit_states.act);
+    }
+    public void Die()
+    {
+        // create dead body
+        Destroy(transform.parent.gameObject);
+
+    }
+    
+    protected EnemyAction FindAvailableAction(List<EnemyAction> list)
+    {
+        if (list.Count == 0)
+            return null;
+
+        List<EnemyAction> act_list = new List<EnemyAction>();
+        int cost_sum = 0;
+        foreach (var act in list)
+        {
+            if (act.isAvailable())
+            {
+                cost_sum += act.GetProbCost();
+                act_list.Add(act);
+            }
+        }
+
+        // tracking available
+        if (act_list.Count != 0)
+        {
+            // 1 ~ cost_sum
+            int rand = Random.Range(1, cost_sum + 1);
+            foreach (var act in act_list)
+            {
+                rand -= act.GetProbCost();
+                if (rand <= 0)
+                    return act;
+            }
+        }
+
+        return null;
+    }
+}

@@ -6,15 +6,16 @@ using System.Collections.Generic;
 
 public delegate void FUNC_STATE_UPDATE();
 
-public class StateMachine
+public class StateMachine<T>
 {
     private bool is_init_statemachine = true;
 
-    private Dictionary<System.Object, FUNC_STATE_UPDATE> state_func_map = new Dictionary<object,FUNC_STATE_UPDATE>();
-    private System.Object current_state = null;
-    private System.Object next_state = null;
+    private Dictionary<T, FUNC_STATE_UPDATE> state_func_map = new Dictionary<T,FUNC_STATE_UPDATE>();
+    private T prev_state = default(T);
+    private T current_state = default(T);
+    private T next_state = default(T);
     private bool is_first_frame = true;
-    private bool is_state_change = true;
+    private bool is_state_change = false;
 
 
     public void UpdateState()
@@ -25,33 +26,49 @@ public class StateMachine
 
     public void LateUpdateState()
     {
-        current_state = next_state;
+        if (is_state_change)
+        {
+            prev_state = current_state;
+            current_state = next_state;
+            next_state = default(T);
+        }
+
         is_first_frame = false;
         if (is_state_change)
             is_first_frame = true;
         is_state_change = false;
     }
 
-    public void AddState(System.Object state, FUNC_STATE_UPDATE update_function)
+    public void AddState(T state, FUNC_STATE_UPDATE update_function)
     {
         state_func_map.Add(state, update_function);
     }
 
-    public void SetInitState(System.Object state)
+    public void SetInitState(T state)
     {
         if (is_init_statemachine)
             current_state = state;
     }
 
-    public void ChangeState(System.Object _next_state)
+    public void ChangeState(T _next_state)
     {
         next_state = _next_state;
         is_state_change = true;
     }
 
-    public System.Object GetCurrentState()
+    public T GetPrevState()
+    {
+        return prev_state;
+    }
+
+    public T GetCurrentState()
     {
         return current_state;
+    }
+
+    public T GetNextState()
+    {
+        return next_state;
     }
 
     public bool IsFirstFrame()
