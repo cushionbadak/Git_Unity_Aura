@@ -381,6 +381,7 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
 
     public void GiveBuff(ENEMY_BUFF buffnum, float rate, float time)
     {
+        Debug.Log("A");
         switch (buffnum)
         {
             case ENEMY_BUFF.SNARE:
@@ -400,10 +401,12 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
 
     IEnumerator PauseAura(float time)
     {
+        Debug.Log("Aura Paused");
         var aura_script = aura.GetComponent<EnemyAuraAttack>();
         aura_script.SetAuraSize(0);
-        yield return new WaitForSeconds(time);
+        yield return StartCoroutine(DelayedTimer.WaitForCustomDeltaTime(time, () => { return Time.deltaTime; }));
 
+        Debug.Log("Aura Returned");
         aura_script.SetAuraSize(aura_size);
     }
 
