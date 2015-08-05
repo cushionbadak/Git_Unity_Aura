@@ -1,4 +1,8 @@
 ﻿Prologue.
+(End)
+(SceneStart) 2,0,3
+앙아: ㅇㅇㅇ
+(GameStart) 2,0,2
 (Move) 3,0,3
 (!)
 (?)

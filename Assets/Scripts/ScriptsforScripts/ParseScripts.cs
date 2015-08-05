@@ -10,17 +10,18 @@ public class DialogStruct
 } 
 
 public class ParseScripts : MonoBehaviour {
-    public string file_path;
+    string file_path;
+    public string file_name;
     public StreamWriter st_w;
     public StreamReader st_r;
     public FileStream fs_w;
     public FileStream fs_r;
-    public string tempStr;
+     string tempStr;
     public List<DialogStruct> dia;
     // Use this for initialization
     void Awake () {
         dia = new List<DialogStruct>();
-        file_path = "Assets/Resources/Dialogs/prologue.txt";
+        file_path = "Assets/Resources/Dialogs/"+ file_name+".txt";
         st_r = new StreamReader(file_path);
 
         while(st_r.Peek()>-1)

@@ -4,7 +4,7 @@ using System.Collections;
 public class CutSceneAnim : MonoBehaviour {
 
     private AnimControl_Player animP;
-    public GameObject plDum;
+     GameObject plDum;
     private Transform curTr;
     private Vector3 prevPos;
     // Use this for initialization

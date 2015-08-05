@@ -41,7 +41,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &442046
 Transform:
   m_ObjectHideFlags: 1
@@ -61,7 +61,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173110}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 88.5899963, y: .100000001, z: 6.19999981}
+  m_LocalPosition: {x: 8.60000038, y: .100000001, z: 6.19999981}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 442046}
@@ -161,6 +161,8 @@ MonoBehaviour:
   level: 0
   originalSpeed: 0
   currentSpeed: 0
+  damage: 0
+  AuraRange: 0
   giveEXP: 1
   powerUpPotion: 0
   speedUpPotion: 0
@@ -174,6 +176,8 @@ MonoBehaviour:
   isStickyBall: 0
   isCriticalKnuckle: 0
   isSpecialThing: 0
+  expText: {fileID: 0}
+  resultUI: {fileID: 0}
 --- !u!114 &11423446
 MonoBehaviour:
   m_ObjectHideFlags: 1

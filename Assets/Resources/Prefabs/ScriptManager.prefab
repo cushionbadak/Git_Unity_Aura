@@ -40,8 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e6688bb75d65747943e2134611ee8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  file_path: 
-  tempStr: 
+  file_name: 
 --- !u!114 &11484082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55,7 +54,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   n: {fileID: 0}
   d: {fileID: 0}
+  BB: {fileID: 147060, guid: 06327f4dcd10fce48bc3f889f845dddf, type: 2}
+  plDum: {fileID: 0}
+  plReal: {fileID: 0}
   p: {fileID: 11407670}
+  dialogUI: {fileID: 0}
+  scriptMode: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject DamageText;
     public MapManager mapM;
+    bool isGameMode;
     //Singleton
     private static GameManager uniqueInstance = null;
     public static GameManager I { get { return uniqueInstance; } }
@@ -24,6 +25,11 @@ public class GameManager : MonoBehaviour
             SaveLoad.Init();
             Game.current = new Game();
 
+            GameObject player = GameObject.FindWithTag("PlayerBody");
+            player.transform.parent.transform.position = new Vector3(0,0,0);
+            player.GetComponent<PlayerUnit>().currentHP = 100;
+            player.GetComponent<PlayerUnit>().EXP = 0;
+            player.GetComponent<PlayerUnit>().level = 1;
         }
         else
         {
@@ -43,7 +49,6 @@ public class GameManager : MonoBehaviour
             player.GetComponent<PlayerUnit>().currentHP = Game.current.hp;
             player.GetComponent<PlayerUnit>().EXP = Game.current.exp;
             player.GetComponent<PlayerUnit>().level = Game.current.level;
-            DontDestroyOnLoad(this.gameObject);
         }
     }
 
@@ -73,46 +78,54 @@ public class GameManager : MonoBehaviour
         Debug.Log("Slot " + i + " Saved");
     }
 
+    public void setGameMode(bool b)
+    {
+        isGameMode = b;
+    }
+
     void Update()
     {
-        if(findPlayer().gameObject.GetComponent<PlayerUnit>().currentHP<0)
+        if (isGameMode)
         {
-            Time.timeScale = 0.01f;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            Save(0);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            Save(1);
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            Save(2);
-        }
-
-        if(Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            Load(0);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            Load(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            Load(2);
-        }
-
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            SaveLoad.LoadAll();
-            Debug.Log("Loaded");
-            Debug.Log("Current Max Slot : " + SaveLoad.savedGames.Count);
-            for(int i=0;i< SaveLoad.savedGames.Count;i++)
+            if (findPlayer().gameObject.GetComponent<PlayerUnit>().currentHP < 0)
             {
-                Debug.Log(i + "번째 슬롯의 pos : " + SaveLoad.savedGames[i].playerPosition);
+                Time.timeScale = 0.01f;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                Save(0);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                Save(1);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                Save(2);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                Load(0);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                Load(1);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                Load(2);
+            }
+
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                SaveLoad.LoadAll();
+                Debug.Log("Loaded");
+                Debug.Log("Current Max Slot : " + SaveLoad.savedGames.Count);
+                for (int i = 0; i < SaveLoad.savedGames.Count; i++)
+                {
+                    Debug.Log(i + "번째 슬롯의 pos : " + SaveLoad.savedGames[i].playerPosition);
+                }
             }
         }
     }
