@@ -179,7 +179,7 @@ public class MeleeAI : MonoBehaviour, EnemyAIInterface{
     {
         //amount,time은 쓰지 않음
         Debug.Log("넉백");
-        gameObject.GetComponent<Rigidbody>().AddForce(direction);
+        gameObject.GetComponent<Rigidbody>().AddForce(direction * amount);
         StartCoroutine(kinematicOnOff());
     }
 

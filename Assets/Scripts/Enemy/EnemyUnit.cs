@@ -28,12 +28,21 @@ public class EnemyUnit : Enemy
         }
 	}
 
+    /// <summary>
+    /// Give KnockBack to this unit
+    /// knockback time will be 0.5 second
+    /// </summary>
+    /// <param name="moveVector"> knockbacked direction * knockbacked amount</param>
     public override void giveKnockback(Vector3 moveVector)
     {
         if (enemyAI != null)
-            enemyAI.GiveKnockBack(moveVector, Vector3.Magnitude(moveVector), 0.5f);
+            enemyAI.GiveKnockBack(Vector3.Normalize(moveVector), Vector3.Magnitude(moveVector), 0.5f);
     }
 
+    /// <summary>
+    /// Give Stun to this unit
+    /// </summary>
+    /// <param name="time"> stunned time </param>
     public override void giveStun(float time)
     {
         if (enemyAI != null)
