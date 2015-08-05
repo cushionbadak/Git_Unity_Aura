@@ -12,7 +12,6 @@ public class AlphaChange : MonoBehaviour {
 	void Update () {
 	    if(enabled)
         {
-            if()
         }
 	}
 }
