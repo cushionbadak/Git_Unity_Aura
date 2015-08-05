@@ -23,8 +23,8 @@ public class EnemyUnit : Enemy
 		currentSpeed = originalSpeed;
         if(currentHP<=0)
         {
-            transform.parent.gameObject.SetActive(false);
-            GameManager.I.EXPIncrease(giveEXP,transform.position);
+            GameManager.I.EXPIncrease(giveEXP, transform.position);
+            Die();
         }
 	}
 
@@ -32,7 +32,7 @@ public class EnemyUnit : Enemy
     /// Give KnockBack to this unit
     /// knockback time will be 0.5 second
     /// </summary>
-    /// <param name="moveVector"> knockbacked direction * knockbacked amount</param>
+    /// <param name="moveVector"> knockbacked direction * knockbacked amount </param>
     public override void giveKnockback(Vector3 moveVector)
     {
         if (enemyAI != null)
@@ -49,6 +49,10 @@ public class EnemyUnit : Enemy
             enemyAI.GiveBuff(ENEMY_BUFF.STUN, 0, 3);
     }
 
+    /// <summary>
+    /// Give Snare to this unit
+    /// </summary>
+    /// <param name="time"> snared time </param>
     public override void giveSnare(float time)
     {
         if (enemyAI != null)
@@ -57,7 +61,7 @@ public class EnemyUnit : Enemy
 
     public override void Die()
     {
-
+        GameObject.Destroy(transform.parent.gameObject);
     }
 
     public override void pause()
