@@ -10,6 +10,9 @@ public class EffectManager : MonoBehaviour {
     public GameObject hit_long;
     public GameObject EXP;
     public GameObject Fire;
+	public GameObject BombEffect;
+	public GameObject LevelUpEffect;
+	public GameObject PressT;
 
     private static EffectManager uniqueInstance = null;
     public static EffectManager I { get { return uniqueInstance; } }
@@ -55,12 +58,50 @@ public class EffectManager : MonoBehaviour {
     {
         StartCoroutine(EXPEffect(pos));
     }
-
     public void createFireBallEffect(GameObject obj)
     {
         StartCoroutine(createFireBall(obj));
     }
+	public void createBombEffect(GameObject obj)
+	{
+		StartCoroutine (createBomb (obj));
+	}
+	public void createLevelUpEffect(GameObject obj)
+	{
+		StartCoroutine (createLevelUp (obj));
+	}
 
+	public void createPressTEffect(GameObject obj)
+	{
+		//this is for test effect temporarily.
+		//used only in PressT_forTest.cs
+		StartCoroutine (createPressT (obj));
+	}
+
+	IEnumerator createPressT(GameObject obj)
+	{
+		//this is for test effect temporarily.
+		//used for createPressTEffect method above.
+		GameObject eff = (GameObject)Instantiate (PressT, obj.transform.position, Quaternion.identity);
+		eff.transform.parent = obj.transform;
+		Destroy (eff, 5.0f);
+		yield return null;
+	}
+
+	IEnumerator createLevelUp(GameObject obj)
+	{
+		GameObject eff = (GameObject)Instantiate (BombEffect, obj.transform.position, Quaternion.identity);
+		eff.transform.parent = obj.transform;
+		Destroy (eff, 5.0f);
+		yield return null;
+	}
+	IEnumerator createBomb(GameObject obj)
+	{
+		GameObject eff = (GameObject)Instantiate (BombEffect, obj.transform.position, Quaternion.identity);
+		eff.transform.parent = obj.transform;
+		Destroy (eff, 5.0f);
+		yield return null;
+	}
     IEnumerator createFireBall(GameObject obj)
     {
         
@@ -69,8 +110,6 @@ public class EffectManager : MonoBehaviour {
         Destroy(eff, 5.0f);
         yield return null;
     }
-
-
     IEnumerator AttackEffect(GameObject obj)
     {
         GameObject eff = (GameObject)Instantiate(attackEffect, obj.transform.position, Quaternion.Euler(90, 0, 0));

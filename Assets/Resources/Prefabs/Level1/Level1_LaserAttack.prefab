@@ -44,7 +44,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.81424761, y: 0, z: .292419195}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 488122}
@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 17}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 424300}
@@ -118,8 +118,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.20000005, y: .699999988, z: 35}
-  m_Center: {x: 5.96046448e-08, y: 0, z: -8.94069672e-08}
+  m_Size: {x: 1.20000005, y: .699999988, z: 19.2414551}
+  m_Center: {x: -6.07967377e-06, y: 0, z: .131371498}
 --- !u!114 &11406870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -307,7 +307,7 @@ ParticleSystem:
         rgba: 1912602623
       minMaxState: 0
     startSize:
-      scalar: .699999988
+      scalar: .5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -364,7 +364,7 @@ ParticleSystem:
     length: 5
     boxX: 0
     boxY: 0
-    boxZ: 30
+    boxZ: 15
     arc: 360
     placementMode: 0
     m_Mesh: {fileID: 0}
@@ -405,7 +405,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    cnt0: 50
+    cnt0: 15
     cnt1: 30
     cnt2: 30
     cnt3: 30
@@ -436,7 +436,7 @@ ParticleSystem:
           inSlope: 3.16085839
           outSlope: -0
           tangentMode: 17
-        - time: .672489047
+        - time: .789562225
           value: 1
           inSlope: 0
           outSlope: 0
@@ -1280,6 +1280,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_CastShadows
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[3].time
+      value: .789562225
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

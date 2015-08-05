@@ -14,17 +14,12 @@ public class Character : MonoBehaviour
     public float AuraRange;
 
     public int giveEXP = 1;
+    public virtual void Die() { }
 
     public virtual void giveDamage(float damage) { }
     public virtual void giveKnockback(Vector3 moveVector) { }
     public virtual void giveStun(float time) { }
     public virtual void giveSnare(float time) { }
-    public virtual void Die() { }
-
-    public virtual void haveDamage(float damage) { }
-    public virtual void haveKnockback(Vector3 moveVector) { }
-    public virtual void haveStun(float time) { }
-    public virtual void haveSnare(float time) { }
 
     public virtual void pause() { }
     public virtual void resume() { }

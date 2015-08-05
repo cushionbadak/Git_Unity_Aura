@@ -9,35 +9,42 @@ public class PlayerAuraAttack : Attack {
     private float auraAttackCooldown = 1.0f;  //초당 1회 공격 - 추후 수정 가능성 있음
     private bool isPaused = false;
     private bool isAttacking = false;
+    private Vector3 originalScale;
+    private float critChance = 0.1f; //크리티컬 확률 10%
+    private float vampScale = 0.1f; //흡혈량 공격력 * 0.1
     public List<GameObject> listOfObjects;
-    
     public PlayerUnit _p;
 
-    
+
 	// Use this for initialization
 	void Start () {
         listOfObjects = new List<GameObject>();
         listOfObjects.AddRange(GameObject.FindGameObjectsWithTag("EnemyBody"));
+
+        originalScale = this.transform.localScale;
     }
 
     // Update is called once per frame
     void Update () {
         time_store += Time.deltaTime;
-        damage = PlayerLevelData.I.Status[_p.level].damage;
+        damage = _p.damage * _p.powerUpPotionScale;
         if (time_store > 5.0f)
         {
             listOfObjects.Clear();
             listOfObjects.AddRange(GameObject.FindGameObjectsWithTag("EnemyBody"));
         }
-        speed = _p.currentSpeed;
+
+        this.transform.localScale = originalScale * _p.rangeUpPotionScale;
     }
     
     void OnTriggerStay(Collider col)
     {
             if (auraAttackCooldown <= time_store)
         {
+            
             if (col.gameObject.tag == "EnemyBody")
             {
+
                 Collider[] colls = Physics.OverlapSphere(transform.position, 5.0f);//5.0f -> 오오라의 크기로 바꿔야 함
                 foreach (GameObject go in listOfObjects)
                 {
@@ -54,8 +61,25 @@ public class PlayerAuraAttack : Attack {
     
 
     private void giveAttack(GameObject enemy)
-    { 
-        GameManager.I.attckToEnemy(this, enemy);
+    {
+        if (_p.isCriticalKnuckle == true)
+        {
+            if (Random.value <= critChance)
+            {
+                damage = damage * 2;
+                GameManager.I.attckToEnemy(this, enemy);
+                if (_p.isDraculaBrooch == true)
+                    _p.currentHP += damage * vampScale;
+                damage = damage / 2;
+            }
+        }
+        else
+        {
+            GameManager.I.attckToEnemy(this, enemy);
+            if (_p.isDraculaBrooch == true)
+                _p.currentHP += damage * vampScale;
+        }
+        
     }
 
     void pause() { }

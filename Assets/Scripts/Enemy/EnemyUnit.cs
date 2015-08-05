@@ -34,13 +34,13 @@ public class EnemyUnit : Enemy
             enemyAI.GiveKnockBack(moveVector, Vector3.Magnitude(moveVector), 0.5f);
     }
 
-    public override void haveStun(float time)
+    public override void giveStun(float time)
     {
         if (enemyAI != null)
             enemyAI.GiveBuff(ENEMY_BUFF.STUN, 0, 3);
     }
 
-    public override void haveSnare(float time)
+    public override void giveSnare(float time)
     {
         if (enemyAI != null)
             enemyAI.GiveBuff(ENEMY_BUFF.SNARE, 0, 3);

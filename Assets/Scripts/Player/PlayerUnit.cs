@@ -15,22 +15,15 @@ public class PlayerUnit : Player {
     bool HorizontalCheck = false;
     bool VerticalCheck = false;
     RaycastHit hit;
-
+    
     // Use this for initialization
     void Start () {
 
         rigid = gameObject.GetComponent<Rigidbody>();
 
-
-        // Player Status
-        level = 1;  // Player의 현재 레벨 받아오기 필요. 게임매니저에 저장해서 받아오기
-        EXP = 0;
-
         maxHP = PlayerLevelData.I.Status[level].maxHP;
         
-        
-        currentHP = maxHP;
-        
+        /*
         originalSpeed = 10.0f;
         currentSpeed = originalSpeed;
 
@@ -46,9 +39,8 @@ public class PlayerUnit : Player {
         isStickyBall = false;
         isCriticalKnuckle = false;
         isSpecialThing = false;
+        */
 
-        // Others
-        //parent = transform.parent.gameObject;
     }
 	
 	// Update is called once per frame
@@ -155,30 +147,9 @@ public class PlayerUnit : Player {
         }
          
         //움직임
-        Vector3 speedVec = new Vector3(h, v, 0) * currentSpeed *Time.deltaTime;
+        Vector3 speedVec = new Vector3(h, v, 0) * currentSpeed * speedUpPotionScale * Time.deltaTime;
         transform.Translate(speedVec);
-       
-        
 
-        //rigid.velocity = speedVec;
-        
-        // Movement xDir = x-coord, yDir = z-coord
-        /*bool Key_left = Input.GetKey(KeyCode.LeftArrow);
-        bool Key_right = Input.GetKey(KeyCode.RightArrow);
-        bool Key_up = Input.GetKey(KeyCode.UpArrow);
-        bool Key_down = Input.GetKey(KeyCode.DownArrow);
-        float xDir = 0.0f;
-        float yDir = 0.0f;
-
-        if (Key_right) { xDir = 1.0f; }
-        else if (Key_left) { xDir = -1.0f; }
-
-        if (Key_up) { yDir = 1.0f; }
-        else if (Key_down) { yDir = -1.0f; }
-
-        Move(xDir, yDir);
-        */
-        
         // Snare Check
         if (isSnare)
         {
@@ -203,39 +174,35 @@ public class PlayerUnit : Player {
         if (currentHP <= 0) { Die(); }
         
 	}
-
-
-    private void Move(float xDir, float yDir)
-    {
-        Vector3 start = transform.position;
-        Vector3 end = start + new Vector3(xDir * currentSpeed * Time.deltaTime, 0, yDir * currentSpeed * Time.deltaTime);
-
-        transform.position = end;
-    }
-
-    public override void haveDamage(float damage)
+    
+    public override void giveDamage(float damage)
     {
         currentHP -= damage;
     }
-
-    
-    public override void haveKnockback(Vector3 moveVector) { }
-    public override void haveStun(float time) { }
-
-    public override void haveSnare(float time)
+        
+    public override void giveKnockback(Vector3 moveVector) { }
+    public override void giveStun(float time) { }
+    public override void giveSnare(float time)
     {
         isSnare = true;
         snare_duration = time;
     }
 
-    public override void Die() {
-        //죽었을때 게임정지, UI띄우기
-    }
-
-    void reGame()
-    {
-    }
-
+    public override void Die() { /*죽었을때 게임정지, UI띄우기*/ }
     public override void pause() { }
     public override void resume() {}
+
+    void powerUp(int powerUpPotionNum)
+    {
+        powerUpPotionScale = 1.0f + (0.2f * powerUpPotionNum);
+    }
+    void speedUp(int speedUpPotionNum)
+    {
+        speedUpPotionScale = 1.0f + (0.1f * speedUpPotionNum);
+    }
+    void rangeUp(int rangeUpPotionNum)
+    {
+        rangeUpPotionScale = 1.0f + (0.1f * rangeUpPotionNum);
+    }
+
 }

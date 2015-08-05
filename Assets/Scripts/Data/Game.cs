@@ -26,4 +26,7 @@ public class Game  {
         }
     }
 
+    public int currentChapter;
+    public ArrayList roomStatus;
+
 }

@@ -306,7 +306,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    cnt0: 20
+    cnt0: 5
     cnt1: 5
     cnt2: 10
     cnt3: 30
@@ -1127,7 +1127,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: EmissionModule.cnt0
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: RotationBySpeedModule.curve.scalar

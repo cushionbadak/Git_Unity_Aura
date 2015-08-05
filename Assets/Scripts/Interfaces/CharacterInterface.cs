@@ -7,8 +7,8 @@ public interface CharacterInterface {
 	int level			{ get; set;	}
 	float originalSpeed { get; set;	}
 	float currentSpeed	{ get; set;	}
-	void haveKnockback(Vector3 moveVector);
-	void haveStun(float time);
-	void haveSnare(float time);
+	void giveKnockback(Vector3 moveVector);
+	void giveStun(float time);
+	void giveSnare(float time);
 	void Die();
 }

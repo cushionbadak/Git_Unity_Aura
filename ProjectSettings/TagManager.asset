@@ -17,6 +17,7 @@ TagManager:
   - EnemyTeam
   - MapObject
   - Enemy
+  - Dummy
   layers:
   - Default
   - TransparentFX
