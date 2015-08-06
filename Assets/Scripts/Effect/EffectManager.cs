@@ -99,6 +99,8 @@ public class EffectManager : MonoBehaviour {
 	}
 	public void createFireBombEffect(GameObject obj)
 	{
+		int i;
+		for (i = 0; i < 10; i++)
 		StartCoroutine (createFireBomb (obj));
 	}
 	public void createThunderShoesEffect(GameObject obj)
