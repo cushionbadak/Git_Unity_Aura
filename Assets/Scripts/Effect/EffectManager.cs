@@ -10,9 +10,17 @@ public class EffectManager : MonoBehaviour {
     public GameObject hit_long;
     public GameObject EXP;
     public GameObject Fire;
-	public GameObject BombEffect;
+	public GameObject LightBombEffect;
 	public GameObject LevelUpEffect;
 	public GameObject PressT;
+	public GameObject ShockWaveEffect;
+	public GameObject DustCloudEffect;
+	public GameObject MonsterSummonEffect;
+	public GameObject FireBombEffect;
+	public GameObject ThunderShoesEffect;
+	public GameObject BossThunderEffect;
+	public GameObject RedHealEffect;
+	public GameObject TeleportEffect;
 
     private static EffectManager uniqueInstance = null;
     public static EffectManager I { get { return uniqueInstance; } }
@@ -62,9 +70,9 @@ public class EffectManager : MonoBehaviour {
     {
         StartCoroutine(createFireBall(obj));
     }
-	public void createBombEffect(GameObject obj)
+	public void createLightBombEffect(GameObject obj)
 	{
-		StartCoroutine (createBomb (obj));
+		StartCoroutine (createLightBomb (obj));
 	}
 	public void createLevelUpEffect(GameObject obj)
 	{
@@ -77,7 +85,96 @@ public class EffectManager : MonoBehaviour {
 		//used only in PressT_forTest.cs
 		StartCoroutine (createPressT (obj));
 	}
-
+	public void createShockWaveEffect(GameObject obj)
+	{
+		StartCoroutine (createShockWave (obj));
+	}
+	public void createDustCloudEffect(GameObject obj)
+	{
+		StartCoroutine (createDustCloud (obj));
+	}
+	public void createMonsterSummonEffect(GameObject obj)
+	{
+		StartCoroutine (createMonsterSummon (obj));
+	}
+	public void createFireBombEffect(GameObject obj)
+	{
+		StartCoroutine (createFireBomb (obj));
+	}
+	public void createThunderShoesEffect(GameObject obj)
+	{
+		StartCoroutine (createThunderShoes (obj));
+	}
+	public void createRedHealEffect(GameObject obj)
+	{
+		StartCoroutine (createRedHeal (obj));
+	}
+	public void createTeleportEffect(GameObject obj)
+	{
+		StartCoroutine (createTeleport (obj));
+	}
+	public void createBossThunderEffect (GameObject obj)
+	{
+		StartCoroutine (createBossThunder (obj));
+	}
+		//
+		//
+	IEnumerator createBossThunder(GameObject obj)
+	{
+		GameObject eff = (GameObject)Instantiate (BossThunderEffect, obj.transform.position, Quaternion.identity);
+		eff.transform.parent = obj.transform;
+		Destroy (eff, 5.0f);
+		yield return null;
+	}
+	IEnumerator createTeleport(GameObject obj)
+	{
+		GameObject eff = (GameObject)Instantiate (TeleportEffect, obj.transform.position, Quaternion.identity);
+		eff.transform.parent = obj.transform;
+		Destroy (eff, 5.0f);
+		yield return null;
+	}
+	IEnumerator createRedHeal(GameObject obj)
+	{
+		GameObject eff = (GameObject)Instantiate (RedHealEffect, obj.transform.position, Quaternion.identity);
+		eff.transform.parent = obj.transform;
+		Destroy (eff, 5.0f);
+		yield return null;
+	}
+	IEnumerator createThunderShoes(GameObject obj)
+	{
+		GameObject eff = (GameObject)Instantiate (ThunderShoesEffect, obj.transform.position, Quaternion.identity);
+		eff.transform.parent = obj.transform;
+		Destroy (eff, 5.0f);
+		yield return null;
+	}
+	IEnumerator createFireBomb(GameObject obj)
+	{
+		GameObject eff = (GameObject)Instantiate (FireBombEffect, obj.transform.position, Quaternion.identity);
+		eff.transform.parent = obj.transform;
+		Destroy (eff, 5.0f);
+		yield return null;
+	}
+	IEnumerator createMonsterSummon(GameObject obj)
+	{
+		GameObject eff = (GameObject)Instantiate (MonsterSummonEffect, obj.transform.position, Quaternion.identity);
+		eff.transform.parent = obj.transform;
+		Destroy (eff, 5.0f);
+		yield return null;
+	}
+	IEnumerator createDustCloud(GameObject obj)
+	{
+		GameObject eff = (GameObject)Instantiate (DustCloudEffect, obj.transform.position, Quaternion.identity);
+		eff.transform.parent = obj.transform;
+		Destroy (eff, 5.0f);
+		yield return null;
+	}
+	IEnumerator createShockWave(GameObject obj)
+	{
+		GameObject eff = (GameObject)Instantiate (ShockWaveEffect, obj.transform.position, Quaternion.identity);
+		eff.transform.parent = obj.transform;
+		Destroy (eff, 5.0f);
+		yield return null;
+	}
 	IEnumerator createPressT(GameObject obj)
 	{
 		//this is for test effect temporarily.
@@ -90,14 +187,14 @@ public class EffectManager : MonoBehaviour {
 
 	IEnumerator createLevelUp(GameObject obj)
 	{
-		GameObject eff = (GameObject)Instantiate (BombEffect, obj.transform.position, Quaternion.identity);
+		GameObject eff = (GameObject)Instantiate (LevelUpEffect, obj.transform.position, Quaternion.identity);
 		eff.transform.parent = obj.transform;
 		Destroy (eff, 5.0f);
 		yield return null;
 	}
-	IEnumerator createBomb(GameObject obj)
+	IEnumerator createLightBomb(GameObject obj)
 	{
-		GameObject eff = (GameObject)Instantiate (BombEffect, obj.transform.position, Quaternion.identity);
+		GameObject eff = (GameObject)Instantiate (LightBombEffect, obj.transform.position, Quaternion.identity);
 		eff.transform.parent = obj.transform;
 		Destroy (eff, 5.0f);
 		yield return null;

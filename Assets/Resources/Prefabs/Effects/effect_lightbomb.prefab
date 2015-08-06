@@ -62,7 +62,7 @@ GameObject:
   - 198: {fileID: 19801372}
   - 199: {fileID: 19925328}
   m_Layer: 0
-  m_Name: effect_bomb
+  m_Name: effect_lightbomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
