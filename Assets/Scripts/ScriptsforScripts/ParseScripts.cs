@@ -21,7 +21,14 @@ public class ParseScripts : MonoBehaviour {
     // Use this for initialization
     void Awake () {
         dia = new List<DialogStruct>();
-        file_path = "Assets/Resources/Dialogs/"+ file_name+".txt";
+        if (Application.isEditor==true)
+        {
+            file_path = "Assets/Resources/Dialogs/" + file_name + ".txt";
+        }
+        else
+        {
+            file_path =file_name+".txt";
+        }
         st_r = new StreamReader(file_path);
 
         while(st_r.Peek()>-1)

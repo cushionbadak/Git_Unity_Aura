@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CutSceneAnim : MonoBehaviour {
+public class CutSceneAnim_Player : MonoBehaviour {
 
     private AnimControl_Player animP;
      GameObject plDum;

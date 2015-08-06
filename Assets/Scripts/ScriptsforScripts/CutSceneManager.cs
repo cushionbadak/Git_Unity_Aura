@@ -92,13 +92,17 @@ public class CutSceneManager : MonoBehaviour {
 
     void DoScript()
     {
-        ScriptsManager.I.scriptModeON();
+        ScriptsManager.I.scriptMove();
     }
 
     public void question(GameObject obj)
     {
         isEmotioning = true;
-        Instantiate(q, obj.transform.position+Vector3.forward*0.1f+Vector3.right*0.3f, Quaternion.Euler(90,0,0));
+        Transform[] objs = obj.GetComponentsInChildren<Transform>();
+        foreach (Transform tr in objs)
+        {
+            Instantiate(q, tr.position + Vector3.forward * 0.1f + Vector3.right * 0.3f, Quaternion.Euler(90, 0, 0));
+        }
     }
     public void question()
     {
@@ -108,7 +112,11 @@ public class CutSceneManager : MonoBehaviour {
     public void exclamation(GameObject obj)
     {
         isEmotioning = true;
-        Instantiate(e, obj.transform.position + Vector3.forward * 0.1f + Vector3.right * 0.3f, Quaternion.Euler(90, 0, 0));
+        Transform[] objs = obj.GetComponentsInChildren<Transform>();
+        foreach (Transform tr in objs)
+        {
+            Instantiate(e, tr.position + Vector3.forward * 0.1f + Vector3.right * 0.3f, Quaternion.Euler(90, 0, 0));
+        }
     }
     public void exclamation()
     {
@@ -137,7 +145,18 @@ public class CutSceneManager : MonoBehaviour {
         nav.SetDestination(pos);
         destination = pos;
     }
-    
+
+    public void Move(GameObject obj,Vector3 pos)
+    {
+        isMoving = true;
+        Transform[] objs = obj.GetComponentsInChildren<Transform>();
+        foreach (Transform tr in objs)
+        {
+            if(tr.gameObject.GetInstanceID()!=obj.GetInstanceID())
+                tr.gameObject.GetComponent<NavMeshAgent>().SetDestination(tr.position + pos);
+        }
+    }
+
     public void CameraOn()
     {
         GameObject cam=GameObject.Find("Camera");
