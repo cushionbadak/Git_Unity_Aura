@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
     {
         if (isGameMode)
         {
-            if (findPlayer().gameObject.GetComponent<PlayerUnit>().currentHP < 0)
+            if (findPlayer().gameObject.GetComponent<PlayerUnit>().currentHP <= 0)
             {
                 Time.timeScale = 0.01f;
             }
@@ -323,6 +323,15 @@ public class GameManager : MonoBehaviour
         EffectManager.I.createEXPEffect(pos);
         Debug.Log(exp);
         player.EXPIncrease(exp);
+        if (PlayerLevelData.I.Status[player.level+1].needEXP<=player.EXP)
+        {
+            player.level++;
+            player.EXP -= PlayerLevelData.I.Status[player.level].needEXP;
+            player.maxHP = PlayerLevelData.I.Status[player.level].maxHP;
+            player.currentHP = player.maxHP;
+            EffectManager.I.createLevelUpEffect(player.gameObject);
+        }
+
     }
 
 

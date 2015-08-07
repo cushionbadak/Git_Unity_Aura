@@ -38,7 +38,7 @@ public class PlayerLevelData : MonoBehaviour
             Destroy(this.gameObject);
 
         //Datas.
-        Status = new StatusStruct[31];
+        Status = new StatusStruct[32];
         Status[0] = new StatusStruct(0, 10000.0f, 10000.0f, 2, 3);
         Status[1] = new StatusStruct(1, 100.0f, 10.0f, 0, 0);
         Status[2] = new StatusStruct(2, 110.0f, 12.0f, 20, 20);
@@ -91,6 +91,8 @@ public class PlayerLevelData : MonoBehaviour
                 tneedEXPSum += Status[j].needEXP;
             tneedEXPSum += tneedEXP;
             Status[i] = new StatusStruct(i, tmaxHP, tdamage, tneedEXP, tneedEXPSum);
+
+            Status[31] = new StatusStruct(31, 5000, 2000, 15000, 130000);
         }
         //Datas End.
 
