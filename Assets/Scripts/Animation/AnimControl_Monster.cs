@@ -15,7 +15,7 @@ public class AnimControl_Monster : MonoBehaviour {
     public AnimControl_Monster(string n,int t, GameObject o)
     {
         type = t;
-        int r = Random.Range(0, 1);
+        int r = Random.Range(0, 2);
         if(r==0)
         {
             isRight = true;

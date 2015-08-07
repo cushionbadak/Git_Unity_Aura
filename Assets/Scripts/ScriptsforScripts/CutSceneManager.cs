@@ -101,7 +101,8 @@ public class CutSceneManager : MonoBehaviour {
         Transform[] objs = obj.GetComponentsInChildren<Transform>();
         foreach (Transform tr in objs)
         {
-            Instantiate(q, tr.position + Vector3.forward * 0.1f + Vector3.right * 0.3f, Quaternion.Euler(90, 0, 0));
+            if (tr.gameObject.GetInstanceID() != obj.GetInstanceID()) 
+                Instantiate(q, tr.position + Vector3.forward * 0.1f + Vector3.right * 0.3f, Quaternion.Euler(90, 0, 0));
         }
     }
     public void question()
@@ -115,7 +116,8 @@ public class CutSceneManager : MonoBehaviour {
         Transform[] objs = obj.GetComponentsInChildren<Transform>();
         foreach (Transform tr in objs)
         {
-            Instantiate(e, tr.position + Vector3.forward * 0.1f + Vector3.right * 0.3f, Quaternion.Euler(90, 0, 0));
+            if (tr.gameObject.GetInstanceID() != obj.GetInstanceID())
+                Instantiate(e, tr.position + Vector3.forward * 0.1f + Vector3.right * 0.3f, Quaternion.Euler(90, 0, 0));
         }
     }
     public void exclamation()
@@ -136,7 +138,6 @@ public class CutSceneManager : MonoBehaviour {
         Debug.Log(pos);
         isScene = true;
         plDum.transform.position = pos;
-
     }
 
     public void Move(Vector3 pos)

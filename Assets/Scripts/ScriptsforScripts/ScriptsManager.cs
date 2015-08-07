@@ -18,9 +18,16 @@ public class ScriptsManager : MonoBehaviour {
     GameObject dialogUI;
     GameObject inGameUI;
     public bool scriptMode = true;
-    int index = 0;
-    int prevIndex = 0;
+    public int index=0;
+    public int prevIndex=0;
     bool firstFrame = true;
+
+    public void setIndex(int i)
+    {
+        index = i;
+    }
+    
+
     // Use this for initialization
     void Start() {
         dialogUI = GameObject.FindWithTag("DialogUI");
@@ -31,6 +38,9 @@ public class ScriptsManager : MonoBehaviour {
             uniqueInstance = this;
         else
             Destroy(this.gameObject);
+        index = GameManager.I.index;
+        Debug.Log(index);
+
     }
 
     // Update is called once per frame
@@ -134,21 +144,24 @@ public class ScriptsManager : MonoBehaviour {
 
         else if (sc.Contains("(GameStart)"))
         {
-            int i;
-            i = sc.IndexOf(')');
+            if (!GameManager.I.getGameMode())
+            {
+                int i;
+                i = sc.IndexOf(')');
 
-            string[] sp1 = sc.Split(')');
-            string[] sp2 = sp1[1].Split(',');
+                string[] sp1 = sc.Split(')');
+                string[] sp2 = sp1[1].Split(',');
 
-            float x, y, z;
+                float x, y, z;
 
-            x = Convert.ToSingle(sp2[0]);
-            y = Convert.ToSingle(sp2[1]);
-            z = Convert.ToSingle(sp2[2]);
-            Vector3 pos = new Vector3(x, y, z);
+                x = Convert.ToSingle(sp2[0]);
+                y = Convert.ToSingle(sp2[1]);
+                z = Convert.ToSingle(sp2[2]);
+                Vector3 pos = new Vector3(x, y, z);
 
 
-            plReal.transform.position = pos;
+                plReal.transform.position = pos;
+            }
             GameModeOn();
         }
 

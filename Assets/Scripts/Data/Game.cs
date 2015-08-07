@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 [System.Serializable]
+
 public class Game  {
     public static Game current;
     public float hp;
     public int level;
     public int exp;
+    public int powerUpPotion;       
+    public int speedUpPotion;       
+    public int rangeUpPotion;
+    public int dialogIndex;
     private WB_Vector3 _someVector3Info;
     public Vector3 playerPosition
     {
