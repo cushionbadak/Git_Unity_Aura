@@ -192,15 +192,15 @@ public class PlayerUnit : Player {
     public override void pause() { }
     public override void resume() {}
 
-    void powerUp(int powerUpPotionNum)
+    public void powerUp(int powerUpPotionNum)
     {
         powerUpPotionScale = 1.0f + (0.2f * powerUpPotionNum);
     }
-    void speedUp(int speedUpPotionNum)
+    public void speedUp(int speedUpPotionNum)
     {
         speedUpPotionScale = 1.0f + (0.1f * speedUpPotionNum);
     }
-    void rangeUp(int rangeUpPotionNum)
+    public void rangeUp(int rangeUpPotionNum)
     {
         rangeUpPotionScale = 1.0f + (0.1f * rangeUpPotionNum);
     }
