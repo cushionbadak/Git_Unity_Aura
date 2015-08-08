@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
 using UnityStandardAssets.Cameras;
@@ -7,28 +8,45 @@ public class ScriptsManager : MonoBehaviour {
 
     private static ScriptsManager uniqueInstance = null;
     public static ScriptsManager I { get { return uniqueInstance; } }
-    public Text n;
-    public Text d;
+    Text n;
+    Text d;
+    public GameObject BB;
     public GameObject plDum;
+    public GameObject[] npcGroup;
     public GameObject plReal;
     public ParseScripts p;
-    public GameObject dialogUI;
+    GameObject dialogUI;
+    GameObject inGameUI;
     public bool scriptMode = true;
-    int index = 0;
-    int prevIndex = 0;
+    public int index=0;
+    public int prevIndex=0;
+    bool firstFrame = true;
+
+    public void setIndex(int i)
+    {
+        index = i;
+    }
+    
+
     // Use this for initialization
     void Start() {
+        dialogUI = GameObject.FindWithTag("DialogUI");
+        inGameUI = GameObject.FindWithTag("InGameUI");
+        n = GameObject.FindWithTag("DialogName").GetComponent<Text>();
+        d = GameObject.FindWithTag("DialogText").GetComponent<Text>();
         if (uniqueInstance == null)
             uniqueInstance = this;
         else
             Destroy(this.gameObject);
-        scriptChange();
+        index = GameManager.I.index;
+        Debug.Log(index);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (scriptMode)
+        if (!firstFrame&&scriptMode)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -47,20 +65,66 @@ public class ScriptsManager : MonoBehaviour {
                 prevIndex = index;
             }
         }
+        if (firstFrame)
+        {
+            scriptChange();
+            firstFrame = false;
+        }
     }
 
     void scriptChange()
     {
         string sc = p.dia[index].dialog;
 
-        if(sc.Contains("(End)"))
+        if (sc.Contains("(End)"))
         {
-            scriptModeOff();
-
+            scriptOff();
+            CutSceneManager.I.doBlack();
         }
-        if (sc.Contains("(Move)"))
+        else if (sc.Contains("(Move)"))
         {
-            scriptModeOff();
+            scriptOff();
+            if (sc.Contains("/"))
+            {
+                int temp = sc.IndexOf('/') -1;
+                int ind = Convert.ToInt16(sc[temp])-'0';
+
+                string[] sp1 = sc.Split('/');
+                
+                string[] sp2 = sp1[1].Split(',');
+
+                float x, y, z;
+
+                x = Convert.ToSingle(sp2[0]);
+                y = Convert.ToSingle(sp2[1]);
+                z = Convert.ToSingle(sp2[2]);
+                Vector3 pos = new Vector3(x, y, z);
+
+                CutSceneManager.I.Move(npcGroup[ind],pos);
+
+            }
+            else
+            {
+                int i;
+                i = sc.IndexOf(')');
+
+                string[] sp1 = sc.Split(')');
+                string[] sp2 = sp1[1].Split(',');
+
+                float x, y, z;
+
+                x = Convert.ToSingle(sp2[0]);
+                y = Convert.ToSingle(sp2[1]);
+                z = Convert.ToSingle(sp2[2]);
+                Vector3 pos = new Vector3(x, y, z);
+
+                CutSceneManager.I.Move(pos);
+            }
+        }
+
+        else if (sc.Contains("(SceneStart)"))
+        {
+            GameModeOff();
             int i;
             i = sc.IndexOf(')');
 
@@ -74,49 +138,120 @@ public class ScriptsManager : MonoBehaviour {
             z = Convert.ToSingle(sp2[2]);
             Vector3 pos = new Vector3(x, y, z);
             
-            CutSceneManager.I.Move(pos);
+            CutSceneManager.I.SceneStart(pos);
         }
 
-        if(sc.Contains("(!)"))
+
+        else if (sc.Contains("(GameStart)"))
         {
-            scriptModeOff();
-            CutSceneManager.I.exclamation();
+            if (!GameManager.I.getGameMode())
+            {
+                int i;
+                i = sc.IndexOf(')');
+
+                string[] sp1 = sc.Split(')');
+                string[] sp2 = sp1[1].Split(',');
+
+                float x, y, z;
+
+                x = Convert.ToSingle(sp2[0]);
+                y = Convert.ToSingle(sp2[1]);
+                z = Convert.ToSingle(sp2[2]);
+                Vector3 pos = new Vector3(x, y, z);
+
+
+                plReal.transform.position = pos;
+            }
+            GameModeOn();
         }
 
-        if(sc.Contains("(?)"))
+        else if (sc.Contains("(!)"))
         {
-
-            scriptModeOff();
-            CutSceneManager.I.question();
+            scriptOff();
+            if (sc.Trim().EndsWith(")"))
+            {
+                CutSceneManager.I.exclamation();
+            }
+            else
+            {
+                int temp = sc.IndexOf(')') + 2;
+                int ind = Convert.ToInt16(sc[temp])-'0';
+                CutSceneManager.I.exclamation(npcGroup[ind]);
+            }
         }
 
-        n.text = p.dia[index].name;
-        d.text = p.dia[index].dialog;
+        else if (sc.Contains("(?)"))
+        {
+            if (sc.EndsWith(")"))
+            {
+                scriptOff();
+                CutSceneManager.I.question();
+            }
+            else
+            {
+                scriptOff();
+                int temp = sc.IndexOf(')') + 2;
+                int ind = Convert.ToInt32(sc[temp]);
+                CutSceneManager.I.question(npcGroup[ind]);
+            }
+        }
+
+        else
+        {
+            n.text = p.dia[index].name;
+            d.text = p.dia[index].dialog;
+        }
     }
 
-    public void scriptModeOff()
-    {
-        scriptMode = false;
-        dialogUI.SetActive(false);
-    }
-    public void scriptInit()
-    {
-        n.text = p.dia[index].name;
-        d.text = p.dia[index].dialog;
-    }
 
-    public void scriptModeON()
+    public void scriptMove()
     {
         index++;
         scriptMode = true;
         dialogUI.SetActive(true);
-        scriptChange();
     }
+
+    public void scriptOff()
+    {
+        scriptMode = false;
+        dialogUI.SetActive(false);
+    }
+
+    public void GameModeOn()
+    {
+        GameManager.I.setGameMode(true);
+        cameraToPlayer();
+        plDum.SetActive(false);
+        plReal.SetActive(true);
+        foreach (GameObject npc in npcGroup)
+        {
+            npc.SetActive(false);
+        }
+        inGameUI.SetActive(true);
+        scriptOff();
+    }
+
+    public void GameModeOff()
+    {
+        GameManager.I.setGameMode(false);
+        cameraToDummy();
+        foreach (GameObject npc in npcGroup)
+        {
+            npc.SetActive(true);
+        }
+        plDum.SetActive(true);
+        plReal.SetActive(false);
+        inGameUI.SetActive(false);
+        scriptMode = true;
+        dialogUI.SetActive(true);
+    }
+
+   
 
     public void cameraToPlayer()
     {
         GameObject cam = GameObject.Find("Camera");
-        cam.GetComponent<AutoCam>().SetTarget(plDum.transform);
+        cam.GetComponent<AutoCam>().SetTarget(plReal.transform);
     }
    
     public void cameraToDummy()

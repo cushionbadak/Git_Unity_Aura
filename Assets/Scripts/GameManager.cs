@@ -13,9 +13,16 @@ public class GameManager : MonoBehaviour
 {
     public GameObject DamageText;
     public MapManager mapM;
+    bool isGameMode=false;
+    public int index=0;
     //Singleton
     private static GameManager uniqueInstance = null;
     public static GameManager I { get { return uniqueInstance; } }
+
+    public bool getGameMode()
+    {
+        return isGameMode;
+    }
 
     void Awake()
     {
@@ -24,9 +31,16 @@ public class GameManager : MonoBehaviour
             SaveLoad.Init();
             Game.current = new Game();
 
+            GameObject player = GameObject.FindWithTag("PlayerBody");
+            player.transform.parent.transform.position = new Vector3(0,0,0);
+            player.GetComponent<PlayerUnit>().currentHP = 100;
+            player.GetComponent<PlayerUnit>().EXP = 0;
+            player.GetComponent<PlayerUnit>().level = 1;
+            player.GetComponent<PlayerUnit>().damage = 10;
         }
         else
         {
+            isGameMode = true;
             SaveLoad.LoadAll();
             //Load시 게임 초기화
             mapM.CurrentChapter = Game.current.currentChapter;
@@ -38,12 +52,23 @@ public class GameManager : MonoBehaviour
                         break;
                     }
             }
-            GameObject player = GameManager.I.findPlayer().gameObject;
+            GameObject player = GameObject.FindWithTag("PlayerBody");
+            PlayerUnit pl = player.GetComponent<PlayerUnit>();
+            Debug.Log(Game.current.playerPosition);
             player.transform.parent.transform.position = Game.current.playerPosition;
             player.GetComponent<PlayerUnit>().currentHP = Game.current.hp;
             player.GetComponent<PlayerUnit>().EXP = Game.current.exp;
             player.GetComponent<PlayerUnit>().level = Game.current.level;
-            DontDestroyOnLoad(this.gameObject);
+            player.GetComponent<PlayerUnit>().damage = PlayerLevelData.I.Status[Game.current.level].damage;
+            pl.powerUpPotion = Game.current.powerUpPotion;
+            pl.speedUpPotion = Game.current.speedUpPotion;
+            pl.rangeUpPotion = Game.current.rangeUpPotion;
+            pl.powerUp(pl.powerUpPotion);
+            pl.speedUp(pl.speedUpPotion);
+            pl.rangeUp(pl.rangeUpPotion);
+
+            index = Game.current.dialogIndex;
+
         }
     }
 
@@ -62,7 +87,6 @@ public class GameManager : MonoBehaviour
         SaveLoad.LoadAll();
         Game.current = SaveLoad.savedGames[i];
         Time.timeScale = 1.0f;
-       
         Application.LoadLevel(0);
     }
 
@@ -73,46 +97,73 @@ public class GameManager : MonoBehaviour
         Debug.Log("Slot " + i + " Saved");
     }
 
+    public void setGameMode(bool b)
+    {
+        isGameMode = b;
+    }
+
     void Update()
     {
-        if(findPlayer().gameObject.GetComponent<PlayerUnit>().currentHP<0)
+        if(!isGameMode)
         {
-            Time.timeScale = 0.01f;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            Save(0);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            Save(1);
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            Save(2);
-        }
-
-        if(Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            Load(0);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            Load(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            Load(2);
-        }
-
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            SaveLoad.LoadAll();
-            Debug.Log("Loaded");
-            Debug.Log("Current Max Slot : " + SaveLoad.savedGames.Count);
-            for(int i=0;i< SaveLoad.savedGames.Count;i++)
+            if(Input.GetKeyDown(KeyCode.Alpha7))
             {
-                Debug.Log(i + "번째 슬롯의 pos : " + SaveLoad.savedGames[i].playerPosition);
+                ScriptsManager.I.GameModeOn();
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                Load(0);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                Load(1);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                Load(2);
+            }
+        }
+        if (isGameMode)
+        {
+            if (findPlayer().gameObject.GetComponent<PlayerUnit>().currentHP <= 0)
+            {
+                Time.timeScale = 0.01f;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                Save(0);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                Save(1);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                Save(2);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                Load(0);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                Load(1);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                Load(2);
+            }
+
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                SaveLoad.LoadAll();
+                Debug.Log("Loaded");
+                Debug.Log("Current Max Slot : " + SaveLoad.savedGames.Count);
+                for (int i = 0; i < SaveLoad.savedGames.Count; i++)
+                {
+                    Debug.Log(i + "번째 슬롯의 pos : " + SaveLoad.savedGames[i].playerPosition);
+                }
             }
         }
     }
@@ -308,8 +359,21 @@ public class GameManager : MonoBehaviour
         int exp = num;
         Player player = findPlayer();
         EffectManager.I.createEXPEffect(pos);
-        Debug.Log(exp);
+
+        SystemMessageManager.I.addMessage("경험치를 획득했습니다. (+"+exp+")");
+
         player.EXPIncrease(exp);
+        if (PlayerLevelData.I.Status[player.level+1].needEXP<=player.EXP)
+        {
+            SystemMessageManager.I.addMessage("레벨 업!");
+            player.level++;
+            player.EXP -= PlayerLevelData.I.Status[player.level].needEXP;
+            player.maxHP = PlayerLevelData.I.Status[player.level].maxHP;
+            player.currentHP += PlayerLevelData.I.Status[player.level].maxHP- PlayerLevelData.I.Status[player.level-1].maxHP;
+            player.damage = PlayerLevelData.I.Status[player.level].damage;
+            EffectManager.I.createLevelUpEffect(player.gameObject);
+        }
+
     }
 
 

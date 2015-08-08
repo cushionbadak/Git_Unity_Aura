@@ -18,6 +18,10 @@ TagManager:
   - MapObject
   - Enemy
   - Dummy
+  - DialogUI
+  - DialogText
+  - DialogName
+  - InGameUI
   layers:
   - Default
   - TransparentFX

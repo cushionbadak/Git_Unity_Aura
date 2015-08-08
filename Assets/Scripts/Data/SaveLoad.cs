@@ -26,14 +26,16 @@ public static class SaveLoad {
             Game.current.level = p.level;
             Game.current.currentChapter = GameObject.Find("Managers").GetComponentInChildren<MapManager>().CurrentChapter;
             Game.current.roomStatus = GameObject.Find("Managers").GetComponentInChildren<MapManager>().getRoomStatus();
-            Debug.Log(GameManager.I.findPlayer().gameObject.transform.position);
+            Game.current.powerUpPotion = p.powerUpPotion;
+            Game.current.rangeUpPotion = p.rangeUpPotion;
+            Game.current.speedUpPotion = p.speedUpPotion;
             Game.current.playerPosition = GameManager.I.findPlayer().gameObject.transform.position;
+            Game.current.dialogIndex = ScriptsManager.I.index;
             savedGames[i] = Game.current;
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Create(Application.persistentDataPath + "/savedGames.gd");
-            Debug.Log(Application.persistentDataPath);
-            Debug.Log(Application.persistentDataPath);
             bf.Serialize(file, SaveLoad.savedGames);
+
             file.Close();
         }
         else

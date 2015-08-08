@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 499750}
   - 212: {fileID: 21263334}
   - 114: {fileID: 11444622}
+  - 114: {fileID: 11445906}
   m_Layer: 0
   m_Name: Question
   m_TagString: Untagged
@@ -40,6 +41,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4c1ae1e5ceb46409e665e2ee97fa52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11445906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1874989c5e2da094ea00112c6a895694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21263334
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -63,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: a6adf1431a1ca5744ad331c0f18bc5fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
 --- !u!1001 &100100000
@@ -88,6 +100,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
