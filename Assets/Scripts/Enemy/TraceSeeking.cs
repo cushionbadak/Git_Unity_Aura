@@ -14,7 +14,8 @@ public class TraceSeeking : EnemyAction
     private float timer = 1;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
         player = GameObject.FindGameObjectWithTag("PlayerBody");
         if (player == null)
         {
