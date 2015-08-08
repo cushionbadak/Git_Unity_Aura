@@ -1,32 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TraceWalking : EnemyAction
+public class TraceSeeking : EnemyAction
 {
+
     public float search_range = 5;
-    public float stop_distance = 0.5f;
-    public float acting_time = 1;
+    public float acting_time = 0.5f;
     public int prob_cost = 3;
+
 
     private GameObject player = null;
     private Enemy unit = null;
     private float timer = 1;
-    private NavMeshAgent path_finder = null;
 
 	// Use this for initialization
-	void Start () 
-    {
+	void Start () {
         player = GameObject.FindGameObjectWithTag("PlayerBody");
         if (player == null)
         {
             Debug.LogError("Error On Finding Player");
-            Application.Quit();
-        }
-
-        path_finder = GetComponent<NavMeshAgent>();
-        if (path_finder == null)
-        {
-            Debug.LogError("Error On Finding NavMeshAgent");
             Application.Quit();
         }
 
@@ -36,42 +28,42 @@ public class TraceWalking : EnemyAction
             Debug.LogError("Error On Finding Internal Enemy Script");
             Application.Quit();
         }
-
 	}
+
+
 
     public override bool isAvailable()
     {
+
         return Vector3.Distance(player.transform.position, transform.position) < search_range;
     }
+
 
     public override int GetProbCost()
     {
         return prob_cost;
     }
 
-    
-
-    public override void OnStart()
-    {
-        timer = acting_time;
-        path_finder.enabled = true;
-        path_finder.stoppingDistance = stop_distance;
-    }
-
-    public override void Act()
-    {
-        timer -= Time.deltaTime;
-        path_finder.speed = unit.currentSpeed;
-        path_finder.destination = player.transform.position;
-    }
-
-    public override void OnStop()
-    {
-        path_finder.enabled = false;
-    }
 
     public override bool isEnd()
     {
         return timer < 0;
+    }
+
+
+    public override void Act()
+    {
+        timer -= Time.deltaTime;
+    }
+
+    public override void OnStart()
+    {
+
+        timer = acting_time;
+    }
+
+    public override void OnStop()
+    {
+
     }
 }
