@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class NewRangeAI : NewEnemyUnit {
+public class ProbabilityAI : NewEnemyUnit {
 
 
     // states
@@ -30,7 +30,7 @@ public class NewRangeAI : NewEnemyUnit {
 
     // Components
     public EnemyAnimation anim = null;
-
+    private int attack_num = 0;
 
 	// Use this for initialization
 	void Start () 
@@ -96,6 +96,7 @@ public class NewRangeAI : NewEnemyUnit {
         }
 
         current_action.Act();
+        anim.applyState(STATE_MONSTER.RUN);
 
         if (current_action.isEnd() && IsAIStateChangeable())
         {
@@ -111,7 +112,18 @@ public class NewRangeAI : NewEnemyUnit {
         }
 
         current_action.Act();
-
+        switch (attack_num)
+        {
+            case 0:
+                anim.applyState(STATE_MONSTER.ATTACK1);
+                break;
+            case 1:
+                anim.applyState(STATE_MONSTER.ATTACK2);
+                break;
+            case 2:
+                anim.applyState(STATE_MONSTER.ATTACK3);
+                break;
+        }
         if (current_action.isEnd() && IsAIStateChangeable())
         {
             StateChangeDefault();
@@ -140,8 +152,7 @@ public class NewRangeAI : NewEnemyUnit {
             next_action = action;
             ai_state.ChangeState(ai_states.trace);
 
-            if (current_action != null)
-                current_action.OnStop();
+            StopActionOnStateChange();
         }
     }
 
@@ -153,10 +164,16 @@ public class NewRangeAI : NewEnemyUnit {
         {
             next_action = action;
             ai_state.ChangeState(ai_states.attack);
+            for(int i = 0; i < attacks.Count - 1; ++i)
+            {
+                if (action == attacks[i])
+                {
+                    attack_num = i;
+                    break;
+                }
+            }
 
-            if (current_action != null)
-                current_action.OnStop();
-
+            StopActionOnStateChange();
             return;
         }
 
@@ -167,9 +184,7 @@ public class NewRangeAI : NewEnemyUnit {
             next_action = action;
             ai_state.ChangeState(ai_states.trace);
 
-            if (current_action != null)
-                current_action.OnStop();
-
+            StopActionOnStateChange();
             return;
         }
 
@@ -177,16 +192,25 @@ public class NewRangeAI : NewEnemyUnit {
         next_action = null;
         ai_state.ChangeState(ai_states.idle);
 
-        if (current_action != null)
-            current_action.OnStop();
+        StopActionOnStateChange();
     }
 
     private void StateChangeToSpecial()
     {
         ai_state.ChangeState(ai_states.special_0);
 
+        StopActionOnStateChange();
+    }
+
+    private void StopActionOnStateChange()
+    {
         if (current_action != null)
-            current_action.OnStop();
+        {
+            if (current_action == next_action)
+                current_action.OnRestart();
+            else
+                current_action.OnStop();
+        }
     }
 
     protected override void OnDamaged(float damage)

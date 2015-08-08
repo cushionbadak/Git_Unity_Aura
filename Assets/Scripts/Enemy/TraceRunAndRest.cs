@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TraceWalking : EnemyAction
+public class TraceRunAndRest : EnemyAction 
 {
+
     public float search_range = 5;
     public float stop_distance = 0.5f;
-    public float acting_time = 1;
+    public float acting_time = 2;
+    public float moving_time = 1;
     public int prob_cost = 3;
 
     private GameObject player = null;
@@ -13,8 +15,8 @@ public class TraceWalking : EnemyAction
     private float timer = 1;
     private NavMeshAgent path_finder = null;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start()
     {
         player = GameObject.FindGameObjectWithTag("PlayerBody");
         if (player == null)
@@ -37,7 +39,7 @@ public class TraceWalking : EnemyAction
             Application.Quit();
         }
 
-	}
+    }
 
     public override bool isAvailable()
     {
@@ -49,7 +51,7 @@ public class TraceWalking : EnemyAction
         return prob_cost;
     }
 
-    
+
 
     public override void OnStart()
     {
@@ -61,8 +63,16 @@ public class TraceWalking : EnemyAction
     public override void Act()
     {
         timer -= Time.deltaTime;
-        path_finder.speed = unit.currentSpeed;
-        path_finder.destination = player.transform.position;
+        if (timer > acting_time - moving_time)
+        {
+            path_finder.speed = unit.currentSpeed;
+            path_finder.destination = player.transform.position;
+        }
+        else
+        {
+            path_finder.speed = 0;
+            path_finder.destination = transform.position;
+        }
     }
 
     public override void OnStop()

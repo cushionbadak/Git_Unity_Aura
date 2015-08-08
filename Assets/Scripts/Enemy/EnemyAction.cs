@@ -34,4 +34,9 @@ public abstract class EnemyAction : MonoBehaviour{
     public abstract void OnStart();
 
     public abstract void OnStop();
+
+    public virtual void OnRestart()
+    {
+        OnStop();
+    }
 }
