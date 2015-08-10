@@ -6,21 +6,16 @@ public class PlayerAuraAttack : Attack {
 
     // Variables
     private float time_store = 0.0f;
-    private float auraAttackCooldown = 1.0f;  //초당 1회 공격 - 추후 수정 가능성 있음
-    private bool isPaused = false;
-    private bool isAttacking = false;
+    public float auraAttackCooldown = 1.0f;  //초당 1회 공격 - 추후 수정 가능성 있음
     private Vector3 originalScale;
     private float critChance = 0.1f; //크리티컬 확률 10%
     private float vampScale = 0.1f; //흡혈량 공격력 * 0.1
-    public List<GameObject> listOfObjects;
+
     public PlayerUnit _p;
 
 
 	// Use this for initialization
 	void Start () {
-        listOfObjects = new List<GameObject>();
-        listOfObjects.AddRange(GameObject.FindGameObjectsWithTag("EnemyBody"));
-
         originalScale = this.transform.localScale;
     }
 
@@ -28,37 +23,29 @@ public class PlayerAuraAttack : Attack {
     void Update () {
         time_store += Time.deltaTime;
         damage = _p.damage * _p.powerUpPotionScale;
-        if (time_store > 5.0f)
+        if (time_store > auraAttackCooldown)
         {
-            listOfObjects.Clear();
-            listOfObjects.AddRange(GameObject.FindGameObjectsWithTag("EnemyBody"));
+            Attack();
+            time_store = 0.0f;
         }
 
         this.transform.localScale = originalScale * _p.rangeUpPotionScale;
     }
-    
-    void OnTriggerStay(Collider col)
+
+
+    void Attack()
     {
-            if (auraAttackCooldown <= time_store)
+        Collider[] colls = Physics.OverlapSphere(transform.position, _p.AuraRange);
+        foreach (var col in colls)
         {
             
-            if (col.gameObject.tag == "EnemyBody")
+            if (col.tag == "EnemyBody")
             {
-
-                Collider[] colls = Physics.OverlapSphere(transform.position, 5.0f);//5.0f -> 오오라의 크기로 바꿔야 함
-                foreach (GameObject go in listOfObjects)
-                {
-                    foreach (Collider coll in colls)
-                        if (go.transform == coll.transform)
-                        {
-                            time_store = 0.0f;
-                            giveAttack(coll.gameObject);
-                        }
-                }
+                giveAttack(col.gameObject);
             }
         }
+
     }
-    
 
     private void giveAttack(GameObject enemy)
     {
