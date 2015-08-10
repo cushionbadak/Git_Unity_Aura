@@ -130,7 +130,9 @@ public class EffectManager : MonoBehaviour {
 	}
 	IEnumerator createTeleport(GameObject obj)
 	{
-		GameObject eff = (GameObject)Instantiate (TeleportEffect, obj.transform.position, Quaternion.identity);
+		Vector3 zminus = new Vector3 (0, 0, -1);
+		Vector3 teleport_trnasform = obj.transform.position + zminus; 
+		GameObject eff = (GameObject)Instantiate (PressT, teleport_trnasform, Quaternion.identity);
 		eff.transform.parent = obj.transform;
 		Destroy (eff, 5.0f);
 		yield return null;

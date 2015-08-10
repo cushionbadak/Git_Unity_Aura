@@ -208,14 +208,17 @@ public class GameManager : MonoBehaviour
     {
         if (objectThing.tag == "EnemyBody")
         {
-            Character character = objectThing.GetComponent<Character>();
-            character.currentHP -= (int)attk.damage;
+            Character enemy = objectThing.GetComponent<Character>();
+            enemy.currentHP -= attk.damage;
 
             if (attk.damage > 0)
             {
                 EffectManager.I.createAttackEffect(objectThing);
                 StartCoroutine(createDamageText(objectThing, attk));
             }
+
+            if (enemy.currentHP < 0)
+                enemy.Die();
         }
     }
 

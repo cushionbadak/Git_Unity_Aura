@@ -72,8 +72,8 @@ public class MeleeAI : MonoBehaviour, EnemyAIInterface{
         // create aura
         aura = (GameObject)Instantiate(Resources.Load("Prefabs/EnemyAura"), transform.position, new Quaternion());
         aura.transform.parent = transform;
-       
-        var aura_script = aura.GetComponent<EnemyAuraAttack>();
+
+        var aura_script = aura.GetComponent<EnemyAttackAura>();
         aura_script.damage = GetComponent<Character>().damage;
         aura_script.SetAuraSize(aura_size);
         
@@ -177,19 +177,26 @@ public class MeleeAI : MonoBehaviour, EnemyAIInterface{
 
     public void GiveKnockBack(Vector3 direction, float amount, float time)
     {
-        //amount,time은 쓰지 않음
-        Debug.Log("넉백");
-        gameObject.GetComponent<Rigidbody>().AddForce(direction);
-        StartCoroutine(kinematicOnOff());
+        gameObject.GetComponent<Rigidbody>().AddForce(direction * amount);
+        StartCoroutine(kinematicOnOff(time));
     }
 
-    IEnumerator kinematicOnOff()
+    IEnumerator kinematicOnOff(float time)
     {
-        yield return new WaitForSeconds(0.2f);//Kinematic을 켰다 켜 무한히 튕겨나가지 않도록 한다.
-        gameObject.GetComponent<Rigidbody>().isKinematic = true;
-
+        //Kinematic을 켰다 켜 무한히 튕겨나가지 않도록 한다.
         yield return new WaitForFixedUpdate();
-
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        yield return StartCoroutine(DelayedTimer.WaitForCustomDeltaTime(time, GetDeltaTime));
+        
+        yield return new WaitForFixedUpdate();
         gameObject.GetComponent<Rigidbody>().isKinematic = false;
+    }
+
+    float GetDeltaTime()
+    {
+        if (!can_update)
+            return 0;
+
+        return Time.deltaTime;
     }
 }
