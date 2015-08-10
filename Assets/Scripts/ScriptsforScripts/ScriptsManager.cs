@@ -38,8 +38,6 @@ public class ScriptsManager : MonoBehaviour {
             uniqueInstance = this;
         else
             Destroy(this.gameObject);
-        index = GameManager.I.index;
-        Debug.Log(index);
 
     }
 
@@ -67,6 +65,7 @@ public class ScriptsManager : MonoBehaviour {
         }
         if (firstFrame)
         {
+            index = GameManager.I.index;
             scriptChange();
             firstFrame = false;
         }

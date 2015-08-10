@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject DamageText;
     public MapManager mapM;
     bool isGameMode=false;
+    public bool canSave = false;
     public int index=0;
     //Singleton
     private static GameManager uniqueInstance = null;
@@ -26,8 +27,10 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+
         if (Game.current == null)
         {
+            index = 0;
             SaveLoad.Init();
             Game.current = new Game();
 
@@ -92,9 +95,17 @@ public class GameManager : MonoBehaviour
 
     public void Save(int i)
     {
-        SaveLoad.Save(i);
-        SaveLoad.LoadAll();
-        Debug.Log("Slot " + i + " Saved");
+        if (canSave)
+        {
+            SaveLoad.Save(i);
+            SaveLoad.LoadAll();
+            SystemMessageManager.I.addMessage("슬롯 " + i + "에 저장되었습니다.");
+        }
+        else
+        {
+            SystemMessageManager.I.addMessage("세이브 지역이 아닙니다. ");
+
+        }
     }
 
     public void setGameMode(bool b)
@@ -173,7 +184,8 @@ public class GameManager : MonoBehaviour
     IEnumerator createDamageText(GameObject obj,Attack attk)
     {
         GameObject dmgText = (GameObject)Instantiate(DamageText,obj.transform.position,Quaternion.Euler(90,0,0));
-        string damage = attk.damage.ToString();
+        int tempDmg = (int)attk.damage;
+        string damage = tempDmg.ToString();
         dmgText.GetComponent<TextMesh>().text = damage;
         if(obj.tag=="PlayerBody")
         {
@@ -197,7 +209,7 @@ public class GameManager : MonoBehaviour
         if (objectThing.tag == "EnemyBody")
         {
             Character character = objectThing.GetComponent<Character>();
-            character.currentHP -= attk.damage;
+            character.currentHP -= (int)attk.damage;
 
             if (attk.damage > 0)
             {
