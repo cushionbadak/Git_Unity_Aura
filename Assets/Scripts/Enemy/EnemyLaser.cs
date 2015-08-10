@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyLaser : Attack {
+public class EnemyLaser : EnemyAttacks
+{
     public float predelay_time = 1f;
     public float postdelay_time = 1f;
     private float timer = 0;
