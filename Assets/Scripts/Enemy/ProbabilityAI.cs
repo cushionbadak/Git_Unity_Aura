@@ -17,6 +17,8 @@ public class ProbabilityAI : NewEnemyUnit {
     }
     protected StateMachine<ai_states> ai_state = null;
     private bool is_paused = false;
+    private bool is_state_changed = false;
+    private float state_timer = 0;
 
     // Actions
     [SerializeField]
@@ -31,6 +33,11 @@ public class ProbabilityAI : NewEnemyUnit {
     // Components
     public EnemyAnimation anim = null;
     private int attack_num = 0;
+
+    // variable bools
+    public bool can_be_stunned = true;
+    public bool can_be_snared = true;
+    public bool can_be_knockbacked = true;
 
 	// Use this for initialization
 	void Start () 
@@ -71,11 +78,27 @@ public class ProbabilityAI : NewEnemyUnit {
 
         ai_state.LateUpdateState();
 
+        // stop action on state change
+        if (is_state_changed)
+        {
+            if (current_action != null)
+            {
+                if (current_action == next_action)
+                    current_action.OnRestart();
+                else
+                    current_action.OnStop();
+            }
+        }
+
         current_action = next_action;
+        is_state_changed = false;
+
     }
 
 
-
+    // ============= //
+    // State Methods //
+    // ============= //
 
     private void OnIdleState()
     {
@@ -84,7 +107,7 @@ public class ProbabilityAI : NewEnemyUnit {
         }
 
         anim.applyState(STATE_MONSTER.IDLE);
-        StateChangeOnIdle();
+        StateChangeDefault(false, true, false);
         
     }
 
@@ -98,9 +121,9 @@ public class ProbabilityAI : NewEnemyUnit {
         current_action.Act();
         anim.applyState(STATE_MONSTER.RUN);
 
-        if (current_action.isEnd() && IsAIStateChangeable())
+        if (current_action.isEnd())
         {
-            StateChangeDefault();
+            StateChangeDefault(true, true, true);
         }
     }
 
@@ -124,16 +147,21 @@ public class ProbabilityAI : NewEnemyUnit {
                 anim.applyState(STATE_MONSTER.ATTACK3);
                 break;
         }
-        if (current_action.isEnd() && IsAIStateChangeable())
+        if (current_action.isEnd())
         {
-            StateChangeDefault();
+            StateChangeDefault(true, true, true);
         }
     }
 
     private void OnSpecial0State()
     {
+        state_timer -= GetDeltaTime();
 
-        StateChangeDefault();
+        if (state_timer <= 0)
+        {
+            aura.resume();
+            StateChangeDefault(false, true, true);
+        }
     }
 
 
@@ -144,75 +172,58 @@ public class ProbabilityAI : NewEnemyUnit {
         return true;
     }
 
-    private void StateChangeOnIdle()
-    {
-        EnemyAction action = FindAvailableAction(traces);
-        if (action != null && IsAIStateChangeable())
-        {
-            next_action = action;
-            ai_state.ChangeState(ai_states.trace);
-
-            StopActionOnStateChange();
-        }
-    }
-
-    private void StateChangeDefault()
+    private void StateChangeDefault(bool attack, bool trace, bool idle)
     {
         // check attack available
-        EnemyAction action = FindAvailableAction(attacks);
-        if (action != null)
+        if (attack)
         {
-            next_action = action;
-            ai_state.ChangeState(ai_states.attack);
-            for(int i = 0; i < attacks.Count - 1; ++i)
+            EnemyAction action = FindAvailableAction(attacks);
+            if (action != null)
             {
-                if (action == attacks[i])
+                ChangeState(ai_states.attack, action);
+                for (int i = 0; i < attacks.Count - 1; ++i)
                 {
-                    attack_num = i;
-                    break;
+                    if (action == attacks[i])
+                    {
+                        attack_num = i;
+                        break;
+                    }
                 }
-            }
 
-            StopActionOnStateChange();
-            return;
+                return;
+            }
         }
 
         // check tracking available
-        action = FindAvailableAction(traces);
-        if (action != null)
+        if (trace)
         {
-            next_action = action;
-            ai_state.ChangeState(ai_states.trace);
+            EnemyAction action = FindAvailableAction(traces);
+            if (action != null)
+            {
+                ChangeState(ai_states.trace, action);
+                return;
+            }
+        }
 
-            StopActionOnStateChange();
+        // check idle available
+        if (idle)
+        {
+            ChangeState(ai_states.idle, null);
             return;
         }
-
-        // next state should be idle
-        next_action = null;
-        ai_state.ChangeState(ai_states.idle);
-
-        StopActionOnStateChange();
     }
 
-    private void StateChangeToSpecial()
+    private void ChangeState(ai_states next_state, EnemyAction action)
     {
-        ai_state.ChangeState(ai_states.special_0);
-
-        StopActionOnStateChange();
+        next_action = action;
+        ai_state.ChangeState(next_state);
+        is_state_changed = true;
     }
 
-    private void StopActionOnStateChange()
-    {
-        if (current_action != null)
-        {
-            if (current_action == next_action)
-                current_action.OnRestart();
-            else
-                current_action.OnStop();
-        }
-    }
 
+    // ================= //
+    // Overrided Methods //
+    // ================= //
     protected override void OnDamaged(float damage)
     {
         currentHP -= damage;
@@ -220,23 +231,34 @@ public class ProbabilityAI : NewEnemyUnit {
 
     protected override void OnKnockBack(Vector3 vector)
     {
-        //apply knockback
-
-        StateChangeToSpecial();
+        if (can_be_knockbacked)
+        {
+            //apply knockback
+            state_timer = 0.2f;
+            ChangeState(ai_states.special_0, null);
+        }
     }
 
     protected override void OnStun(float time)
     {
-        //apply stun
+        if (can_be_stunned)
+        {
+            //apply stun
+            state_timer = time;
+            ChangeState(ai_states.special_0, null);
 
-        StateChangeToSpecial();
+            StartCoroutine(StunnedAction(time));
+        }
     }
 
     protected override void OnSnare(float time)
     {
-        //apply snare
-
-        StateChangeToSpecial();
+        if (can_be_snared)
+        {
+            //apply snare
+            state_timer = time;
+            ChangeState(ai_states.special_0, null);
+        }
     }
 
     protected override void OnPause()
@@ -255,5 +277,25 @@ public class ProbabilityAI : NewEnemyUnit {
         {
             Debug.Log("Range Enemy Died : " + gameObject.name);
         }
+    }
+
+
+    IEnumerator StunnedAction(float time)
+    {
+        float backup_aura_range = AuraRange;
+        AuraRange = 0;
+        aura.StopAura();
+
+        yield return StartCoroutine(DelayedTimer.WaitForCustomDeltaTime(time, GetDeltaTime));
+
+        AuraRange = backup_aura_range;
+        aura.ResumeAura();
+    }
+
+    float GetDeltaTime()
+    {
+        if (!is_acting)
+            return 0;
+        return Time.deltaTime;
     }
 }

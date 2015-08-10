@@ -50,10 +50,8 @@ public abstract class NewEnemyUnit : Enemy
 
         // add aura
         GameObject aura_object = (GameObject)Instantiate(Resources.Load("Prefabs/EnemyAura"), transform.position, new Quaternion());
-        aura_object.transform.parent = transform;
-
         aura = aura_object.GetComponent<EnemyAttackAura>();
-        aura.SetAuraSize(0);
+        aura.SetOwner(this);
     }
 
     // this should be called before its sibling
@@ -108,41 +106,41 @@ public abstract class NewEnemyUnit : Enemy
     protected abstract void OnResume();
     protected abstract void OnDie();
 
-    public virtual void giveDamage(float damage)
+    public override void giveDamage(float damage)
     {
         if (unit_state.GetCurrentState() == unit_states.act)
             OnDamaged(damage);
     }
-    public void giveKnockback(Vector3 moveVector)
+    public override void giveKnockback(Vector3 moveVector)
     {
         if (unit_state.GetCurrentState() == unit_states.act)
             OnKnockBack(moveVector);
     }
 
-    public void giveStun(float time)
+    public override void giveStun(float time)
     {
         if (unit_state.GetCurrentState() == unit_states.act)
             OnStun(time);
     }
 
-    public void giveSnare(float time)
+    public override void giveSnare(float time)
     {
         if (unit_state.GetCurrentState() == unit_states.act)
             OnSnare(time);
     }
 
-    public void pause()
+    public override void pause()
     {
         OnPause();
         unit_state.ChangeState(unit_states.actpause);
     }
 
-    public void resume()
+    public override void resume()
     {
         OnResume();
         unit_state.ChangeState(unit_states.act);
     }
-    public void Die()
+    public override void Die()
     {
         // create dead body
         Destroy(transform.parent.gameObject);

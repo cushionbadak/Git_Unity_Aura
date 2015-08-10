@@ -3,12 +3,16 @@ using System.Collections;
 
 public class EnemyAttackAura : EnemyAttacks
 {
+    // attack
     public float attack_cooldown = 1;
     private float attack_timer = 0;
     private bool player_inside = false;
 
-    private bool isPaused = false;
-    
+
+    private bool is_paused = false;
+    private bool is_stopped = false;
+
+    private Enemy enemy = null;
 
     // Use this for initialization
 	void Start ()
@@ -19,19 +23,26 @@ public class EnemyAttackAura : EnemyAttacks
 	// Update is called once per frame
 	void Update ()
     {
-        if (isPaused)
+        if (!CanUpdate())
             return;
+
+        if(enemy != null)
+            transform.localScale = new Vector3(enemy.AuraRange, 0.1f, enemy.AuraRange);
 
         attack_timer += Time.deltaTime;
 
-        if (attack_timer > attack_cooldown && player_inside)
+        if (CanAttack())
         {
             attack_timer = 0;
-            GiveAttack();
+            Attack();
         }
 	}
 
-    void GiveAttack()
+    bool CanAttack()
+    {
+        return attack_timer > attack_cooldown && player_inside && !is_stopped;
+    }
+    void Attack()
     {
 		GameManager.I.attackToPlayer (this);
     }
@@ -49,18 +60,38 @@ public class EnemyAttackAura : EnemyAttacks
             player_inside = false;
     }
 
+    public void SetOwner(Enemy owner)
+    {
+        transform.parent = owner.transform;
+        enemy = owner;
+    }
+
     public void SetAuraSize(float aura_size)
     {
-        transform.localScale = new Vector3(aura_size, 0.1f, aura_size);
+    }
+
+    public void StopAura()
+    {
+        is_stopped = true;
+    }
+
+    public void ResumeAura()
+    {
+        is_stopped = false;
     }
 
     public override void pause()
     {
-        isPaused = true;
+        is_paused = true;
     }
 
     public override void resume()
     {
-        isPaused = false;
+        is_paused = false;
+    }
+
+    bool CanUpdate()
+    {
+        return !is_paused;
     }
 }
