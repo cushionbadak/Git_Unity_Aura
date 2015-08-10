@@ -3914,15 +3914,15 @@ MonoBehaviour:
   Fire: {fileID: 0}
   LightBombEffect: {fileID: 146268, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
   LevelUpEffect: {fileID: 160822, guid: 1362bee4775ecc040bb6215d95d77491, type: 2}
-  PressT: {fileID: 100618, guid: 74b1b9845a3bca746b2ff8b37dac761d, type: 2}
+  PressT: {fileID: 164014, guid: 3002b636de1d8944db138d0d65719b26, type: 2}
   ShockWaveEffect: {fileID: 0}
-  DustCloudEffect: {fileID: 0}
+  DustCloudEffect: {fileID: 157880, guid: 0c4faa4ee1cd4fa4d9fe9c14d1e9f5f7, type: 2}
   MonsterSummonEffect: {fileID: 0}
   FireBombEffect: {fileID: 100618, guid: 74b1b9845a3bca746b2ff8b37dac761d, type: 2}
   ThunderShoesEffect: {fileID: 139490, guid: 68d7a3e61b562584680bae12ae790efb, type: 2}
   BossThunderEffect: {fileID: 153562, guid: 9b38cadd6ded3ae47af5c24de926b335, type: 2}
   RedHealEffect: {fileID: 0}
-  TeleportEffect: {fileID: 0}
+  TeleportEffect: {fileID: 164014, guid: 3002b636de1d8944db138d0d65719b26, type: 2}
 --- !u!4 &499473441
 Transform:
   m_ObjectHideFlags: 0
@@ -5988,6 +5988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageText: {fileID: 118930, guid: 9e660c2fe652ca64d99a0169116fe9bf, type: 2}
   mapM: {fileID: 0}
+  index: 0
 --- !u!4 &835537532
 Transform:
   m_ObjectHideFlags: 0
@@ -16321,19 +16322,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22441828, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22441828, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22493874, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: .349999994
       objectReference: {fileID: 0}
     - target: {fileID: 22493874, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400842, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: player
