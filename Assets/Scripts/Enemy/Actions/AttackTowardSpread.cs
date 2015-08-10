@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AttackToward : EnemyAction
+public class AttackTowardSpread : EnemyAction
 {
 
     public float attack_range = 10;
@@ -9,6 +9,8 @@ public class AttackToward : EnemyAction
     public float cool_down = 3;
     public float attack_time = 3;
     public float attack_fire_time = 1;
+    public float spread_angle = 30;
+    public float spread_count = 3;
 
     public GameObject fired_object = null;
 
@@ -20,8 +22,8 @@ public class AttackToward : EnemyAction
     private Enemy unit = null;
     private bool can_update = true;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start()
     {
         player = GameObject.FindGameObjectWithTag("PlayerBody");
         if (player == null)
@@ -36,16 +38,16 @@ public class AttackToward : EnemyAction
             Debug.LogError("Error On Finding Internal Enemy Script");
             Application.Quit();
         }
-	}
-	
-	// Update is called once per frame
-	void Update () 
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         // set cool_down
         cool_down_timer -= GetDeltaTime();
         if (cool_down_timer < 0)
             cool_down_timer = 0;
-	}
+    }
 
     public override bool isAvailable()
     {
@@ -112,14 +114,26 @@ public class AttackToward : EnemyAction
             float angle = Vector3.Angle(new Vector3(0, 0, 1), diff);
             if (diff.y - diff.x > 0)
                 angle = 360 - angle;
-            Vector3 euler = new Vector3(0, angle, 0);
+            Vector3 eulercenter = new Vector3(0, angle, 0);
+            Vector3 eulerdiff = new Vector3(0, spread_angle, 0);
+            Vector3 eulerstart = eulercenter - (float)(spread_count - 1) / 2 * eulerdiff;
 
-            // create instance
-            GameObject fired = GameObject.Instantiate(fired_object, transform.position, Quaternion.Euler(euler)) as GameObject;
-            var attack_script = fired.GetComponent<Attack>();
-            if (attack_script != null)
-                attack_script.damage = unit.damage;
-           
+            for (int i = 0; i < spread_count; ++i)
+            {
+                SpawnAttackInstance(transform.position, eulerstart + i * eulerdiff);
+            }
+
         }
+    }
+
+    void SpawnAttackInstance(Vector3 position, Vector3 direction)
+    {
+        // create instance
+        GameObject fired = GameObject.Instantiate(fired_object, transform.position, Quaternion.Euler(direction)) as GameObject;
+        var attack_script = fired.GetComponentInChildren<EnemyAttacks>();
+        if (attack_script != null)
+            attack_script.SetWithParentDamage(unit.damage);
+        else if (Debug.isDebugBuild)
+            Debug.Log(gameObject.name + "No Attack Script Found");
     }
 }

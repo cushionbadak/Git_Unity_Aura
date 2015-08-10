@@ -72,8 +72,8 @@ public class MeleeAI : MonoBehaviour, EnemyAIInterface{
         // create aura
         aura = (GameObject)Instantiate(Resources.Load("Prefabs/EnemyAura"), transform.position, new Quaternion());
         aura.transform.parent = transform;
-       
-        var aura_script = aura.GetComponent<EnemyAuraAttack>();
+
+        var aura_script = aura.GetComponent<EnemyAttackAura>();
         aura_script.damage = GetComponent<Character>().damage;
         aura_script.SetAuraSize(aura_size);
         

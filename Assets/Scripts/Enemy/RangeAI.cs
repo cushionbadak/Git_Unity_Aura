@@ -95,7 +95,7 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
         aura = (GameObject)Instantiate(Resources.Load("Prefabs/EnemyAura"), transform.position, new Quaternion());
         aura.transform.parent = transform;
 
-        var aura_script = aura.GetComponent<EnemyAuraAttack>();
+        var aura_script = aura.GetComponent<EnemyAttackAura>();
         aura_script.damage = 5;
         aura_script.SetAuraSize(aura_size);
         pathfinder.updateRotation = false;
@@ -403,7 +403,7 @@ public class RangeAI : MonoBehaviour, EnemyAIInterface
 
     IEnumerator BuffPauseAura(float time)
     {
-        var aura_script = aura.GetComponent<EnemyAuraAttack>();
+        var aura_script = aura.GetComponent<EnemyAttackAura>();
         aura_script.SetAuraSize(0);
         yield return StartCoroutine(DelayedTimer.WaitForCustomDeltaTime(time, GetDeltaTime));
 

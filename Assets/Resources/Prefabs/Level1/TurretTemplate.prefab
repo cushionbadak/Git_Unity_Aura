@@ -14,10 +14,10 @@ GameObject:
   - 95: {fileID: 9578428}
   - 114: {fileID: 11464196}
   - 114: {fileID: 11476614}
-  - 114: {fileID: 11488328}
-  - 114: {fileID: 11475242}
   - 114: {fileID: 11483692}
   - 54: {fileID: 5435326}
+  - 114: {fileID: 11440228}
+  - 114: {fileID: 11486508}
   m_Layer: 9
   m_Name: turret_body
   m_TagString: EnemyBody
@@ -98,6 +98,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11440228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2279a08922d364aae7febe9c66432e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  search_range: 15
+  acting_time: .5
+  prob_cost: 3
 --- !u!114 &11464196
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,20 +125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name_monster: turret_laser
   type: 2
---- !u!114 &11475242
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43b846bfe411d6a4ea821cd232c1e502, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  search_range: 20
-  acting_time: .5
-  prob_cost: 3
 --- !u!114 &11476614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,11 +161,11 @@ MonoBehaviour:
   AuraRange: .800000012
   giveEXP: 10
   attacks:
-  - {fileID: 11488328}
+  - {fileID: 11486508}
   traces:
-  - {fileID: 11475242}
+  - {fileID: 11440228}
   anim: {fileID: 0}
---- !u!114 &11488328
+--- !u!114 &11486508
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -173,13 +173,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 155806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d8d584032163994caff5ec1550fb3c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 30ad79f59b6678d4bace27fcd1559bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack_range: 10
+  attack_range: 20
   prob_cost: 3
-  cool_down: 1
-  attack_time: 4
+  cool_down: 3
+  attack_time: 3
   attack_fire_time: 1
   fired_object: {fileID: 137528, guid: fcff1c77437b1754597e2e4520d714f8, type: 2}
 --- !u!114 &11498774

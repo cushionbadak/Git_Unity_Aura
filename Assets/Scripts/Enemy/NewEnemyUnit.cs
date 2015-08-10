@@ -16,7 +16,7 @@ public abstract class NewEnemyUnit : Enemy
     }
     StateMachine<unit_states> unit_state = null;
 
-    protected EnemyAuraAttack aura;
+    protected EnemyAttackAura aura;
 
     // timer to coroutine
     protected float delta_time
@@ -52,7 +52,7 @@ public abstract class NewEnemyUnit : Enemy
         GameObject aura_object = (GameObject)Instantiate(Resources.Load("Prefabs/EnemyAura"), transform.position, new Quaternion());
         aura_object.transform.parent = transform;
 
-        aura = aura_object.GetComponent<EnemyAuraAttack>();
+        aura = aura_object.GetComponent<EnemyAttackAura>();
         aura.SetAuraSize(0);
     }
 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyAuraAttack : Attack
+public class EnemyAttackAura : EnemyAttacks
 {
     public float attack_cooldown = 1;
     private float attack_timer = 0;
@@ -13,18 +13,6 @@ public class EnemyAuraAttack : Attack
     // Use this for initialization
 	void Start ()
     {
-        var rigidbody = GetComponent<Rigidbody>();
-        if (rigidbody == null)
-        {
-            Debug.LogError(gameObject.name + ".EnemyAuraAttack : No Rigid Body Attatched");
-        }
-        else
-        {
-            rigidbody.isKinematic = true;
-            rigidbody.useGravity = false;
-            GetComponent<CapsuleCollider>().isTrigger = true;
-        }
-
 
 	}
 	

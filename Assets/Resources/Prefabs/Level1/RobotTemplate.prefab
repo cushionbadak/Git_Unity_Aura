@@ -16,7 +16,7 @@ GameObject:
   - 54: {fileID: 5449234}
   - 114: {fileID: 11490950}
   - 114: {fileID: 11466842}
-  - 114: {fileID: 11474316}
+  - 114: {fileID: 11409864}
   m_Layer: 9
   m_Name: robot_body
   m_TagString: EnemyBody
@@ -75,7 +75,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
@@ -97,6 +97,22 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11409864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a876b413bf014e743baf66f9946e0314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  search_range: 7
+  stop_distance: .5
+  acting_time: 4
+  moving_time: 3
+  prob_cost: 3
 --- !u!114 &11431694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,22 +153,6 @@ MonoBehaviour:
     x: 1
     y: 1
     z: 0
---- !u!114 &11474316
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 113622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4458535588d2bb4aadf91b309b663e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  search_range: 7
-  stop_distance: .5
-  acting_time: 4
-  moving_time: 3
-  prob_cost: 3
 --- !u!114 &11490950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -174,7 +174,7 @@ MonoBehaviour:
   giveEXP: 20
   attacks: []
   traces:
-  - {fileID: 11474316}
+  - {fileID: 11409864}
   anim: {fileID: 0}
 --- !u!135 &13567068
 SphereCollider:
