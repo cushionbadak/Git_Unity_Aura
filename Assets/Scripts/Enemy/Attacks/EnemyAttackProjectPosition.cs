@@ -14,6 +14,7 @@ public class EnemyAttackProjectPosition : EnemyAttacks
     private Vector3 target_direction;
 
     private bool is_paused = false;
+    private bool is_attacking = false;
     
 	// Use this for initialization
 	void Start () {
@@ -57,6 +58,8 @@ public class EnemyAttackProjectPosition : EnemyAttacks
 
     void Move()
     {
+        if (is_attacking)
+            return;
         float distance = Vector3.Distance(target_position, transform.position);
         if (distance > Time.deltaTime * project_speed)
             distance = Time.deltaTime * project_speed;
@@ -73,6 +76,7 @@ public class EnemyAttackProjectPosition : EnemyAttacks
 
     IEnumerator Attack()
     {
+        is_attacking = true;
         yield return StartCoroutine(DelayedTimer.WaitForCustomDeltaTime(fire_time, GetDeltaTime));
 
         // find player
