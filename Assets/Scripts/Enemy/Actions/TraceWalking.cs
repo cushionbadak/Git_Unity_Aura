@@ -7,11 +7,15 @@ public class TraceWalking : EnemyAction
     public float stop_distance = 0.5f;
     public float acting_time = 1;
     public int prob_cost = 3;
+    public bool find_till_death = true;
 
     private GameObject player = null;
     private Enemy unit = null;
     private float timer = 1;
     private NavMeshAgent path_finder = null;
+
+    // state
+    private bool player_found = false;
 
 	// Use this for initialization
 	void Start () 
@@ -41,7 +45,12 @@ public class TraceWalking : EnemyAction
 
     public override bool isAvailable()
     {
-        return Vector3.Distance(player.transform.position, transform.position) < search_range;
+        if (find_till_death && player_found)
+            return true;
+        
+        bool player_inside = Vector3.Distance(player.transform.position, transform.position) < search_range;
+
+        return player_inside;
     }
 
     public override int GetProbCost()
@@ -56,6 +65,7 @@ public class TraceWalking : EnemyAction
         timer = acting_time;
         path_finder.enabled = true;
         path_finder.stoppingDistance = stop_distance;
+        player_found = true;
     }
 
     public override void Act()
@@ -68,6 +78,7 @@ public class TraceWalking : EnemyAction
     public override void OnStop()
     {
         path_finder.enabled = false;
+        player_found = false;
     }
 
     public override void OnRestart()
