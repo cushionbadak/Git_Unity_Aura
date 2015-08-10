@@ -143,6 +143,7 @@ public abstract class NewEnemyUnit : Enemy
     public override void Die()
     {
         // create dead body
+        OnDie();
         Destroy(transform.parent.gameObject);
 
     }
