@@ -233,9 +233,13 @@ public class ProbabilityAI : NewEnemyUnit {
     {
         if (can_be_knockbacked)
         {
+            float knockbacked_time = 0.2f;
             //apply knockback
-            state_timer = 0.2f;
+            gameObject.GetComponent<Rigidbody>().AddForce(vector);
+            state_timer = knockbacked_time;
             ChangeState(ai_states.special_0, null);
+
+            StartCoroutine(TurnOffKinematic(knockbacked_time));
         }
     }
 
@@ -247,7 +251,7 @@ public class ProbabilityAI : NewEnemyUnit {
             state_timer = time;
             ChangeState(ai_states.special_0, null);
 
-            StartCoroutine(StunnedAction(time));
+            StartCoroutine(TurnOffAura(time));
         }
     }
 
@@ -280,7 +284,7 @@ public class ProbabilityAI : NewEnemyUnit {
     }
 
 
-    IEnumerator StunnedAction(float time)
+    IEnumerator TurnOffAura(float time)
     {
         float backup_aura_range = AuraRange;
         AuraRange = 0;
@@ -290,6 +294,17 @@ public class ProbabilityAI : NewEnemyUnit {
 
         AuraRange = backup_aura_range;
         aura.ResumeAura();
+    }
+
+    IEnumerator TurnOffKinematic(float time)
+    {
+        //Kinematic을 켰다 켜 무한히 튕겨나가지 않도록 한다.
+        yield return new WaitForFixedUpdate();
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        yield return StartCoroutine(DelayedTimer.WaitForCustomDeltaTime(time, GetDeltaTime));
+
+        yield return new WaitForFixedUpdate();
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     float GetDeltaTime()

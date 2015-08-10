@@ -184,11 +184,11 @@ public class MeleeAI : MonoBehaviour, EnemyAIInterface{
     IEnumerator kinematicOnOff(float time)
     {
         //Kinematic을 켰다 켜 무한히 튕겨나가지 않도록 한다.
-        yield return StartCoroutine(DelayedTimer.WaitForCustomDeltaTime(time, GetDeltaTime));
-        gameObject.GetComponent<Rigidbody>().isKinematic = true;
-
         yield return new WaitForFixedUpdate();
-
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        yield return StartCoroutine(DelayedTimer.WaitForCustomDeltaTime(time, GetDeltaTime));
+        
+        yield return new WaitForFixedUpdate();
         gameObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 
