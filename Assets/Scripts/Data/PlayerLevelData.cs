@@ -66,11 +66,11 @@ public class PlayerLevelData : MonoBehaviour
             }
             else if (i <= 19)
             {
-                tdamage = 2 * Status[i - 1].damage - Status[i - 2].damage + 5;
+                tdamage = 2 * Status[i - 1].damage - Status[i - 2].damage + 1;
             }
             else
             {
-                tdamage = 2 * Status[i - 1].damage - Status[i - 2].damage + 12;
+                tdamage = 2 * Status[i - 1].damage - Status[i - 2].damage + 1;
             }
             //tneedEXP
             if (i <= 10)

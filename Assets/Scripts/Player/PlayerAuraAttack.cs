@@ -16,20 +16,28 @@ public class PlayerAuraAttack : Attack {
 
 	// Use this for initialization
 	void Start () {
-        originalScale = this.transform.localScale;
+        originalScale = transform.localScale;
     }
 
     // Update is called once per frame
     void Update () {
         time_store += Time.deltaTime;
         damage = _p.damage * _p.powerUpPotionScale;
-        if (time_store > auraAttackCooldown)
-        {
-            Attack();
-            time_store = 0.0f;
-        }
+       
 
-        this.transform.localScale = originalScale * _p.rangeUpPotionScale;
+        this.transform.localScale = _p.AuraRange * new Vector3(1, 0.01f, 1) * _p.rangeUpPotionScale;
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if(col.tag=="EnemyBody")
+        {
+            if(time_store>auraAttackCooldown)
+            {
+                Attack();
+                time_store = 0.0f;
+            }
+        }
     }
 
 
@@ -38,7 +46,6 @@ public class PlayerAuraAttack : Attack {
         Collider[] colls = Physics.OverlapSphere(transform.position, _p.AuraRange);
         foreach (var col in colls)
         {
-            
             if (col.tag == "EnemyBody")
             {
                 giveAttack(col.gameObject);

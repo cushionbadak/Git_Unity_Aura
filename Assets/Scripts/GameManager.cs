@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
             pl.rangeUp(pl.rangeUpPotion);
 
             index = Game.current.dialogIndex;
-
+            Debug.Log(index);
         }
     }
 
@@ -136,9 +136,9 @@ public class GameManager : MonoBehaviour
         }
         if (isGameMode)
         {
-            if (findPlayer().gameObject.GetComponent<PlayerUnit>().currentHP <= 0)
+            if (findPlayer().currentHP <= 0)
             {
-                Time.timeScale = 0.01f;
+                Time.timeScale = 0;
             }
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
@@ -176,6 +176,7 @@ public class GameManager : MonoBehaviour
                     Debug.Log(i + "번째 슬롯의 pos : " + SaveLoad.savedGames[i].playerPosition);
                 }
             }
+
         }
     }
 
