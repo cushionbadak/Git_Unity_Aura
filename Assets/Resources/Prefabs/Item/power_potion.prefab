@@ -44,7 +44,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemNum: 1
   eff: {fileID: 113702, guid: 2bb9c65d24101c64d868f09e1f4897d2, type: 2}
-  player: {fileID: 0}
 --- !u!114 &11433690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,7 +67,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: .800000012
+  m_Radius: .5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &21235758
 SpriteRenderer:
@@ -114,6 +113,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Radius
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

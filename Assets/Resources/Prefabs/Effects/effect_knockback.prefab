@@ -12,6 +12,7 @@ GameObject:
   - 199: {fileID: 19999464}
   - 114: {fileID: 11426322}
   - 114: {fileID: 11456492}
+  - 114: {fileID: 11430544}
   m_Layer: 0
   m_Name: effect_knockback
   m_TagString: Untagged
@@ -40,6 +41,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b25113b728c26a4cb2b5eef32c76f3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11430544
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a3cb2210c0cd44ea3ff393df980940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11456492

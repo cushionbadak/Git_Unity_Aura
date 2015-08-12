@@ -165,6 +165,9 @@ MonoBehaviour:
   traces:
   - {fileID: 11440228}
   anim: {fileID: 0}
+  can_be_stunned: 1
+  can_be_snared: 1
+  can_be_knockbacked: 1
 --- !u!114 &11486508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -203,7 +206,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: .5
+  m_Radius: .200000003
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &19596574
 NavMeshAgent:
@@ -257,7 +260,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Radius
+      value: .200000003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 165984}

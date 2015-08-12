@@ -59,7 +59,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.6100006, y: 0, z: 21.9799995}
+  m_LocalPosition: {x: 31.2999992, y: 0, z: 54.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400370}
@@ -112,6 +112,7 @@ MonoBehaviour:
   stop_distance: .5
   acting_time: 1
   prob_cost: 3
+  find_till_death: 1
 --- !u!114 &11451986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,6 +152,9 @@ MonoBehaviour:
   traces:
   - {fileID: 11448974}
   anim: {fileID: 11489774}
+  can_be_stunned: 1
+  can_be_snared: 1
+  can_be_knockbacked: 1
 --- !u!114 &11472994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,7 +189,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: .200000003
+  m_Radius: .100000001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &19573780
 NavMeshAgent:
@@ -194,8 +198,8 @@ NavMeshAgent:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187732}
   m_Enabled: 1
-  m_Radius: .5
-  m_Speed: 100
+  m_Radius: .100000001
+  m_Speed: 20
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
