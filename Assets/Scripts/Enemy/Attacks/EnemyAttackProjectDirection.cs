@@ -7,11 +7,15 @@ public class EnemyAttackProjectDirection : EnemyAttacks
     public float project_speed = 2;
     public float fire_radius = 3;
 
+    public bool check_attack_time = false;
+    public float attack_time = 10;
     public float collision_radius = 0.3f;
+    public bool attack_on_wall = false;
 
     private GameObject player;
-    public Vector3 target_direction;
+    private Vector3 target_direction;
 
+    private float attack_timer = 0;
     private bool is_paused = false;
 
     // Use this for initialization
@@ -27,6 +31,8 @@ public class EnemyAttackProjectDirection : EnemyAttacks
         }
         float target_angle = transform.parent.localEulerAngles.y / 180 * Mathf.PI;
         target_direction = new Vector3(Mathf.Sin(target_angle), 0, Mathf.Cos(target_angle));
+
+        attack_timer = attack_time;
     }
 
     // Update is called once per frame
@@ -36,12 +42,35 @@ public class EnemyAttackProjectDirection : EnemyAttacks
             return;
 
         Move();
+        
+        attack_timer -= GetDeltaTime();
+        if(attack_timer < 0)
+            attack_timer = 0;
 
         if (IsAtTarget())
+        {
             Attack();
-        if (IsAtWall())
-            DestroyAttack();
 
+            // destroy this attack
+            DestroyAttack();
+        }
+        else if (IsAtWall())
+        {
+            if (attack_on_wall)
+                Attack();
+
+            DestroyAttack();
+        }
+        
+        if (check_attack_time)
+        {
+            if (attack_timer <= 0)
+            {
+                Attack();
+
+                DestroyAttack();
+            }
+        }
     }
 
 
@@ -95,9 +124,6 @@ public class EnemyAttackProjectDirection : EnemyAttacks
         // give player damage
         if (player_found)
             GameManager.I.attackToPlayer(this);
-
-        // destroy this attack
-        DestroyAttack();
     }
 
     float GetDeltaTime()

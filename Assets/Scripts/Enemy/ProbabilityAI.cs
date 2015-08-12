@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -321,5 +320,37 @@ public class ProbabilityAI : NewEnemyUnit {
         if (!is_acting)
             return 0;
         return Time.deltaTime;
+    }
+
+    protected EnemyAction FindAvailableAction(List<EnemyAction> list)
+    {
+        if (list.Count == 0)
+            return null;
+
+        List<EnemyAction> act_list = new List<EnemyAction>();
+        int cost_sum = 0;
+        foreach (var act in list)
+        {
+            if (act.isAvailable())
+            {
+                cost_sum += act.GetProbCost();
+                act_list.Add(act);
+            }
+        }
+
+        // tracking available
+        if (act_list.Count != 0)
+        {
+            // 1 ~ cost_sum
+            int rand = Random.Range(1, cost_sum + 1);
+            foreach (var act in act_list)
+            {
+                rand -= act.GetProbCost();
+                if (rand <= 0)
+                    return act;
+            }
+        }
+
+        return null;
     }
 }
