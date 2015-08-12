@@ -165,6 +165,9 @@ MonoBehaviour:
   traces:
   - {fileID: 11440228}
   anim: {fileID: 0}
+  can_be_stunned: 1
+  can_be_snared: 1
+  can_be_knockbacked: 1
 --- !u!114 &11486508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -181,7 +184,7 @@ MonoBehaviour:
   cool_down: 3
   attack_time: 3
   attack_fire_time: 1
-  fired_object: {fileID: 137528, guid: fcff1c77437b1754597e2e4520d714f8, type: 2}
+  fired_object: {fileID: 107768, guid: 5afd2b346b3b88540a6394504bc7e431, type: 2}
 --- !u!114 &11498774
 MonoBehaviour:
   m_ObjectHideFlags: 1
