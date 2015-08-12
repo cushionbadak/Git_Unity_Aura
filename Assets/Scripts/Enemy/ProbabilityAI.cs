@@ -213,6 +213,15 @@ public class ProbabilityAI : NewEnemyUnit {
         }
     }
 
+    private void StateChangeSpecial()
+    {
+        ChangeState(ai_states.special_0, null);
+        foreach (var action in traces)
+            action.OnReset();
+        foreach (var action in attacks)
+            action.OnReset();
+    }
+
     private void ChangeState(ai_states next_state, EnemyAction action)
     {
         next_action = action;
@@ -237,7 +246,7 @@ public class ProbabilityAI : NewEnemyUnit {
             //apply knockback
             gameObject.GetComponent<Rigidbody>().AddForce(vector);
             state_timer = knockbacked_time;
-            ChangeState(ai_states.special_0, null);
+            StateChangeSpecial();
 
             StartCoroutine(TurnOffKinematic(knockbacked_time));
         }
@@ -249,7 +258,7 @@ public class ProbabilityAI : NewEnemyUnit {
         {
             //apply stun
             state_timer = time;
-            ChangeState(ai_states.special_0, null);
+            StateChangeSpecial();
 
             StartCoroutine(TurnOffAura(time));
         }
@@ -261,7 +270,7 @@ public class ProbabilityAI : NewEnemyUnit {
         {
             //apply snare
             state_timer = time;
-            ChangeState(ai_states.special_0, null);
+            StateChangeSpecial();
         }
     }
 

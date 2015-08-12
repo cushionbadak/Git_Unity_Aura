@@ -45,11 +45,11 @@ public class TraceWalking : EnemyAction
 
     public override bool isAvailable()
     {
-        if (find_till_death && player_found)
-            return true;
-        
+        bool is_already_found = find_till_death && player_found;
         bool player_inside = Vector3.Distance(player.transform.position, transform.position) < search_range;
-
+        
+        if(!is_already_found)
+            return false;
         return player_inside;
     }
 
