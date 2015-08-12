@@ -6324,19 +6324,19 @@ Prefab:
       objectReference: {fileID: 1585825366}
     - target: {fileID: 22431782, guid: 7203dc91488a8534c982611510884c04, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22431782, guid: 7203dc91488a8534c982611510884c04, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22424088, guid: 7203dc91488a8534c982611510884c04, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: .349999994
       objectReference: {fileID: 0}
     - target: {fileID: 22424088, guid: 7203dc91488a8534c982611510884c04, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22401992, guid: 7203dc91488a8534c982611510884c04, type: 2}
       propertyPath: m_AnchoredPosition.y
