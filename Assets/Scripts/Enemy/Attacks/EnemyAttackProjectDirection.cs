@@ -109,7 +109,6 @@ public class EnemyAttackProjectDirection : EnemyAttacks
 
     bool IsAtWall()
     {
-        /*
         var colliders = Physics.OverlapSphere(transform.position, collision_radius);
         foreach (var col in colliders)
         {
@@ -118,8 +117,6 @@ public class EnemyAttackProjectDirection : EnemyAttacks
                 return true;
             }
         }
-        return false;
-         * */
         return false;
     }
 
