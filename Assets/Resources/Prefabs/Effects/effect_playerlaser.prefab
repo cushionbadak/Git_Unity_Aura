@@ -13,21 +13,22 @@ GameObject:
   - 65: {fileID: 6569784}
   - 199: {fileID: 19913540}
   - 198: {fileID: 19823498}
+  - 114: {fileID: 11486062}
   m_Layer: 0
   m_Name: effect_playerlaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &443466
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171046}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.78999996, y: 0, z: 6.80000019}
+  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106709}
+  m_LocalPosition: {x: -2.63000011, y: 12.8999987, z: 1.31656528}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,6 +76,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.20000005, y: .699999988, z: 13.5638657}
   m_Center: {x: -5.7220459e-06, y: 0, z: .129246712}
+--- !u!114 &11486062
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d7cd54c7caf70c44afa2b1cf9d3e993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &19823498
 ParticleSystem:
   m_ObjectHideFlags: 1

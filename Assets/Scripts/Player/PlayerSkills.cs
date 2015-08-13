@@ -27,12 +27,13 @@ public class PlayerSkills : Attack {
     private bool on_laser = true;
     private float t_laser = .0f;
     public float cd_laser = 5.0f;
+    public GameObject pObject_laser;    //레이저 오브젝트 할당
 
     // Skill - Teleport
     private bool on_teleport = true;
     private float t_teleport = .0f;
     public float cd_teleport = 2.0f;
-    public Vector3 tp_movingVec;
+    private Vector3 tp_movingVec;
     private float v, h;
     private float tp_movingDist = 100.0f;  //텔레포트 이동거리
 
@@ -176,8 +177,14 @@ public class PlayerSkills : Attack {
         if (on_laser)
         {
             on_laser = false;
-            //do something
-            //enemy쪽 레이저 발사하는거 이용할수 있을까나?
+            t_laser = .0f;
+
+            float angle = Vector3.Angle(new Vector3(0, 0, 1), frontVec);
+            if (frontVec.y - frontVec.x > 0)
+                angle = 360 - angle;
+            Vector3 euler = new Vector3(0, angle, 0);
+            GameObject p_laser = (GameObject)Instantiate(pObject_laser, transform.position, Quaternion.Euler(euler));
+            p_laser.GetComponent<PlayerLaser>().damage = this.damage;
         }
     }
     void skill_WindBitingSnowBall() { }
