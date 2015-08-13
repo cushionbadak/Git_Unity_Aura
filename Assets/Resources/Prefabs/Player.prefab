@@ -77,7 +77,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170906}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 9.60000038, y: -0, z: -2.33999991}
+  m_LocalPosition: {x: 10.8299999, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 473986}
@@ -184,11 +184,17 @@ MonoBehaviour:
   damage: 0
   speed: 0
   knockbackVector: {x: 0, y: 0, z: 0}
-  knockbackForce: 1000
+  knockbackForce: 2000
   isknockbackVectorNeed: 0
   stunTime: 0
   snareTime: 0
-  cool_knockback: 2
+  cd_knockback: 2
+  cd_tripleshock: 5
+  cd_tsnextlink: 1
+  _skill_1: 1
+  _skill_2: 0
+  _skill_3: 0
+  _p: {fileID: 11423538}
 --- !u!114 &11423538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -222,6 +228,8 @@ MonoBehaviour:
   isSpecialThing: 0
   expText: {fileID: 0}
   resultUI: {fileID: 0}
+  _pAura: {fileID: 162080}
+  cd_stun: 0
 --- !u!114 &11430938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -233,14 +241,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f79b5ed66da0843bb25bd4bb977d89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 4
   speed: 0
   knockbackVector: {x: 0, y: 0, z: 0}
   knockbackForce: 0
   isknockbackVectorNeed: 0
   stunTime: 0
   snareTime: 0
-  listOfObjects: []
+  auraAttackCooldown: 1
   _p: {fileID: 11423538}
 --- !u!114 &11454296
 MonoBehaviour:

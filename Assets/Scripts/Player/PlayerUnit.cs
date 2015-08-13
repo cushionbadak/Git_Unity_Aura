@@ -6,16 +6,23 @@ public class PlayerUnit : Player {
     //private GameObject parent;
     private Rigidbody rigid;
     private Vector3 currentPos;
-    private float snare_time_store = 0.0f;
-    private float snare_duration = 0.0f;
-    private bool isSnare = false;
     private Vector3 dir;
     public GameObject expText;
     public GameObject resultUI;
     bool HorizontalCheck = false;
     bool VerticalCheck = false;
     RaycastHit hit;
+
+    public GameObject _pAura;
+
+    private bool on_stun = false;
+    private float t_stun = .0f;
+    private float cd_stun;
+
+    //private bool on_snare = false;
+    private float ratio_snare = 1.0f;
     
+
     // Use this for initialization
     void Start () {
 
@@ -23,24 +30,6 @@ public class PlayerUnit : Player {
 
         maxHP = PlayerLevelData.I.Status[level].maxHP;
         
-        /*
-        originalSpeed = 10.0f;
-        currentSpeed = originalSpeed;
-
-        powerUpPotion = 0;
-        powerUpPotionScale = 1.0f;
-        speedUpPotion = 0;
-        speedUpPotionScale = 1.0f;
-        rangeUpPotion = 0;
-        rangeUpPotionScale = 1.0f;
-
-        isThunderShoes = false;
-        isDraculaBrooch = false;
-        isStickyBall = false;
-        isCriticalKnuckle = false;
-        isSpecialThing = false;
-        */
-
     }
 	
 	// Update is called once per frame
@@ -147,21 +136,20 @@ public class PlayerUnit : Player {
         }
          
         //움직임
-        Vector3 speedVec = new Vector3(h, v, 0) * currentSpeed * speedUpPotionScale * Time.deltaTime;
+        Vector3 speedVec = new Vector3(h, v, 0) * currentSpeed * speedUpPotionScale * ratio_snare * Time.deltaTime;
         transform.Translate(speedVec);
 
-        // Snare Check
-        if (isSnare)
+        // Stun Check
+        if (on_stun)
         {
-            currentSpeed = originalSpeed * 0.7f;
-            if (snare_duration > snare_time_store)
-                snare_time_store += Time.deltaTime;
-            else
+            currentSpeed = .0f;
+            t_stun += Time.deltaTime;
+            if (t_stun >= cd_stun)
             {
-                snare_time_store = 0.0f;
-                snare_duration = 0.0f;
-                isSnare = false;
+                on_stun = false;
+                t_stun = .0f;
                 currentSpeed = originalSpeed;
+                _pAura.SetActive(true);
             }
         }
         // Position Sync
@@ -181,11 +169,20 @@ public class PlayerUnit : Player {
     }
         
     public override void giveKnockback(Vector3 moveVector) { }
-    public override void giveStun(float time) { }
-    public override void giveSnare(float time)
+    public override void giveStun(float time)
     {
-        isSnare = true;
-        snare_duration = time;
+        on_stun = true;
+        t_stun = .0f;
+        cd_stun = time;
+        _pAura.SetActive(false);
+    }
+    public override void giveSnare(float ratio)
+    {
+        ratio_snare = ratio;
+    }
+    public override void removeSnare()
+    {
+        ratio_snare = 1.0f;
     }
 
     public override void Die() { /*죽었을때 게임정지, UI띄우기*/ }
