@@ -5,6 +5,7 @@ public class DoorOpenControl : MonoBehaviour {
 
     public GameObject door;
     bool a;
+    public bool canOpen;
 	// Use this for initialization
 	void Start () {
 	}
@@ -16,7 +17,7 @@ public class DoorOpenControl : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        if(col.tag=="PlayerBody")
+        if(col.tag=="PlayerBody"&&canOpen)
         {
             door.GetComponent<ChangeAlpha>().isTrans=true;
         }

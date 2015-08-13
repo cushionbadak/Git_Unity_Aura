@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-
         if (Game.current == null)
         {
             index = 0;

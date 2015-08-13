@@ -17,6 +17,7 @@ public class MapManager : MonoBehaviour {
                     {
                         for (int i = 0; i < 9; i++)
                             mapStatus.Add(false);
+                        mapStatus[0] = true;
                         break;
                     }
             }
