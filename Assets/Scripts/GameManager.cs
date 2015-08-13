@@ -12,6 +12,7 @@ struct Temp
 
 public class GameManager : MonoBehaviour
 {
+    public List<PlayerSkills.skillSet> skills;
     public GameObject DamageText;
     public MapManager mapM;
     bool isGameMode=false;
@@ -35,13 +36,14 @@ public class GameManager : MonoBehaviour
             index = 0;
             SaveLoad.Init();
             Game.current = new Game();
-
+            
             GameObject player = GameObject.FindWithTag("PlayerBody");
             player.transform.parent.transform.position = new Vector3(0,0,0);
             player.GetComponent<PlayerUnit>().currentHP = 100;
             player.GetComponent<PlayerUnit>().EXP = 0;
             player.GetComponent<PlayerUnit>().level = 1;
             player.GetComponent<PlayerUnit>().damage = 2;
+            skills.Add(PlayerSkills.skillSet.Knockback);
         }
         else
         {
@@ -71,10 +73,16 @@ public class GameManager : MonoBehaviour
             pl.powerUp(pl.powerUpPotion);
             pl.speedUp(pl.speedUpPotion);
             pl.rangeUp(pl.rangeUpPotion);
+            skills = Game.current.skills;
 
             index = Game.current.dialogIndex;
             Debug.Log(index);
         }
+    }
+
+    public List<PlayerSkills.skillSet> getSkills()
+    {
+        return skills;
     }
 
     // Use this for initialization
@@ -182,6 +190,10 @@ public class GameManager : MonoBehaviour
                 {
                     Debug.Log(i + "번째 슬롯의 pos : " + SaveLoad.savedGames[i].playerPosition);
                 }
+            }
+            if(Input.GetKeyDown(KeyCode.V))
+            {
+                Debug.Log(skills);
             }
 
         }

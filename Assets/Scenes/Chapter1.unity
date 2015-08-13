@@ -10856,6 +10856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a9d1e67f293124481f5dd648fe5b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skills: 
   DamageText: {fileID: 118930, guid: 9e660c2fe652ca64d99a0169116fe9bf, type: 2}
   mapM: {fileID: 65359844}
   canSave: 0
