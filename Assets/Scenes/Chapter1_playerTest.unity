@@ -841,6 +841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentChapter: 1
+  mapStatus: 
   chap1Doors:
   - {fileID: 0}
   - {fileID: 657373587}
@@ -4717,7 +4718,9 @@ MonoBehaviour:
   DamageText: {fileID: 118930, guid: 9e660c2fe652ca64d99a0169116fe9bf, type: 2}
   mapM: {fileID: 65359844}
   canSave: 0
+  pl: {fileID: 0}
   index: 0
+  isPlayerLive: 1
 --- !u!4 &546951242
 Transform:
   m_ObjectHideFlags: 0
@@ -19353,6 +19356,7 @@ MonoBehaviour:
   BossThunderEffect: {fileID: 0}
   RedHealEffect: {fileID: 0}
   TeleportEffect: {fileID: 0}
+  VortexEffect: {fileID: 0}
 --- !u!4 &1905678052
 Transform:
   m_ObjectHideFlags: 0
