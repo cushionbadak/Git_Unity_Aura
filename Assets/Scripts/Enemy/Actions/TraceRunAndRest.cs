@@ -63,9 +63,6 @@ public class TraceRunAndRest : EnemyAction
         bool player_inside = Vector3.Distance(player.transform.position, transform.position) < search_range;
         bool is_cool_down_end = cool_down_timer <= 0;
 
-
-        Debug.Log(is_already_found + " " + player_inside + " " + is_cool_down_end);
-
         if (!is_already_found)
             return player_inside;
         return is_cool_down_end;
