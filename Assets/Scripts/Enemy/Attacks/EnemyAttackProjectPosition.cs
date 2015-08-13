@@ -10,6 +10,8 @@ public class EnemyAttackProjectPosition : EnemyAttacks
 
     public float collision_radius = 0.3f;
 
+    public EffectManager.Effects fire_effect = EffectManager.Effects.NONE;
+
     private Vector3 target_position;
     private Vector3 target_direction;
 
@@ -90,10 +92,12 @@ public class EnemyAttackProjectPosition : EnemyAttacks
                 break;
             }
         }
+        EffectManager.I.createEffect(this.gameObject, fire_effect);
 
         // give player damage
         if(player_found)
             GameManager.I.attackToPlayer(this);
+
 
         // destroy this attack
         DestroyAttack();

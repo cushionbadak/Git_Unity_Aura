@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AttackToward : EnemyAction
+public class AttackTowardMultiple : EnemyAction
 {
 
     public float attack_range = 10;
     public int prob_cost = 3;
     public float cool_down = 3;
     public float attack_time = 3;
-    public float attack_fire_time = 1;
+    public float attack_fire_start_time = 1;
+    public float attack_fire_delta_time = 0.5f;
+    public int attack_fire_count = 3;
 
     public GameObject fired_object = null;
 
@@ -20,8 +22,8 @@ public class AttackToward : EnemyAction
     private Enemy unit = null;
     private bool can_update = true;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start()
     {
         player = GameObject.FindGameObjectWithTag("PlayerBody");
         if (player == null)
@@ -36,16 +38,16 @@ public class AttackToward : EnemyAction
             Debug.LogError("Error On Finding Internal Enemy Script");
             Application.Quit();
         }
-	}
-	
-	// Update is called once per frame
-	void Update () 
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         // set cool_down
         cool_down_timer -= GetDeltaTime();
         if (cool_down_timer < 0)
             cool_down_timer = 0;
-	}
+    }
 
     public override bool isAvailable()
     {
@@ -76,7 +78,7 @@ public class AttackToward : EnemyAction
     public override void Act()
     {
         attack_timer -= Time.deltaTime;
-        if (attack_timer <= attack_time - attack_fire_time && !is_fired)
+        if (attack_timer <= attack_time - attack_fire_start_time && !is_fired)
         {
             Attack();
             is_fired = true;
@@ -108,21 +110,36 @@ public class AttackToward : EnemyAction
             if (Debug.isDebugBuild)
                 Debug.Log(gameObject.name + " : Fired");
 
-            // calculate angle
-            Vector3 diff = player.transform.position - transform.position;
-            float angle = Vector3.Angle(new Vector3(0, 0, 1), diff);
-            if (diff.y - diff.x > 0)
-                angle = 360 - angle;
-            Vector3 euler = new Vector3(0, angle, 0);
-
-            // create instance
-            GameObject fired = GameObject.Instantiate(fired_object, transform.position, Quaternion.Euler(euler)) as GameObject;
-            var attack_script = fired.GetComponentInChildren<EnemyAttacks>();
-            if (attack_script != null)
-                attack_script.SetWithParentDamage(unit.damage);
-            else if (Debug.isDebugBuild)
-                    Debug.Log(gameObject.name + "No Attack Script Found");
-           
+            StartCoroutine(AttackTimes(attack_fire_count));
         }
     }
+
+    IEnumerator AttackTimes(int count)
+    {
+        for (int i = 0; i < count; ++i)
+        {
+            SpawnAttackInstance();
+            yield return StartCoroutine(DelayedTimer.WaitForCustomDeltaTime(attack_fire_delta_time, GetDeltaTime));
+        }
+    }
+
+
+    void SpawnAttackInstance()
+    {
+        // calculate angle
+        Vector3 diff = player.transform.position - transform.position;
+        float angle = Vector3.Angle(new Vector3(0, 0, 1), diff);
+        if (diff.y - diff.x > 0)
+            angle = 360 - angle;
+        Vector3 euler = new Vector3(0, angle, 0);
+
+        // create instance
+        GameObject fired = GameObject.Instantiate(fired_object, transform.position, Quaternion.Euler(euler)) as GameObject;
+        var attack_script = fired.GetComponentInChildren<EnemyAttacks>();
+        if (attack_script != null)
+            attack_script.SetWithParentDamage(unit.damage);
+        else if (Debug.isDebugBuild)
+            Debug.Log(gameObject.name + "No Attack Script Found");
+    }
 }
+

@@ -31,6 +31,7 @@ public static class SaveLoad {
             Game.current.speedUpPotion = p.speedUpPotion;
             Game.current.playerPosition = GameManager.I.findPlayer().gameObject.transform.position;
             Game.current.dialogIndex = ScriptsManager.I.index;
+            Game.current.skills = GameManager.I.skills;
             savedGames[i] = Game.current;
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Create(Application.persistentDataPath + "/savedGames.gd");

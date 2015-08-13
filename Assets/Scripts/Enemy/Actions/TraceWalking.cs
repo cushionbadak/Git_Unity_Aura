@@ -45,12 +45,12 @@ public class TraceWalking : EnemyAction
 
     public override bool isAvailable()
     {
-        if (find_till_death && player_found)
-            return true;
-        
+        bool is_already_found = find_till_death && player_found;
         bool player_inside = Vector3.Distance(player.transform.position, transform.position) < search_range;
-
-        return player_inside;
+        
+        if(!is_already_found)
+            return player_inside;
+        return true;
     }
 
     public override int GetProbCost()
@@ -78,7 +78,6 @@ public class TraceWalking : EnemyAction
     public override void OnStop()
     {
         path_finder.enabled = false;
-        player_found = false;
     }
 
     public override void OnRestart()
@@ -89,5 +88,12 @@ public class TraceWalking : EnemyAction
     public override bool isEnd()
     {
         return timer < 0;
+    }
+
+    public override void OnReset()
+    {
+        base.OnReset();
+
+        player_found = false;
     }
 }

@@ -186,11 +186,12 @@ public class PlayerSkills : Attack {
         if (on_tripleshock || on_tsnextlink)
         {
             
-            Collider[] targets = Physics.OverlapSphere(this.transform.position, _p.AuraRange);
+            Collider[] targets = Physics.OverlapSphere(this.transform.position, transform.localScale.x * 0.5f);
             steps_tsnextlink++;
 
             if (steps_tsnextlink == 1 || steps_tsnextlink == 2)
             {
+                
                 t_tsnextlink = .0f;
                 
                 foreach(Collider col in targets)

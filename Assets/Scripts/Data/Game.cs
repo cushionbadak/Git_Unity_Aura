@@ -12,6 +12,7 @@ public class Game  {
     public int speedUpPotion;       
     public int rangeUpPotion;
     public int dialogIndex;
+    public List<PlayerSkills.skillSet> skills;
     private WB_Vector3 _someVector3Info;
     public Vector3 playerPosition
     {

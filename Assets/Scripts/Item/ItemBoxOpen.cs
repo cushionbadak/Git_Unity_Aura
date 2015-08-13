@@ -15,7 +15,7 @@ public class ItemBoxOpen : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	    if(mapM.getRoomStatus()[roomNum]&&!one)
-        {
+        {   
             one = true;
             transform.parent.gameObject.GetComponent<SpriteRenderer>().sprite = sp;
             sc.canOpen = true;
