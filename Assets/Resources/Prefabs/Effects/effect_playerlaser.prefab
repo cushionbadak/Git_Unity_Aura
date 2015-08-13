@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &443466
 Transform:
   m_ObjectHideFlags: 1
@@ -87,6 +87,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d7cd54c7caf70c44afa2b1cf9d3e993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
+  speed: 0
+  knockbackVector: {x: 0, y: 0, z: 0}
+  knockbackForce: 0
+  isknockbackVectorNeed: 0
+  stunTime: 0
+  snareTime: 0
+  postDelay: 1
 --- !u!198 &19823498
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1167,7 +1175,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 171046}
