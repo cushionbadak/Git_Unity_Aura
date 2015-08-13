@@ -1058,8 +1058,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 56075706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -39.1399994, y: 0, z: -23.6900005}
-  m_LocalScale: {x: .493424982, y: 1, z: 1.26250029}
+  m_LocalPosition: {x: -39.1399994, y: 0, z: -24.0300007}
+  m_LocalScale: {x: 1.07566524, y: 1, z: 3.67505932}
   m_Children: []
   m_Father: {fileID: 826372800}
   m_RootOrder: 1
@@ -1506,6 +1506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentChapter: 1
+  mapStatus: 
   chap1Doors:
   - {fileID: 0}
   - {fileID: 657373587}
@@ -2990,6 +2991,10 @@ Prefab:
     - target: {fileID: 11430938, guid: c6f347a7ef462514a8781f914c15a78b, type: 2}
       propertyPath: auraAttackCooldown
       value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441502, guid: c6f347a7ef462514a8781f914c15a78b, type: 2}
+      propertyPath: m_Interpolate
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6f347a7ef462514a8781f914c15a78b, type: 2}
@@ -25889,6 +25894,7 @@ GameObject:
   - 4: {fileID: 1089958930}
   - 65: {fileID: 1089958931}
   - 114: {fileID: 1089958932}
+  - 114: {fileID: 1089958933}
   m_Layer: 0
   m_Name: trigger
   m_TagString: Untagged
@@ -25936,6 +25942,21 @@ MonoBehaviour:
   - {fileID: 139596, guid: b49cbe446b3af5e4589c01f151df4f29, type: 2}
   - {fileID: 178818, guid: f4f81185703692f44a201e95b9d81b67, type: 2}
   open: {fileID: 21300000, guid: 69068fc21f9f66943b88de1a5bd635a5, type: 3}
+  canOpen: 0
+--- !u!114 &1089958933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1089958929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a8467fe28ec2b948a81dc4edeb798ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomNum: 1
+  mapM: {fileID: 65359844}
+  sp: {fileID: 21300000, guid: dcf177f45a0839648a73c788356767ba, type: 3}
 --- !u!1 &1091824173
 GameObject:
   m_ObjectHideFlags: 0
@@ -52024,7 +52045,7 @@ GameObject:
   - 212: {fileID: 2046072117}
   - 65: {fileID: 2046072116}
   m_Layer: 0
-  m_Name: treasurebox_close
+  m_Name: treasurebox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52066,7 +52087,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dcf177f45a0839648a73c788356767ba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd11ab55091ec414286243de1dd5c4ba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &2046072118
 Transform:
@@ -52075,7 +52096,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2046072115}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 43.5, y: 0, z: 58.7000008}
+  m_LocalPosition: {x: 40.7599983, y: 0, z: 60.3600006}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 1089958930}

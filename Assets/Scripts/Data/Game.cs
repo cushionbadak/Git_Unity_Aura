@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 [System.Serializable]
 
 public class Game  {
@@ -32,6 +33,6 @@ public class Game  {
     }
 
     public int currentChapter;
-    public ArrayList roomStatus;
+    public List<bool> roomStatus;
 
 }

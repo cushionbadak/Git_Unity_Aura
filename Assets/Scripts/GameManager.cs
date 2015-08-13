@@ -2,6 +2,7 @@
 using System.Collections;
 using System.IO;
 using System;
+using System.Collections.Generic;
 
 struct Temp
 {
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
             player.GetComponent<PlayerUnit>().currentHP = 100;
             player.GetComponent<PlayerUnit>().EXP = 0;
             player.GetComponent<PlayerUnit>().level = 1;
-            player.GetComponent<PlayerUnit>().damage = 1;
+            player.GetComponent<PlayerUnit>().damage = 2;
         }
         else
         {
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour
             {
                 case 1:
                     {
-                        mapM.chap1 = Game.current.roomStatus;
+                        mapM.mapStatus = Game.current.roomStatus;
                         break;
                     }
             }

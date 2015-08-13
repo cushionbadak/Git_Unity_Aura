@@ -5,9 +5,10 @@ public class ItemCreate : MonoBehaviour {
     public GameObject[] Items;
     public Sprite open;
     bool isOpen=false;
+    public bool canOpen = false;
 	// Use this for initialization
 	void Start () {
-	
+	    
 	}
 	
 	// Update is called once per frame
@@ -17,9 +18,8 @@ public class ItemCreate : MonoBehaviour {
     
     void OnTriggerEnter(Collider col)
     {
-        if(col.tag=="PlayerBody"&&!isOpen  )
+        if(col.tag=="PlayerBody"&&!isOpen&&canOpen)
         {
-
             int index = Random.Range(0, Items.Length);
             GameObject i = Items[index];
             GameObject Item = (GameObject)GameObject.Instantiate(i, transform.position+Vector3.right*2, Quaternion.Euler(90, 0 , 0));

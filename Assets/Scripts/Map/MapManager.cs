@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MapManager : MonoBehaviour {
     public int CurrentChapter;
-    public ArrayList chap1 = new ArrayList();//깨면 true
+    public List<bool> mapStatus = new List<bool>();//깨면 true
     public GameObject[] chap1Doors = new GameObject[8];
 
     void Awake()
@@ -15,7 +16,7 @@ public class MapManager : MonoBehaviour {
                 case 1:
                     {
                         for (int i = 0; i < 9; i++)
-                            chap1.Add(false);
+                            mapStatus.Add(false);
                         break;
                     }
             }
@@ -26,7 +27,7 @@ public class MapManager : MonoBehaviour {
             {
                 case 1:
                     {
-                        chap1 = Game.current.roomStatus;
+                        mapStatus = Game.current.roomStatus;
                         break;
                     }
             }
@@ -56,13 +57,13 @@ public class MapManager : MonoBehaviour {
         }
     }
 
-    public ArrayList getRoomStatus()
+    public List<bool> getRoomStatus()
     {
         switch(CurrentChapter)
         {
             case 1:
                 {
-                    return chap1;
+                    return mapStatus;
                 }
             default:
                 return null;
