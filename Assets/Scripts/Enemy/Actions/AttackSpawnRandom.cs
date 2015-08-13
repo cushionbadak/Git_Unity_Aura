@@ -72,6 +72,8 @@ public class AttackSpawnRandom : EnemyAction
 
     public override void OnStart()
     {
+        cool_down_timer = cool_down;
+
         attack_timer = attack_time;
         is_fired = false;
     }
@@ -88,7 +90,6 @@ public class AttackSpawnRandom : EnemyAction
 
     public override void OnStop()
     {
-        cool_down_timer = cool_down;
         is_fired = true;
     }
 

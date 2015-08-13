@@ -23,6 +23,29 @@ public class EffectManager : MonoBehaviour {
 	public GameObject TeleportEffect;
 	public GameObject VortexEffect;
 
+    [System.Serializable]
+    public enum Effects
+    {
+        NONE,
+        ATTACK,
+        KNOCK_BACK,
+        SHORT_HIT,
+        LONG_HIT,
+        EXP,
+        FIREBALL,
+        LIGHTBOMB,
+        LEVEL_UP,
+        PREEST,
+        SHOCKWAVE,
+        DUSTCLOUD,
+        MONSTER_SUMMON,
+        FIREBOMB,
+        THUNDERSHOES,
+        REDHEAL,
+        TELEPORT,
+        BOSSTHUNDER
+    }
+
     private static EffectManager uniqueInstance = null;
     public static EffectManager I { get { return uniqueInstance; } }
 
@@ -44,6 +67,64 @@ public class EffectManager : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void createEffect(GameObject obj, Effects e)
+    {
+        switch (e)
+        {
+            case Effects.ATTACK:
+                createAttackEffect(obj);
+                break;
+            case Effects.BOSSTHUNDER:
+                createBossThunderEffect(obj);
+                break;
+            case Effects.DUSTCLOUD:
+                createDustCloudEffect(obj);
+                break;
+            case Effects.EXP:
+                createEXPEffect(obj.transform.position);
+                break;
+            case Effects.FIREBALL:
+                createFireBallEffect(obj);
+                break;
+            case Effects.FIREBOMB:
+                createFireBombEffect(obj);
+                break;
+            case Effects.KNOCK_BACK:
+                createKnockbackEffect(obj);
+                break;
+            case Effects.LEVEL_UP:
+                createLevelUpEffect(obj);
+                break;
+            case Effects.LIGHTBOMB:
+                createLightBombEffect(obj);
+                break;
+            case Effects.LONG_HIT:
+                createLongHitEffect(obj);
+                break;
+            case Effects.MONSTER_SUMMON:
+                createMonsterSummonEffect(obj);
+                break;
+            case Effects.PREEST:
+                createPressTEffect(obj);
+                break;
+            case Effects.REDHEAL:
+                createRedHealEffect(obj);
+                break;
+            case Effects.SHOCKWAVE:
+                createShockWaveEffect(obj);
+                break;
+            case Effects.SHORT_HIT:
+                createShortHitEffect(obj);
+                break;
+            case Effects.TELEPORT:
+                createTeleportEffect(obj);
+                break;
+            case Effects.THUNDERSHOES:
+                createThunderShoesEffect(obj);
+                break;
+        }
+    }
 
     public void createAttackEffect(GameObject obj)
     {
