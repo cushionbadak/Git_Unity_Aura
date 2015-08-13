@@ -4,16 +4,19 @@ using System.Collections;
 public class EnemyAttackProjectDirection : EnemyAttacks
 {
     public float damage_ratio = 1.0f;
+    
     public float project_speed = 2;
     public bool speed_accel_apply = false;
     public float speed_accel_amount = 2f;
-    public float fire_radius = 3;
 
+    public float fire_radius = 3;
+    public float collision_radius = 0.3f;
+
+    public bool attack_on_wall = false;
     public bool check_attack_time = false;
     public float attack_time = 10;
-    public float collision_radius = 0.3f;
-    public bool attack_on_wall = false;
 
+    public EffectManager.Effects fire_effect = EffectManager.Effects.NONE;
 
     private GameObject player;
     private Vector3 target_direction;
@@ -128,7 +131,11 @@ public class EnemyAttackProjectDirection : EnemyAttacks
 
         // give player damage
         if (player_found)
+        {
+            if (fire_effect != EffectManager.Effects.NONE)
+                EffectManager.I.createEffect(this.gameObject, fire_effect);
             GameManager.I.attackToPlayer(this);
+        }
     }
 
     float GetDeltaTime()
