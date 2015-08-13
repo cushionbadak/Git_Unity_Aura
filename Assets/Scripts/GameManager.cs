@@ -408,7 +408,6 @@ public class GameManager : MonoBehaviour
             player.damage = PlayerLevelData.I.Status[player.level].damage;
             EffectManager.I.createLevelUpEffect(player.gameObject);
         }
-
     }
 
 

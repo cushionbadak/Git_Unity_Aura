@@ -1758,8 +1758,10 @@ MonoBehaviour:
   stop_distance: .5
   acting_time: 4
   moving_time: 3
+  cool_down: 3
   prob_cost: 3
   find_till_death: 1
+  cool_down_timer: 0
 --- !u!114 &76949690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2311,8 +2313,10 @@ MonoBehaviour:
   stop_distance: .5
   acting_time: 4
   moving_time: 3
+  cool_down: 3
   prob_cost: 3
   find_till_death: 1
+  cool_down_timer: 0
 --- !u!114 &100059496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3353,7 +3357,7 @@ Transform:
   - {fileID: 619536295}
   - {fileID: 904198599}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &143895024
 GameObject:
   m_ObjectHideFlags: 0
@@ -5772,8 +5776,10 @@ MonoBehaviour:
   stop_distance: .5
   acting_time: 4
   moving_time: 3
+  cool_down: 3
   prob_cost: 3
   find_till_death: 1
+  cool_down_timer: 0
 --- !u!114 &311435526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13678,8 +13684,10 @@ MonoBehaviour:
   stop_distance: .5
   acting_time: 4
   moving_time: 3
+  cool_down: 3
   prob_cost: 3
   find_till_death: 1
+  cool_down_timer: 0
 --- !u!114 &666141369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14029,7 +14037,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 435064, guid: 4a5a1710d0ea80a49bdd50b28640d62a, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a5a1710d0ea80a49bdd50b28640d62a, type: 2}
@@ -15216,7 +15224,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 440704, guid: 9fd1882b0db708446be1b8e626015284, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11486508, guid: 9fd1882b0db708446be1b8e626015284, type: 2}
       propertyPath: fired_object
@@ -18088,8 +18096,10 @@ MonoBehaviour:
   stop_distance: .5
   acting_time: 4
   moving_time: 3
+  cool_down: 3
   prob_cost: 3
   find_till_death: 1
+  cool_down_timer: 0
 --- !u!114 &841609419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24639,8 +24649,10 @@ MonoBehaviour:
   stop_distance: .5
   acting_time: 4
   moving_time: 3
+  cool_down: 3
   prob_cost: 3
   find_till_death: 1
+  cool_down_timer: 0
 --- !u!114 &1151471850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25310,8 +25322,8 @@ Transform:
   m_LocalPosition: {x: 39.2999992, y: 0, z: -53.4000015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1494391159}
   - {fileID: 1250620175}
+  - {fileID: 1494391159}
   m_Father: {fileID: 1179572453}
   m_RootOrder: 3
 --- !u!114 &1160287270
@@ -30248,8 +30260,10 @@ MonoBehaviour:
   stop_distance: .5
   acting_time: 4
   moving_time: 3
+  cool_down: 3
   prob_cost: 3
   find_till_death: 1
+  cool_down_timer: 0
 --- !u!114 &1355058477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31442,8 +31456,10 @@ MonoBehaviour:
   stop_distance: .5
   acting_time: 4
   moving_time: 3
+  cool_down: 3
   prob_cost: 3
   find_till_death: 1
+  cool_down_timer: 0
 --- !u!114 &1417084942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33321,8 +33337,10 @@ MonoBehaviour:
   stop_distance: .5
   acting_time: 4
   moving_time: 3
+  cool_down: 3
   prob_cost: 3
   find_till_death: 1
+  cool_down_timer: 0
 --- !u!114 &1475253804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37678,8 +37696,10 @@ MonoBehaviour:
   stop_distance: .5
   acting_time: 4
   moving_time: 3
+  cool_down: 3
   prob_cost: 3
   find_till_death: 1
+  cool_down_timer: 0
 --- !u!114 &1686998261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40554,8 +40574,10 @@ MonoBehaviour:
   stop_distance: .5
   acting_time: 4
   moving_time: 3
+  cool_down: 3
   prob_cost: 3
   find_till_death: 1
+  cool_down_timer: 0
 --- !u!114 &1797579356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42776,8 +42798,10 @@ MonoBehaviour:
   stop_distance: .5
   acting_time: 4
   moving_time: 3
+  cool_down: 3
   prob_cost: 3
   find_till_death: 1
+  cool_down_timer: 0
 --- !u!114 &1877012015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43068,8 +43092,10 @@ MonoBehaviour:
   stop_distance: .5
   acting_time: 4
   moving_time: 3
+  cool_down: 3
   prob_cost: 3
   find_till_death: 1
+  cool_down_timer: 0
 --- !u!114 &1879426278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44229,8 +44255,10 @@ MonoBehaviour:
   stop_distance: .5
   acting_time: 4
   moving_time: 3
+  cool_down: 3
   prob_cost: 3
   find_till_death: 1
+  cool_down_timer: 0
 --- !u!114 &1915295069
 MonoBehaviour:
   m_ObjectHideFlags: 0
