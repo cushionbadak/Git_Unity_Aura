@@ -27,8 +27,11 @@ public class pausemenu : MonoBehaviour {
 			skillCanvas.SetActive(false);
 			messageCanvas.SetActive(false);
 			configCanvas.SetActive(false);
+            if(GameManager.I.isPlayerLive)
+            {
 
-			Time.timeScale = 1f;
+                Time.timeScale = 1f;
+            }
 		}
 
 		if (Input.GetKeyDown (KeyCode.Escape)) {

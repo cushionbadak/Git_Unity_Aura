@@ -21,6 +21,7 @@ public class EffectManager : MonoBehaviour {
 	public GameObject BossThunderEffect;
 	public GameObject RedHealEffect;
 	public GameObject TeleportEffect;
+	public GameObject VortexEffect;
 
     [System.Serializable]
     public enum Effects
@@ -200,8 +201,19 @@ public class EffectManager : MonoBehaviour {
 	{
 		StartCoroutine (createBossThunder (obj));
 	}
+	public void createVortexEffect (GameObject obj)
+	{
+		StartCoroutine (createVortex (obj));
+	}
 		//
 		//
+	IEnumerator createVortex(GameObject obj)
+	{
+		GameObject eff = (GameObject)Instantiate (VortexEffect, obj.transform.position, Quaternion.identity);
+		eff.transform.parent = obj.transform;
+		Destroy (eff, 5.0f);
+		yield return null;
+	}
 	IEnumerator createBossThunder(GameObject obj)
 	{
 		GameObject eff = (GameObject)Instantiate (BossThunderEffect, obj.transform.position, Quaternion.identity);

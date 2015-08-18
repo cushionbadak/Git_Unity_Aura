@@ -4,6 +4,9 @@ using System.Collections;
 public class PlayerSkills : Attack {
     // 스킬을 어디에 붙여야 할지 모르겠당. 일단 공격이 전부 오라관련이니까 오라에 붙임.
     // Variables
+    private Vector3 frontVec;
+    private bool isRight;
+    private bool isUp;
 
     // Skill - Knockback
     private float t_knockback = 0.0f; //시간 저장
@@ -18,8 +21,12 @@ public class PlayerSkills : Attack {
     private float t_tsnextlink = 0.0f;
     private bool on_tsnextlink = false;
     public float cd_tsnextlink = 1.0f;
+    private int steps_tsnextlink = 0;
 
-    private int step_tripleshock = 0;
+    // Skill - Laser
+    private bool on_laser = false;
+    private float t_laser = .0f;
+    public float cd_laser = 5.0f;
 
     // Skill - Teleport
 
@@ -40,6 +47,8 @@ public class PlayerSkills : Attack {
     public skillSet _skill_2 = skillSet.Nothing;
     public skillSet _skill_3 = skillSet.Nothing;
 
+    public PlayerUnit _p;
+
 	// Use this for initialization
 	void Start () {
    
@@ -50,24 +59,38 @@ public class PlayerSkills : Attack {
         
         // 스킬 쿨다운 관리
         t_knockback += Time.deltaTime;
-        if (t_knockback > cd_knockback)
+        if (t_knockback >= cd_knockback)
             on_knockback = true;
 
         t_tripleshock += Time.deltaTime;
-        if (t_tripleshock > cd_tripleshock)
+        if (t_tripleshock >= cd_tripleshock)
             on_tripleshock = true;
+
+        if (!on_tripleshock)
+        {
+            t_tripleshock += Time.deltaTime;
+            if (t_tripleshock >= cd_tripleshock)
+            {
+                on_tripleshock = true;
+                t_tripleshock = .0f;
+                steps_tsnextlink = 0;
+            }
+        }
+
+        t_laser += Time.deltaTime;
+        if (t_laser >= cd_laser)
+            on_laser = true;
 
         if (on_tsnextlink)
         {
             t_tsnextlink += Time.deltaTime;
-            if (t_tsnextlink > cd_tsnextlink)
+            if (t_tsnextlink >= cd_tsnextlink)
             {
                 on_tsnextlink = false;
-                on_tripleshock = false;
-                t_tripleshock = .0f;
+                t_tsnextlink = .0f;
+                steps_tsnextlink = 0;
             }
         }
-
 
 
         // 적절한 스킬 호출하기
@@ -78,12 +101,29 @@ public class PlayerSkills : Attack {
         else if (Input.GetKeyDown(KeyCode.D))
             callSkillFunc(_skill_3);
 
+        
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            frontVec = new Vector3(1.0f, 0.0f, 0.0f);
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            frontVec = new Vector3(-1.0f, 0.0f, 0.0f);
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            frontVec = new Vector3(0.0f, 0.0f, 1.0f);
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            frontVec = new Vector3(0.0f, 0.0f, -1.0f);
+        }
 	}
 
     void skill_Knockback()
     {
-        Collider[] targets = Physics.OverlapSphere(this.transform.position, 5.0f);
-        
+        Collider[] targets = Physics.OverlapSphere(this.transform.position, _p.AuraRange);
+       
         foreach (Collider col in targets)
         {
             if (col.tag == "EnemyBody")
@@ -99,9 +139,59 @@ public class PlayerSkills : Attack {
 
     void skill_SpinningCross() {}   //추가 오라 객체를 만들어서 거기에 붙여야 할라나?
     void skill_Teleport() {}
-    void skill_Laser() { }
+    void skill_Laser()
+    {
+        if (on_laser)
+        {
+            on_laser = false;
+            //do something
+            //enemy쪽 레이저 발사하는거 이용할수 있을까나?
+        }
+    }
     void skill_WindBitingSnowBall() { }
-    void skill_TripleShock() { }
+    void skill_TripleShock()
+    {
+        if (on_tripleshock || on_tsnextlink)
+        {
+            
+            Collider[] targets = Physics.OverlapSphere(this.transform.position, _p.AuraRange);
+            steps_tsnextlink++;
+
+            if (steps_tsnextlink == 1 || steps_tsnextlink == 2)
+            {
+                t_tsnextlink = .0f;
+                
+                foreach(Collider col in targets)
+                {
+                    if (col.tag == "EnemyBody")
+                    {
+                        damage = _p.damage * 5;
+                        GameManager.I.attckToEnemy(this, col.gameObject);
+                        damage = _p.damage;
+                    }
+                }
+            }
+            else if (steps_tsnextlink == 3)
+            {
+                on_tsnextlink = false;
+                on_tripleshock = false;
+                t_tsnextlink = .0f;
+                t_tripleshock = .0f;
+
+                steps_tsnextlink = 0;
+                
+                foreach (Collider col in targets)
+                {
+                    if (col.tag == "EnemyBody")
+                    {
+                        damage = _p.damage * 5;
+                        GameManager.I.attckToEnemy(this, col.gameObject);
+                        damage = _p.damage;
+                    }
+                }
+            }
+        }
+    }
     void skill_ShugokuOokiidesu() { }
 
     void callSkillFunc(skillSet skill)
@@ -117,10 +207,11 @@ public class PlayerSkills : Attack {
         }
         else if(skill == skillSet.TripleShock)
         {
-            if (on_tripleshock)
-            {
-                on_tsnextlink = true;
-            }
+            skill_TripleShock();
+        }
+        else if (skill == skillSet.Laser)
+        {
+            skill_Laser();
         }
         else
         {

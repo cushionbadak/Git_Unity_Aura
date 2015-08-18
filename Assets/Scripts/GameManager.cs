@@ -15,7 +15,9 @@ public class GameManager : MonoBehaviour
     public MapManager mapM;
     bool isGameMode=false;
     public bool canSave = false;
+    public PlayerUnit pl;
     public int index=0;
+    public bool isPlayerLive=true;
     //Singleton
     private static GameManager uniqueInstance = null;
     public static GameManager I { get { return uniqueInstance; } }
@@ -39,7 +41,7 @@ public class GameManager : MonoBehaviour
             player.GetComponent<PlayerUnit>().currentHP = 100;
             player.GetComponent<PlayerUnit>().EXP = 0;
             player.GetComponent<PlayerUnit>().level = 1;
-            player.GetComponent<PlayerUnit>().damage = 10;
+            player.GetComponent<PlayerUnit>().damage = 1;
         }
         else
         {
@@ -71,13 +73,14 @@ public class GameManager : MonoBehaviour
             pl.rangeUp(pl.rangeUpPotion);
 
             index = Game.current.dialogIndex;
-
+            Debug.Log(index);
         }
     }
 
     // Use this for initialization
     void Start()
     {
+      
         //Singleton
         if (uniqueInstance == null)
             uniqueInstance = this;
@@ -136,9 +139,13 @@ public class GameManager : MonoBehaviour
         }
         if (isGameMode)
         {
-            if (findPlayer().gameObject.GetComponent<PlayerUnit>().currentHP <= 0)
+            if(isPlayerLive==false)
             {
                 Time.timeScale = 0.01f;
+            }
+            if (pl.currentHP <= 0)
+            {
+                isPlayerLive = false;
             }
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
@@ -176,6 +183,7 @@ public class GameManager : MonoBehaviour
                     Debug.Log(i + "번째 슬롯의 pos : " + SaveLoad.savedGames[i].playerPosition);
                 }
             }
+
         }
     }
 

@@ -144,6 +144,7 @@ public abstract class NewEnemyUnit : Enemy
     {
         // create dead body
         OnDie();
+        GameManager.I.EXPIncrease(giveEXP, transform.position);
         Destroy(transform.parent.gameObject);
 
     }
