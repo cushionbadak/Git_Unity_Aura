@@ -10,10 +10,12 @@ public class AttackCharge : EnemyAction
     public int prob_cost = 3;
     public float cool_down_time = 10;
     public float speed_ratio = 10;
-
+    public bool stop_on_wall = false;
+    public bool stop_on_player = false;
+    public bool attack_on_player = false;
 
     private float cool_down_timer = 0;
-    public Vector3 direction = new Vector3();
+    private Vector3 direction = new Vector3();
     private bool charging = true;
     private bool rushing = false;
     private bool can_update = true;
@@ -83,7 +85,6 @@ public class AttackCharge : EnemyAction
     {
         timer -= Time.deltaTime;
 
-        Debug.Log(charging + " " + rushing);
         // act
         if (charging)
         {
@@ -107,6 +108,26 @@ public class AttackCharge : EnemyAction
             }
         }
 
+    }
+
+    public void OnCollisionEnter(Collision col)
+    {
+        if (stop_on_wall && rushing && col.gameObject.tag == "MapObject")
+        {
+            charging = false;
+            rushing = false;
+        }
+
+        
+    }
+
+    public void OnTriggerEnter(Collider col)
+    {
+        if (stop_on_player && rushing && col.gameObject.tag == "PlayerBody")
+        {
+            charging = false;
+            rushing = false;
+        }
     }
 
     public override void OnStop()
