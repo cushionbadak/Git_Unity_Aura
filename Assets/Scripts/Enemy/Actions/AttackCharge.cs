@@ -8,7 +8,6 @@ public class AttackCharge : EnemyAction
     public float acting_time = 4;
     public float charging_time = 3;
     public int prob_cost = 3;
-    public float rush_speed = 10;
     public float cool_down_time = 10;
     public float speed_ratio = 10;
 
@@ -54,8 +53,9 @@ public class AttackCharge : EnemyAction
     public override bool isAvailable()
     {
         bool player_inside = Vector3.Distance(player.transform.position, transform.position) < attack_range;
-        
-        return player_inside;
+        bool cooldown_end = cool_down_timer <= 0;
+
+        return player_inside && cooldown_end;
     }
 
     public override int GetProbCost()
@@ -98,7 +98,7 @@ public class AttackCharge : EnemyAction
         }
         else if (rushing)
         {
-            transform.position += direction * Time.deltaTime * rush_speed * speed_ratio;
+            transform.position += direction * Time.deltaTime * unit.currentSpeed * speed_ratio;
 
             if (timer <= 0)
             {
