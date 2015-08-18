@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: mat_laser
+  m_Name: Laser_player
   m_Shader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 2a47328512873e44fb829a128a6c3d09, type: 3}
+          m_Texture: {fileID: 2800000, guid: dc95f5d120f555f45b35a60b6b6ec317, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -130,7 +130,7 @@ Material:
       data:
         first:
           name: _InvFade
-        second: .00999999978
+        second: 1
     m_Colors:
       data:
         first:
@@ -143,4 +143,4 @@ Material:
       data:
         first:
           name: _TintColor
-        second: {r: .393598616, g: .396563619, b: .823529422, a: .5}
+        second: {r: .5, g: .5, b: .5, a: .5}

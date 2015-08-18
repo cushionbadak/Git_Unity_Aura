@@ -24,14 +24,20 @@ public class PlayerSkills : Attack {
     private int steps_tsnextlink = 0;
 
     // Skill - Laser
-    private bool on_laser = false;
+    private bool on_laser = true;
     private float t_laser = .0f;
     public float cd_laser = 5.0f;
+    public GameObject pObject_laser;    //레이저 오브젝트 할당
 
     // Skill - Teleport
+    private bool on_teleport = true;
+    private float t_teleport = .0f;
+    public float cd_teleport = 2.0f;
+    private Vector3 tp_movingVec;
+    private float v, h;
+    private float tp_movingDist = 100.0f;  //텔레포트 이동거리
 
-    private int s_id = 0;
-    private float time_store = 0.0f; //추후 스킬 쿨다운 적용을 위함
+
     public enum skillSet {
         Nothing,
         Knockback,
@@ -77,10 +83,6 @@ public class PlayerSkills : Attack {
             }
         }
 
-        t_laser += Time.deltaTime;
-        if (t_laser >= cd_laser)
-            on_laser = true;
-
         if (on_tsnextlink)
         {
             t_tsnextlink += Time.deltaTime;
@@ -92,6 +94,13 @@ public class PlayerSkills : Attack {
             }
         }
 
+        t_laser += Time.deltaTime;
+        if (t_laser >= cd_laser)
+            on_laser = true;
+
+        t_teleport += Time.deltaTime;
+        if (t_teleport >= cd_teleport)
+            on_teleport = true;
 
         // 적절한 스킬 호출하기
         if (Input.GetKeyDown(KeyCode.A))
@@ -118,11 +127,14 @@ public class PlayerSkills : Attack {
         {
             frontVec = new Vector3(0.0f, 0.0f, -1.0f);
         }
+
+        v = Input.GetAxis("Vertical");
+        h = Input.GetAxis("Horizontal");
 	}
 
     void skill_Knockback()
     {
-        Collider[] targets = Physics.OverlapSphere(this.transform.position, _p.AuraRange);
+        Collider[] targets = Physics.OverlapSphere(this.transform.position, this.transform.localScale.x / 2);
        
         foreach (Collider col in targets)
         {
@@ -138,14 +150,41 @@ public class PlayerSkills : Attack {
     }
 
     void skill_SpinningCross() {}   //추가 오라 객체를 만들어서 거기에 붙여야 할라나?
-    void skill_Teleport() {}
+    void skill_Teleport()
+    {
+        if (on_teleport)
+        {
+            on_teleport = false;
+            t_teleport = .0f;
+
+            Collider[] cols = Physics.OverlapSphere(this.transform.position, this.transform.localScale.x / 2);
+            damage = _p.damage * 0.2f;
+            foreach (Collider col in cols)
+            {
+                if (col.tag == "EnemyBody")
+                {
+                    GameManager.I.giveStunToEnemy(col.gameObject, 1.0f);
+                    GameManager.I.attckToEnemy(this, col.gameObject);
+                }
+            }
+            damage = _p.damage;
+            tp_movingVec = new Vector3(h, 0, v);
+            transform.parent.position = transform.parent.position + tp_movingVec * tp_movingDist;
+        }
+    }
     void skill_Laser()
     {
         if (on_laser)
         {
             on_laser = false;
-            //do something
-            //enemy쪽 레이저 발사하는거 이용할수 있을까나?
+            t_laser = .0f;
+
+            float angle = Vector3.Angle(new Vector3(0, 0, 1), frontVec);
+            if (frontVec.y - frontVec.x > 0)
+                angle = 360 - angle;
+            Vector3 euler = new Vector3(0, angle, 0);
+            GameObject p_laser = (GameObject)Instantiate(pObject_laser, transform.position, Quaternion.Euler(euler));
+            p_laser.GetComponent<PlayerLaser>().damage = this.damage;
         }
     }
     void skill_WindBitingSnowBall() { }
@@ -154,11 +193,12 @@ public class PlayerSkills : Attack {
         if (on_tripleshock || on_tsnextlink)
         {
             
-            Collider[] targets = Physics.OverlapSphere(this.transform.position, _p.AuraRange);
+            Collider[] targets = Physics.OverlapSphere(this.transform.position, transform.localScale.x * 0.5f);
             steps_tsnextlink++;
 
             if (steps_tsnextlink == 1 || steps_tsnextlink == 2)
             {
+                
                 t_tsnextlink = .0f;
                 
                 foreach(Collider col in targets)
@@ -212,6 +252,10 @@ public class PlayerSkills : Attack {
         else if (skill == skillSet.Laser)
         {
             skill_Laser();
+        }
+        else if (skill == skillSet.Teleport)
+        {
+            skill_Teleport();
         }
         else
         {

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 [System.Serializable]
 
 public class Game  {
@@ -11,6 +12,7 @@ public class Game  {
     public int speedUpPotion;       
     public int rangeUpPotion;
     public int dialogIndex;
+    public List<PlayerSkills.skillSet> skills;
     private WB_Vector3 _someVector3Info;
     public Vector3 playerPosition
     {
@@ -32,6 +34,6 @@ public class Game  {
     }
 
     public int currentChapter;
-    public ArrayList roomStatus;
+    public List<bool> roomStatus;
 
 }

@@ -115,7 +115,7 @@ MonoBehaviour:
   cool_down: 5
   prob_cost: 3
   find_till_death: 1
---- !u!114 &11431694
+  cool_down_timer: 0
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -247,8 +247,8 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
-      propertyPath: m_Radius
-      value: .200000003
+      propertyPath: cool_down
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

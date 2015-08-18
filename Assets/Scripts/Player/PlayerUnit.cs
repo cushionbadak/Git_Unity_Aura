@@ -180,7 +180,7 @@ public class PlayerUnit : Player {
     {
         ratio_snare = ratio;
     }
-    public override void removeSnare()
+    public void removeSnare()
     {
         ratio_snare = 1.0f;
     }
