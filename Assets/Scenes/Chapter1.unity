@@ -1928,7 +1928,7 @@ Transform:
   m_Children:
   - {fileID: 1991937631}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
 --- !u!1 &100059493
 GameObject:
   m_ObjectHideFlags: 0
@@ -3021,6 +3021,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 11419236, guid: c6f347a7ef462514a8781f914c15a78b, type: 2}
+      propertyPath: _skill_2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11419236, guid: c6f347a7ef462514a8781f914c15a78b, type: 2}
+      propertyPath: pObject_laser
+      value: 
+      objectReference: {fileID: 171046, guid: dc859f38d15b6f24c87b5c18e7467860, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6f347a7ef462514a8781f914c15a78b, type: 2}
   m_IsPrefabParent: 0
@@ -16668,7 +16676,7 @@ Transform:
   - {fileID: 1162654774}
   - {fileID: 2012105966}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 19
 --- !u!1 &858445066
 GameObject:
   m_ObjectHideFlags: 0
@@ -23086,8 +23094,9 @@ Transform:
   - {fileID: 647935445}
   - {fileID: 916719648}
   - {fileID: 481267474}
+  - {fileID: 1526036737}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
 --- !u!1001 &1183171540
 Prefab:
   m_ObjectHideFlags: 0
@@ -30718,6 +30727,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 797629171}
   m_RootOrder: 0
+--- !u!224 &1526036737 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22431652, guid: d22107e3b3d3ce7419e7a90df4d80c35,
+    type: 2}
+  m_PrefabInternal: {fileID: 1999937802}
 --- !u!1 &1530175492
 GameObject:
   m_ObjectHideFlags: 0
@@ -40359,7 +40373,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1179572453}
     m_Modifications:
     - target: {fileID: 22431652, guid: d22107e3b3d3ce7419e7a90df4d80c35, type: 2}
       propertyPath: m_LocalPosition.x
@@ -40391,7 +40405,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22431652, guid: d22107e3b3d3ce7419e7a90df4d80c35, type: 2}
       propertyPath: m_RootOrder
-      value: 18
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 22431652, guid: d22107e3b3d3ce7419e7a90df4d80c35, type: 2}
       propertyPath: m_AnchoredPosition.x
