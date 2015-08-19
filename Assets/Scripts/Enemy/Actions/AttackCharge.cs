@@ -9,10 +9,11 @@ public class AttackCharge : EnemyAction
     public float charging_time = 3;
     public int prob_cost = 3;
     public float cool_down_time = 10;
-    public float speed_ratio = 10;
+    public float speed_ratio = 2;
     public bool stop_on_wall = false;
     public bool stop_on_player = false;
     public bool attack_on_player = false;
+    public GameObject attacking_object = null;
 
     private float cool_down_timer = 0;
     private Vector3 direction = new Vector3();
@@ -125,9 +126,18 @@ public class AttackCharge : EnemyAction
     {
         if (stop_on_player && rushing && col.gameObject.tag == "PlayerBody")
         {
+            if (attack_on_player)
+            {
+                Attack();
+            }
             charging = false;
             rushing = false;
         }
+    }
+
+    void Attack()
+    {
+        GameObject.Instantiate(attacking_object, transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
     }
 
     public override void OnStop()

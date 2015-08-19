@@ -12,11 +12,11 @@ GameObject:
   - 195: {fileID: 19509590}
   - 212: {fileID: 21277144}
   - 95: {fileID: 9585488}
-  - 114: {fileID: 11431694}
   - 54: {fileID: 5449234}
   - 114: {fileID: 11490950}
   - 114: {fileID: 11466842}
   - 114: {fileID: 11409864}
+  - 114: {fileID: 11431034}
   m_Layer: 9
   m_Name: robot_body
   m_TagString: EnemyBody
@@ -108,14 +108,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a876b413bf014e743baf66f9946e0314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  search_range: 7
+  search_range: 5
   stop_distance: .5
-  acting_time: 3
-  moving_time: 3
-  cool_down: 5
+  acting_time: 2
+  moving_time: 1
+  cool_down: 3
   prob_cost: 3
   find_till_death: 1
   cool_down_timer: 0
+--- !u!114 &11431034
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -126,8 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a8b08358a21e0346a79973a56182d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name_monster: security_robot
-  type: 2
+  name_monster: tobot
+  type: 0
 --- !u!114 &11447508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -249,6 +250,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: cool_down
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: fix.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: fix.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: fixangle.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: name_monster
+      value: tobot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
