@@ -30,8 +30,8 @@ public class CutSceneManager : MonoBehaviour {
         else
             Destroy(this.gameObject);
         nav = plDum.GetComponent<NavMeshAgent>();
-        nav.updateRotation = false;
-
+		
+		nav.updateRotation = false;
 
         Vector3 curPos = plDum.transform.position;
         Vector3 prevPos = plDum.transform.position;

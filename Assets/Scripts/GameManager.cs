@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
         {
             index = 0;
             SaveLoad.Init();
-            Game.current = new Game();
             
             GameObject player = GameObject.FindWithTag("PlayerBody");
             player.transform.parent.transform.position = new Vector3(0,0,0);
@@ -88,7 +87,8 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-      
+		
+		Game.current = new Game();
         //Singleton
         if (uniqueInstance == null)
             uniqueInstance = this;

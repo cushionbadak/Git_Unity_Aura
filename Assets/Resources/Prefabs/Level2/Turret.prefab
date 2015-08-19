@@ -17,7 +17,7 @@ GameObject:
   - 114: {fileID: 11461062}
   - 54: {fileID: 5474166}
   - 114: {fileID: 11420068}
-  - 114: {fileID: 11404840}
+  - 114: {fileID: 11410804}
   m_Layer: 9
   m_Name: turret_body
   m_TagString: EnemyBody
@@ -60,7 +60,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.5999999, y: 0, z: 19.7000008}
+  m_LocalPosition: {x: -10.3999996, y: 0, z: -6.53591347}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 453872}
@@ -114,7 +114,7 @@ MonoBehaviour:
     x: 1
     y: 1
     z: 0
---- !u!114 &11404840
+--- !u!114 &11410804
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -122,14 +122,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 103146}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30ad79f59b6678d4bace27fcd1559bcc, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b13cdce6f2af3440a9fed0c8d6b8341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack_range: 20
+  attack_range: 2000
   prob_cost: 3
   cool_down: 1
   attack_time: 1
-  attack_fire_time: .5
+  attack_fire_time: 1
+  spread_angle: 3
+  spread_count: 1
   fired_object: {fileID: 157276, guid: 2ffb8fa7457854b468d8c682d5367b16, type: 2}
 --- !u!114 &11420068
 MonoBehaviour:
@@ -142,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe2279a08922d364aae7febe9c66432e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  search_range: 15
+  search_range: 2000
   acting_time: .5
   prob_cost: 3
 --- !u!114 &11444248
@@ -172,11 +174,11 @@ MonoBehaviour:
   level: 1
   originalSpeed: 0
   currentSpeed: 0
-  damage: 20
+  damage: 1
   AuraRange: .800000012
   giveEXP: 30
   attacks:
-  - {fileID: 11404840}
+  - {fileID: 11410804}
   traces:
   - {fileID: 11420068}
   anim: {fileID: 0}

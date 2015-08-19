@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
+using System;
 public class ChangeAlpha : MonoBehaviour {
     public bool isTrans = false;
     bool complete;
@@ -9,11 +10,18 @@ public class ChangeAlpha : MonoBehaviour {
     float t;
     float timeSumforTrue=0;
     float timeSumforFalse = 0;
-    public GameObject mapM;
+    MapManager mapM;
     public int roomNum;
 	// Use this for initialization
 	void Start () {
-        if((bool)mapM.GetComponent<MapManager>().getRoomStatus()[roomNum]==true)
+		if (transform.parent.gameObject.name == "SpecialDoor") {
+		}
+		else
+			{
+		roomNum = Convert.ToInt16(transform.parent.gameObject.name.Split('r')[1]);
+			}
+		mapM = GameObject.Find ("Managers").GetComponentInChildren<MapManager> ();
+        if(mapM.GetComponent<MapManager>().getRoomStatus()[roomNum]==true)
         {
             isTrans = true;
         }

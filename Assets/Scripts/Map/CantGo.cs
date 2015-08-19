@@ -19,8 +19,6 @@ public class CantGo : MonoBehaviour {
 
     void OnTriggerEnter()
     {
-        if(maxNum==0)
-            dor.canOpen = true;
         bool check=true;
         List<bool> l=mapM.getRoomStatus();
         
