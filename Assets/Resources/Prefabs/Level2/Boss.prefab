@@ -166,14 +166,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18798672ac3af9479e060bae02c1a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
-  currentHP: 100
+  maxHP: 3000
+  currentHP: 3000
   level: 1
   originalSpeed: 7
   currentSpeed: 7
-  damage: 10
+  damage: 20
   AuraRange: 1.5
-  giveEXP: 30
+  giveEXP: 2000
   attacks:
   - {fileID: 11481270}
   - {fileID: 11429846}
