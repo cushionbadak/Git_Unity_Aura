@@ -137,7 +137,16 @@ public class AttackCharge : EnemyAction
 
     void Attack()
     {
-        GameObject.Instantiate(attacking_object, transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        if (attacking_object != null)
+        {
+            GameObject chargeattack = GameObject.Instantiate(attacking_object, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
+            var attack_script = chargeattack.GetComponentInChildren<EnemyAttacks>();
+            if (attack_script != null)
+                attack_script.SetWithParentDamage(unit.damage);
+            else if (Debug.isDebugBuild)
+                Debug.Log(gameObject.name + "No Attack Script Found");    
+        
+        }
     }
 
     public override void OnStop()

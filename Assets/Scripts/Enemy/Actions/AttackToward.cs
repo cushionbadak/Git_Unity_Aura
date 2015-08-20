@@ -105,9 +105,6 @@ public class AttackToward : EnemyAction
         }
         else
         {
-            if (Debug.isDebugBuild)
-                Debug.Log(gameObject.name + " : Fired");
-
             // calculate angle
             Vector3 diff = player.transform.position - transform.position;
             float angle = Vector3.Angle(new Vector3(0, 0, 1), diff);

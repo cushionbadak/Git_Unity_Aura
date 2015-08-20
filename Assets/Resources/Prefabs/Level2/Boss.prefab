@@ -34,6 +34,9 @@ GameObject:
   - 54: {fileID: 5420930}
   - 114: {fileID: 11498040}
   - 114: {fileID: 11481270}
+  - 114: {fileID: 11429846}
+  - 114: {fileID: 11474598}
+  - 114: {fileID: 11413804}
   m_Layer: 9
   m_Name: boss_body
   m_TagString: EnemyBody
@@ -111,6 +114,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name_monster: turret_laser
   type: 2
+--- !u!114 &11413804
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05815b9d4d6be8f4f88e00eb3659cd2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cool_down_time: 1
+  prob_cost: 3
+  attack_range: 10
+  acting_time: 3
+  jumping_time: 2
+  jumping_distance: 7
+  can_stump: 1
+  stump_object: {fileID: 185398, guid: 1d636f002ff58bb4199f61a3460aff19, type: 2}
+--- !u!114 &11429846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2d61088a16a8a4aacc5f5c07385691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack_range: 5
+  stop_distance: .5
+  acting_time: 4
+  charging_time: 3
+  prob_cost: 3
+  cool_down_time: 10
+  speed_ratio: 2
+  stop_on_wall: 1
+  stop_on_player: 1
+  attack_on_player: 1
+  attacking_object: {fileID: 0}
 --- !u!114 &11450536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,11 +171,14 @@ MonoBehaviour:
   level: 1
   originalSpeed: 7
   currentSpeed: 7
-  damage: 0
+  damage: 10
   AuraRange: 1.5
   giveEXP: 30
   attacks:
   - {fileID: 11481270}
+  - {fileID: 11429846}
+  - {fileID: 11474598}
+  - {fileID: 11413804}
   traces:
   - {fileID: 11498040}
   anim: {fileID: 0}
@@ -149,6 +196,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 698a8c673384eda4da93050ce4258512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11474598
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ad79f59b6678d4bace27fcd1559bcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack_range: 10
+  prob_cost: 3
+  cool_down: 3
+  attack_time: 3
+  attack_fire_time: 1
+  fired_object: {fileID: 162354, guid: e8c3b631c7e62e14e9aa3516473a22bc, type: 2}
 --- !u!114 &11479858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -181,9 +245,9 @@ MonoBehaviour:
   cool_down: 7
   attack_time: 3
   attack_spawn_time: 1
-  spawn_count: 3
-  spawn_distance: 5
-  spawn_between_distance: 1
+  spawn_count: 0
+  spawn_distance: 7
+  spawn_between_distance: 1.5
   spawn_object:
   - {fileID: 138696, guid: 2710205b7ca264949a228593a75dde0d, type: 2}
   - {fileID: 115886, guid: 6851d9fdb251d2a4889df1b46215de2e, type: 2}

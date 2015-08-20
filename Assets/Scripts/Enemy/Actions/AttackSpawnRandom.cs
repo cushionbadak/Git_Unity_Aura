@@ -110,9 +110,6 @@ public class AttackSpawnRandom : EnemyAction
         }
         else
         {
-            if (Debug.isDebugBuild)
-                Debug.Log(gameObject.name + " : Spawned");
-
             // choose random object
             int[] spawnlist = new int[spawn_count];
             for(int i = 0; i < spawn_count; ++i)
