@@ -417,4 +417,26 @@ public class GameManager : MonoBehaviour
     {
 
     }
+
+    public void CreateGameObjectAfter(GameObject obj, Vector3 position, Vector3 roation, float time)
+    {
+        if (time < 0)
+            return;
+
+        StartCoroutine(CreateGameObjectTimer(obj, position, Quaternion.Euler(roation), time));
+    }
+
+    IEnumerator CreateGameObjectTimer(GameObject obj, Vector3 position, Quaternion rotation, float time)
+    {
+        yield return StartCoroutine(DelayedTimer.WaitForCustomDeltaTime(time, GetDeltaTime));
+
+        GameObject.Instantiate(obj, position, rotation);
+    }
+
+    float GetDeltaTime()
+    {
+        //if (false)
+        //    return 0;
+        return Time.deltaTime;
+    }
 }

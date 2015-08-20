@@ -37,11 +37,13 @@ public class ProbabilityAI : NewEnemyUnit {
     public bool can_be_stunned = true;
     public bool can_be_snared = true;
     public bool can_be_knockbacked = true;
+    public bool revive_on_death = false;
+    public GameObject revied_object = null;
+    public float reviving_time = 2;
 
 	// Use this for initialization
-	void Start () 
+	void Awake () 
     {
-        base.Start();
 
         // initialize state machine
         ai_state = new StateMachine<ai_states>();
@@ -51,6 +53,11 @@ public class ProbabilityAI : NewEnemyUnit {
         ai_state.AddState(ai_states.attack, OnAttackState);
         ai_state.AddState(ai_states.special_0, OnSpecial0State);
         ai_state.SetInitState(ai_states.idle);
+    }
+
+    void Start()
+    {
+        base.Start();
 
         // get component
         anim = GetComponent<EnemyAnimation>();
@@ -287,7 +294,19 @@ public class ProbabilityAI : NewEnemyUnit {
     {
         if (Debug.isDebugBuild)
         {
-            Debug.Log("Range Enemy Died : " + gameObject.name);
+            Debug.Log(gameObject.name + " : Enemy Died");
+        }
+
+        if (revive_on_death)
+        {
+            if (revied_object != null)
+            {
+                GameManager.I.CreateGameObjectAfter(revied_object, transform.position, new Vector3(0, 0, 0), reviving_time);
+            }
+            else
+            {
+                Debug.LogError("Reviving object not defined");
+            }
         }
     }
 
