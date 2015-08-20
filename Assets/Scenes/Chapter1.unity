@@ -10119,7 +10119,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11433146, guid: 4a5a1710d0ea80a49bdd50b28640d62a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4a5a1710d0ea80a49bdd50b28640d62a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &685802292
@@ -33154,6 +33155,23 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a5a1710d0ea80a49bdd50b28640d62a, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1938797376 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 113622, guid: 4a5a1710d0ea80a49bdd50b28640d62a, type: 2}
+  m_PrefabInternal: {fileID: 685345175}
+--- !u!114 &1938797377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1938797376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8b08358a21e0346a79973a56182d66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name_monster: robot
+  type: 2
 --- !u!1001 &1939398788
 Prefab:
   m_ObjectHideFlags: 0

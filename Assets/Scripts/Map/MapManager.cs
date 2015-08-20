@@ -60,7 +60,7 @@ public class MapManager : MonoBehaviour {
                 }
 		case 2:
 		{
-			chap1Doors[i].GetComponent<ChangeAlpha>().isTrans = true;
+			chap2Doors[i].GetComponentInChildren<ChangeAlpha>().isTrans = true;
 			break;
 		}
         }

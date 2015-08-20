@@ -7,13 +7,19 @@ public class ItemManager : MonoBehaviour {
     public GameObject eff;
     private GameObject player;
     PlayerUnit playerUnit;
+	ItemData itemData;
+
+	void Start()
+	{
+		itemData = GameObject.Find ("GameData").GetComponent<ItemData> ();
+	}
+
 	void OnTriggerEnter(Collider col)
     {
         if(onlyOne)
         if (col.gameObject.tag == "PlayerBody")
         {
                 onlyOne = false;
-            Debug.Log(this.gameObject.name);
             player = col.gameObject;
             playerUnit = col.gameObject.GetComponent<PlayerUnit>();
             playerUnit.powerUp(playerUnit.powerUpPotion);
@@ -37,16 +43,17 @@ public class ItemManager : MonoBehaviour {
 
     void applyItem()
     {
+		GameManager.I.addItem (itemData.itemList[itemNum]);
         switch (itemNum)
         {
-             case 1:
+             case 0:
                 {
                     if (playerUnit.powerUpPotion <= 3)
                     {
                         SystemMessageManager.I.addMessage("파워 업 포션을 획득했습니다. 공격력이 20% 증가했습니다.");
                         playerUnit.powerUpPotion++;
                         playerUnit.powerUp(playerUnit.powerUpPotion);
-                    }
+					}
                     else
                     {
                         SystemMessageManager.I.addMessage("최대 한도(3개)를 초과했습니다.");
@@ -54,7 +61,7 @@ public class ItemManager : MonoBehaviour {
                     }
                     break;
                 }
-            case 2:
+            case 1:
                 {
                     if (playerUnit.speedUpPotion <= 3)
                     {
@@ -68,7 +75,7 @@ public class ItemManager : MonoBehaviour {
                     }
                     break;
                 }
-            case 3:
+            case 2:
                 {
                     if (playerUnit.rangeUpPotion <= 3)
                     {

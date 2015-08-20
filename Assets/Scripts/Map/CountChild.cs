@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class CountChild : MonoBehaviour {
     public GameObject mapM;
@@ -8,6 +9,7 @@ public class CountChild : MonoBehaviour {
     float Timesum;
     // Use this for initialization
     void Start () {
+		roomNum = Convert.ToInt16(name);
 	    if((bool)mapM.GetComponent<MapManager>().getRoomStatus()[roomNum]==true)
         {
             Transform[] trChild = GetComponentsInChildren<Transform>();

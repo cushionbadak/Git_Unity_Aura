@@ -13,6 +13,8 @@ struct Temp
 public class GameManager : MonoBehaviour
 {
     public List<PlayerSkills.skillSet> skills;
+	public List<ItemStruct> haveItemList=new List<ItemStruct>();
+
     public GameObject DamageText;
     public MapManager mapM;
     bool isGameMode=false;
@@ -20,6 +22,7 @@ public class GameManager : MonoBehaviour
     public PlayerUnit pl;
     public int index=0;
     public bool isPlayerLive=true;
+	public int isSnare=0;
     //Singleton
     private static GameManager uniqueInstance = null;
     public static GameManager I { get { return uniqueInstance; } }
@@ -28,6 +31,13 @@ public class GameManager : MonoBehaviour
     {
         return isGameMode;
     }
+
+
+	public void addItem(ItemStruct itemStruct)
+	{
+		haveItemList.Add (itemStruct);
+		Debug.Log (haveItemList [0].description);
+	}
 
     void Awake()
     {
@@ -268,14 +278,27 @@ public class GameManager : MonoBehaviour
     {
         GameObject playerobject = GameObject.FindWithTag("PlayerBody");
         Player player = playerobject.GetComponent<PlayerUnit>();
-        player.currentHP -= attk.damage;
+       
 
         if (attk.damage > 0)
-        {
-            EffectManager.I.createAttackEffect(player.gameObject);
+		{ 
+			player.currentHP -= attk.damage;
+			EffectManager.I.createAttackEffect(player.gameObject);
             StartCoroutine(createDamageText(player.gameObject, attk));
         }
+		if (attk.snareTime > 0)
+			StartCoroutine (snare(attk.snareTime));
     }
+
+	IEnumerator snare(float time)
+	{
+		giveSnareToPlayer(0.1f);
+			isSnare++;
+		yield return new WaitForSeconds(time);
+		isSnare--;
+		if(isSnare==0)
+			removeSnareToPlayer ();
+	}
 
     public void giveStunToPlayer(float time)
     {
@@ -283,13 +306,20 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerUnit>().giveStun(time);
     }
 
-    public void giveSnareToPlayer(float time)
+
+    public void giveSnareToPlayer(float ratio)
     {
         GameObject player = findPlayer().gameObject;
-        player.GetComponent<PlayerUnit>().giveSnare(time);
+        player.GetComponent<PlayerUnit>().giveSnare(ratio);
     }
 
-    //attackToPlayer과 같다.
+	public void removeSnareToPlayer()
+	{
+		GameObject player = findPlayer().gameObject;
+		player.GetComponent<PlayerUnit>().removeSnare();
+	}
+	
+	//attackToPlayer과 같다.
     /*
     float tempHP = character.currentHP - attk.damage;
     character.currentHP = (tempHP <= 0) ? 0.0f : tempHP;

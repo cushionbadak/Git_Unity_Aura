@@ -60,7 +60,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.3999996, y: 0, z: -6.53591347}
+  m_LocalPosition: {x: -11.3000002, y: 0, z: -1.70000005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 453872}
@@ -127,11 +127,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack_range: 2000
   prob_cost: 3
-  cool_down: 1
-  attack_time: 1
-  attack_fire_time: 1
-  spread_angle: 3
-  spread_count: 1
+  cool_down: .00999999978
+  attack_time: .100000001
+  attack_fire_time: .00999999978
+  spread_angle: 24
+  spread_count: 15
   fired_object: {fileID: 157276, guid: 2ffb8fa7457854b468d8c682d5367b16, type: 2}
 --- !u!114 &11420068
 MonoBehaviour:
