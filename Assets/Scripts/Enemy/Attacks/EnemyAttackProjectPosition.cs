@@ -92,6 +92,7 @@ public class EnemyAttackProjectPosition : EnemyAttacks
                 break;
             }
         }
+
         EffectManager.I.createEffect(this.gameObject, fire_effect);
 
         // give player damage

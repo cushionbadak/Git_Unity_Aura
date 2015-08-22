@@ -50,7 +50,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.5, y: 0, z: 22.7999992}
+  m_LocalPosition: {x: 165.482025, y: 0, z: 31.1179695}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 496272}
@@ -63,8 +63,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178682}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: -.959999979, y: 0, z: 1.07000005}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 418682}
   m_RootOrder: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a8b08358a21e0346a79973a56182d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name_monster: turret_laser
+  name_monster: boss1
   type: 2
 --- !u!114 &11427856
 MonoBehaviour:
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe2279a08922d364aae7febe9c66432e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  search_range: 5
+  search_range: 20
   acting_time: .5
   prob_cost: 3
 --- !u!114 &11451122
@@ -154,16 +154,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed198b4f094dcf4d941b8d48c51fd31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack_range: 10
+  attack_range: 30
   prob_cost: 3
   cool_down: 3
   attack_time: 3
   attack_spawn_time: 1
   spawn_count: 3
-  spawn_distance: 4
+  spawn_distance: 5
   spawn_between_distance: 1
   spawn_object:
   - {fileID: 187370, guid: 4a5a1710d0ea80a49bdd50b28640d62a, type: 2}
+  - {fileID: 138696, guid: 2710205b7ca264949a228593a75dde0d, type: 2}
 --- !u!114 &11457080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,21 +176,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18798672ac3af9479e060bae02c1a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 500
-  currentHP: 500
+  maxHP: 2000
+  currentHP: 2000
   level: 1
   originalSpeed: 0
   currentSpeed: 0
   damage: 10
-  AuraRange: 3
+  AuraRange: .5
   giveEXP: 500
   attacks:
-  - {fileID: 11451122}
-  - {fileID: 11487698}
   - {fileID: 11466336}
+  - {fileID: 11487698}
+  - {fileID: 11451122}
   traces:
   - {fileID: 11427856}
   anim: {fileID: 0}
+  can_be_stunned: 1
+  can_be_snared: 1
+  can_be_knockbacked: 1
+  revive_on_death: 0
+  revied_object: {fileID: 0}
+  reviving_time: 2
 --- !u!114 &11466336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ad79f59b6678d4bace27fcd1559bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack_range: 10
+  attack_range: 30
   prob_cost: 3
   cool_down: 3
   attack_time: 3
@@ -229,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b13cdce6f2af3440a9fed0c8d6b8341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack_range: 10
+  attack_range: 30
   prob_cost: 3
   cool_down: 3
   attack_time: 3
@@ -247,7 +254,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: .5
+  m_Radius: .200000003
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &19543668
 NavMeshAgent:
@@ -256,7 +263,7 @@ NavMeshAgent:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178682}
   m_Enabled: 1
-  m_Radius: .5
+  m_Radius: .200000003
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

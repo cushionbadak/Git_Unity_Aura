@@ -81,7 +81,7 @@ MonoBehaviour:
   isknockbackVectorNeed: 0
   stunTime: 0
   snareTime: 0
-  attack_cooldown: 1
+  attack_cooldown: .200000003
 --- !u!114 &11441678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,6 +136,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_SortingOrder
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: attack_cooldown
+      value: .200000003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

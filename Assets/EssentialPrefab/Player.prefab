@@ -186,7 +186,7 @@ MonoBehaviour:
   currentHP: 0
   level: 1
   originalSpeed: 0
-  currentSpeed: 10
+  currentSpeed: 8
   damage: 10
   AuraRange: 5
   giveEXP: 1
@@ -197,8 +197,8 @@ MonoBehaviour:
   speedUpPotionScale: 1
   rangeUpPotionScale: 1
   EXP: 0
-  isThunderShoes: 0
-  isDraculaBrooch: 0
+  isThunderShoes: 1
+  isDraculaBrooch: 1
   isStickyBall: 0
   isCriticalKnuckle: 0
   isSpecialThing: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
   cd_teleport: 2
   _skill_1: 1
   _skill_2: 3
-  _skill_3: 0
+  _skill_3: 6
   _p: {fileID: 11409090}
 --- !u!114 &11430420
 MonoBehaviour:
@@ -335,7 +335,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b959ff4da93b5f0418db3d9287ded2ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000

@@ -140,7 +140,7 @@ public class ProbabilityAI : NewEnemyUnit {
             current_action.OnStart();
         }
 
-        current_action.Act();
+		current_action.Act();
         switch (attack_num)
         {
             case 0:
@@ -187,7 +187,7 @@ public class ProbabilityAI : NewEnemyUnit {
             if (action != null)
             {
                 ChangeState(ai_states.attack, action);
-                for (int i = 0; i < attacks.Count - 1; ++i)
+                for (int i = 0; i < attacks.Count; ++i)
                 {
                     if (action == attacks[i])
                     {

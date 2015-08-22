@@ -182,8 +182,9 @@ public class EffectManager : MonoBehaviour {
 	public void createFireBombEffect(GameObject obj)
 	{
 		int i;
-		for (i = 0; i < 10; i++)
-		StartCoroutine (createFireBomb (obj));
+		for (i = 0; i < 10; i++) {
+			StartCoroutine (createFireBomb (obj));
+		}
 	}
 	public void createThunderShoesEffect(GameObject obj)
 	{
@@ -225,7 +226,7 @@ public class EffectManager : MonoBehaviour {
 	{
 		Vector3 zminus = new Vector3 (0, 0, -1);
 		Vector3 teleport_trnasform = obj.transform.position + zminus; 
-		GameObject eff = (GameObject)Instantiate (PressT, teleport_trnasform, Quaternion.identity);
+		GameObject eff = (GameObject)Instantiate (TeleportEffect, teleport_trnasform, Quaternion.identity);
 		eff.transform.parent = obj.transform;
 		Destroy (eff, 5.0f);
 		yield return null;
@@ -247,7 +248,6 @@ public class EffectManager : MonoBehaviour {
 	IEnumerator createFireBomb(GameObject obj)
 	{
 		GameObject eff = (GameObject)Instantiate (FireBombEffect, obj.transform.position, Quaternion.identity);
-		eff.transform.parent = obj.transform;
 		Destroy (eff, 5.0f);
 		yield return null;
 	}

@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a876b413bf014e743baf66f9946e0314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  search_range: 5
+  search_range: 100
   stop_distance: .5
   acting_time: 2
   moving_time: 1
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name_monster: robott
-  type: 0
+  type: 2
 --- !u!114 &11447508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,7 +172,7 @@ MonoBehaviour:
   level: 0
   originalSpeed: 20
   currentSpeed: 20
-  damage: 10
+  damage: 3
   AuraRange: 1.20000005
   giveEXP: 20
   attacks: []
@@ -262,6 +262,18 @@ Prefab:
       propertyPath: traces.Array.data[0]
       value: 
       objectReference: {fileID: 11409864}
+    - target: {fileID: 0}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: search_range
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 187370}

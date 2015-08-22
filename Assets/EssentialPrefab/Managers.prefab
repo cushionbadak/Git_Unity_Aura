@@ -281,6 +281,25 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  chap2Doors:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &11415904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -357,6 +376,7 @@ MonoBehaviour:
   pl: {fileID: 0}
   index: 0
   isPlayerLive: 1
+  isSnare: 0
 --- !u!114 &11471024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -375,18 +395,18 @@ MonoBehaviour:
   hit_long: {fileID: 134436, guid: e5e886b99ca3a354c820a3abbaeae591, type: 2}
   EXP: {fileID: 130788, guid: 6c99426e2d801c141ba7e9877e8f0448, type: 2}
   Fire: {fileID: 0}
-  LightBombEffect: {fileID: 0}
+  LightBombEffect: {fileID: 146268, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
   LevelUpEffect: {fileID: 160822, guid: 1362bee4775ecc040bb6215d95d77491, type: 2}
   PressT: {fileID: 0}
   ShockWaveEffect: {fileID: 0}
-  DustCloudEffect: {fileID: 0}
+  DustCloudEffect: {fileID: 157880, guid: 0c4faa4ee1cd4fa4d9fe9c14d1e9f5f7, type: 2}
   MonsterSummonEffect: {fileID: 0}
-  FireBombEffect: {fileID: 0}
-  ThunderShoesEffect: {fileID: 0}
-  BossThunderEffect: {fileID: 0}
-  RedHealEffect: {fileID: 0}
-  TeleportEffect: {fileID: 0}
-  VortexEffect: {fileID: 0}
+  FireBombEffect: {fileID: 100618, guid: 74b1b9845a3bca746b2ff8b37dac761d, type: 2}
+  ThunderShoesEffect: {fileID: 139490, guid: 68d7a3e61b562584680bae12ae790efb, type: 2}
+  BossThunderEffect: {fileID: 153562, guid: 9b38cadd6ded3ae47af5c24de926b335, type: 2}
+  RedHealEffect: {fileID: 170004, guid: cd870386eb27f5e49b6f66f889c25a0e, type: 2}
+  TeleportEffect: {fileID: 164014, guid: 3002b636de1d8944db138d0d65719b26, type: 2}
+  VortexEffect: {fileID: 192346, guid: bac814c18eade7748b3d3b9af126c302, type: 2}
 --- !u!114 &11489858
 MonoBehaviour:
   m_ObjectHideFlags: 1

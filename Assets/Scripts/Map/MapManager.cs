@@ -55,12 +55,14 @@ public class MapManager : MonoBehaviour {
         {
             case 1:
                 {
-                    chap1Doors[i].GetComponent<ChangeAlpha>().isTrans = true;
+                    chap1Doors[i].GetComponentInChildren<ChangeAlpha>().isTrans = true;
+			chap1Doors[i].GetComponentInChildren<DoorCloseControl>().isCleared=true;
                     break;
                 }
 		case 2:
 		{
 			chap2Doors[i].GetComponentInChildren<ChangeAlpha>().isTrans = true;
+			chap2Doors[i].GetComponentInChildren<DoorCloseControl>().isCleared=true;
 			break;
 		}
         }

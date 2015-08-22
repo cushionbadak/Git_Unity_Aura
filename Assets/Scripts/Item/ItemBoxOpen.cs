@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class ItemBoxOpen : MonoBehaviour {
     public int roomNum;
@@ -10,6 +11,7 @@ public class ItemBoxOpen : MonoBehaviour {
     // Use this for initialization
     void Start () {
         sc = GetComponent<ItemCreate>();
+		roomNum = Convert.ToInt16 (name);
 	}
 	
 	// Update is called once per frame

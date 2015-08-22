@@ -110,7 +110,15 @@ public class AnimControl_Monster : MonoBehaviour {
 				{
 					finalSt = STATE.F_ATTACK1;
 					break;
-				}
+			}case STATE_MONSTER.ATTACK2:
+			{
+				finalSt = STATE.F_ATTACK2;
+				break;
+			}case STATE_MONSTER.ATTACK3:
+			{
+				finalSt = STATE.F_ATTACK3;
+				break;
+			}
 			case STATE_MONSTER.RUN:
 				{
 					finalSt = STATE.F_RUN;
@@ -165,7 +173,6 @@ public class AnimControl_Monster : MonoBehaviour {
 
     void changeAnim()
     {
-		Debug.Log (finalSt);
         obj.GetComponent<Animator>().SetInteger("state",(int)finalSt);
     }
 

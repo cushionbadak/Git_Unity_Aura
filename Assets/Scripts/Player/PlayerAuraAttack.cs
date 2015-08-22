@@ -70,6 +70,7 @@ public class PlayerAuraAttack : Attack {
         damage = damage * 3;
         GameManager.I.attckToEnemy(this, target.gameObject);
         GameManager.I.giveSnareToEnemy(target.gameObject, 1.0f);
+		EffectManager.I.createThunderShoesEffect (target.gameObject);
         damage = originalDamage;
     }
 
@@ -83,7 +84,9 @@ public class PlayerAuraAttack : Attack {
                 damage = damage * 2;
                 GameManager.I.attckToEnemy(this, enemy);
                 if (_p.isDraculaBrooch)
+				{
                     _p.currentHP += damage * vampScale;
+				}
                 if(_p.isStickyBall)
                     GameManager.I.giveSnareToEnemy(enemy, 0.1f);
                 damage = originDamage;
@@ -93,7 +96,11 @@ public class PlayerAuraAttack : Attack {
         {
             GameManager.I.attckToEnemy(this, enemy);
             if (_p.isDraculaBrooch)
+			{
+				
+				EffectManager.I.createRedHealEffect(this.gameObject);
                 _p.currentHP += damage * vampScale;
+			}
             if (_p.isStickyBall)
                 GameManager.I.giveSnareToEnemy(enemy, 0.1f);
         }

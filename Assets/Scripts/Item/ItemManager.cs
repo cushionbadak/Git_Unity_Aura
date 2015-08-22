@@ -2,6 +2,9 @@
 using System.Collections;
 
 public class ItemManager : MonoBehaviour {
+	public enum ItemType {TEMPORARY, PERMANENT};
+
+	public ItemType itemType;
     public int itemNum;
     bool onlyOne=true;
     public GameObject eff;
@@ -43,12 +46,13 @@ public class ItemManager : MonoBehaviour {
 
     void applyItem()
     {
+		if(itemType==ItemType.PERMANENT)
 		GameManager.I.addItem (itemData.itemList[itemNum]);
         switch (itemNum)
         {
              case 0:
                 {
-                    if (playerUnit.powerUpPotion <= 3)
+                    if (playerUnit.powerUpPotion <= 5)
                     {
                         SystemMessageManager.I.addMessage("파워 업 포션을 획득했습니다. 공격력이 20% 증가했습니다.");
                         playerUnit.powerUpPotion++;
@@ -56,14 +60,14 @@ public class ItemManager : MonoBehaviour {
 					}
                     else
                     {
-                        SystemMessageManager.I.addMessage("최대 한도(3개)를 초과했습니다.");
+                        SystemMessageManager.I.addMessage("최대 한도(5개)를 초과했습니다.");
 
                     }
                     break;
                 }
             case 1:
                 {
-                    if (playerUnit.speedUpPotion <= 3)
+                    if (playerUnit.speedUpPotion <= 5)
                     {
                         SystemMessageManager.I.addMessage("스피드 업 포션을 획득했습니다. 이동속도가 10% 증가했습니다. ");
                         playerUnit.speedUpPotion++;
@@ -71,13 +75,13 @@ public class ItemManager : MonoBehaviour {
                     }
                     else
                     {
-                        SystemMessageManager.I.addMessage("최대 한도(3개)를 초과했습니다.");
+                        SystemMessageManager.I.addMessage("최대 한도(5개)를 초과했습니다.");
                     }
                     break;
                 }
             case 2:
                 {
-                    if (playerUnit.rangeUpPotion <= 3)
+                    if (playerUnit.rangeUpPotion <= 5)
                     {
                         SystemMessageManager.I.addMessage("레인지 업 포션을 획득했습니다. 오오라의 크기가 10% 증가했습니다.");
                         playerUnit.rangeUpPotion++;
@@ -85,10 +89,18 @@ public class ItemManager : MonoBehaviour {
                     }
                     else
                     {
-                        SystemMessageManager.I.addMessage("최대 한도(3개)를 초과했습니다.");
+                        SystemMessageManager.I.addMessage("최대 한도(5개)를 초과했습니다.");
                     }
                    break;
                 }
+
+		case 3:
+		{
+				SystemMessageManager.I.addMessage("HP가 최대로 회복됐습니다.");
+				playerUnit.currentHP=playerUnit.maxHP;
+	
+			break;
+		}
         }
     }
 }
