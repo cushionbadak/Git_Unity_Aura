@@ -4194,7 +4194,7 @@ MonoBehaviour:
   Fire: {fileID: 0}
   LightBombEffect: {fileID: 146268, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
   LevelUpEffect: {fileID: 160822, guid: 1362bee4775ecc040bb6215d95d77491, type: 2}
-  PressT: {fileID: 167496, guid: d61272185063c444aac974f31e6d5511, type: 2}
+  PressT: {fileID: 160822, guid: 1362bee4775ecc040bb6215d95d77491, type: 2}
   ShockWaveEffect: {fileID: 0}
   DustCloudWithImpactEffect: {fileID: 157880, guid: 0c4faa4ee1cd4fa4d9fe9c14d1e9f5f7,
     type: 2}
