@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ProbabilityAI : NewEnemyUnit {
+public class ProbabilityAI : Enemy
+{
 
 
     // states
@@ -38,8 +39,13 @@ public class ProbabilityAI : NewEnemyUnit {
     public bool can_be_snared = true;
     public bool can_be_knockbacked = true;
     public bool revive_on_death = false;
+
+    // revive
     public GameObject revied_object = null;
     public float reviving_time = 2;
+
+    // aura
+    protected EnemyAttackAura aura;
 
 	// Use this for initialization
 	void Awake () 
@@ -57,7 +63,7 @@ public class ProbabilityAI : NewEnemyUnit {
 
     void Start()
     {
-        base.Start();
+        //base.Start();
 
         // get component
         anim = GetComponent<EnemyAnimation>();
@@ -66,21 +72,29 @@ public class ProbabilityAI : NewEnemyUnit {
             Debug.LogError("Error On Finding Internal EnemyAnimation Script");
             Application.Quit();
         }
+
+        // add aura
+        GameObject aura_object = (GameObject)Instantiate(Resources.Load("Prefabs/EnemyAura"), transform.position, new Quaternion());
+        aura = aura_object.GetComponent<EnemyAttackAura>();
+        aura.SetOwner(this);
 	}
 	
 	// Update is called once per frame
 	void Update () 
     {
-        base.Update();
-        if (!is_acting)
-            return;
+        //base.Update();
+        //if (!is_acting)
+        //    return;
 
         ai_state.UpdateState();
+
+        aura.damage = damage;
+        aura.SetAuraSize(AuraRange);
 	}
 
     void LateUpdate()
     {
-        base.LateUpdate();
+        //base.LateUpdate();
 
         ai_state.LateUpdateState();
 
@@ -110,11 +124,16 @@ public class ProbabilityAI : NewEnemyUnit {
     {
         if (ai_state.IsFirstFrame())
         {
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            state_timer = 0.3f;
         }
 
         anim.applyState(STATE_MONSTER.IDLE);
-        StateChangeDefault(false, true, false);
-        
+        state_timer -= Time.deltaTime;
+        if (state_timer <= 0)
+        {
+            StateChangeDefault(false, true, true);
+        }
     }
 
     private void OnTracingState()
@@ -122,6 +141,7 @@ public class ProbabilityAI : NewEnemyUnit {
         if (ai_state.IsFirstFrame())
         {
             current_action.OnStart();
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         }
 
         current_action.Act();
@@ -138,6 +158,7 @@ public class ProbabilityAI : NewEnemyUnit {
         if (ai_state.IsFirstFrame())
         {
             current_action.OnStart();
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         }
 
 		current_action.Act();
@@ -242,12 +263,12 @@ public class ProbabilityAI : NewEnemyUnit {
     // ================= //
     // Overrided Methods //
     // ================= //
-    protected override void OnDamaged(float damage)
+    protected void OnDamaged(float damage)
     {
         currentHP -= damage;
     }
 
-    protected override void OnKnockBack(Vector3 vector)
+    protected void OnKnockBack(Vector3 vector)
     {
         if (can_be_knockbacked)
         {
@@ -261,7 +282,7 @@ public class ProbabilityAI : NewEnemyUnit {
         }
     }
 
-    protected override void OnStun(float time)
+    protected void OnStun(float time)
     {
         if (can_be_stunned)
         {
@@ -273,7 +294,7 @@ public class ProbabilityAI : NewEnemyUnit {
         }
     }
 
-    protected override void OnSnare(float time)
+    protected void OnSnare(float time)
     {
         if (can_be_snared)
         {
@@ -283,17 +304,17 @@ public class ProbabilityAI : NewEnemyUnit {
         }
     }
 
-    protected override void OnPause()
+    protected void OnPause()
     {
         is_paused = true;
     }
 
-    protected override void OnResume()
+    protected void OnResume()
     {
         is_paused = false;
     }
 
-    protected override void OnDie()
+    protected void OnDie()
     {
         if (Debug.isDebugBuild)
         {
@@ -339,8 +360,8 @@ public class ProbabilityAI : NewEnemyUnit {
 
     float GetDeltaTime()
     {
-        if (!is_acting)
-            return 0;
+        //if (!is_acting)
+        //    return 0;
         return Time.deltaTime;
     }
 
@@ -374,5 +395,41 @@ public class ProbabilityAI : NewEnemyUnit {
         }
 
         return null;
+    }
+
+    public override void giveDamage(float damage)
+    {
+            OnDamaged(damage);
+    }
+    public override void giveKnockback(Vector3 moveVector)
+    {
+            OnKnockBack(moveVector);
+    }
+
+    public override void giveStun(float time)
+    {
+            OnStun(time);
+    }
+
+    public override void giveSnare(float time)
+    {
+            OnSnare(time);
+    }
+
+    public override void pause()
+    {
+        OnPause();
+    }
+
+    public override void resume()
+    {
+        OnResume();
+    }
+    public override void Die()
+    {
+        // create dead body
+        OnDie();
+        GameManager.I.EXPIncrease(giveEXP, transform.position);
+        Destroy(transform.parent.gameObject);
     }
 }
