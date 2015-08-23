@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class EffectManager : MonoBehaviour {
@@ -14,6 +14,7 @@ public class EffectManager : MonoBehaviour {
 	public GameObject LevelUpEffect;
 	public GameObject PressT;
 	public GameObject ShockWaveEffect;
+	public GameObject DustCloudWithImpactEffect;
 	public GameObject DustCloudEffect;
 	public GameObject MonsterSummonEffect;
 	public GameObject FireBombEffect;
@@ -37,7 +38,8 @@ public class EffectManager : MonoBehaviour {
         LEVEL_UP,
         PREEST,
         SHOCKWAVE,
-        DUSTCLOUD,
+        DUSTCLOUDWITHIMPACT,
+		DUSTCLOUD,
         MONSTER_SUMMON,
         FIREBOMB,
         THUNDERSHOES,
@@ -81,6 +83,9 @@ public class EffectManager : MonoBehaviour {
             case Effects.DUSTCLOUD:
                 createDustCloudEffect(obj);
                 break;
+			case Effects.DUSTCLOUDWITHIMPACT:
+				createDustCloudWithImpactEffect(obj);
+				break;
             case Effects.EXP:
                 createEXPEffect(obj.transform.position);
                 break;
@@ -206,8 +211,19 @@ public class EffectManager : MonoBehaviour {
 	{
 		StartCoroutine (createVortex (obj));
 	}
+	public void createDustCloudWithImpactEffect (GameObject obj)
+	{
+		StartCoroutine (createDustCloudWithImpact (obj));
+	}
 		//
 		//
+	IEnumerator createDustCloudWithImpact(GameObject obj)
+	{
+		GameObject eff = (GameObject)Instantiate (DustCloudWithImpactEffect, obj.transform.position, Quaternion.identity);
+		eff.transform.parent = obj.transform;
+		Destroy (eff, 5.0f);
+		yield return null;
+	}
 	IEnumerator createVortex(GameObject obj)
 	{
 		GameObject eff = (GameObject)Instantiate (VortexEffect, obj.transform.position, Quaternion.identity);
