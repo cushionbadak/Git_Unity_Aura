@@ -7600,6 +7600,7 @@ MonoBehaviour:
   pl: {fileID: 0}
   index: 0
   isPlayerLive: 1
+  isSnare: 0
 --- !u!4 &835537532
 Transform:
   m_ObjectHideFlags: 0
