@@ -125,11 +125,15 @@ public class ProbabilityAI : Enemy
         if (ai_state.IsFirstFrame())
         {
             GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            state_timer = 0.3f;
         }
 
         anim.applyState(STATE_MONSTER.IDLE);
-        StateChangeDefault(false, true, false);
-        
+        state_timer -= Time.deltaTime;
+        if (state_timer <= 0)
+        {
+            StateChangeDefault(false, true, true);
+        }
     }
 
     private void OnTracingState()
