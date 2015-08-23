@@ -80,7 +80,7 @@ MonoBehaviour:
   fire_time: 1
   fire_radius: 1
   collision_radius: .300000012
-  fire_effect: 13
+  fire_effect: 14
 --- !u!212 &21281990
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -116,7 +116,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: fire_effect
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x

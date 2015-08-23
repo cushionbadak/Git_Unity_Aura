@@ -8705,19 +8705,19 @@ Prefab:
       objectReference: {fileID: 1585825366}
     - target: {fileID: 22425850, guid: 8b17a97dcb9e2d444ad3e46d29b4fb57, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22425850, guid: 8b17a97dcb9e2d444ad3e46d29b4fb57, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22491798, guid: 8b17a97dcb9e2d444ad3e46d29b4fb57, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: .349999994
       objectReference: {fileID: 0}
     - target: {fileID: 22491798, guid: 8b17a97dcb9e2d444ad3e46d29b4fb57, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 196724, guid: 8b17a97dcb9e2d444ad3e46d29b4fb57, type: 2}
       propertyPath: m_IsActive
@@ -28730,6 +28730,10 @@ Prefab:
       propertyPath: chap1Doors.Array.data[7]
       value: 
       objectReference: {fileID: 1830284199}
+    - target: {fileID: 11471024, guid: 62868570f63ae1d4184ff3ced1893183, type: 2}
+      propertyPath: MonsterSummonEffect
+      value: 
+      objectReference: {fileID: 175876, guid: 6110e9d990e6bd740ae09f81db5b029f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62868570f63ae1d4184ff3ced1893183, type: 2}
   m_IsPrefabParent: 0

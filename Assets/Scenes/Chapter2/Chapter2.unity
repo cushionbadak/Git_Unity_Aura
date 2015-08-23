@@ -761,6 +761,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 62054386}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &65524689 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 173244, guid: 829eede9de65d354fa7ca600577d33bf, type: 2}
+  m_PrefabInternal: {fileID: 272110914}
+--- !u!114 &65524703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 65524689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2279a08922d364aae7febe9c66432e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  search_range: 5
+  acting_time: .5
+  prob_cost: 3
 --- !u!1 &66195730
 GameObject:
   m_ObjectHideFlags: 0
@@ -3415,12 +3433,45 @@ Prefab:
     - target: {fileID: 11450536, guid: 829eede9de65d354fa7ca600577d33bf, type: 2}
       propertyPath: traces.Array.data[0]
       value: 
-      objectReference: {fileID: 1142296769}
+      objectReference: {fileID: 65524703}
     - target: {fileID: 11498040, guid: 829eede9de65d354fa7ca600577d33bf, type: 2}
       propertyPath: stop_distance
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 469696, guid: 829eede9de65d354fa7ca600577d33bf, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 469696, guid: 829eede9de65d354fa7ca600577d33bf, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 469696, guid: 829eede9de65d354fa7ca600577d33bf, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481270, guid: 829eede9de65d354fa7ca600577d33bf, type: 2}
+      propertyPath: spawn_distance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11429846, guid: 829eede9de65d354fa7ca600577d33bf, type: 2}
+      propertyPath: cool_down_time
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450536, guid: 829eede9de65d354fa7ca600577d33bf, type: 2}
+      propertyPath: can_be_snared
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450536, guid: 829eede9de65d354fa7ca600577d33bf, type: 2}
+      propertyPath: can_be_stunned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450536, guid: 829eede9de65d354fa7ca600577d33bf, type: 2}
+      propertyPath: can_be_knockbacked
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11498040, guid: 829eede9de65d354fa7ca600577d33bf, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 829eede9de65d354fa7ca600577d33bf, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &278386155
@@ -13547,12 +13598,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141873190}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1142296769 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11498040, guid: 829eede9de65d354fa7ca600577d33bf,
-    type: 2}
-  m_PrefabInternal: {fileID: 272110914}
-  m_Script: {fileID: 11500000, guid: 26bdff85391bc364ebd9fd1c846cb7a8, type: 3}
 --- !u!1 &1151148334
 GameObject:
   m_ObjectHideFlags: 0
@@ -19418,19 +19463,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22425850, guid: 8b17a97dcb9e2d444ad3e46d29b4fb57, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22425850, guid: 8b17a97dcb9e2d444ad3e46d29b4fb57, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22491798, guid: 8b17a97dcb9e2d444ad3e46d29b4fb57, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: .349999994
       objectReference: {fileID: 0}
     - target: {fileID: 22491798, guid: 8b17a97dcb9e2d444ad3e46d29b4fb57, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11471158, guid: 8b17a97dcb9e2d444ad3e46d29b4fb57, type: 2}
       propertyPath: player
@@ -24060,6 +24105,7 @@ MonoBehaviour:
   LevelUpEffect: {fileID: 160822, guid: 1362bee4775ecc040bb6215d95d77491, type: 2}
   PressT: {fileID: 0}
   ShockWaveEffect: {fileID: 0}
+  DustCloudWithImpactEffect: {fileID: 0}
   DustCloudEffect: {fileID: 0}
   MonsterSummonEffect: {fileID: 0}
   FireBombEffect: {fileID: 100618, guid: 74b1b9845a3bca746b2ff8b37dac761d, type: 2}
@@ -24068,6 +24114,8 @@ MonoBehaviour:
   RedHealEffect: {fileID: 0}
   TeleportEffect: {fileID: 0}
   VortexEffect: {fileID: 0}
+  Threehit_SmallEffect: {fileID: 0}
+  Threehit_LargeEffect: {fileID: 0}
 --- !u!1 &1912857510
 GameObject:
   m_ObjectHideFlags: 0

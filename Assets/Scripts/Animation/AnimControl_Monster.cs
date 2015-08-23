@@ -12,7 +12,7 @@ public class AnimControl_Monster : MonoBehaviour {
     STATE finalSt;
     bool isRight = true;
 	Player pl;
-	STATE prevState,curState;
+	STATE prevState;
 	// Use this for initialization
 
     public AnimControl_Monster(string n,int t, GameObject o)
@@ -55,7 +55,8 @@ public class AnimControl_Monster : MonoBehaviour {
 
     void changeState(STATE_MONSTER state)
     {
-
+		
+		prevState = finalSt;
         if (type == 1) {
 
 			switch (state) {
@@ -142,7 +143,6 @@ public class AnimControl_Monster : MonoBehaviour {
 				}
 			case STATE_MONSTER.ATTACK1:
 				{
-					Debug.Log (obj.transform.position.z - pl.gameObject.transform.position.z);
 					if (obj.transform.position.z - pl.gameObject.transform.position.z > 0)
 						finalSt = STATE.F_ATTACK1;
 					else
@@ -176,12 +176,18 @@ public class AnimControl_Monster : MonoBehaviour {
 			}
 
 		} else if (type == 4) {
-			if (lookDir.x > 0) {
+			if (obj.transform.position.x - pl.gameObject.transform.position.x > 0)
+			{
+				isRight=true;
+			}
+			else
+				isRight=false;
+			/*if (lookDir.x > 0) {
 				isRight = true;
 			}
 			else if(lookDir.x<0)
 				isRight=false;
-
+*/
 
 			switch (state) {
 			case STATE_MONSTER.IDLE:
@@ -194,27 +200,34 @@ public class AnimControl_Monster : MonoBehaviour {
 			}
 				
 			case STATE_MONSTER.ATTACK1:
-			{if (isRight)
+			{
+
+				
+				if (isRight)
 				finalSt = STATE.R_ATTACK1;
 				else
 					finalSt = STATE.L_ATTACK1;
 				break;
 			}
 			case STATE_MONSTER.ATTACK2:
-			{if (isRight)
+			{
+				
+				if (isRight)
 				finalSt = STATE.R_ATTACK2;
 				else
 					finalSt = STATE.L_ATTACK2;
 				break;
 			}
 			case STATE_MONSTER.ATTACK3:
-			{if (isRight)
+			{
+				if (isRight)
 				finalSt = STATE.R_ATTACK3;
 				else
 					finalSt = STATE.L_ATTACK3;
 				break;
 			}case STATE_MONSTER.ATTACK4:
-			{if (isRight)
+			{
+				if (isRight)
 				finalSt = STATE.R_ATTACK4;
 				else
 					finalSt = STATE.L_ATTACK4;
@@ -245,8 +258,15 @@ public class AnimControl_Monster : MonoBehaviour {
 
     void changeAnim()
     {
-
+		if (prevState == finalSt)
+			isSame = true;
+		else
+			isSame = false;
+		if (type == 4) {
+			obj.GetComponent<Animator> ().SetBool ("isNotSame", !isSame);
+		}
         obj.GetComponent<Animator>().SetInteger("state",(int)finalSt);
+		prevState = finalSt;
     }
 
 

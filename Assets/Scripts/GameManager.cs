@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 		haveItemList.Add (itemStruct);
 		Debug.Log (haveItemList [0].description);
 	}
-
+	
     void Awake()
     {
         if (Game.current == null)
