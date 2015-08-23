@@ -110,6 +110,7 @@ public class ProbabilityAI : NewEnemyUnit {
     {
         if (ai_state.IsFirstFrame())
         {
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         }
 
         anim.applyState(STATE_MONSTER.IDLE);
@@ -122,6 +123,7 @@ public class ProbabilityAI : NewEnemyUnit {
         if (ai_state.IsFirstFrame())
         {
             current_action.OnStart();
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         }
 
         current_action.Act();
@@ -138,6 +140,7 @@ public class ProbabilityAI : NewEnemyUnit {
         if (ai_state.IsFirstFrame())
         {
             current_action.OnStart();
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         }
 
 		current_action.Act();
