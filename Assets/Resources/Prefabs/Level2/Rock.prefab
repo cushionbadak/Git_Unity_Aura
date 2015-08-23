@@ -24,9 +24,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 492334}
   - 212: {fileID: 21238420}
-  - 208: {fileID: 20828384}
-  - 114: {fileID: 11409944}
-  - 65: {fileID: 6515084}
+  - 208: {fileID: 20850688}
+  - 65: {fileID: 6504060}
+  - 114: {fileID: 11499808}
   m_Layer: 0
   m_Name: rock_body
   m_TagString: Untagged
@@ -59,7 +59,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 447752}
   m_RootOrder: 0
---- !u!65 &6515084
+--- !u!65 &6504060
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -71,7 +71,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .170000002, y: .169999972, z: .199999973}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11409944
+--- !u!114 &11499808
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 185002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 501fe528c5c99fe44bc96efd057ae34f, type: 3}
+  m_Script: {fileID: 11500000, guid: 76b749249c1c4b840849db76e202679c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
@@ -89,13 +89,13 @@ MonoBehaviour:
   isknockbackVectorNeed: 0
   stunTime: 0
   snareTime: 0
-  damage_ratio: 1
+  damage_ratio: 2
   project_speed: 2
-  fire_time: 10
   fire_radius: 3
-  collision_radius: .300000012
   fire_effect: 0
---- !u!208 &20828384
+  collision_radius: .300000012
+  exist_time: 5
+--- !u!208 &20850688
 NavMeshObstacle:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -142,7 +142,19 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: exist_time
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage_ratio
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 162354}
