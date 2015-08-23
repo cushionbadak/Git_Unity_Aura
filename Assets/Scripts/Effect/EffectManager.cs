@@ -23,6 +23,8 @@ public class EffectManager : MonoBehaviour {
 	public GameObject RedHealEffect;
 	public GameObject TeleportEffect;
 	public GameObject VortexEffect;
+	public GameObject Threehit_SmallEffect;
+	public GameObject Threehit_LargeEffect;
 
     [System.Serializable]
     public enum Effects
@@ -45,7 +47,9 @@ public class EffectManager : MonoBehaviour {
         THUNDERSHOES,
         REDHEAL,
         TELEPORT,
-        BOSSTHUNDER
+        BOSSTHUNDER,
+		THREEHIT_SMALL,
+		THREEHIT_LARGE
     }
 
     private static EffectManager uniqueInstance = null;
@@ -128,6 +132,12 @@ public class EffectManager : MonoBehaviour {
             case Effects.THUNDERSHOES:
                 createThunderShoesEffect(obj);
                 break;
+			case Effects.THREEHIT_SMALL:
+				createThreehit_SmallEffect(obj);
+				break;
+			case Effects.THREEHIT_LARGE:
+				createThreehit_LargeEffect(obj);
+				break;
         }
     }
 
@@ -215,8 +225,30 @@ public class EffectManager : MonoBehaviour {
 	{
 		StartCoroutine (createDustCloudWithImpact (obj));
 	}
+	public void createThreehit_SmallEffect (GameObject obj)
+	{
+		StartCoroutine (createThreehit_Small (obj));
+	}
+	public void createThreehit_LargeEffect (GameObject obj)
+	{
+		StartCoroutine (createThreehit_Large (obj));
+	}
 		//
 		//
+	IEnumerator createThreehit_Large (GameObject obj)
+	{
+		GameObject eff = (GameObject)Instantiate (Threehit_LargeEffect, obj.transform.position, Quaternion.identity);
+		eff.transform.parent = obj.transform;
+		Destroy (eff, 5.0f);
+		yield return null;
+	}
+	IEnumerator createThreehit_Small (GameObject obj)
+	{
+		GameObject eff = (GameObject)Instantiate (Threehit_SmallEffect, obj.transform.position, Quaternion.identity);
+		eff.transform.parent = obj.transform;
+		Destroy (eff, 5.0f);
+		yield return null;
+	}
 	IEnumerator createDustCloudWithImpact(GameObject obj)
 	{
 		GameObject eff = (GameObject)Instantiate (DustCloudWithImpactEffect, obj.transform.position, Quaternion.identity);
