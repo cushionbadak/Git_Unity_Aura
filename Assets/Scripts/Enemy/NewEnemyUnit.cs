@@ -146,6 +146,5 @@ public abstract class NewEnemyUnit : Enemy
         OnDie();
         GameManager.I.EXPIncrease(giveEXP, transform.position);
         Destroy(transform.parent.gameObject);
-
     }
 }
