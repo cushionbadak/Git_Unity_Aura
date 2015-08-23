@@ -20769,19 +20769,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22441828, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22441828, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22493874, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.x
-      value: .349999994
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22493874, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400842, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: player
