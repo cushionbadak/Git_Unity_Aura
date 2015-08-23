@@ -17,7 +17,6 @@ public class EnemyAttackProjectPosition : EnemyAttacks
 
     private bool is_paused = false;
     private bool is_attacking = false;
-    
 	// Use this for initialization
 	void Start () {
         var player = GameObject.FindGameObjectWithTag("Player");

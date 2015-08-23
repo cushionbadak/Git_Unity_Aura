@@ -7,6 +7,7 @@ public class CountChild : MonoBehaviour {
     JustForCount[] ChildTs;
     public int roomNum;
 	public bool playerIsIn=false;
+	public bool isCleared=false;
     float Timesum;
     // Use this for initialization
     void Start () {
@@ -30,12 +31,19 @@ public class CountChild : MonoBehaviour {
 			{
             Timesum = 0;
             ChildTs = gameObject.GetComponentsInChildren<JustForCount>();
-            if (ChildTs.Length <= 0)
+            if (ChildTs.Length <= 0&&!isCleared)
             {
+					isCleared=true;
+					playerLevelUp();
                 mapM.GetComponent<MapManager>().getRoomStatus()[roomNum] = true;
                 mapM.GetComponent<MapManager>().DoorOpen(roomNum);
             }
 			}
         }
     }
+
+	void playerLevelUp()
+	{
+		GameManager.I.LevelUp ();
+	}
 }

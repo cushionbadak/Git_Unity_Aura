@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
             
             GameObject player = GameObject.FindWithTag("PlayerBody");
             player.transform.parent.transform.position = new Vector3(0,0,0);
-            player.GetComponent<PlayerUnit>().currentHP = 100;
+            player.GetComponent<PlayerUnit>().currentHP = PlayerLevelData.I.Status[1].maxHP;
             player.GetComponent<PlayerUnit>().EXP = 0;
             player.GetComponent<PlayerUnit>().level = 1;
             player.GetComponent<PlayerUnit>().damage = 2;
@@ -429,16 +429,22 @@ public class GameManager : MonoBehaviour
 
         player.EXPIncrease(exp);
         if (PlayerLevelData.I.Status[player.level+1].needEXP<=player.EXP)
-        {
-            SystemMessageManager.I.addMessage("레벨 업!");
-            player.level++;
-            player.EXP -= PlayerLevelData.I.Status[player.level].needEXP;
-            player.maxHP = PlayerLevelData.I.Status[player.level].maxHP;
-            player.currentHP += PlayerLevelData.I.Status[player.level].maxHP- PlayerLevelData.I.Status[player.level-1].maxHP;
-            player.damage = PlayerLevelData.I.Status[player.level].damage;
-            EffectManager.I.createLevelUpEffect(player.gameObject);
+		{
+			LevelUp();
         }
     }
+
+	public void LevelUp()
+	{
+		Player player = findPlayer();
+		SystemMessageManager.I.addMessage("레벨 업!");
+		player.level++;
+		player.EXP = 0;
+		player.maxHP = PlayerLevelData.I.Status[player.level].maxHP;
+		player.currentHP = PlayerLevelData.I.Status[player.level].maxHP;
+		player.damage = PlayerLevelData.I.Status[player.level].damage;
+		EffectManager.I.createLevelUpEffect(player.gameObject);
+	}
 
 
     

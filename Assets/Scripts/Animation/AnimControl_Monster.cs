@@ -4,13 +4,15 @@ using System.Collections;
 public class AnimControl_Monster : MonoBehaviour {
     string nam;
     GameObject obj;
+	bool isSame;
     bool isFirstFrame = true;
     Vector3 currentPos, nextPos,lookDir;
     int type;
-	enum STATE {R_IDLE,L_IDLE,R_RUN,L_RUN,F_ATTACK1, F_ATTACK2, F_ATTACK3, F_IDLE, F_RUN,B_ATTACK1, B_ATTACK2, B_ATTACK3, B_IDLE, B_RUN};
+	enum STATE {R_IDLE,L_IDLE,R_RUN,L_RUN,F_ATTACK1, F_ATTACK2, F_ATTACK3, F_IDLE, F_RUN,B_ATTACK1, B_ATTACK2, B_ATTACK3, B_IDLE, B_RUN, R_ATTACK1, R_ATTACK2,R_ATTACK3,R_ATTACK4,L_ATTACK1,L_ATTACK2,L_ATTACK3,L_ATTACK4};
     STATE finalSt;
     bool isRight = true;
 	Player pl;
+	STATE prevState,curState;
 	// Use this for initialization
 
     public AnimControl_Monster(string n,int t, GameObject o)
@@ -53,6 +55,7 @@ public class AnimControl_Monster : MonoBehaviour {
 
     void changeState(STATE_MONSTER state)
     {
+
         if (type == 1) {
 
 			switch (state) {
@@ -71,15 +74,15 @@ public class AnimControl_Monster : MonoBehaviour {
 					break;
 				}
 			case STATE_MONSTER.ATTACK2:
-			{
-				finalSt = STATE.F_ATTACK2;
-				break;
-			}
+				{
+					finalSt = STATE.F_ATTACK2;
+					break;
+				}
 			case STATE_MONSTER.ATTACK3:
-			{
-				finalSt = STATE.F_ATTACK3;
-				break;
-			}
+				{
+					finalSt = STATE.F_ATTACK3;
+					break;
+				}
 
 			case STATE_MONSTER.RUN:
 				{
@@ -110,15 +113,17 @@ public class AnimControl_Monster : MonoBehaviour {
 				{
 					finalSt = STATE.F_ATTACK1;
 					break;
-			}case STATE_MONSTER.ATTACK2:
-			{
-				finalSt = STATE.F_ATTACK2;
-				break;
-			}case STATE_MONSTER.ATTACK3:
-			{
-				finalSt = STATE.F_ATTACK3;
-				break;
-			}
+				}
+			case STATE_MONSTER.ATTACK2:
+				{
+					finalSt = STATE.F_ATTACK2;
+					break;
+				}
+			case STATE_MONSTER.ATTACK3:
+				{
+					finalSt = STATE.F_ATTACK3;
+					break;
+				}
 			case STATE_MONSTER.RUN:
 				{
 					finalSt = STATE.F_RUN;
@@ -126,53 +131,121 @@ public class AnimControl_Monster : MonoBehaviour {
 				}
 			}
 		} else if (type == 3) {
-			switch(state)
-			{
+			switch (state) {
 			case STATE_MONSTER.IDLE:
-			{
-				if(obj.transform.position.z-pl.gameObject.transform.position.z>0)
-					finalSt = STATE.F_IDLE;
-				else
-					finalSt=STATE.B_IDLE;
-				break;
-			}
+				{
+					if (obj.transform.position.z - pl.gameObject.transform.position.z > 0)
+						finalSt = STATE.F_IDLE;
+					else
+						finalSt = STATE.B_IDLE;
+					break;
+				}
 			case STATE_MONSTER.ATTACK1:
-			{
-				Debug.Log (obj.transform.position.z-pl.gameObject.transform.position.z);
-				if(obj.transform.position.z-pl.gameObject.transform.position.z>0)
-				finalSt = STATE.F_ATTACK1;
-				else
-					finalSt=STATE.B_ATTACK1;
-				break;
-			}case STATE_MONSTER.ATTACK2:
-			{
-				if(obj.transform.position.z-pl.gameObject.transform.position.z>0)
-				finalSt = STATE.F_ATTACK2;
-				else
-					finalSt=STATE.B_ATTACK2;
-				break;
-			}case STATE_MONSTER.ATTACK3:
-			{if(obj.transform.position.z-pl.gameObject.transform.position.z>0)
-				finalSt = STATE.F_ATTACK3;
-				else
-					finalSt=STATE.B_ATTACK3;
-				break;
-			}
+				{
+					Debug.Log (obj.transform.position.z - pl.gameObject.transform.position.z);
+					if (obj.transform.position.z - pl.gameObject.transform.position.z > 0)
+						finalSt = STATE.F_ATTACK1;
+					else
+						finalSt = STATE.B_ATTACK1;
+					break;
+				}
+			case STATE_MONSTER.ATTACK2:
+				{
+					if (obj.transform.position.z - pl.gameObject.transform.position.z > 0)
+						finalSt = STATE.F_ATTACK2;
+					else
+						finalSt = STATE.B_ATTACK2;
+					break;
+				}
+			case STATE_MONSTER.ATTACK3:
+				{
+					if (obj.transform.position.z - pl.gameObject.transform.position.z > 0)
+						finalSt = STATE.F_ATTACK3;
+					else
+						finalSt = STATE.B_ATTACK3;
+					break;
+				}
 			case STATE_MONSTER.RUN:
-			{if(obj.transform.position.z-pl.gameObject.transform.position.z>0)
-				finalSt = STATE.F_RUN;
-				else
-					finalSt=STATE.B_RUN;
-				break;
-			}
+				{
+					if (obj.transform.position.z - pl.gameObject.transform.position.z > 0)
+						finalSt = STATE.F_RUN;
+					else
+						finalSt = STATE.B_RUN;
+					break;
+				}
 			}
 
+		} else if (type == 4) {
+			if (lookDir.x > 0) {
+				isRight = true;
+			}
+			else if(lookDir.x<0)
+				isRight=false;
+
+
+			switch (state) {
+			case STATE_MONSTER.IDLE:
+			{
+				if (isRight)
+					finalSt = STATE.R_IDLE;
+				else
+					finalSt = STATE.L_IDLE;
+				break;
+			}
+				
+			case STATE_MONSTER.ATTACK1:
+			{if (isRight)
+				finalSt = STATE.R_ATTACK1;
+				else
+					finalSt = STATE.L_ATTACK1;
+				break;
+			}
+			case STATE_MONSTER.ATTACK2:
+			{if (isRight)
+				finalSt = STATE.R_ATTACK2;
+				else
+					finalSt = STATE.L_ATTACK2;
+				break;
+			}
+			case STATE_MONSTER.ATTACK3:
+			{if (isRight)
+				finalSt = STATE.R_ATTACK3;
+				else
+					finalSt = STATE.L_ATTACK3;
+				break;
+			}case STATE_MONSTER.ATTACK4:
+			{if (isRight)
+				finalSt = STATE.R_ATTACK4;
+				else
+					finalSt = STATE.L_ATTACK4;
+				break;
+			}
+				
+			case STATE_MONSTER.RUN:
+			{
+				if (lookDir.x > 0) {
+					isRight = true;
+					finalSt = STATE.R_RUN;
+				} else if (lookDir.x < 0) {
+					isRight = false;
+					finalSt = STATE.L_RUN;
+				} else {
+					
+					if (isRight)
+						finalSt = STATE.R_RUN;
+					else
+						finalSt = STATE.L_RUN;
+				}
+				break;
+			}
+			}
 		}
     }
 
 
     void changeAnim()
     {
+
         obj.GetComponent<Animator>().SetInteger("state",(int)finalSt);
     }
 

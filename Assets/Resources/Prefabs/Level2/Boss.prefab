@@ -63,7 +63,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.6000004, y: 0, z: 21.3199997}
+  m_LocalPosition: {x: 4.82000017, y: 0, z: 21.1800003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 469696}
@@ -93,7 +93,7 @@ Animator:
   m_GameObject: {fileID: 173244}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 35392d8bd1721d44bad69e053e73c407, type: 2}
+  m_Controller: {fileID: 9100000, guid: 446503c727ceadf4584f43bf7951dbdd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -185,6 +185,9 @@ MonoBehaviour:
   can_be_stunned: 1
   can_be_snared: 1
   can_be_knockbacked: 1
+  revive_on_death: 0
+  revied_object: {fileID: 0}
+  reviving_time: 2
 --- !u!114 &11452264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -245,7 +248,7 @@ MonoBehaviour:
   cool_down: 7
   attack_time: 3
   attack_spawn_time: 1
-  spawn_count: 0
+  spawn_count: 3
   spawn_distance: 7
   spawn_between_distance: 1.5
   spawn_object:

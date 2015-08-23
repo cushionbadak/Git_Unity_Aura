@@ -152,6 +152,9 @@ public class ProbabilityAI : NewEnemyUnit {
             case 2:
                 anim.applyState(STATE_MONSTER.ATTACK3);
                 break;
+		case 3:
+			anim.applyState(STATE_MONSTER.ATTACK4);
+			break;
         }
         if (current_action.isEnd())
         {
