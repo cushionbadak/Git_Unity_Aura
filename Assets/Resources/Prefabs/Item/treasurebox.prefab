@@ -113,6 +113,7 @@ MonoBehaviour:
   - {fileID: 101824, guid: 892a4a25a0f429d4babdf45984a80e11, type: 2}
   - {fileID: 139596, guid: b49cbe446b3af5e4589c01f151df4f29, type: 2}
   - {fileID: 178818, guid: f4f81185703692f44a201e95b9d81b67, type: 2}
+  - {fileID: 131668, guid: 844e878d93cffb4418d52a2bfea22ef8, type: 2}
   open: {fileID: 21300000, guid: 69068fc21f9f66943b88de1a5bd635a5, type: 3}
   canOpen: 0
 --- !u!212 &21297188
@@ -150,12 +151,16 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: Items.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Items.Array.data[3]
       value: 
       objectReference: {fileID: 131668, guid: 844e878d93cffb4418d52a2bfea22ef8, type: 2}
+    - target: {fileID: 0}
+      propertyPath: Items.Array.data[4]
+      value: 
+      objectReference: {fileID: 146866, guid: ae508739bcada0144abcd25da89c7391, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 162144}

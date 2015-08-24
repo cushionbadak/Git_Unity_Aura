@@ -94,6 +94,7 @@ public class ItemManager : MonoBehaviour {
                    break;
                 }
 
+
 		case 3:
 		{
 				SystemMessageManager.I.addMessage("HP가 최대로 회복됐습니다.");
@@ -101,6 +102,15 @@ public class ItemManager : MonoBehaviour {
 	
 			break;
 		}
+
+			
+		case 4:
+		{
+			SystemMessageManager.I.addMessage("번개 슈즈를 획득했습니다.");
+			playerUnit.isThunderShoes=true;
+			break;
+		}
+
         }
     }
 }
