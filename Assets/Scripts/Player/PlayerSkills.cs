@@ -37,6 +37,16 @@ public class PlayerSkills : Attack {
     private float v, h;
     private float tp_movingDist = 4.0f;  //텔레포트 이동거리
 
+    // Skill - SpinningCross
+    private bool on_cross = true;
+    private float t_cross = .0f;
+    public float cd_cross = 20.0f;
+    public GameObject pAObject_cross; //십자가 오브젝트 할당
+
+    private bool on_ActiveCross = false;
+    private float t_ActiveCross = .0f;
+    private float cd_ActiveCross = 10.0f;   //스킬 지속시간
+
 
     public enum skillSet {
         Nothing,
@@ -48,6 +58,8 @@ public class PlayerSkills : Attack {
         TripleShock,
         ShugokuOokiidesu
     }
+
+    // 스킬 슬롯 할당
 
     public skillSet _skill_1 = skillSet.Knockback;
     public skillSet _skill_2 = skillSet.Nothing;
@@ -102,6 +114,27 @@ public class PlayerSkills : Attack {
         if (t_teleport >= cd_teleport)
             on_teleport = true;
 
+        if(!on_cross)
+        {
+            t_cross += Time.deltaTime;
+            if(t_cross >= cd_cross)
+            {
+                on_cross = true;
+                t_cross = .0f;
+            }
+        }
+
+        if(on_ActiveCross)  //십자가 켜진상태
+        {
+            t_ActiveCross += Time.deltaTime;
+            if(t_ActiveCross >= cd_ActiveCross)
+            {
+                on_ActiveCross = false;
+                t_ActiveCross = .0f;
+                pAObject_cross.SetActive(false);    //지속시간 끝나면 꺼버림
+            }
+        }
+
         // 적절한 스킬 호출하기
         if (Input.GetKeyDown(KeyCode.A))
             callSkillFunc(_skill_1);   
@@ -148,8 +181,17 @@ public class PlayerSkills : Attack {
         }
         GameManager.I.makeKnockbackEffect();
     }
-
-    void skill_SpinningCross() {}   //추가 오라 객체를 만들어서 거기에 붙여야 할라나?
+    void skill_SpinningCross()
+    {
+        if(on_cross)
+        {
+            on_cross = false;
+            t_cross = .0f;
+            on_ActiveCross = true;
+            t_ActiveCross = .0f;
+            pAObject_cross.SetActive(true);
+        }
+    }
     void skill_Teleport()
     {
         if (on_teleport)
@@ -258,6 +300,10 @@ public class PlayerSkills : Attack {
         else if (skill == skillSet.Teleport)
         {
             skill_Teleport();
+        }
+        else if (skill == skillSet.SpinningCross)
+        {
+            skill_SpinningCross();
         }
         else
         {

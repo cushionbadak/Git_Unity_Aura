@@ -421,9 +421,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992556172cc3a564d90f220846f86756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapManager: {fileID: 65359842}
   door: {fileID: 1971788421}
-  RoomNum: 2
+  roomNum: 0
+  monsters: []
+  isCleared: 0
 --- !u!23 &38966869
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -781,6 +782,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1642344794}
   m_RootOrder: 0
+--- !u!1 &55092528 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 191870, guid: 483620a8dd7baf745868eac4a6733119, type: 2}
+  m_PrefabInternal: {fileID: 844946634}
 --- !u!1 &56075706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,6 +1060,25 @@ MonoBehaviour:
   - {fileID: 1739683163}
   - {fileID: 352031812}
   - {fileID: 2060354381}
+  chap2Doors:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &71389014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1628,8 +1652,12 @@ Prefab:
       objectReference: {fileID: 171046, guid: dc859f38d15b6f24c87b5c18e7467860, type: 2}
     - target: {fileID: 11419236, guid: c6f347a7ef462514a8781f914c15a78b, type: 2}
       propertyPath: _skill_2
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11419236, guid: c6f347a7ef462514a8781f914c15a78b, type: 2}
+      propertyPath: pAObject_cross
+      value: 
+      objectReference: {fileID: 55092528}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6f347a7ef462514a8781f914c15a78b, type: 2}
   m_IsPrefabParent: 0
@@ -2766,6 +2794,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapM: {fileID: 65359842}
   roomNum: 5
+  playerIsIn: 0
+  isCleared: 0
 --- !u!1001 &233914475
 Prefab:
   m_ObjectHideFlags: 0
@@ -4140,7 +4170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTrans: 0
-  mapM: {fileID: 65359842}
   roomNum: 6
 --- !u!65 &352031815
 BoxCollider:
@@ -4744,9 +4773,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992556172cc3a564d90f220846f86756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapManager: {fileID: 65359842}
   door: {fileID: 657373587}
-  RoomNum: 1
+  roomNum: 0
+  monsters: []
+  isCleared: 0
 --- !u!1 &404836138
 GameObject:
   m_ObjectHideFlags: 0
@@ -6320,6 +6350,7 @@ MonoBehaviour:
   pl: {fileID: 0}
   index: 0
   isPlayerLive: 1
+  isSnare: 0
 --- !u!4 &546951242
 Transform:
   m_ObjectHideFlags: 0
@@ -8208,7 +8239,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTrans: 0
-  mapM: {fileID: 65359842}
   roomNum: 1
 --- !u!1 &657647566
 GameObject:
@@ -9735,6 +9765,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapM: {fileID: 65359842}
   roomNum: 6
+  playerIsIn: 0
+  isCleared: 0
 --- !u!1 &798233906
 GameObject:
   m_ObjectHideFlags: 0
@@ -10724,6 +10756,60 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &844946634
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1486610846}
+    m_Modifications:
+    - target: {fileID: 416036, guid: 483620a8dd7baf745868eac4a6733119, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416036, guid: 483620a8dd7baf745868eac4a6733119, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416036, guid: 483620a8dd7baf745868eac4a6733119, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416036, guid: 483620a8dd7baf745868eac4a6733119, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -.707106829
+      objectReference: {fileID: 0}
+    - target: {fileID: 416036, guid: 483620a8dd7baf745868eac4a6733119, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416036, guid: 483620a8dd7baf745868eac4a6733119, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416036, guid: 483620a8dd7baf745868eac4a6733119, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: .707106709
+      objectReference: {fileID: 0}
+    - target: {fileID: 416036, guid: 483620a8dd7baf745868eac4a6733119, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466580, guid: 483620a8dd7baf745868eac4a6733119, type: 2}
+      propertyPath: _p
+      value: 
+      objectReference: {fileID: 1585825371}
+    - target: {fileID: 11466580, guid: 483620a8dd7baf745868eac4a6733119, type: 2}
+      propertyPath: _pA
+      value: 
+      objectReference: {fileID: 1486610849}
+    - target: {fileID: 191870, guid: 483620a8dd7baf745868eac4a6733119, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 483620a8dd7baf745868eac4a6733119, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &847211067
 GameObject:
   m_ObjectHideFlags: 0
@@ -10846,6 +10932,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapM: {fileID: 65359842}
   roomNum: 2
+  playerIsIn: 0
+  isCleared: 0
 --- !u!1 &847827269
 GameObject:
   m_ObjectHideFlags: 0
@@ -10995,6 +11083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bec21c18bfaae47b1e2b2fbc7e8bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomNum: 0
   door: {fileID: 1503312203}
   canOpen: 0
 --- !u!23 &856792389
@@ -11806,6 +11895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bec21c18bfaae47b1e2b2fbc7e8bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomNum: 0
   door: {fileID: 1971788421}
   canOpen: 0
 --- !u!23 &918763413
@@ -12598,6 +12688,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapM: {fileID: 65359842}
   roomNum: 3
+  playerIsIn: 0
+  isCleared: 0
 --- !u!1 &968513329
 GameObject:
   m_ObjectHideFlags: 0
@@ -13654,9 +13746,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992556172cc3a564d90f220846f86756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapManager: {fileID: 65359842}
   door: {fileID: 2060354381}
-  RoomNum: 7
+  roomNum: 0
+  monsters: []
+  isCleared: 0
 --- !u!23 &1042078710
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15216,6 +15309,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapM: {fileID: 65359842}
   roomNum: 4
+  playerIsIn: 0
+  isCleared: 0
 --- !u!1 &1154571295
 GameObject:
   m_ObjectHideFlags: 0
@@ -15418,6 +15513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bec21c18bfaae47b1e2b2fbc7e8bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomNum: 0
   door: {fileID: 352031812}
   canOpen: 0
 --- !u!23 &1163450832
@@ -16459,6 +16555,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapM: {fileID: 65359842}
   roomNum: 7
+  playerIsIn: 0
+  isCleared: 0
 --- !u!1 &1223835608
 GameObject:
   m_ObjectHideFlags: 0
@@ -17080,9 +17178,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992556172cc3a564d90f220846f86756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapManager: {fileID: 65359842}
   door: {fileID: 1674430883}
-  RoomNum: 4
+  roomNum: 0
+  monsters: []
+  isCleared: 0
 --- !u!23 &1261108878
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19673,6 +19772,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1846556042}
   m_RootOrder: 1
+--- !u!4 &1486610846 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 427432, guid: c6f347a7ef462514a8781f914c15a78b, type: 2}
+  m_PrefabInternal: {fileID: 118394429}
+--- !u!114 &1486610849 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11430938, guid: c6f347a7ef462514a8781f914c15a78b,
+    type: 2}
+  m_PrefabInternal: {fileID: 118394429}
+  m_Script: {fileID: 11500000, guid: b8f79b5ed66da0843bb25bd4bb977d89, type: 3}
 --- !u!1 &1492889814
 GameObject:
   m_ObjectHideFlags: 0
@@ -19934,7 +20043,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTrans: 0
-  mapM: {fileID: 65359842}
   roomNum: 3
 --- !u!65 &1503312206
 BoxCollider:
@@ -20119,6 +20227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bec21c18bfaae47b1e2b2fbc7e8bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomNum: 0
   door: {fileID: 2060354381}
   canOpen: 0
 --- !u!23 &1513392063
@@ -20804,6 +20913,12 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 170950, guid: c6f347a7ef462514a8781f914c15a78b, type: 2}
   m_PrefabInternal: {fileID: 118394429}
+--- !u!114 &1585825371 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11423538, guid: c6f347a7ef462514a8781f914c15a78b,
+    type: 2}
+  m_PrefabInternal: {fileID: 118394429}
+  m_Script: {fileID: 11500000, guid: a220cc4c3d1c1184c8bf768b4b7e8746, type: 3}
 --- !u!1 &1594895297
 GameObject:
   m_ObjectHideFlags: 0
@@ -20900,9 +21015,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992556172cc3a564d90f220846f86756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapManager: {fileID: 65359842}
   door: {fileID: 1739683163}
-  RoomNum: 5
+  roomNum: 0
+  monsters: []
+  isCleared: 0
 --- !u!23 &1616442025
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21861,7 +21977,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTrans: 0
-  mapM: {fileID: 65359842}
   roomNum: 4
 --- !u!65 &1674430886
 BoxCollider:
@@ -22641,6 +22756,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapM: {fileID: 65359842}
   roomNum: 1
+  playerIsIn: 0
+  isCleared: 0
 --- !u!1 &1731223650
 GameObject:
   m_ObjectHideFlags: 0
@@ -22887,7 +23004,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTrans: 0
-  mapM: {fileID: 65359842}
   roomNum: 5
 --- !u!65 &1739683166
 BoxCollider:
@@ -24072,6 +24188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bec21c18bfaae47b1e2b2fbc7e8bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomNum: 0
   door: {fileID: 1739683163}
   canOpen: 0
 --- !u!23 &1812225802
@@ -24340,6 +24457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bec21c18bfaae47b1e2b2fbc7e8bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomNum: 0
   door: {fileID: 657373587}
   canOpen: 0
 --- !u!23 &1830023454
@@ -25164,9 +25282,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992556172cc3a564d90f220846f86756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapManager: {fileID: 65359842}
   door: {fileID: 1503312203}
-  RoomNum: 3
+  roomNum: 0
+  monsters: []
+  isCleared: 0
 --- !u!23 &1895335986
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25252,9 +25371,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992556172cc3a564d90f220846f86756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapManager: {fileID: 65359842}
   door: {fileID: 352031812}
-  RoomNum: 6
+  roomNum: 0
+  monsters: []
+  isCleared: 0
 --- !u!23 &1900519420
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25409,6 +25529,7 @@ MonoBehaviour:
   LevelUpEffect: {fileID: 0}
   PressT: {fileID: 0}
   ShockWaveEffect: {fileID: 0}
+  DustCloudWithImpactEffect: {fileID: 0}
   DustCloudEffect: {fileID: 0}
   MonsterSummonEffect: {fileID: 0}
   FireBombEffect: {fileID: 0}
@@ -25417,6 +25538,8 @@ MonoBehaviour:
   RedHealEffect: {fileID: 0}
   TeleportEffect: {fileID: 0}
   VortexEffect: {fileID: 0}
+  Threehit_SmallEffect: {fileID: 0}
+  Threehit_LargeEffect: {fileID: 0}
 --- !u!4 &1905678052
 Transform:
   m_ObjectHideFlags: 0
@@ -26105,7 +26228,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTrans: 0
-  mapM: {fileID: 65359842}
   roomNum: 2
 --- !u!65 &1971788424
 BoxCollider:
@@ -27315,7 +27437,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTrans: 0
-  mapM: {fileID: 65359842}
   roomNum: 7
 --- !u!65 &2060354384
 BoxCollider:
@@ -27397,6 +27518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bec21c18bfaae47b1e2b2fbc7e8bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomNum: 0
   door: {fileID: 1674430883}
   canOpen: 0
 --- !u!23 &2069711185

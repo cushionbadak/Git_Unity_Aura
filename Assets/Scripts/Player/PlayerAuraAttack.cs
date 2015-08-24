@@ -8,8 +8,8 @@ public class PlayerAuraAttack : Attack {
     private float time_store = 0.0f;
     public float auraAttackCooldown = 1.0f;  //초당 1회 공격 - 추후 수정 가능성 있음
     private Vector3 originalScale;
-    private float critChance = 0.1f; //크리티컬 확률 10%
-    private float vampScale = 0.1f; //흡혈량 공격력 * 0.1
+    public float critChance = 0.1f; //크리티컬 확률 10%
+    public float vampScale = 0.1f; //흡혈량 공격력 * 0.1
 
     private float t_randThunder;
     private float cd_randThunder = 1.0f;
@@ -66,42 +66,46 @@ public class PlayerAuraAttack : Attack {
         Collider[] colls = Physics.OverlapSphere(transform.position, this.transform.localScale.x / 2);
              
         Collider target = colls[Random.Range(0, colls.Length - 1)];
-        while(target.gameObject.tag != "EnemyBody")
+        /*
+        while (target.gameObject.tag != "EnemyBody")
         {
             target = colls[Random.Range(0, colls.Length - 1)];
         }
-        
-        float originalDamage = damage;
-        damage = damage * 3;
-        GameManager.I.attckToEnemy(this, target.gameObject);
-        GameManager.I.giveSnareToEnemy(target.gameObject, 1.0f);
-        EffectManager.I.createThunderShoesEffect(target.gameObject);
-        damage = originalDamage;
+        */
+        if (target.gameObject.tag == "EnemyBody")
+        {
+            float originalDamage = damage;
+            damage = damage * 3;
+            GameManager.I.attckToEnemy(this, target.gameObject);
+            GameManager.I.giveSnareToEnemy(target.gameObject, 1.0f);
+            EffectManager.I.createThunderShoesEffect(target.gameObject);
+            damage = originalDamage;
+        }
     }
 
     private void giveAttack(GameObject enemy)
     {
         if (_p.isCriticalKnuckle)
         {
+            float originDamage = damage;
             if (Random.value <= critChance)
             {
-                float originDamage = damage;
                 damage = damage * 2;
-                GameManager.I.attckToEnemy(this, enemy);
-                if (_p.isDraculaBrooch)
-				{
-                    EffectManager.I.createRedHealEffect(this.gameObject);
-                    float nextHP = _p.currentHP + damage * vampScale;
-                    
-                    if (nextHP >= _p.maxHP)
-                        _p.currentHP = _p.maxHP;
-                    else
-                        _p.currentHP = nextHP;
-				}
-                if(_p.isStickyBall)
-                    GameManager.I.giveSnareToEnemy(enemy, 0.1f);
-                damage = originDamage;
             }
+            GameManager.I.attckToEnemy(this, enemy);
+            if (_p.isDraculaBrooch)
+			{
+                EffectManager.I.createRedHealEffect(this.gameObject);
+                float nextHP = _p.currentHP + damage * vampScale;
+                    
+                if (nextHP >= _p.maxHP)
+                    _p.currentHP = _p.maxHP;
+                else
+                    _p.currentHP = nextHP;
+			}
+            if(_p.isStickyBall)
+                GameManager.I.giveSnareToEnemy(enemy, 0.1f);
+            damage = originDamage;
         }
         else
         {
