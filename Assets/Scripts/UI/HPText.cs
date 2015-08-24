@@ -13,7 +13,8 @@ public class HPText : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		string str = pl.currentHP.ToString() + "/" + pl.maxHP.ToString ();
+		int hpshow = (int)pl.currentHP;
+		string str = pl.currentHP.ToString() + "/" + hpshow.ToString ();
 		GetComponent<Text>().text = str;
 	}
 }

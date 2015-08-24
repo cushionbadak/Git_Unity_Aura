@@ -13,7 +13,7 @@ public class getEXP : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		string str = pl.EXP.ToString() + "/" + PlayerLevelData.I.Status[pl.level +1].needEXP;
+		string str = pl.EXP.ToString() + "/" + (int)PlayerLevelData.I.Status[pl.level +1].needEXP;
         GetComponent<Text>().text = str;
     }
 }
