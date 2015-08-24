@@ -178,6 +178,7 @@ MonoBehaviour:
   isSpecialThing: 0
   expText: {fileID: 0}
   resultUI: {fileID: 0}
+  _pAura: {fileID: 0}
 --- !u!114 &11423446
 MonoBehaviour:
   m_ObjectHideFlags: 1

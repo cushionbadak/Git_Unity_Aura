@@ -227,7 +227,7 @@ public class PlayerSkills : Attack {
             if (frontVec.y - frontVec.x > 0)
                 angle = 360 - angle;
             Vector3 euler = new Vector3(0, angle, 0);
-            GameObject p_laser = (GameObject)Instantiate(pObject_laser, transform.position, Quaternion.Euler(euler));
+            GameObject p_laser = (GameObject)Instantiate(pObject_laser, transform.position + frontVec * 6, Quaternion.Euler(euler));
             p_laser.GetComponent<PlayerLaser>().damage = this.damage;
         }
     }
