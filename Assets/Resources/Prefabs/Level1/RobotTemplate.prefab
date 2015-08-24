@@ -47,7 +47,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.4000015, y: 0, z: 42.2999992}
+  m_LocalPosition: {x: 49.2999992, y: 0, z: 40.2000008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 456614}
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18798672ac3af9479e060bae02c1a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 200
+  maxHP: 100
   currentHP: 100
   level: 0
   originalSpeed: 20
@@ -272,7 +272,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damage
-      value: 3
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: currentHP
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxHP
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

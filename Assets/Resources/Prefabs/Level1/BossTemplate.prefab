@@ -50,7 +50,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 165.482025, y: 0, z: 31.1179695}
+  m_LocalPosition: {x: 165.482025, y: 0, z: 1.81797028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 496272}
@@ -161,7 +161,7 @@ MonoBehaviour:
   attack_spawn_time: 1
   spawn_count: 3
   spawn_distance: 5
-  spawn_between_distance: 1
+  spawn_between_distance: 3
   spawn_object:
   - {fileID: 187370, guid: 4a5a1710d0ea80a49bdd50b28640d62a, type: 2}
   - {fileID: 138696, guid: 2710205b7ca264949a228593a75dde0d, type: 2}
@@ -176,8 +176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18798672ac3af9479e060bae02c1a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 2000
-  currentHP: 2000
+  maxHP: 5000
+  currentHP: 5000
   level: 1
   originalSpeed: 0
   currentSpeed: 0

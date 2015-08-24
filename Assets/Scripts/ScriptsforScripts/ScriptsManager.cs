@@ -74,12 +74,16 @@ public class ScriptsManager : MonoBehaviour {
     void scriptChange()
     {
         string sc = p.dia[index].dialog;
+		Debug.Log (p.dia [index].dialog);
 
         if (sc.Contains("(End)"))
         {
             scriptOff();
             CutSceneManager.I.doBlack();
         }
+		else if (sc.Contains ("(Destroy)")) {
+			CutSceneManager.I.DestroyBlack();
+		}
         else if (sc.Contains("(Move)"))
         {
             scriptOff();
@@ -90,17 +94,18 @@ public class ScriptsManager : MonoBehaviour {
 
                 string[] sp1 = sc.Split('/');
                 
-                string[] sp2 = sp1[1].Split(',');
+				
+				string[] sp2 = sp1[1].Split('<');
+				string[] sp3=sp2[0].Split(',');
 
                 float x, y, z;
-
-                x = Convert.ToSingle(sp2[0]);
-                y = Convert.ToSingle(sp2[1]);
-                z = Convert.ToSingle(sp2[2]);
+				float t;
+                x = Convert.ToSingle(sp3[0]);
+                y = Convert.ToSingle(sp3[1]);
+				z = Convert.ToSingle(sp3[2]);
+				t=Convert.ToSingle(sp2[1]);
                 Vector3 pos = new Vector3(x, y, z);
-
-                CutSceneManager.I.Move(npcGroup[ind],pos);
-
+                CutSceneManager.I.Move(npcGroup[ind],pos,t);
             }
             else
             {
@@ -108,16 +113,19 @@ public class ScriptsManager : MonoBehaviour {
                 i = sc.IndexOf(')');
 
                 string[] sp1 = sc.Split(')');
-                string[] sp2 = sp1[1].Split(',');
+                string[] sp2 = sp1[1].Split('<');
+				string[] sp3=sp2[0].Split(',');
 
                 float x, y, z;
+				float t;
+                x = Convert.ToSingle(sp3[0]);
+                y = Convert.ToSingle(sp3[1]);
+                z = Convert.ToSingle(sp3[2]);
+				t=Convert.ToSingle(sp2[1]);
 
-                x = Convert.ToSingle(sp2[0]);
-                y = Convert.ToSingle(sp2[1]);
-                z = Convert.ToSingle(sp2[2]);
                 Vector3 pos = new Vector3(x, y, z);
 
-                CutSceneManager.I.Move(pos);
+                CutSceneManager.I.Move(pos,t);
             }
         }
 
@@ -142,7 +150,7 @@ public class ScriptsManager : MonoBehaviour {
 
 
         else if (sc.Contains("(GameStart)"))
-        {
+		{
             if (!GameManager.I.getGameMode())
             {
                 int i;
@@ -190,7 +198,7 @@ public class ScriptsManager : MonoBehaviour {
             {
                 scriptOff();
                 int temp = sc.IndexOf(')') + 2;
-                int ind = Convert.ToInt32(sc[temp]);
+                int ind = Convert.ToInt32(sc[temp])-'0';
                 CutSceneManager.I.question(npcGroup[ind]);
             }
         }
@@ -205,13 +213,14 @@ public class ScriptsManager : MonoBehaviour {
 
     public void scriptMove()
     {
-        index++;
         scriptMode = true;
-        dialogUI.SetActive(true);
+		dialogUI.SetActive(true);
+		index++;
     }
 
     public void scriptOff()
-    {
+	{
+
         scriptMode = false;
         dialogUI.SetActive(false);
     }

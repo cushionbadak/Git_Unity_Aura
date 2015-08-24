@@ -40,8 +40,8 @@ public class PlayerLevelData : MonoBehaviour
         //Datas.
         Status = new StatusStruct[32];
         Status[0] = new StatusStruct(0, 10000.0f, 10000.0f, 1, 2);
-        Status[1] = new StatusStruct(1, 1000000000.0f, 10.0f, 0, 0);
-        Status[2] = new StatusStruct(2, 1100000000.0f, 11.0f, 20, 20);
+        Status[1] = new StatusStruct(1, 100.0f, 10.0f, 0, 0);
+        Status[2] = new StatusStruct(2, 120.0f, 14.0f, 20, 20);
         for (int i = 3; i < 31; i++)
         {
             float tmaxHP, tdamage;
@@ -49,28 +49,28 @@ public class PlayerLevelData : MonoBehaviour
             //tmaxHP
             if (i <= 10)
             {
-                tmaxHP = 2 * Status[i - 1].maxHP - Status[i - 2].maxHP + 20;
+                tmaxHP = Status[i - 1].maxHP + 20;
             }
             else if (i <= 20)
             {
-                tmaxHP = 2 * Status[i - 1].maxHP - Status[i - 2].maxHP + 30;
+				tmaxHP =  Status[i - 1].maxHP + 20;
             }
             else
             {
-                tmaxHP = 2 * Status[i - 1].maxHP - Status[i - 2].maxHP + 40;
+				tmaxHP =  Status[i - 1].maxHP + 20;
             }
             //tdamage
             if (i <= 9)
             {
-                tdamage = Status[i - 1].damage+1;
+                tdamage = Status[i - 1].damage;
             }
             else if (i <= 19)
             {
-                tdamage = Status[i - 1].damage +2;
+                tdamage = Status[i - 1].damage;
             }
             else
             {
-                tdamage = 2 * Status[i - 1].damage - Status[i - 2].damage + 1;
+                tdamage = 2 * Status[i - 1].damage - Status[i - 2].damage ;
             }
             //tneedEXP
             if (i <= 10)

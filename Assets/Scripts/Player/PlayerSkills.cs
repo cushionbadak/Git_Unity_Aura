@@ -32,10 +32,10 @@ public class PlayerSkills : Attack {
     // Skill - Teleport
     private bool on_teleport = true;
     private float t_teleport = .0f;
-    public float cd_teleport = 2.0f;
+    public float cd_teleport = 0.5f;
     private Vector3 tp_movingVec;
     private float v, h;
-    private float tp_movingDist = 100.0f;  //텔레포트 이동거리
+    private float tp_movingDist = 4.0f;  //텔레포트 이동거리
 
 
     public enum skillSet {
@@ -157,19 +157,21 @@ public class PlayerSkills : Attack {
             on_teleport = false;
             t_teleport = .0f;
 
-            Collider[] cols = Physics.OverlapSphere(this.transform.position, this.transform.localScale.x / 2);
-            damage = _p.damage * 0.2f;
-            foreach (Collider col in cols)
-            {
-                if (col.tag == "EnemyBody")
-                {
-                    GameManager.I.giveStunToEnemy(col.gameObject, 1.0f);
-                    GameManager.I.attckToEnemy(this, col.gameObject);
-                }
-            }
+            
             damage = _p.damage;
             tp_movingVec = new Vector3(h, 0, v);
             transform.parent.position = transform.parent.position + tp_movingVec * tp_movingDist;
+			Collider[] cols = Physics.OverlapSphere(this.transform.position, this.transform.localScale.x / 2);
+			damage = _p.damage * 0.2f;
+			foreach (Collider col in cols)
+			{
+				if (col.tag == "EnemyBody")
+				{
+					GameManager.I.giveStunToEnemy(col.gameObject, 1.0f);
+					GameManager.I.attckToEnemy(this, col.gameObject);
+				}
+			}
+			EffectManager.I.createEffect(this.gameObject,EffectManager.Effects.TELEPORT);
         }
     }
     void skill_Laser()

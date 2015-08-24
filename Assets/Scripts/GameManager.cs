@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
             
             GameObject player = GameObject.FindWithTag("PlayerBody");
             player.transform.parent.transform.position = new Vector3(0,0,0);
-            player.GetComponent<PlayerUnit>().currentHP = PlayerLevelData.I.Status[1].maxHP;
+			player.GetComponent<PlayerUnit>().currentHP =100000;
             player.GetComponent<PlayerUnit>().EXP = 0;
             player.GetComponent<PlayerUnit>().level = 1;
             player.GetComponent<PlayerUnit>().damage = 2;

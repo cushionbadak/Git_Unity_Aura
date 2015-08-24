@@ -18,13 +18,13 @@ public class imagechange : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (_skillselect._skill_1 == PlayerSkills.skillSet.Knockback) {
-			this.gameObject.GetComponent<SpriteRenderer> ().sprite = knockback;
+			this.gameObject.GetComponent<Image> ().sprite = knockback;
 		}
 		if (_skillselect._skill_1 == PlayerSkills.skillSet.Laser) {
-			this.gameObject.GetComponent<SpriteRenderer> ().sprite = laser;
+			this.gameObject.GetComponent<Image> ().sprite = laser;
 		}
 		if (_skillselect._skill_1 == PlayerSkills.skillSet.Nothing) {
-			this.gameObject.GetComponent<SpriteRenderer> ().sprite = shugo;
+			this.gameObject.GetComponent<Image> ().sprite = shugo;
 		}
 	}
 }

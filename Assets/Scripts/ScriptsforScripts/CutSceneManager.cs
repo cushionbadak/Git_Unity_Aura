@@ -15,12 +15,16 @@ public class CutSceneManager : MonoBehaviour {
     bool isEmotioning = false;
     bool isBlack = false;
     bool isScene = false;
+	bool isDestroying=false;
+	public GameObject black;
+	float moveTime;
     Vector3 curPos;
     Vector3 prevPos;
     float timeSumforEmotion = 0;
     float timeSumforSceneStart = 0;
     float timeSumforMove = 0;
     float timeSumforBlack = 0;
+    float timeSumforDestroy = 0;
     // Use this for initialization
     void Start () {
 
@@ -45,7 +49,7 @@ public class CutSceneManager : MonoBehaviour {
             if ( curPos==prevPos)
             {
                 timeSumforMove += Time.deltaTime;
-                if (timeSumforMove > 2.0f)
+                if (timeSumforMove > moveTime)
                 {
                     isMoving = false;
                     timeSumforMove = 0.0f;
@@ -66,10 +70,21 @@ public class CutSceneManager : MonoBehaviour {
             }
         }
 
+		if(isDestroying)
+		{
+			timeSumforDestroy += Time.deltaTime;
+			if (timeSumforDestroy > 0.2f)
+			{
+				isDestroying = false;
+				timeSumforDestroy = 0;
+				DoScript();
+			}
+		}
+
         if (isBlack)
         {
             timeSumforBlack += Time.deltaTime;
-            if (timeSumforBlack > 5f)
+            if (timeSumforBlack > 3f)
             {
 
                 isBlack = false;
@@ -128,10 +143,15 @@ public class CutSceneManager : MonoBehaviour {
     public void doBlack()
     {
         isBlack = true;
-        GameObject bb = (GameObject)Instantiate(BB);
-        bb.transform.parent = GameObject.Find("BlackBoard").transform;
-        Destroy(bb, 5.0f);
+		black = (GameObject)Instantiate (BB);
+        black.transform.parent = GameObject.Find("BlackBoard").transform;
     }
+
+	public void DestroyBlack()
+	{
+		isDestroying = true;
+		Destroy(black);
+	}
 
     public void SceneStart(Vector3 pos)
     {
@@ -140,15 +160,18 @@ public class CutSceneManager : MonoBehaviour {
         plDum.transform.position = pos;
     }
 
-    public void Move(Vector3 pos)
+    public void Move(Vector3 pos,float time)
     {
+		moveTime = time;
         isMoving = true;
         nav.SetDestination(pos);
         destination = pos;
+
     }
 
-    public void Move(GameObject obj,Vector3 pos)
+    public void Move(GameObject obj,Vector3 pos,float time)
     {
+		moveTime = time;
         isMoving = true;
         Transform[] objs = obj.GetComponentsInChildren<Transform>();
         foreach (Transform tr in objs)
