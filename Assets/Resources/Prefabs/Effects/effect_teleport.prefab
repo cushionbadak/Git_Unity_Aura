@@ -318,7 +318,7 @@ ParticleSystem:
   SizeModule:
     enabled: 1
     curve:
-      scalar: 8
+      scalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1073,6 +1073,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: SizeModule.curve.scalar
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
