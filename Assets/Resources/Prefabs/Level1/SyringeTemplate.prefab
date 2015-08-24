@@ -76,7 +76,7 @@ MonoBehaviour:
   stunTime: 0
   snareTime: 0
   damage_ratio: 1
-  project_speed: 2
+  project_speed: 3
   speed_accel_apply: 0
   speed_accel_amount: 2
   fire_radius: 3
@@ -146,6 +146,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: collision_radius
       value: .600000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: project_speed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

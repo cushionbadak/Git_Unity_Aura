@@ -60,7 +60,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.1100006, y: 0, z: 58.9300003}
+  m_LocalPosition: {x: 29.1000004, y: 0, z: 45.4000015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 453872}
@@ -130,8 +130,8 @@ MonoBehaviour:
   cool_down: 2
   attack_time: .100000001
   attack_fire_time: .00999999978
-  spread_angle: 10
-  spread_count: 4
+  spread_angle: 20
+  spread_count: 18
   fired_object: {fileID: 157276, guid: 2ffb8fa7457854b468d8c682d5367b16, type: 2}
 --- !u!114 &11420068
 MonoBehaviour:
@@ -176,7 +176,7 @@ MonoBehaviour:
   currentSpeed: 0
   damage: 10
   AuraRange: 0
-  giveEXP: 30
+  giveEXP: 0
   attacks:
   - {fileID: 11410804}
   traces:

@@ -64,13 +64,18 @@ public class PlayerAuraAttack : Attack {
     private void randThunderAttack()
     {
         Collider[] colls = Physics.OverlapSphere(transform.position, this.transform.localScale.x / 2);
-
+             
         Collider target = colls[Random.Range(0, colls.Length - 1)];
+        while(target.gameObject.tag != "EnemyBody")
+        {
+            target = colls[Random.Range(0, colls.Length - 1)];
+        }
+        
         float originalDamage = damage;
         damage = damage * 3;
         GameManager.I.attckToEnemy(this, target.gameObject);
         GameManager.I.giveSnareToEnemy(target.gameObject, 1.0f);
-		EffectManager.I.createThunderShoesEffect (target.gameObject);
+        EffectManager.I.createThunderShoesEffect(target.gameObject);
         damage = originalDamage;
     }
 
@@ -85,7 +90,13 @@ public class PlayerAuraAttack : Attack {
                 GameManager.I.attckToEnemy(this, enemy);
                 if (_p.isDraculaBrooch)
 				{
-                    _p.currentHP += damage * vampScale;
+                    EffectManager.I.createRedHealEffect(this.gameObject);
+                    float nextHP = _p.currentHP + damage * vampScale;
+                    
+                    if (nextHP >= _p.maxHP)
+                        _p.currentHP = _p.maxHP;
+                    else
+                        _p.currentHP = nextHP;
 				}
                 if(_p.isStickyBall)
                     GameManager.I.giveSnareToEnemy(enemy, 0.1f);
@@ -97,10 +108,14 @@ public class PlayerAuraAttack : Attack {
             GameManager.I.attckToEnemy(this, enemy);
             if (_p.isDraculaBrooch)
 			{
-				
 				EffectManager.I.createRedHealEffect(this.gameObject);
-                _p.currentHP += damage * vampScale;
-			}
+                float nextHP = _p.currentHP + damage * vampScale;
+
+                if (nextHP >= _p.maxHP)
+                    _p.currentHP = _p.maxHP;
+                else
+                    _p.currentHP = nextHP;
+            }
             if (_p.isStickyBall)
                 GameManager.I.giveSnareToEnemy(enemy, 0.1f);
         }
