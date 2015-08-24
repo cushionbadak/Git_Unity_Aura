@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class ItemData :MonoBehaviour {
-	public const int size=5;	
+	public const int size=8;	
 	public string[] itemName;
 	public Sprite[] sp;
 	public string[] description;

@@ -110,7 +110,23 @@ public class ItemManager : MonoBehaviour {
 			playerUnit.isThunderShoes=true;
 			break;
 		}
-
-        }
+		case 5:
+		{
+			SystemMessageManager.I.addMessage("크리티컬 너클을 획득했습니다.");
+			playerUnit.isCriticalKnuckle=true;
+			break;
+		}
+		case 6:
+		{
+			SystemMessageManager.I.addMessage("드라큘라 브로치를 획득했습니다.");
+			playerUnit.isDraculaBrooch=true;
+			break;
+		}case 7:
+		{
+			SystemMessageManager.I.addMessage("끈적끈적 공을 획득했습니다.");
+			playerUnit.isStickyBall=true;
+			break;
+		}
+		}
     }
 }
