@@ -12,16 +12,14 @@ public class MapManager : MonoBehaviour {
 	{
         if (Game.current == null)
 		{
-		
             switch (CurrentChapter)
             {
                 case 1:
                     {
                         for (int i = 0; i < 9; i++)
                             mapStatus.Add(false);
-                        
-				mapStatus[0] = true;
-                        break;
+							mapStatus[0] = true;
+               	         break;
 
                     }
 			case 2:
@@ -70,7 +68,7 @@ public class MapManager : MonoBehaviour {
 
     public List<bool> getRoomStatus()
     {
-			return mapStatus;
+		return mapStatus;
           
     }
 }

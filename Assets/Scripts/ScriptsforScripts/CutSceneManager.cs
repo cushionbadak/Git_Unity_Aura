@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using UnityStandardAssets.Cameras;
 public class CutSceneManager : MonoBehaviour {
@@ -7,6 +8,7 @@ public class CutSceneManager : MonoBehaviour {
     public static CutSceneManager I { get { return uniqueInstance; } }
     public GameObject plDum;
     public GameObject q;
+	public GameObject ImageUIForm;
     public GameObject BB;
     NavMeshAgent nav;
     public GameObject e;
@@ -16,15 +18,26 @@ public class CutSceneManager : MonoBehaviour {
     bool isBlack = false;
     bool isScene = false;
 	bool isDestroying=false;
+	bool isDead=false;
+	bool isShaking=false;
+	bool isImaging=false;
+	bool isOffImaging=false;
 	public GameObject black;
 	float moveTime;
+	float deadTime;
     Vector3 curPos;
     Vector3 prevPos;
+	float timeSumforImage=0;
+	float timeSumforOffImage=0;
+	float timeSumforShake=0;
+	float timeSumforDead=0;
     float timeSumforEmotion = 0;
     float timeSumforSceneStart = 0;
     float timeSumforMove = 0;
     float timeSumforBlack = 0;
     float timeSumforDestroy = 0;
+	GameObject curImage;
+
     // Use this for initialization
     void Start () {
 
@@ -58,6 +71,37 @@ public class CutSceneManager : MonoBehaviour {
             }
             prevPos =curPos;
         }
+
+		if (isShaking) {
+			timeSumforShake += Time.deltaTime;
+			if (timeSumforShake > 1f)
+			{
+				isShaking = false;
+				timeSumforShake = 0;
+				GameObject.Find("Camera").GetComponent<CameraShake>().enabled=false;
+				DoScript();
+			}
+		
+		}
+		if (isImaging) {
+			timeSumforImage += Time.deltaTime;
+			if (timeSumforImage > 3f)
+			{
+				isImaging = false;
+				timeSumforImage = 0;
+				DoScript();
+			}
+		}
+
+		if (isOffImaging) {
+			timeSumforOffImage += Time.deltaTime;
+			if (timeSumforOffImage > 2f)
+			{
+				isOffImaging = false;
+				timeSumforOffImage = 0;
+				DoScript();
+			}
+		}
 
         if(isEmotioning)
         {
@@ -103,6 +147,16 @@ public class CutSceneManager : MonoBehaviour {
                 DoScript();
             }
         }
+
+		if (isDead) {timeSumforDead += Time.deltaTime;
+			if (timeSumforDead > 0.0f)
+			{
+				
+				isDead = false;
+				timeSumforDead = 0;
+				DoScript();
+			}
+		}
     }
 
     void DoScript()
@@ -147,6 +201,19 @@ public class CutSceneManager : MonoBehaviour {
         black.transform.parent = GameObject.Find("BlackBoard").transform;
     }
 
+	public void createImage(Sprite s)
+	{
+		isImaging = true;
+		
+		curImage = (GameObject)Instantiate (ImageUIForm);
+		curImage.GetComponent<Image> ().sprite = s;
+		curImage.GetComponent<ChangeAlpha_ImageUI> ().alpha1 ();
+		curImage.transform.parent=GameObject.Find("BlackBoard").transform;
+		
+		curImage.GetComponent<RectTransform>().anchoredPosition3D=new Vector3(0,0,0);
+
+	}
+
 	public void DestroyBlack()
 	{
 		isDestroying = true;
@@ -157,8 +224,20 @@ public class CutSceneManager : MonoBehaviour {
     {
         Debug.Log(pos);
         isScene = true;
+		plDum.GetComponent<NavMeshAgent> ().enabled = false;
         plDum.transform.position = pos;
+		
+		plDum.GetComponent<NavMeshAgent> ().enabled = true;
     }
+
+
+
+	public void shake()
+	{
+
+		isShaking = true;
+		GameObject.Find ("Camera").GetComponent<CameraShake> ().enabled = true;
+	}
 
     public void Move(Vector3 pos,float time)
     {
@@ -181,9 +260,27 @@ public class CutSceneManager : MonoBehaviour {
         }
     }
 
+	public void dead(GameObject obj, float time)
+	{
+		deadTime = time;
+		isDead = true;
+		Transform[] objs = obj.GetComponentsInChildren<Transform>();
+		foreach (Transform tr in objs)
+		{
+			if(tr.gameObject.GetInstanceID()!=obj.GetInstanceID())
+				tr.gameObject.GetComponent<changeAlpha_sprite>().alpha0();
+		}
+	}
+
     public void CameraOn()
     {
         GameObject cam=GameObject.Find("Camera");
         cam.GetComponent<AutoCam>().SetTarget(plDum.transform);
     }
+
+	public void offImage()
+	{
+		isOffImaging = true;
+		curImage.GetComponent<ChangeAlpha_ImageUI> ().alpha0 ();
+	}
 }

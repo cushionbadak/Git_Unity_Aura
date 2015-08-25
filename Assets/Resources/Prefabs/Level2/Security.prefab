@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b13cdce6f2af3440a9fed0c8d6b8341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack_range: 15
+  attack_range: 30
   prob_cost: 3
   cool_down: 1
   attack_time: 1
@@ -293,6 +293,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: damage
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: attack_range
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

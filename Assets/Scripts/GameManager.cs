@@ -32,6 +32,10 @@ public class GameManager : MonoBehaviour
         return isGameMode;
     }
 
+	public void changeScene(int ind)
+	{
+		Application.LoadLevel(ind);
+	}
 
 	public void addItem(ItemStruct itemStruct)
 	{
@@ -48,10 +52,10 @@ public class GameManager : MonoBehaviour
             
             GameObject player = GameObject.FindWithTag("PlayerBody");
             player.transform.parent.transform.position = new Vector3(0,0,0);
-			player.GetComponent<PlayerUnit>().currentHP =100000;
+			player.GetComponent<PlayerUnit>().currentHP =100;
             player.GetComponent<PlayerUnit>().EXP = 0;
             player.GetComponent<PlayerUnit>().level = 1;
-            player.GetComponent<PlayerUnit>().damage = 2;
+            player.GetComponent<PlayerUnit>().damage = 10;
             skills.Add(PlayerSkills.skillSet.Knockback);
         }
         else
@@ -97,8 +101,6 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-		
-		Game.current = new Game();
         //Singleton
         if (uniqueInstance == null)
             uniqueInstance = this;
@@ -441,7 +443,9 @@ public class GameManager : MonoBehaviour
 		player.level++;
 		player.EXP = 0;
 		player.maxHP = PlayerLevelData.I.Status[player.level].maxHP;
-		player.currentHP = PlayerLevelData.I.Status[player.level].maxHP;
+		player.currentHP = (PlayerLevelData.I.Status[player.level].maxHP-PlayerLevelData.I.Status[player.level-1].maxHP)*2 +player.currentHP;
+		if (player.currentHP > player.maxHP)
+			player.currentHP = player.maxHP;
 		player.damage = PlayerLevelData.I.Status[player.level].damage;
 		EffectManager.I.createLevelUpEffect(player.gameObject);
 	}

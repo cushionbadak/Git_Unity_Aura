@@ -66,6 +66,8 @@ public class PlayerAuraAttack : Attack {
         Collider[] colls = Physics.OverlapSphere(transform.position, this.transform.localScale.x / 2);
              
         Collider target = colls[Random.Range(0, colls.Length - 1)];
+
+
         /*
         while (target.gameObject.tag != "EnemyBody")
         {
