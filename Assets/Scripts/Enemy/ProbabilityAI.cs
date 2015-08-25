@@ -278,7 +278,13 @@ public class ProbabilityAI : Enemy
             state_timer = knockbacked_time;
             StateChangeSpecial();
 
-            StartCoroutine(TurnOffKinematic(knockbacked_time));
+            if (kinematicoff_coroutine != null)
+            {
+                StopCoroutine(kinematicoff_coroutine);
+                RestoreKinematic();
+            }
+            kinematicoff_coroutine = TurnOffKinematic(knockbacked_time);
+            StartCoroutine(kinematicoff_coroutine);
         }
     }
 
@@ -290,7 +296,14 @@ public class ProbabilityAI : Enemy
             state_timer = time;
             StateChangeSpecial();
 
-            StartCoroutine(TurnOffAura(time));
+            if (auraoff_coroutine != null)
+            {
+                Debug.Log("Stopping Corutine...");
+                StopCoroutine(auraoff_coroutine);
+                RestoreAura();
+            }
+            auraoff_coroutine = TurnOffAura(time);
+            StartCoroutine(auraoff_coroutine);
         }
     }
 
@@ -333,20 +346,27 @@ public class ProbabilityAI : Enemy
             }
         }
     }
-
-
+    float backup_aura_range;
+    private IEnumerator auraoff_coroutine = null;
     IEnumerator TurnOffAura(float time)
     {
-        float backup_aura_range = AuraRange;
+        backup_aura_range = AuraRange;
         AuraRange = 0;
         aura.StopAura();
 
         yield return StartCoroutine(DelayedTimer.WaitForCustomDeltaTime(time, GetDeltaTime));
 
+        RestoreAura();
+        auraoff_coroutine = null;
+    }
+
+    void RestoreAura()
+    {
         AuraRange = backup_aura_range;
         aura.ResumeAura();
     }
 
+    private IEnumerator kinematicoff_coroutine = null;
     IEnumerator TurnOffKinematic(float time)
     {
         //Kinematic을 켰다 켜 무한히 튕겨나가지 않도록 한다.
@@ -355,8 +375,16 @@ public class ProbabilityAI : Enemy
         yield return StartCoroutine(DelayedTimer.WaitForCustomDeltaTime(time, GetDeltaTime));
 
         yield return new WaitForFixedUpdate();
+        RestoreKinematic();
+
+        kinematicoff_coroutine = null;
+    }
+
+    void RestoreKinematic()
+    {
         gameObject.GetComponent<Rigidbody>().isKinematic = false;
     }
+
 
     float GetDeltaTime()
     {
