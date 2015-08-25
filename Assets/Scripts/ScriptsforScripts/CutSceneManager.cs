@@ -13,6 +13,7 @@ public class CutSceneManager : MonoBehaviour {
     NavMeshAgent nav;
     public GameObject e;
     Vector3 destination;
+	bool isWaiting=false;
     bool isMoving=false;
     bool isEmotioning = false;
     bool isBlack = false;
@@ -25,8 +26,10 @@ public class CutSceneManager : MonoBehaviour {
 	public GameObject black;
 	float moveTime;
 	float deadTime;
+	float waitTime;
     Vector3 curPos;
     Vector3 prevPos;
+	float timeSumforWait=0;
 	float timeSumforImage=0;
 	float timeSumforOffImage=0;
 	float timeSumforShake=0;
@@ -82,6 +85,16 @@ public class CutSceneManager : MonoBehaviour {
 				DoScript();
 			}
 		
+		}
+
+		if (isWaiting) {
+			timeSumforWait += Time.deltaTime;
+			if (timeSumforWait > waitTime)
+			{
+				isWaiting = false;
+				timeSumforWait = 0;
+				DoScript();
+			}
 		}
 		if (isImaging) {
 			timeSumforImage += Time.deltaTime;
@@ -231,6 +244,11 @@ public class CutSceneManager : MonoBehaviour {
     }
 
 
+	public void wait(float t)
+	{
+		isWaiting = true;
+		waitTime = t;
+	}
 
 	public void shake()
 	{

@@ -7,7 +7,7 @@ public class changeAlpha_sprite : MonoBehaviour {
 	Color c1,c2;
 	float timeSum1=0;
 	float timeSum2=0;
-	float ratio=2;
+	public float ratio=2;
 
 	// Use this for initialization
 	void Start () {

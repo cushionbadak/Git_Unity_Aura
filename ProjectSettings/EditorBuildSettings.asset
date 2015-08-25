@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+  - enabled: 1
+    path: Assets/Scenes/prologueStart.unity
+  - enabled: 1
     path: Assets/Scenes/Prologue/prologue.unity
+  - enabled: 1
+    path: Assets/Scenes/Chapter1Start.unity
   - enabled: 1
     path: Assets/Scenes/Chapter1/Chapter1.unity

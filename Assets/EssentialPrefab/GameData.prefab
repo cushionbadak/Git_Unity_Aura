@@ -45,6 +45,7 @@ MonoBehaviour:
   - "\uC2A4\uD53C\uB4DC \uC5C5 \uD3EC\uC158"
   - "\uB808\uC778\uC9C0 \uC5C5 \uD3EC\uC158"
   - "HP\uD68C\uBCF5"
+  - "\uBC88\uAC1C \uC288\uC988"
   - "\uD06C\uB9AC\uD2F0\uCEEC \uB108\uD074"
   - "\uB4DC\uB77C\uD058\uB77C \uBE0C\uB85C\uCE58"
   - "\uB048\uC801\uB048\uC801 \uACF5"
@@ -53,6 +54,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c1f87b0cfd22fea4db6d06a784d0f314, type: 3}
   - {fileID: 21300000, guid: 48320d90d7f8bf9448541bcf5f97869b, type: 3}
   - {fileID: 21300000, guid: 62e66f12642f46c4fbe4f96f6fcb0cce, type: 3}
+  - {fileID: 21300000, guid: 1fb40c69afef474428e271c1fc407917, type: 3}
   - {fileID: 21300000, guid: 2cb4db09a10a0d340a22de292fcc802a, type: 3}
   - {fileID: 21300000, guid: cc5bf017c8a5c5a43b1d4146b4bb0fbd, type: 3}
   - {fileID: 21300000, guid: bd94886eb57208b438ec5c72b01e9194, type: 3}
@@ -61,6 +63,8 @@ MonoBehaviour:
   - "\uC774\uB3D9\uC18D\uB3C4\uB97C 10% \uC99D\uAC00\uC2DC\uD0A8\uB2E4."
   - "\uC624\uC624\uB77C\uC758 \uD06C\uAE30\uB97C 10% \uC99D\uAC00\uC2DC\uD0A8\uB2E4."
   - "HP\uB97C \uCD5C\uB300\uB85C \uD68C\uBCF5\uC2DC\uD0A8\uB2E4."
+  - "\uC77C\uC815 \uD655\uB960\uB85C \uC801\uC744 \uAE30\uC808\uC2DC\uD0A4\uB294 \uBC88\uAC1C\uB97C
+    \uC18C\uD658\uD55C\uB2E4."
   - "10%\uC758 \uD655\uB960\uB85C 2\uBC30\uC758 \uB370\uBBF8\uC9C0\uB97C \uC900\uB2E4"
   - "10%\uC758 \uD761\uD608\uC744 \uC5BB\uB294\uB2E4"
   - "\uC624\uC624\uB77C\uC5D0 \uB2FF\uB294 \uC801\uC744 \uC7A0\uAE50 \uAE30\uC808\uC2DC\uD0A8\uB2E4"

@@ -14,6 +14,7 @@ public class ChangeAlpha_ImageUI : MonoBehaviour {
 		c1 = GetComponent<Image> ().color;
 		c2 = GetComponent<Image> ().color;
 		c2.a = 0;
+		c1.a = 1;
 	}
 	
 	// Update is called once per frame

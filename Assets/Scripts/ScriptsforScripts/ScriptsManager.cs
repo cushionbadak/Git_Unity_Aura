@@ -131,6 +131,7 @@ public class ScriptsManager : MonoBehaviour {
 				CutSceneManager.I.Move (pos, t);
 			}
 		} else if (sc.Contains ("(SceneStart)")) {
+			scriptOff ();
 			GameModeOff ();
 			int i;
 			i = sc.IndexOf (')');
@@ -165,7 +166,14 @@ public class ScriptsManager : MonoBehaviour {
 				plReal.transform.position = pos;
 			}
 			GameModeOn ();
-		} else if (sc.Contains ("(!)")) {
+		} else if (sc.Contains ("(Wait)")) {
+			scriptOff();
+			string[] sp=sc.Split('<');
+			float time=Convert.ToSingle(sp[1]);
+			CutSceneManager.I.wait(time);
+		}
+
+		else if (sc.Contains ("(!)")) {
 			scriptOff ();
 			if (sc.Trim ().EndsWith (")")) {
 				CutSceneManager.I.exclamation ();
@@ -203,15 +211,11 @@ public class ScriptsManager : MonoBehaviour {
 			int ind = Convert.ToInt16 (sp1 [1]);
 			GameManager.I.changeScene(ind);
 		}
-
-
-
-
-
         else
         {
             n.text = p.dia[index].name;
-            d.text = p.dia[index].dialog;
+			d.text = p.dia[index].dialog;
+			dialogUI.SetActive(true);
         }
     }
 
@@ -219,7 +223,6 @@ public class ScriptsManager : MonoBehaviour {
     public void scriptMove()
     {
         scriptMode = true;
-		dialogUI.SetActive(true);
 		index++;
     }
 

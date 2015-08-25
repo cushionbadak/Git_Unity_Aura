@@ -27,7 +27,7 @@ public class ParseScripts : MonoBehaviour {
         }
         else
         {
-            file_path =file_name+".txt";
+            file_path =Application.dataPath+"/"+file_name+".txt";
         }
         st_r = new StreamReader(file_path);
 

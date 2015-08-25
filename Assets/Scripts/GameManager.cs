@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     public int index=0;
     public bool isPlayerLive=true;
 	public int isSnare=0;
+	public int curSceneLevel;
+	public GameObject[] box;
     //Singleton
     private static GameManager uniqueInstance = null;
     public static GameManager I { get { return uniqueInstance; } }
@@ -43,9 +45,11 @@ public class GameManager : MonoBehaviour
 	}
 	
     void Awake()
-    {
+	{
         if (Game.current == null)
-        {
+		{
+
+
             index = 0;
             SaveLoad.Init();
             
@@ -84,6 +88,14 @@ public class GameManager : MonoBehaviour
             pl.speedUpPotion = Game.current.speedUpPotion;
             pl.rangeUpPotion = Game.current.rangeUpPotion;
 			pl.isCriticalKnuckle=Game.current.isCriticalKnuckle;
+			List<bool> roomSt=Game.current.roomStatus;
+			for(int i=0;i<roomSt.Count;i++)
+			{
+				if(roomSt[i]==true)
+				{
+					box[i].SetActive(false);
+				}
+			}
 			
 			pl.isDraculaBrooch=Game.current.isDraculaBrooch;
 			pl.isStickyBall=Game.current.isStickyBall;
@@ -118,7 +130,7 @@ public class GameManager : MonoBehaviour
         SaveLoad.LoadAll();
         Game.current = SaveLoad.savedGames[i];
         Time.timeScale = 1.0f;
-        Application.LoadLevel(1);
+        Application.LoadLevel(curSceneLevel);
     }
 
     public void Save(int i)
