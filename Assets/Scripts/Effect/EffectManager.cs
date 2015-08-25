@@ -25,6 +25,7 @@ public class EffectManager : MonoBehaviour {
 	public GameObject VortexEffect;
 	public GameObject Threehit_SmallEffect;
 	public GameObject Threehit_LargeEffect;
+	public GameObject CrosshitEffect;
 
     [System.Serializable]
     public enum Effects
@@ -49,7 +50,8 @@ public class EffectManager : MonoBehaviour {
         TELEPORT,
         BOSSTHUNDER,
 		THREEHIT_SMALL,
-		THREEHIT_LARGE
+		THREEHIT_LARGE,
+		CROSSHIT
     }
 
     private static EffectManager uniqueInstance = null;
@@ -137,6 +139,9 @@ public class EffectManager : MonoBehaviour {
 				break;
 			case Effects.THREEHIT_LARGE:
 				createThreehit_LargeEffect(obj);
+				break;
+			case Effects.CROSSHIT:
+				createCrosshitEffect(obj);
 				break;
         }
     }
@@ -233,8 +238,19 @@ public class EffectManager : MonoBehaviour {
 	{
 		StartCoroutine (createThreehit_Large (obj));
 	}
+	public void createCrosshitEffect (GameObject obj)
+	{
+		StartCoroutine (createCrosshit (obj));
+	}
 		//
 		//
+	IEnumerator createCrosshit (GameObject obj)
+	{
+		GameObject eff = (GameObject)Instantiate (CrosshitEffect, obj.transform.position, Quaternion.identity);
+		eff.transform.parent = obj.transform;
+		Destroy (eff, 5.0f);
+		yield return null;
+	}
 	IEnumerator createThreehit_Large (GameObject obj)
 	{
 		GameObject eff = (GameObject)Instantiate (Threehit_LargeEffect, obj.transform.position, Quaternion.identity);
