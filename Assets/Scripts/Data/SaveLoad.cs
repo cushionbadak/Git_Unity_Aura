@@ -30,6 +30,11 @@ public static class SaveLoad {
             Game.current.powerUpPotion = p.powerUpPotion;
             Game.current.rangeUpPotion = p.rangeUpPotion;
             Game.current.speedUpPotion = p.speedUpPotion;
+			Game.current.isCriticalKnuckle=p.isCriticalKnuckle;
+			Game.current.isDraculaBrooch=p.isDraculaBrooch;
+			Game.current.isThunderShoes=p.isThunderShoes;
+			Game.current.isStickyBall=p.isStickyBall;
+
             Game.current.playerPosition = GameManager.I.findPlayer().gameObject.transform.position;
             Game.current.dialogIndex = ScriptsManager.I.index;
             Game.current.skills = GameManager.I.skills;

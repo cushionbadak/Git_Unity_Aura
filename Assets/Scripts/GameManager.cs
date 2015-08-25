@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
 {
     public List<PlayerSkills.skillSet> skills;
 	public List<ItemStruct> haveItemList=new List<ItemStruct>();
-
     public GameObject DamageText;
     public MapManager mapM;
     bool isGameMode=false;
@@ -59,7 +58,8 @@ public class GameManager : MonoBehaviour
             skills.Add(PlayerSkills.skillSet.Knockback);
         }
         else
-        {
+		{
+			GameObject.Find("Tutorial").SetActive(false);
             isGameMode = true;
             SaveLoad.LoadAll();
             //Load시 게임 초기화
@@ -83,6 +83,11 @@ public class GameManager : MonoBehaviour
             pl.powerUpPotion = Game.current.powerUpPotion;
             pl.speedUpPotion = Game.current.speedUpPotion;
             pl.rangeUpPotion = Game.current.rangeUpPotion;
+			pl.isCriticalKnuckle=Game.current.isCriticalKnuckle;
+			
+			pl.isDraculaBrooch=Game.current.isDraculaBrooch;
+			pl.isStickyBall=Game.current.isStickyBall;
+			pl.isThunderShoes=Game.current.isThunderShoes;
             pl.powerUp(pl.powerUpPotion);
             pl.speedUp(pl.speedUpPotion);
             pl.rangeUp(pl.rangeUpPotion);
@@ -113,7 +118,7 @@ public class GameManager : MonoBehaviour
         SaveLoad.LoadAll();
         Game.current = SaveLoad.savedGames[i];
         Time.timeScale = 1.0f;
-        Application.LoadLevel(0);
+        Application.LoadLevel(1);
     }
 
     public void Save(int i)
@@ -159,6 +164,10 @@ public class GameManager : MonoBehaviour
         }
         if (isGameMode)
         {
+			if(Input.GetKeyDown(KeyCode.T))
+			   {
+				EffectManager.I.createPressTEffect(findPlayer().gameObject);
+			}
             if(isPlayerLive==false)
             {
                 Time.timeScale = 0.01f;

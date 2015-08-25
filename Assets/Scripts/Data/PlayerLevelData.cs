@@ -41,7 +41,7 @@ public class PlayerLevelData : MonoBehaviour
         Status = new StatusStruct[32];
         Status[0] = new StatusStruct(0, 10000.0f, 10000.0f, 1, 2);
         Status[1] = new StatusStruct(1, 100.0f, 10.0f, 0, 0);
-        Status[2] = new StatusStruct(2, 120.0f, 14.0f, 20, 20);
+        Status[2] = new StatusStruct(2, 120.0f, 10.0f, 20, 20);
         for (int i = 3; i < 31; i++)
         {
             float tmaxHP, tdamage;
