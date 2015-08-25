@@ -29,6 +29,7 @@ public class PlayerLaser : Attack {
     {
         foreach (var target in target_list)
         {
+            EffectManager.I.createEffect(target.gameObject, EffectManager.Effects.CROSSHIT);
             GameManager.I.attckToEnemy(this, target);
         }
     }

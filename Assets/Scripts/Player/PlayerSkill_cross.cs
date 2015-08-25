@@ -48,28 +48,31 @@ public class PlayerSkill_cross : Attack {
         Debug.Log(this.name + "에서 공격 : " + enemy.name);
         if (_p.isCriticalKnuckle)
         {
+            float originDamage = _pA.damage;
+
             if (Random.value <= _pA.critChance)
             {
-                float originDamage = _pA.damage;
                 damage = originDamage * 2;
-                GameManager.I.attckToEnemy(this, enemy);
-                if (_p.isDraculaBrooch)
-                {
-                    EffectManager.I.createRedHealEffect(this.gameObject);
-                    float nextHP = _p.currentHP + damage * _pA.vampScale;
-
-                    if (nextHP >= _p.maxHP)
-                        _p.currentHP = _p.maxHP;
-                    else
-                        _p.currentHP = nextHP;
-                }
-                if (_p.isStickyBall)
-                    GameManager.I.giveSnareToEnemy(enemy, 0.1f);
-                damage = originDamage;
             }
+            EffectManager.I.createEffect(enemy.gameObject, EffectManager.Effects.CROSSHIT);
+            GameManager.I.attckToEnemy(this, enemy);
+            if (_p.isDraculaBrooch)
+            {
+                EffectManager.I.createRedHealEffect(this.gameObject);
+                float nextHP = _p.currentHP + damage * _pA.vampScale;
+
+                if (nextHP >= _p.maxHP)
+                    _p.currentHP = _p.maxHP;
+                else
+                    _p.currentHP = nextHP;
+            }
+            if (_p.isStickyBall)
+                GameManager.I.giveSnareToEnemy(enemy, 0.1f);
+            damage = originDamage;
         }
         else
         {
+            EffectManager.I.createEffect(enemy.gameObject, EffectManager.Effects.CROSSHIT);
             GameManager.I.attckToEnemy(this, enemy);
             if (_p.isDraculaBrooch)
             {

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Player;
 
 public class PlayerSkills : Attack {
     // 스킬을 어디에 붙여야 할지 모르겠당. 일단 공격이 전부 오라관련이니까 오라에 붙임.
@@ -43,10 +44,15 @@ public class PlayerSkills : Attack {
     public float cd_cross = 20.0f;
     public GameObject pAObject_cross; //십자가 오브젝트 할당
 
-    private bool on_ActiveCross = false;
-    private float t_ActiveCross = .0f;
-    private float cd_ActiveCross = 10.0f;   //스킬 지속시간
+    private bool on_activeCross = false;
+    private float t_activeCross = .0f;
+    private float cd_activeCross = 10.0f;   //스킬 지속시간
 
+    // Skill - Install Tower
+    private bool on_tower = true;
+    private float t_tower = .0f;
+    public float cd_tower = 120.0f;
+    public GameObject pObject_tower; //타워 오브젝트 할당
 
     public enum skillSet {
         Nothing,
@@ -54,9 +60,10 @@ public class PlayerSkills : Attack {
         SpinningCross,
         Teleport,
         Laser,
-        WindBitingSnowBall,
+        //WindBitingSnowBall,
         TripleShock,
-        ShugokuOokiidesu
+        //ShugokuOokiidesu,
+        InstallTower
     }
 
     // 스킬 슬롯 할당
@@ -76,13 +83,19 @@ public class PlayerSkills : Attack {
 	void Update () {
         
         // 스킬 쿨다운 관리
-        t_knockback += Time.deltaTime;
-        if (t_knockback >= cd_knockback)
-            on_knockback = true;
+        if (!on_knockback)
+        {
+            t_knockback += Time.deltaTime;
+            if (t_knockback >= cd_knockback)
+                on_knockback = true;
+        }
 
-        t_tripleshock += Time.deltaTime;
-        if (t_tripleshock >= cd_tripleshock)
-            on_tripleshock = true;
+        if (!on_tripleshock)
+        {
+            t_tripleshock += Time.deltaTime;
+            if (t_tripleshock >= cd_tripleshock)
+                on_tripleshock = true;
+        }
 
         if (!on_tripleshock)
         {
@@ -106,13 +119,19 @@ public class PlayerSkills : Attack {
             }
         }
 
-        t_laser += Time.deltaTime;
-        if (t_laser >= cd_laser)
-            on_laser = true;
+        if (!on_laser)
+        {
+            t_laser += Time.deltaTime;
+            if (t_laser >= cd_laser)
+                on_laser = true;
+        }
 
-        t_teleport += Time.deltaTime;
-        if (t_teleport >= cd_teleport)
-            on_teleport = true;
+        if (!on_teleport)
+        {
+            t_teleport += Time.deltaTime;
+            if (t_teleport >= cd_teleport)
+                on_teleport = true;
+        }
 
         if(!on_cross)
         {
@@ -124,14 +143,24 @@ public class PlayerSkills : Attack {
             }
         }
 
-        if(on_ActiveCross)  //십자가 켜진상태
+        if(on_activeCross)  //십자가 켜진상태
         {
-            t_ActiveCross += Time.deltaTime;
-            if(t_ActiveCross >= cd_ActiveCross)
+            t_activeCross += Time.deltaTime;
+            if(t_activeCross >= cd_activeCross)
             {
-                on_ActiveCross = false;
-                t_ActiveCross = .0f;
+                on_activeCross = false;
+                t_activeCross = .0f;
                 pAObject_cross.SetActive(false);    //지속시간 끝나면 꺼버림
+            }
+        }
+
+        if (!on_tower)
+        {
+            t_tower += Time.deltaTime;
+            if (t_tower >= cd_tower)
+            {
+                on_tower = true;
+                t_tower = .0f;
             }
         }
 
@@ -167,19 +196,25 @@ public class PlayerSkills : Attack {
 
     void skill_Knockback()
     {
-        Collider[] targets = Physics.OverlapSphere(this.transform.position, this.transform.localScale.x / 2);
-       
-        foreach (Collider col in targets)
+        if (on_knockback)
         {
-            if (col.tag == "EnemyBody")
+            on_knockback = false;
+            t_knockback = .0f;
+
+            Collider[] targets = Physics.OverlapSphere(this.transform.position, this.transform.localScale.x / 2);
+
+            foreach (Collider col in targets)
             {
-                knockbackVector = (col.gameObject.transform.position - this.transform.position).normalized;
-                knockbackVector = knockbackVector * knockbackForce;
-                isknockbackVectorNeed = true;
-                GameManager.I.giveKnockbackToEnemy(knockbackVector, col.gameObject);
+                if (col.tag == "EnemyBody")
+                {
+                    knockbackVector = (col.gameObject.transform.position - this.transform.position).normalized;
+                    knockbackVector = knockbackVector * knockbackForce;
+                    isknockbackVectorNeed = true;
+                    GameManager.I.giveKnockbackToEnemy(knockbackVector, col.gameObject);
+                }
             }
+            GameManager.I.makeKnockbackEffect();
         }
-        GameManager.I.makeKnockbackEffect();
     }
     void skill_SpinningCross()
     {
@@ -187,8 +222,8 @@ public class PlayerSkills : Attack {
         {
             on_cross = false;
             t_cross = .0f;
-            on_ActiveCross = true;
-            t_ActiveCross = .0f;
+            on_activeCross = true;
+            t_activeCross = .0f;
             pAObject_cross.SetActive(true);
         }
     }
@@ -254,6 +289,7 @@ public class PlayerSkills : Attack {
                         damage = _p.damage;
                     }
                 }
+                EffectManager.I.createEffect(this.gameObject, EffectManager.Effects.THREEHIT_SMALL);
             }
             else if (steps_tsnextlink == 3)
             {
@@ -273,21 +309,28 @@ public class PlayerSkills : Attack {
                         damage = _p.damage;
                     }
                 }
+                EffectManager.I.createEffect(this.gameObject, EffectManager.Effects.THREEHIT_LARGE);
             }
         }
     }
     void skill_ShugokuOokiidesu() { }
+    void skill_InstallTower()
+    {
+        if (on_tower)
+        {
+            on_tower = false;
+            t_tower = .0f;
+
+            GameObject p_tower = (GameObject)Instantiate(pObject_tower, transform.position, Quaternion.identity);
+            p_tower.GetComponent<PlayerTower>().damage = this.damage;
+        }
+    }
 
     void callSkillFunc(skillSet skill)
     {
         if(skill == skillSet.Knockback)
         {
-            if(on_knockback)
-            {
-                t_knockback = .0f;
-                on_knockback = false;
-                skill_Knockback();
-            }
+            skill_Knockback();
         }
         else if(skill == skillSet.TripleShock)
         {
@@ -305,8 +348,9 @@ public class PlayerSkills : Attack {
         {
             skill_SpinningCross();
         }
-        else
+        else if (skill == skillSet.InstallTower)
         {
+            skill_InstallTower();
         }
     }
 
