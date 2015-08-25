@@ -4194,7 +4194,7 @@ MonoBehaviour:
   Fire: {fileID: 0}
   LightBombEffect: {fileID: 146268, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
   LevelUpEffect: {fileID: 160822, guid: 1362bee4775ecc040bb6215d95d77491, type: 2}
-  PressT: {fileID: 160822, guid: 1362bee4775ecc040bb6215d95d77491, type: 2}
+  PressT: {fileID: 155040, guid: 60aac8c82ea5d2046aa9db2ce7fee020, type: 2}
   ShockWaveEffect: {fileID: 0}
   DustCloudWithImpactEffect: {fileID: 157880, guid: 0c4faa4ee1cd4fa4d9fe9c14d1e9f5f7,
     type: 2}
@@ -4208,6 +4208,7 @@ MonoBehaviour:
   VortexEffect: {fileID: 192346, guid: bac814c18eade7748b3d3b9af126c302, type: 2}
   Threehit_SmallEffect: {fileID: 0}
   Threehit_LargeEffect: {fileID: 0}
+  CrosshitEffect: {fileID: 129382, guid: 117fd15eec14f174e83f8e8949294618, type: 2}
 --- !u!4 &499473441
 Transform:
   m_ObjectHideFlags: 0
@@ -16484,19 +16485,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22441828, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22441828, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22493874, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: .349999994
       objectReference: {fileID: 0}
     - target: {fileID: 22493874, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400842, guid: 28986ffa3a5908c4f9c09675d29c4624, type: 2}
       propertyPath: player
