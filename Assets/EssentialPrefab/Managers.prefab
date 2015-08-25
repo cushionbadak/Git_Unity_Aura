@@ -324,8 +324,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plDum: {fileID: 0}
   q: {fileID: 104952, guid: 0180863cec917384c8aa17de9a193807, type: 2}
+  ImageUIForm: {fileID: 0}
   BB: {fileID: 147060, guid: 06327f4dcd10fce48bc3f889f845dddf, type: 2}
   e: {fileID: 117772, guid: 8b8b05f239e56194a90d5f1865c202b5, type: 2}
+  black: {fileID: 0}
 --- !u!114 &11436916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -353,6 +355,8 @@ MonoBehaviour:
   plDum: {fileID: 0}
   npcGroup:
   - {fileID: 0}
+  - {fileID: 0}
+  image: []
   plReal: {fileID: 0}
   p: {fileID: 11436916}
   scriptMode: 1
@@ -377,6 +381,15 @@ MonoBehaviour:
   index: 0
   isPlayerLive: 1
   isSnare: 0
+  curSceneLevel: 4
+  box:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &11471024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -397,16 +410,20 @@ MonoBehaviour:
   Fire: {fileID: 0}
   LightBombEffect: {fileID: 146268, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
   LevelUpEffect: {fileID: 160822, guid: 1362bee4775ecc040bb6215d95d77491, type: 2}
-  PressT: {fileID: 0}
+  PressT: {fileID: 155040, guid: 60aac8c82ea5d2046aa9db2ce7fee020, type: 2}
   ShockWaveEffect: {fileID: 0}
+  DustCloudWithImpactEffect: {fileID: 0}
   DustCloudEffect: {fileID: 157880, guid: 0c4faa4ee1cd4fa4d9fe9c14d1e9f5f7, type: 2}
-  MonsterSummonEffect: {fileID: 0}
+  MonsterSummonEffect: {fileID: 175876, guid: 6110e9d990e6bd740ae09f81db5b029f, type: 2}
   FireBombEffect: {fileID: 100618, guid: 74b1b9845a3bca746b2ff8b37dac761d, type: 2}
   ThunderShoesEffect: {fileID: 139490, guid: 68d7a3e61b562584680bae12ae790efb, type: 2}
   BossThunderEffect: {fileID: 153562, guid: 9b38cadd6ded3ae47af5c24de926b335, type: 2}
   RedHealEffect: {fileID: 170004, guid: cd870386eb27f5e49b6f66f889c25a0e, type: 2}
   TeleportEffect: {fileID: 164014, guid: 3002b636de1d8944db138d0d65719b26, type: 2}
   VortexEffect: {fileID: 192346, guid: bac814c18eade7748b3d3b9af126c302, type: 2}
+  Threehit_SmallEffect: {fileID: 123794, guid: 21728d1085e5c514187e7d2a64de0393, type: 2}
+  Threehit_LargeEffect: {fileID: 167496, guid: d61272185063c444aac974f31e6d5511, type: 2}
+  CrosshitEffect: {fileID: 129382, guid: 117fd15eec14f174e83f8e8949294618, type: 2}
 --- !u!114 &11489858
 MonoBehaviour:
   m_ObjectHideFlags: 1

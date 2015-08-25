@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack_range: 20
   prob_cost: 3
-  cool_down: 2
+  cool_down: 3
   attack_time: .100000001
   attack_fire_time: .00999999978
   spread_angle: 20
@@ -211,7 +211,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: .5
+  m_Radius: .100000001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &19597382
 NavMeshAgent:

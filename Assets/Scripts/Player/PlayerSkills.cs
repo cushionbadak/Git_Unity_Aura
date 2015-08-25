@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Assets.Scripts.Player;
 
 public class PlayerSkills : Attack {
     // 스킬을 어디에 붙여야 할지 모르겠당. 일단 공격이 전부 오라관련이니까 오라에 붙임.
@@ -60,9 +59,9 @@ public class PlayerSkills : Attack {
         SpinningCross,
         Teleport,
         Laser,
-        //WindBitingSnowBall,
+        WindBitingSnowBall,
         TripleShock,
-        //ShugokuOokiidesu,
+        ShugokuOokiidesu,
         InstallTower
     }
 
@@ -322,7 +321,7 @@ public class PlayerSkills : Attack {
             t_tower = .0f;
 
             GameObject p_tower = (GameObject)Instantiate(pObject_tower, transform.position, Quaternion.identity);
-            p_tower.GetComponent<PlayerTower>().damage = this.damage;
+            p_tower.GetComponentInChildren<PlayerTower>().damage = this.damage;
         }
     }
 
