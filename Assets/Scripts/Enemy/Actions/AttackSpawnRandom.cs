@@ -120,19 +120,35 @@ public class AttackSpawnRandom : EnemyAction
 
     void Spawn(int[] index)
     {
+        //// calculate angle
+        //Vector3 diff = player.transform.position - transform.position;
+        //
+        //// calculate spawn position
+        //Vector3 spawn_center = transform.position + Vector3.Normalize(diff) * spawn_distance;
+        //Vector3 spawn_between = Vector3.Normalize(Vector3.Cross(spawn_center, new Vector3(0, 1, 0))) * spawn_between_distance;
+        //
+        ////calculate spawn between
+        //Vector3 spawn_start = spawn_center - (float)(spawn_count - 1) / 2 * spawn_between;
+        //
+        //for (int i = 0; i < spawn_count; ++i)
+        //{
+        //    SpawnSingle(index[i], spawn_start + spawn_between * i);
+        //}
+
         // calculate angle
-        Vector3 diff = player.transform.position - transform.position;
+        float angle_center = Mathf.Acos(Vector3.Normalize(player.transform.position - transform.position).x);
+        float angle_diff = Mathf.PI * 2 / spawn_count;
+        float angle_start = angle_center - (float)(spawn_count - 1) / 2 * angle_diff;
 
-        // calculate spawn position
-        Vector3 spawn_center = transform.position + Vector3.Normalize(diff) * spawn_distance;
-        Vector3 spawn_between = Vector3.Normalize(Vector3.Cross(spawn_center, new Vector3(0, 1, 0))) * spawn_between_distance;
-
-        //calculate spawn between
-        Vector3 spawn_start = spawn_center - (float)(spawn_count - 1) / 2 * spawn_between;
+        Debug.Log("Center : " + angle_center + " Diff : " + angle_diff + " Start : " + angle_start);
 
         for (int i = 0; i < spawn_count; ++i)
         {
-            SpawnSingle(index[i], spawn_start + spawn_between * i);
+            float spawn_angle = angle_start + i * angle_diff;
+            Vector3 spawn_vector = new Vector3(Mathf.Cos(spawn_angle), 0, Mathf.Sin(spawn_angle));
+            Vector3 spawn_position = transform.position + spawn_distance * spawn_vector;
+
+            SpawnSingle(index[i], spawn_position);
         }
     }
 
