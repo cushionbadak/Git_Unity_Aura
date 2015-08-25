@@ -4,18 +4,31 @@ using System.Collections;
 
 public class bosslv1hpshow : MonoBehaviour {
 
-	public GameObject slideron;
-	public GameObject boss;
-	public Slider bosshp;
-
-
-	void Update(){
-		var boss_script = boss.GetComponent<Character> ();
-		float boss_max_hp = boss_script.maxHP;
-		float boss_current_hp = boss_script.currentHP;
-		bosshp.maxValue = boss_max_hp;
-		bosshp.value = boss_current_hp;
+	/*
+	public GameObject player;
+	Player pl;
+	// Use this for initialization
+	void Start () {
+		pl = player.GetComponent<Player>();
 	}
+	
+	// Update is called once per frame
+	void Update () {
+		int hpshow = (int)pl.maxHP;
+		string str = pl.currentHP.ToString() + "/" + hpshow.ToString ();
+		GetComponent<Text>().text = str;
+	}
+	*/
 
+	public GameObject boss1;
+	MonsterState b1;
 
+	// Use this for initialization
+	void Start () {
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
 }
