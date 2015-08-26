@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AnimControl_Player : MonoBehaviour
+public class AnimControl_Player
 {
     GameObject obj;
     bool isFirstFrame = true;

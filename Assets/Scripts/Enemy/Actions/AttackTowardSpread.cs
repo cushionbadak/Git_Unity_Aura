@@ -107,8 +107,6 @@ public class AttackTowardSpread : EnemyAction
         }
         else
         {
-            if (Debug.isDebugBuild)
-                Debug.Log(gameObject.name + " : Fired");
 
             // calculate angle
             Vector3 diff = player.transform.position - transform.position;

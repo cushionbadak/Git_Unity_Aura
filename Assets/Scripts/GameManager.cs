@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
             }
             GameObject player = GameObject.FindWithTag("PlayerBody");
             PlayerUnit pl = player.GetComponent<PlayerUnit>();
-            Debug.Log(Game.current.playerPosition);
+				
             player.transform.parent.transform.position = Game.current.playerPosition;
             player.GetComponent<PlayerUnit>().currentHP = Game.current.hp;
             player.GetComponent<PlayerUnit>().EXP = Game.current.exp;

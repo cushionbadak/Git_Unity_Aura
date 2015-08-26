@@ -39,7 +39,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 497356}
-  - 114: {fileID: 11415904}
   m_Layer: 0
   m_Name: AnimControl
   m_TagString: Untagged
@@ -300,17 +299,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &11415904
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 116976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cbc81a9a6fe25b409fa33a9c40833b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11423878
 MonoBehaviour:
   m_ObjectHideFlags: 1

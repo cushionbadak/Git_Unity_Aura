@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AnimControl_Monster : MonoBehaviour {
+public class AnimControl_Monster {
     string nam;
     GameObject obj;
 	bool isSame;

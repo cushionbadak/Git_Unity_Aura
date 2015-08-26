@@ -7,7 +7,7 @@ public class DoorOpenControl : MonoBehaviour {
 	public int roomNum;
     public GameObject door;
     bool a;
-    public bool canOpen;
+    public bool canOpen=true;
 	// Use this for initialization
 	void Start () {
 		if (transform.parent.gameObject.name == "SpecialDoor") {
