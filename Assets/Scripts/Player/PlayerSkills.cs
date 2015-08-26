@@ -233,10 +233,25 @@ public class PlayerSkills : Attack {
             on_teleport = false;
             t_teleport = .0f;
 
+            float tp_dist = tp_movingDist;
             
             damage = _p.damage;
             tp_movingVec = new Vector3(h, 0, v);
-            transform.parent.position = transform.parent.position + tp_movingVec * tp_movingDist;
+            tp_movingVec.Normalize();
+
+            var collidewall = Physics.RaycastAll(transform.position, tp_movingVec, (tp_movingDist + 0.5f), LayerMask.GetMask(new string[]{"Walls"}));
+            if (collidewall.Length != 0)
+            {
+                foreach (var walls in collidewall)
+                {
+                    if (walls.distance < tp_dist)
+                        tp_dist = walls.distance;
+                    Debug.Log(walls.point);
+
+                }
+            }
+
+            transform.parent.position = transform.parent.position + tp_movingVec * tp_dist;
 			Collider[] cols = Physics.OverlapSphere(this.transform.position, this.transform.localScale.x / 2);
 			damage = _p.damage * 0.2f;
 			foreach (Collider col in cols)

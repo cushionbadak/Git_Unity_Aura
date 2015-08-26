@@ -40,6 +40,7 @@ public class PlayerUnit : Player {
         v = Input.GetAxis("Vertical");
         h = Input.GetAxis("Horizontal");
         dir = new Vector3(h, 0, v);
+        dir.Normalize();
 
         //움직임 보정 코드
         if (Physics.Raycast(currentPos, dir * 10.0f, out hit, 0.5f))
@@ -136,8 +137,8 @@ public class PlayerUnit : Player {
         }
          
         //움직임
-        Vector3 speedVec = new Vector3(h, v, 0) * currentSpeed * speedUpPotionScale * ratio_snare * Time.deltaTime;
-        transform.Translate(speedVec);
+        Vector3 speedVec = new Vector3(h, 0, v) * currentSpeed * speedUpPotionScale * ratio_snare * Time.deltaTime;
+        transform.position += speedVec;
 
         // Stun Check
         if (on_stun)
