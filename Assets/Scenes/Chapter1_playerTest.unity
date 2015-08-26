@@ -3071,6 +3071,8 @@ MonoBehaviour:
   index: 0
   isPlayerLive: 1
   isSnare: 0
+  curSceneLevel: 0
+  box: []
 --- !u!4 &546951242
 Transform:
   m_ObjectHideFlags: 0
@@ -4134,28 +4136,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b49cbe446b3af5e4589c01f151df4f29, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &716905357 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 119312, guid: a85a9f194150a244693d2fb78ebc2c37, type: 2}
-  m_PrefabInternal: {fileID: 1973030195}
---- !u!114 &716905358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 716905357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c28e10fc1f4fe64ea2cfeee100a0b3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  speed: 0
-  knockbackVector: {x: 0, y: 0, z: 0}
-  knockbackForce: 0
-  isknockbackVectorNeed: 0
-  stunTime: 0
-  snareTime: 0
 --- !u!1 &728643361
 GameObject:
   m_ObjectHideFlags: 0
@@ -5832,6 +5812,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 101878, guid: 9c40d2147dd50d9419f1ef289b229fd8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c40d2147dd50d9419f1ef289b229fd8, type: 2}
   m_IsPrefabParent: 0
@@ -6806,10 +6790,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 170906, guid: c6f347a7ef462514a8781f914c15a78b, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 11419236, guid: c6f347a7ef462514a8781f914c15a78b, type: 2}
+      propertyPath: pObject_tower
+      value: 
+      objectReference: {fileID: 2141700432}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6f347a7ef462514a8781f914c15a78b, type: 2}
   m_IsPrefabParent: 0
@@ -12084,7 +12068,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 427662, guid: a85a9f194150a244693d2fb78ebc2c37, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 9.31999969
+      value: -4.69000006
       objectReference: {fileID: 0}
     - target: {fileID: 427662, guid: a85a9f194150a244693d2fb78ebc2c37, type: 2}
       propertyPath: m_LocalPosition.y
@@ -12112,19 +12096,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 427662, guid: a85a9f194150a244693d2fb78ebc2c37, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 197426, guid: a85a9f194150a244693d2fb78ebc2c37, type: 2}
       propertyPath: m_Name
       value: PlayerTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 400918, guid: a85a9f194150a244693d2fb78ebc2c37, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 400918, guid: a85a9f194150a244693d2fb78ebc2c37, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a85a9f194150a244693d2fb78ebc2c37, type: 2}
@@ -13220,3 +13196,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!1 &2141700432 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 197426, guid: a85a9f194150a244693d2fb78ebc2c37, type: 2}
+  m_PrefabInternal: {fileID: 1973030195}
