@@ -8,7 +8,6 @@ public class cooldownD: MonoBehaviour{
 	public float cooltime;
 	public bool disableOnStart = true;
 	float leftTime;
-	
 	public GameObject skillupdate;
 	PlayerSkills _skillselect = null;
 	
@@ -18,19 +17,35 @@ public class cooldownD: MonoBehaviour{
 		img = gameObject.GetComponent<Image>();
 		if(btn == null)
 			btn = gameObject.GetComponent<UnityEngine.UI.Button>();
-		if(disableOnStart)
-			ResetCoolTime();
+		if (disableOnStart) {
+			leftTime = 0f;
+			img.fillAmount = 1f;		}
 	}
 	
 	void Update(){
+		if (_skillselect._skill_3 == PlayerSkills.skillSet.Knockback) {
+			cooltime = 2.0f;
+		}
 		if (_skillselect._skill_3 == PlayerSkills.skillSet.Laser) {
 			cooltime = 5.0f;
+		}
+		if (_skillselect._skill_3 == PlayerSkills.skillSet.Teleport) {
+			cooltime = 0.5f;
 		}
 		if (_skillselect._skill_3 == PlayerSkills.skillSet.SpinningCross) {
 			cooltime = 20.0f;
 		}
-		if (_skillselect._skill_3 == PlayerSkills.skillSet.Teleport) {
+		if (_skillselect._skill_3 == PlayerSkills.skillSet.ShugokuOokiidesu) {
+			cooltime = 5.0f;
+		}
+		if (_skillselect._skill_3 == PlayerSkills.skillSet.WindBitingSnowBall) {
 			cooltime = 0.5f;
+		}
+		if (_skillselect._skill_3 == PlayerSkills.skillSet.InstallTower) {
+			cooltime = 120.0f;
+		}
+		if (_skillselect._skill_2 == PlayerSkills.skillSet.Nothing) {
+			cooltime = 0.1f;
 		}
 		
 		if (leftTime > 0) {
@@ -44,7 +59,7 @@ public class cooldownD: MonoBehaviour{
 				img.fillAmount = ratio;
 		}
 		
-		if(Input.GetKeyDown(KeyCode.D) && leftTime<0){
+		if(Input.GetKeyDown(KeyCode.D) && leftTime<=0){
 			ResetCoolTime();
 		}
 		

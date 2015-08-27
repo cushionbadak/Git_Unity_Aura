@@ -18,8 +18,11 @@ public class cooldown: MonoBehaviour{
 		img = gameObject.GetComponent<Image>();
 		if(btn == null)
 			btn = gameObject.GetComponent<UnityEngine.UI.Button>();
-		if(disableOnStart)
-			ResetCoolTime();
+		if (disableOnStart) {
+			leftTime = 0f;
+			img.fillAmount = 1f;
+		}
+
 	}
 
 	void Update(){
@@ -31,6 +34,21 @@ public class cooldown: MonoBehaviour{
 		}
 		if (_skillselect._skill_1 == PlayerSkills.skillSet.Teleport) {
 			cooltime = 0.5f;
+		}
+		if (_skillselect._skill_1 == PlayerSkills.skillSet.SpinningCross) {
+			cooltime = 20.0f;
+		}
+		if (_skillselect._skill_1 == PlayerSkills.skillSet.ShugokuOokiidesu) {
+			cooltime = 5.0f;
+		}
+		if (_skillselect._skill_1 == PlayerSkills.skillSet.WindBitingSnowBall) {
+			cooltime = 0.5f;
+		}
+		if (_skillselect._skill_1 == PlayerSkills.skillSet.InstallTower) {
+			cooltime = 120.0f;
+		}
+		if (_skillselect._skill_1 == PlayerSkills.skillSet.Nothing) {
+			cooltime = 0.1f;
 		}
 
 		if (leftTime > 0) {
@@ -44,9 +62,9 @@ public class cooldown: MonoBehaviour{
 				img.fillAmount = ratio;
 		}
 
-		if(Input.GetKeyDown(KeyCode.A) && leftTime<0){
+		if(Input.GetKeyDown(KeyCode.A) && leftTime<=0){
 			ResetCoolTime();
-		}
+			}
 
 	}
 	public bool CheckCoolTime(){
