@@ -659,6 +659,18 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11426068, guid: 57b28e0fab27fb942a53f218fe302ac6, type: 2}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11426068, guid: 57b28e0fab27fb942a53f218fe302ac6, type: 2}
+      propertyPath: m_ReferenceResolution.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 11426068, guid: 57b28e0fab27fb942a53f218fe302ac6, type: 2}
+      propertyPath: m_ReferenceResolution.y
+      value: 720
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 57b28e0fab27fb942a53f218fe302ac6, type: 2}
   m_IsPrefabParent: 0
@@ -1490,7 +1502,7 @@ Prefab:
     - target: {fileID: 11452510, guid: 62868570f63ae1d4184ff3ced1893183, type: 2}
       propertyPath: image.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 602f98598ec7d9c428b0fe947dbcadcc,
+      objectReference: {fileID: 21300000, guid: f8d3cd71c6ebfbe43af5007da24755f8,
         type: 3}
     - target: {fileID: 11423878, guid: 62868570f63ae1d4184ff3ced1893183, type: 2}
       propertyPath: ImageUIForm

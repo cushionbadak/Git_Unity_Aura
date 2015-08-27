@@ -1560,7 +1560,11 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!1 &105854
+=======
+--- !u!1 &105446
+>>>>>>> origin/master
 GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2790,14 +2794,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!1 &110190
+=======
+--- !u!1 &109714
+>>>>>>> origin/master
 GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
+<<<<<<< HEAD
   - 4: {fileID: 494550}
+=======
+  - 4: {fileID: 488852}
+>>>>>>> origin/master
   m_Layer: 0
   m_Name: TileObject
   m_TagString: Untagged
@@ -3042,7 +3054,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 497788}
   m_Layer: 0
-  m_Name: TileObject
+  m_Name: mesh_[00]_[03]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6038,14 +6050,14 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &123216
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 491228}
   m_Layer: 0
-  m_Name: TileObject
+  m_Name: Object Layer 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14573,14 +14585,14 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &155356
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 406582}
   m_Layer: 0
-  m_Name: TileObject
+  m_Name: chapter 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21607,7 +21619,11 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!1 &183430
+=======
+--- !u!1 &183394
+>>>>>>> origin/master
 GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
