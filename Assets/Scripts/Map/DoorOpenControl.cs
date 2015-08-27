@@ -30,5 +30,10 @@ public class DoorOpenControl : MonoBehaviour {
 		
             door.GetComponent<ChangeAlpha>().isTrans=true;
         }
+
+		if(col.tag=="PlayerBody"&&!canOpen)
+		{
+			SystemMessageManager.I.addMessage ("감히 접근할 수 없습니다.");
+		}
     }
 }

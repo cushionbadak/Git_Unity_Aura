@@ -6,7 +6,6 @@ public class EnemyAttackAura : EnemyAttacks
     // attack
     public float attack_cooldown = 1;
     private float attack_timer = 0;
-    private bool player_inside = false;
 
 
     private bool is_paused = false;
@@ -30,17 +29,11 @@ public class EnemyAttackAura : EnemyAttacks
             transform.localScale = new Vector3(enemy.AuraRange, 0.1f, enemy.AuraRange);
 
         attack_timer += Time.deltaTime;
-
-        if (CanAttack())
-        {
-            attack_timer = 0;
-            Attack();
-        }
 	}
 
     bool CanAttack()
     {
-        return attack_timer > attack_cooldown && player_inside && !is_stopped;
+        return attack_timer > attack_cooldown && !is_stopped;
     }
     void Attack()
     {
@@ -48,17 +41,17 @@ public class EnemyAttackAura : EnemyAttacks
     }
 
 
-    void OnTriggerEnter(Collider col)
+	void OnTriggerStay(Collider col)
 	{
-        if (col.gameObject.tag == "PlayerBody")
-            player_inside = true;
-    }
-
-    void OnTriggerExit(Collider col)
-    {
-		if (col.gameObject.tag == "PlayerBody")
-            player_inside = false;
-    }
+		if (CanAttack())
+		{
+			if(col.gameObject.tag == "PlayerBody")
+			{
+				attack_timer = 0;
+				Attack();
+			}
+		}
+	}
 
     public void SetOwner(Enemy owner)
     {
