@@ -51,6 +51,7 @@ public class PlayerSkills : Attack {
     private bool on_tower = true;
     private float t_tower = .0f;
     public float cd_tower = 120.0f;
+    public float tower_damage_scale = 1.0f; //타워 데미지 배율 (본체기준)
     public GameObject pObject_tower; //타워 오브젝트 할당
 
     public enum skillSet {
@@ -335,8 +336,9 @@ public class PlayerSkills : Attack {
             on_tower = false;
             t_tower = .0f;
 
-            GameObject p_tower = (GameObject)Instantiate(pObject_tower, transform.position, Quaternion.identity);
-            p_tower.GetComponentInChildren<PlayerTower>().damage = this.damage;
+            Vector3 euler = new Vector3(90, 0, 0);
+            GameObject p_tower = (GameObject)Instantiate(pObject_tower, transform.position, Quaternion.Euler(euler));
+            p_tower.GetComponentInChildren<PlayerTower>().damage = this.damage * tower_damage_scale;
         }
     }
 
