@@ -54,6 +54,15 @@ public class PlayerSkills : Attack {
     public float tower_damage_scale = 1.0f; //타워 데미지 배율 (본체기준)
     public GameObject pObject_tower; //타워 오브젝트 할당
 
+    // Skill - Big & Beautiful - 더미스킬
+    private bool on_big = true;
+    private float t_big = .0f;
+    public float cd_big = 10.0f;
+
+    private bool on_d_big = false;
+    private float t_d_big = .0f;
+    public float cd_d_big = 10.0f;
+
     public enum skillSet {
         Nothing,
         Knockback,
@@ -161,6 +170,27 @@ public class PlayerSkills : Attack {
             {
                 on_tower = true;
                 t_tower = .0f;
+            }
+        }
+
+        if (!on_big)
+        {
+            t_big += Time.deltaTime;
+            if (t_big >= cd_big)
+            {
+                on_big = true;
+                t_big = .0f;
+            }
+        }
+
+        if (on_d_big)
+        {
+            t_d_big += Time.deltaTime;
+            if (t_d_big >= cd_d_big)
+            {
+                on_d_big = false;
+                t_d_big = .0f;
+                _p.transform.localScale /= 2;
             }
         }
 
@@ -301,10 +331,11 @@ public class PlayerSkills : Attack {
                     {
                         damage = _p.damage * 5;
                         GameManager.I.attckToEnemy(this, col.gameObject);
+                        EffectManager.I.createEffect(col.gameObject, EffectManager.Effects.THREEHIT_SMALL);
                         damage = _p.damage;
                     }
                 }
-                EffectManager.I.createEffect(this.gameObject, EffectManager.Effects.THREEHIT_SMALL);
+               
             }
             else if (steps_tsnextlink == 3)
             {
@@ -321,14 +352,22 @@ public class PlayerSkills : Attack {
                     {
                         damage = _p.damage * 5;
                         GameManager.I.attckToEnemy(this, col.gameObject);
+                        EffectManager.I.createEffect(col.gameObject, EffectManager.Effects.THREEHIT_LARGE);
                         damage = _p.damage;
                     }
                 }
-                EffectManager.I.createEffect(this.gameObject, EffectManager.Effects.THREEHIT_LARGE);
             }
         }
     }
-    void skill_ShugokuOokiidesu() { }
+    void skill_ShugokuOokiidesu()
+    {
+        if (on_big)
+        {
+            on_big = false;
+            on_d_big = true;
+            _p.transform.localScale *= 2;
+        }
+    }
     void skill_InstallTower()
     {
         if (on_tower)

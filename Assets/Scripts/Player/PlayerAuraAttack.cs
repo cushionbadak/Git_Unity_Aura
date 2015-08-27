@@ -15,11 +15,12 @@ public class PlayerAuraAttack : Attack {
     private float cd_randThunder = 1.0f;
 
     public PlayerUnit _p;
-
+    private List<Collider> _e = null;
 
 	// Use this for initialization
 	void Start () {
         originalScale = transform.localScale;
+        _e = new List<Collider>();
     }
 
     // Update is called once per frame
@@ -48,6 +49,21 @@ public class PlayerAuraAttack : Attack {
         }
     }
 
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "EnemyBody")
+        {
+            _e.Add(col);
+        }
+    }
+
+    void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.tag == "EnemyBody")
+        {
+            _e.Remove(col);
+        }
+    }
 
     private void Attack()
     {
@@ -63,17 +79,11 @@ public class PlayerAuraAttack : Attack {
 
     private void randThunderAttack()
     {
-        Collider[] colls = Physics.OverlapSphere(transform.position, this.transform.localScale.x / 2);
-             
-        Collider target = colls[Random.Range(0, colls.Length - 1)];
-
-
         /*
-        while (target.gameObject.tag != "EnemyBody")
-        {
-            target = colls[Random.Range(0, colls.Length - 1)];
-        }
-        */
+        Collider[] colls = Physics.OverlapSphere(transform.position, this.transform.localScale.x / 2);
+        
+        Collider target = colls[Random.Range(0, colls.Length - 1)];
+        
         if (target.gameObject.tag == "EnemyBody")
         {
             float originalDamage = damage;
@@ -83,6 +93,18 @@ public class PlayerAuraAttack : Attack {
             EffectManager.I.createThunderShoesEffect(target.gameObject);
             damage = originalDamage;
         }
+        
+        */
+
+        Collider target = _e[Random.Range(0, _e.Count)];
+        
+        float originalDamage = damage;
+        damage = damage * 3;
+        GameManager.I.attckToEnemy(this, target.gameObject);
+        GameManager.I.giveSnareToEnemy(target.gameObject, 1.0f);
+        EffectManager.I.createThunderShoesEffect(target.gameObject);
+        damage = originalDamage;
+
     }
 
     private void giveAttack(GameObject enemy)
