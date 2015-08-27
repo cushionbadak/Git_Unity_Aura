@@ -44,7 +44,7 @@ public class cooldownD: MonoBehaviour{
 				img.fillAmount = ratio;
 		}
 		
-		if(Input.GetKeyDown(KeyCode.D)){
+		if(Input.GetKeyDown(KeyCode.D) && leftTime<0){
 			ResetCoolTime();
 		}
 		
