@@ -48,7 +48,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 57.9700012, y: 0, z: 44.6300011}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 461978}
@@ -144,7 +144,7 @@ MonoBehaviour:
   cool_down: 3
   attack_time: .100000001
   attack_fire_time: .00999999978
-  spread_angle: 2
+  spread_angle: 1.54999995
   spread_count: 180
   fired_object: {fileID: 157276, guid: 2ffb8fa7457854b468d8c682d5367b16, type: 2}
 --- !u!114 &11420872
@@ -265,7 +265,19 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: spread_angle
+      value: 1.54999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 143270}

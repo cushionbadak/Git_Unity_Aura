@@ -238,7 +238,7 @@ public class CutSceneManager : MonoBehaviour {
 		curImage.GetComponent<ChangeAlpha_ImageUI> ().alpha1 ();
 		curImage.transform.parent=GameObject.Find("BlackBoard").transform;
 		
-		curImage.GetComponent<RectTransform>().anchoredPosition3D=new Vector3(0,0,0);
+		curImage.GetComponent<RectTransform>().anchoredPosition3D=new Vector3(-20,-300,0);
 
 	}
 

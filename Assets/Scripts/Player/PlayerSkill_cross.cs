@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerSkill_cross : Attack {
 
+    public float crossDamage = 10.0f;
     public PlayerUnit _p;
     public PlayerAuraAttack _pA;
     public float rotateSpeed = 100.0f;
@@ -12,7 +13,7 @@ public class PlayerSkill_cross : Attack {
 
     // Use this for initialization
 	void Start () {
-	
+        damage = crossDamage;
 	}
 	
 	// Update is called once per frame
@@ -48,7 +49,7 @@ public class PlayerSkill_cross : Attack {
         Debug.Log(this.name + "에서 공격 : " + enemy.name);
         if (_p.isCriticalKnuckle)
         {
-            float originDamage = _pA.damage;
+            float originDamage = damage;
 
             if (Random.value <= _pA.critChance)
             {

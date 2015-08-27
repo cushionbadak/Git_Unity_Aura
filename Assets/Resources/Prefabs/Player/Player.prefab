@@ -269,9 +269,12 @@ MonoBehaviour:
   cd_teleport: .5
   cd_cross: 20
   pAObject_cross: {fileID: 117210}
+  cd_tower: 120
+  tower_damage_scale: 1
+  pObject_tower: {fileID: 0}
   _skill_1: 4
   _skill_2: 2
-  _skill_3: 0
+  _skill_3: 8
   _p: {fileID: 11423538}
 --- !u!114 &11423538
 MonoBehaviour:
@@ -369,6 +372,7 @@ MonoBehaviour:
   isknockbackVectorNeed: 0
   stunTime: 0
   snareTime: 0
+  crossDamage: 10
   _p: {fileID: 11423538}
   _pA: {fileID: 11430938}
   rotateSpeed: 100

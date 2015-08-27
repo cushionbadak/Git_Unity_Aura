@@ -89,6 +89,7 @@ MonoBehaviour:
   isknockbackVectorNeed: 0
   stunTime: 0
   snareTime: 0
+  crossDamage: 10
   _p: {fileID: 0}
   _pA: {fileID: 0}
   rotateSpeed: 100

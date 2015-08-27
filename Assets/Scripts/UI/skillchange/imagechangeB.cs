@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -9,7 +9,7 @@ public class imagechangeB : MonoBehaviour {
 	public Sprite nothing;
 	public Sprite teleport;
 	public Sprite tripleshock;
-	public Sprite whindbiting;
+	public Sprite towerinstall;
 	public Sprite spinningcross;
 	public Sprite shugo;
 	PlayerSkills _skillselect = null;
@@ -37,8 +37,8 @@ public class imagechangeB : MonoBehaviour {
 		if (_skillselect._skill_2 == PlayerSkills.skillSet.TripleShock) {
 			this.gameObject.GetComponent<Image> ().sprite = tripleshock;
 		}
-		if (_skillselect._skill_2 == PlayerSkills.skillSet.WindBitingSnowBall) {
-			this.gameObject.GetComponent<Image> ().sprite = whindbiting;
+		if (_skillselect._skill_2 == PlayerSkills.skillSet.InstallTower) {
+			this.gameObject.GetComponent<Image> ().sprite = towerinstall;
 		}
 		if (_skillselect._skill_2 == PlayerSkills.skillSet.SpinningCross) {
 			this.gameObject.GetComponent<Image> ().sprite = spinningcross;

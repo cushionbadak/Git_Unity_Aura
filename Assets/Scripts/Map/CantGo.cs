@@ -6,7 +6,6 @@ public class CantGo : MonoBehaviour {
      MapManager mapM;
     public int maxNum;
     DoorOpenControl dor;
-	bool check=true;
 	float timeSum;
 	// Use this for initialization
 	void Start () {
@@ -18,6 +17,8 @@ public class CantGo : MonoBehaviour {
 	void Update () {
 		timeSum += Time.deltaTime;
 		if (timeSum > 1.0f) {
+			
+			bool check=true;
 			timeSum=0;
 			List<bool> l = mapM.getRoomStatus ();
 		
@@ -28,19 +29,9 @@ public class CantGo : MonoBehaviour {
 				}
 			if (check) {
 				dor.canOpen = true;
-			} else {
 			}
 		}
 	}
 
-
-    void OnTriggerEnter()
-
-    {
-		if (!check) {
-			SystemMessageManager.I.addMessage ("감히 접근할 수 없습니다.");
-		}
-
-	}
        
 }

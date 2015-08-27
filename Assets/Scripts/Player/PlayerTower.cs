@@ -29,10 +29,10 @@ public class PlayerTower : Attack {
         }
 
         // 60초 뒤 파괴
-        t_alive = Time.deltaTime;
+        t_alive += Time.deltaTime;
         if (t_alive >= cd_alive)
         {
-            Destroy(this.gameObject);
+            Destroy(transform.parent.gameObject);
         }
 	}
 
