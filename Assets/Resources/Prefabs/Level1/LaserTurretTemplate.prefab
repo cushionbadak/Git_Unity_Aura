@@ -159,7 +159,7 @@ MonoBehaviour:
   currentSpeed: 0
   damage: 20
   AuraRange: 0
-  giveEXP: 10
+  giveEXP: 0
   attacks:
   - {fileID: 11486508}
   traces:

@@ -22,6 +22,7 @@ public static class SaveLoad {
 		{
 			Game.current = new Game();
             PlayerUnit p = GameManager.I.findPlayer().gameObject.GetComponent<PlayerUnit>();
+			PlayerSkills ps=GameObject.FindWithTag("PlayerAura").GetComponent<PlayerSkills>();
             Game.current.hp = p.currentHP;
             Game.current.exp = p.EXP;
             Game.current.level = p.level;
@@ -34,6 +35,10 @@ public static class SaveLoad {
 			Game.current.isDraculaBrooch=p.isDraculaBrooch;
 			Game.current.isThunderShoes=p.isThunderShoes;
 			Game.current.isStickyBall=p.isStickyBall;
+			Game.current.skill1=ps._skill_1;
+			Game.current.skill2=ps._skill_2;
+			Game.current.skill3=ps._skill_3;
+
 
             Game.current.playerPosition = GameManager.I.findPlayer().gameObject.transform.position;
             Game.current.dialogIndex = ScriptsManager.I.index;

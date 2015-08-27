@@ -67,7 +67,7 @@ TextMesh:
   m_Anchor: 2
   m_Alignment: 2
   m_TabSize: 1
-  m_FontSize: 30
+  m_FontSize: 25
   m_FontStyle: 1
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: b51a3e520f9164da198dc59c8acfccd6, type: 3}
@@ -84,6 +84,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Anchor
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_FontSize
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

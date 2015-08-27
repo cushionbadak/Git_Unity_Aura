@@ -3,14 +3,14 @@ using System.Collections;
 
 public class ItemSkill : MonoBehaviour 
 {
-	enum skillslot {
+	public enum skillslot {
 		A,
 		S,
 		D
 	};
 
-	PlayerSkills.skillSet skill = PlayerSkills.skillSet.Nothing;
-	skillslot slot = skillslot.A;
+	public PlayerSkills.skillSet skill;
+	public skillslot slot;
 
 	PlayerSkills aura;
 

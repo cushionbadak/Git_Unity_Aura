@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &101172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 481332}
+  - 114: {fileID: 11400848}
+  m_Layer: 0
+  m_Name: EffectManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &481332
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101172}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.99000001, y: -.0300000012, z: -.620000005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11400848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef303353251101468dcc868bafb4b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackEffect: {fileID: 172158, guid: 5265daaf9cfb272469922c3272aae033, type: 2}
+  expEffect: {fileID: 130788, guid: 6c99426e2d801c141ba7e9877e8f0448, type: 2}
+  knockback: {fileID: 115786, guid: e1ab463ef643c1641904688ad6790ede, type: 2}
+  hit_short: {fileID: 128552, guid: d99302f271291c64e963855b16185aee, type: 2}
+  hit_long: {fileID: 134436, guid: e5e886b99ca3a354c820a3abbaeae591, type: 2}
+  EXP: {fileID: 130788, guid: 6c99426e2d801c141ba7e9877e8f0448, type: 2}
+  Fire: {fileID: 0}
+  LightBombEffect: {fileID: 146268, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
+  LevelUpEffect: {fileID: 160822, guid: 1362bee4775ecc040bb6215d95d77491, type: 2}
+  PressT: {fileID: 0}
+  ShockWaveEffect: {fileID: 0}
+  DustCloudWithImpactEffect: {fileID: 0}
+  DustCloudEffect: {fileID: 157880, guid: 0c4faa4ee1cd4fa4d9fe9c14d1e9f5f7, type: 2}
+  MonsterSummonEffect: {fileID: 175876, guid: 6110e9d990e6bd740ae09f81db5b029f, type: 2}
+  FireBombEffect: {fileID: 100618, guid: 74b1b9845a3bca746b2ff8b37dac761d, type: 2}
+  ThunderShoesEffect: {fileID: 139490, guid: 68d7a3e61b562584680bae12ae790efb, type: 2}
+  BossThunderEffect: {fileID: 153562, guid: 9b38cadd6ded3ae47af5c24de926b335, type: 2}
+  RedHealEffect: {fileID: 170004, guid: cd870386eb27f5e49b6f66f889c25a0e, type: 2}
+  TeleportEffect: {fileID: 164014, guid: 3002b636de1d8944db138d0d65719b26, type: 2}
+  VortexEffect: {fileID: 192346, guid: bac814c18eade7748b3d3b9af126c302, type: 2}
+  Threehit_SmallEffect: {fileID: 123794, guid: 21728d1085e5c514187e7d2a64de0393, type: 2}
+  Threehit_LargeEffect: {fileID: 167496, guid: d61272185063c444aac974f31e6d5511, type: 2}
+  CrosshitEffect: {fileID: 155040, guid: 60aac8c82ea5d2046aa9db2ce7fee020, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 101172}
+  m_IsPrefabParent: 1

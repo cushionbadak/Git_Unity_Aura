@@ -75,10 +75,15 @@ public class GameManager : MonoBehaviour
                         mapM.mapStatus = Game.current.roomStatus;
                         break;
                     }
+			case 2:
+			{
+				mapM.mapStatus = Game.current.roomStatus;
+				break;
+			}
             }
             GameObject player = GameObject.FindWithTag("PlayerBody");
-            PlayerUnit pl = player.GetComponent<PlayerUnit>();
-				
+			PlayerUnit pl = player.GetComponent<PlayerUnit>();
+			PlayerSkills ps=GameObject.FindWithTag("PlayerAura").GetComponent<PlayerSkills>();
             player.transform.parent.transform.position = Game.current.playerPosition;
             player.GetComponent<PlayerUnit>().currentHP = Game.current.hp;
             player.GetComponent<PlayerUnit>().EXP = Game.current.exp;
@@ -88,14 +93,17 @@ public class GameManager : MonoBehaviour
             pl.speedUpPotion = Game.current.speedUpPotion;
             pl.rangeUpPotion = Game.current.rangeUpPotion;
 			pl.isCriticalKnuckle=Game.current.isCriticalKnuckle;
+			ps._skill_1=Game.current.skill1;
+			ps._skill_2=Game.current.skill2;
+			ps._skill_3=Game.current.skill3;
 			List<bool> roomSt=Game.current.roomStatus;
-			/*for(int i=0;i<roomSt.Count;i++)
+			for(int i=0;i<roomSt.Count;i++)
 			{
 				if(roomSt[i]==true)
 				{
 					box[i].SetActive(false);
 				}
-			}*/
+			}
 			
 			pl.isDraculaBrooch=Game.current.isDraculaBrooch;
 			pl.isStickyBall=Game.current.isStickyBall;
@@ -130,7 +138,14 @@ public class GameManager : MonoBehaviour
         SaveLoad.LoadAll();
         Game.current = SaveLoad.savedGames[i];
         Time.timeScale = 1.0f;
-        Application.LoadLevel(curSceneLevel);
+		if (Game.current.currentChapter == 1) {
+			
+			Application.LoadLevel(4);
+		}
+		if (Game.current.currentChapter == 2) {
+			
+			Application.LoadLevel(6);
+		}
     }
 
     public void Save(int i)
@@ -139,7 +154,7 @@ public class GameManager : MonoBehaviour
         {
             SaveLoad.Save(i);
             SaveLoad.LoadAll();
-            SystemMessageManager.I.addMessage("슬롯 " + i + "에 저장되었습니다.");
+            SystemMessageManager.I.addMessage("슬롯 " + (i+1) + "에 저장되었습니다.");
         }
         else
         {
@@ -176,10 +191,6 @@ public class GameManager : MonoBehaviour
         }
         if (isGameMode)
         {
-			if(Input.GetKeyDown(KeyCode.T))
-			   {
-				EffectManager.I.createPressTEffect(findPlayer().gameObject);
-			}
             if(isPlayerLive==false)
             {
                 Time.timeScale = 0.01f;
@@ -448,6 +459,7 @@ public class GameManager : MonoBehaviour
         Player player = findPlayer();
         EffectManager.I.createEXPEffect(pos);
 
+		if(exp>0)
         SystemMessageManager.I.addMessage("경험치를 획득했습니다. (+"+exp+")");
 
         player.EXPIncrease(exp);

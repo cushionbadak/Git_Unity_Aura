@@ -106,24 +106,24 @@ public class ItemManager : MonoBehaviour {
 			
 		case 4:
 		{
-			SystemMessageManager.I.addMessage("번개 슈즈를 획득했습니다.");
+			SystemMessageManager.I.addMessage("번개 슈즈를 획득했습니다. 일정 확률로 오오라 안의 적을 기절시키는 번개를 소환합니다.");
 			playerUnit.isThunderShoes=true;
 			break;
 		}
 		case 5:
 		{
-			SystemMessageManager.I.addMessage("크리티컬 너클을 획득했습니다.");
+			SystemMessageManager.I.addMessage("크리티컬 너클을 획득했습니다. 일정 확률로 2배의 데미지를 줍니다.");
 			playerUnit.isCriticalKnuckle=true;
 			break;
 		}
 		case 6:
 		{
-			SystemMessageManager.I.addMessage("드라큘라 브로치를 획득했습니다.");
+			SystemMessageManager.I.addMessage("드라큘라 브로치를 획득했습니다. 약간의 흡혈을 얻습니다.");
 			playerUnit.isDraculaBrooch=true;
 			break;
 		}case 7:
 		{
-			SystemMessageManager.I.addMessage("끈적끈적 공을 획득했습니다.");
+			SystemMessageManager.I.addMessage("끈적끈적 공을 획득했습니다. 오오라에 맞은 적이 잠깐 경직됩니다.");
 			playerUnit.isStickyBall=true;
 			break;
 		}

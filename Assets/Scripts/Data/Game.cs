@@ -14,7 +14,12 @@ public class Game  {
 	public bool isThunderShoes;			//오오라 내의 적 하나에게 일정 시간마다 임의의 적에게 데미지와 경직을 주는 번개를 만든다.								
 	public bool isDraculaBrooch;		//오오라 안의 적이 데미지를 입을 때마다 체력이 회복된다.								
 	public bool isStickyBall;			//오오라에 적이 닿을 때 잠시 멈추게 한다.								
-	public bool isCriticalKnuckle;		//10%확률로 2배의 데미지를 준다.								
+	public bool isCriticalKnuckle;		//10%확률로 2배의 데미지를 준다.			
+
+	public PlayerSkills.skillSet skill1;
+	public PlayerSkills.skillSet skill2;
+	public PlayerSkills.skillSet skill3;
+
 
     public int dialogIndex;
     public List<PlayerSkills.skillSet> skills;
