@@ -141,8 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18798672ac3af9479e060bae02c1a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 2000
-  currentHP: 2000
+  maxHP: 600
+  currentHP: 600
   level: 1
   originalSpeed: 0
   currentSpeed: 0
@@ -192,7 +192,7 @@ MonoBehaviour:
   cool_down: 10
   attack_time: 3
   attack_spawn_time: 1
-  spawn_count: 3
+  spawn_count: 2
   spawn_distance: 5
   spawn_between_distance: 3
   spawn_object:
@@ -316,6 +316,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxHP
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: currentHP
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spawn_count
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
