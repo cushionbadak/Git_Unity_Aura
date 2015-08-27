@@ -5,7 +5,7 @@ public class skillslot : MonoBehaviour {
 	public bool keypress = false;
 	void Update(){
 		if(Input.GetKeyUp(KeyCode.A)){
-			keypress = true;;
+			keypress = true;
 		}
 	}
 
