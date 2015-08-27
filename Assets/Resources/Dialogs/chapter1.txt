@@ -37,3 +37,7 @@ Chapter 1.
 (CameraFocus) 2<3
 연구 소장: “하하! 제 발로 여길 들어오다니 멍청한 녀석!”
 연구 소장: “경비원,  어서 실험체를 포획해라!”
+(CameraFocusOff)
+(End)
+(Destroy)
+(GameStart) 135.6,0,22.7

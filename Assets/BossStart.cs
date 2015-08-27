@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BossStart : MonoBehaviour {
 
+	bool one;
 	// Use this for initialization
 	void Start () {
 	
@@ -15,7 +16,10 @@ public class BossStart : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col)
 	{
-		ScriptsManager.I.GameModeOff ();
-		ScriptsManager.I.scriptMove ();
+		if (!one) {
+			one = true;
+			ScriptsManager.I.GameModeOff ();
+			ScriptsManager.I.scriptMove ();
+		}
 	}
 }

@@ -13,6 +13,7 @@ public class CutSceneManager : MonoBehaviour {
     NavMeshAgent nav;
     public GameObject e;
     Vector3 destination;
+	bool isOffFocusing=false;
 	bool isWaiting=false;
     bool isMoving=false;
     bool isEmotioning = false;
@@ -31,6 +32,7 @@ public class CutSceneManager : MonoBehaviour {
 	float waitTime;
     Vector3 curPos;
     Vector3 prevPos;
+	float timeSumforoffFocusing=0;
 	float timeSumforWait=0;
 	float timeSumforImage=0;
 	float timeSumforOffImage=0;
@@ -62,6 +64,15 @@ public class CutSceneManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (isOffFocusing) {
+			timeSumforoffFocusing += Time.deltaTime;
+			if (timeSumforoffFocusing > 0.01f)
+			{
+				isOffFocusing = false;
+				timeSumforoffFocusing = 0;
+				DoScript();
+			}
+		}
         if(isMoving)
         {
             curPos = plDum.transform.position;
@@ -124,8 +135,7 @@ public class CutSceneManager : MonoBehaviour {
 			if (timeSumforFocus > focusTime)
 			{
 				isFocusing = false;
-				
-				GameObject.Find ("Camera").GetComponent<AutoCam> ().SetTarget (plDum.transform);
+
 				timeSumforFocus = 0;
 				DoScript();
 			}
@@ -323,5 +333,13 @@ public class CutSceneManager : MonoBehaviour {
 	{
 		isOffImaging = true;
 		curImage.GetComponent<ChangeAlpha_ImageUI> ().alpha0 ();
+	}
+
+	public void offFocus()
+	{
+		isOffFocusing = true;
+		
+		GameObject cam=GameObject.Find("Camera");
+		cam.GetComponent<AutoCam>().SetTarget(plDum.transform);
 	}
 }

@@ -204,7 +204,12 @@ public class ScriptsManager : MonoBehaviour {
 		} else if (sc.Contains ("(ImageOff)")) {
 			scriptOff ();
 			CutSceneManager.I.offImage ();
-		} else if (sc.Contains ("(SceneChange)")) {
+		} 
+		else if (sc.Contains ("(CameraFocusOff)")) {
+			scriptOff ();
+			CutSceneManager.I.offFocus ();
+		}
+		else if (sc.Contains ("(SceneChange)")) {
 			scriptOff ();
 			
 			string[] sp1 = sc.Split (')');
@@ -216,7 +221,7 @@ public class ScriptsManager : MonoBehaviour {
 			scriptOff();
 
 			string[] sp1=sc.Split(')');
-			string[] sp2=sc.Split('<');
+			string[] sp2=sp1[1].Split('<');
 			int ind=Convert.ToInt16(sp2[0]);
 			float time=Convert.ToSingle(sp2[1]);
 
@@ -250,6 +255,8 @@ public class ScriptsManager : MonoBehaviour {
         GameManager.I.setGameMode(true);
         cameraToPlayer();
         plDum.SetActive(false);
+		foreach (GameObject npc in npcGroup)
+			npc.SetActive (false);
         plReal.SetActive(true);
         foreach (GameObject npc in npcGroup)
         {
