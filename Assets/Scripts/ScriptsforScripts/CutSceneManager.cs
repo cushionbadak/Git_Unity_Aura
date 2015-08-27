@@ -23,9 +23,11 @@ public class CutSceneManager : MonoBehaviour {
 	bool isShaking=false;
 	bool isImaging=false;
 	bool isOffImaging=false;
+	bool isFocusing=false;
 	public GameObject black;
 	float moveTime;
 	float deadTime;
+	float focusTime;
 	float waitTime;
     Vector3 curPos;
     Vector3 prevPos;
@@ -39,6 +41,7 @@ public class CutSceneManager : MonoBehaviour {
     float timeSumforMove = 0;
     float timeSumforBlack = 0;
     float timeSumforDestroy = 0;
+	float timeSumforFocus=0;
 	GameObject curImage;
 
     // Use this for initialization
@@ -112,6 +115,18 @@ public class CutSceneManager : MonoBehaviour {
 			{
 				isOffImaging = false;
 				timeSumforOffImage = 0;
+				DoScript();
+			}
+		}
+
+		if (isFocusing) {
+			timeSumforFocus += Time.deltaTime;
+			if (timeSumforFocus > focusTime)
+			{
+				isFocusing = false;
+				
+				GameObject.Find ("Camera").GetComponent<AutoCam> ().SetTarget (plDum.transform);
+				timeSumforFocus = 0;
 				DoScript();
 			}
 		}
@@ -288,6 +303,14 @@ public class CutSceneManager : MonoBehaviour {
 			if(tr.gameObject.GetInstanceID()!=obj.GetInstanceID())
 				tr.gameObject.GetComponent<changeAlpha_sprite>().alpha0();
 		}
+	}
+
+	public void cameraFocus (GameObject obj, float time)
+	{
+		focusTime = time;
+		isFocusing = true;
+		GameObject.Find ("Camera").GetComponent<AutoCam> ().SetTarget (obj.transform);
+
 	}
 
     public void CameraOn()

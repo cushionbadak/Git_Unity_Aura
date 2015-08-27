@@ -211,12 +211,24 @@ public class ScriptsManager : MonoBehaviour {
 			int ind = Convert.ToInt16 (sp1 [1]);
 			GameManager.I.changeScene(ind);
 		}
+		else if(sc.Contains("(CameraFocus)"))
+		{
+			scriptOff();
+
+			string[] sp1=sc.Split(')');
+			string[] sp2=sc.Split('<');
+			int ind=Convert.ToInt16(sp2[0]);
+			float time=Convert.ToSingle(sp2[1]);
+
+			CutSceneManager.I.cameraFocus(npcGroup[ind],time);
+		}
         else
         {
             n.text = p.dia[index].name;
 			d.text = p.dia[index].dialog;
 			dialogUI.SetActive(true);
         }
+
     }
 
 
@@ -262,6 +274,7 @@ public class ScriptsManager : MonoBehaviour {
         dialogUI.SetActive(true);
     }
 
+
    
 
     public void cameraToPlayer()
@@ -274,7 +287,6 @@ public class ScriptsManager : MonoBehaviour {
     {
         GameObject cam = GameObject.Find("Camera");
         cam.GetComponent<AutoCam>().SetTarget(plDum.transform);
-
     }
    
 }
