@@ -75,12 +75,6 @@ public class GameManager : MonoBehaviour
                         mapM.mapStatus = Game.current.roomStatus;
                         break;
                     }
-			case 2:
-			{
-				
-				mapM.mapStatus = Game.current.roomStatus;
-				break;
-			}
             }
             GameObject player = GameObject.FindWithTag("PlayerBody");
             PlayerUnit pl = player.GetComponent<PlayerUnit>();

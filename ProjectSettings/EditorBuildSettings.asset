@@ -17,5 +17,3 @@ EditorBuildSettings:
     path: Assets/Scenes/Chapter1/Chapter1.unity
   - enabled: 1
     path: Assets/Scenes/Chapter2Start.unity
-  - enabled: 1
-    path: Assets/Scenes/Chapter2/Chapter2.unity

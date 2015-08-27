@@ -15,7 +15,7 @@ public class ProbabilityAI : Enemy
         attack,
         special_0 // knockback, stun, snare
     }
-    protected StateMachine<System.Object> ai_state = null;
+    protected StateMachine<ai_states> ai_state = null;
     private bool is_paused = false;
     private bool is_state_changed = false;
     private float state_timer = 0;
@@ -52,7 +52,7 @@ public class ProbabilityAI : Enemy
     {
 
         // initialize state machine
-		ai_state = new StateMachine<System.Object>();
+        ai_state = new StateMachine<ai_states>();
         ai_state.AddState(ai_states.none, () => { });
         ai_state.AddState(ai_states.idle, OnIdleState);
         ai_state.AddState(ai_states.trace, OnTracingState);
@@ -197,7 +197,7 @@ public class ProbabilityAI : Enemy
 
     private bool IsAIStateChangeable()
     {
-        if ((ai_states)ai_state.GetNextState() == ai_states.special_0)
+        if (ai_state.GetNextState() == ai_states.special_0)
             return false;
         return true;
     }
@@ -344,8 +344,7 @@ public class ProbabilityAI : Enemy
             {
                 Debug.LogError("Reviving object not defined");
             }
-		}
-		Destroy(transform.parent.gameObject);
+        }
     }
     float backup_aura_range;
     private IEnumerator auraoff_coroutine = null;
@@ -459,5 +458,6 @@ public class ProbabilityAI : Enemy
         // create dead body
         OnDie();
         GameManager.I.EXPIncrease(giveEXP, transform.position);
+        Destroy(transform.parent.gameObject);
     }
 }

@@ -344,8 +344,6 @@ MonoBehaviour:
   npcGroup:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   image: []
   plReal: {fileID: 0}
   p: {fileID: 11436916}
@@ -400,7 +398,7 @@ MonoBehaviour:
   Fire: {fileID: 0}
   LightBombEffect: {fileID: 146268, guid: 312c9e3b624f441428522c3c3910a6b8, type: 2}
   LevelUpEffect: {fileID: 160822, guid: 1362bee4775ecc040bb6215d95d77491, type: 2}
-  PressT: {fileID: 0}
+  PressT: {fileID: 155040, guid: 60aac8c82ea5d2046aa9db2ce7fee020, type: 2}
   ShockWaveEffect: {fileID: 0}
   DustCloudWithImpactEffect: {fileID: 0}
   DustCloudEffect: {fileID: 157880, guid: 0c4faa4ee1cd4fa4d9fe9c14d1e9f5f7, type: 2}
@@ -413,7 +411,7 @@ MonoBehaviour:
   VortexEffect: {fileID: 192346, guid: bac814c18eade7748b3d3b9af126c302, type: 2}
   Threehit_SmallEffect: {fileID: 123794, guid: 21728d1085e5c514187e7d2a64de0393, type: 2}
   Threehit_LargeEffect: {fileID: 167496, guid: d61272185063c444aac974f31e6d5511, type: 2}
-  CrosshitEffect: {fileID: 155040, guid: 60aac8c82ea5d2046aa9db2ce7fee020, type: 2}
+  CrosshitEffect: {fileID: 129382, guid: 117fd15eec14f174e83f8e8949294618, type: 2}
 --- !u!114 &11489858
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -32,7 +32,6 @@ Chapter 1.
 (Destroy)
 (GameStart) 9.81,0,0
 (SceneStart) 135.6,0,22.7
-(Wait) <0.1
 (End)
 (Destroy)
 (CameraFocus) 2<3
