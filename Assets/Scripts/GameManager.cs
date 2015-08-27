@@ -95,13 +95,13 @@ public class GameManager : MonoBehaviour
             pl.rangeUpPotion = Game.current.rangeUpPotion;
 			pl.isCriticalKnuckle=Game.current.isCriticalKnuckle;
 			List<bool> roomSt=Game.current.roomStatus;
-			for(int i=0;i<roomSt.Count;i++)
+			/*for(int i=0;i<roomSt.Count;i++)
 			{
 				if(roomSt[i]==true)
 				{
 					box[i].SetActive(false);
 				}
-			}
+			}*/
 			
 			pl.isDraculaBrooch=Game.current.isDraculaBrooch;
 			pl.isStickyBall=Game.current.isStickyBall;

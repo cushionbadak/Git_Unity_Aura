@@ -127,7 +127,7 @@ MonoBehaviour:
   originalSpeed: 7
   currentSpeed: 7
   damage: 10
-  AuraRange: .800000012
+  AuraRange: 1.20000005
   giveEXP: 0
   attacks: []
   traces:
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26bdff85391bc364ebd9fd1c846cb7a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  search_range: 100
+  search_range: 10
   stop_distance: .5
   acting_time: 1
   prob_cost: 3
@@ -246,7 +246,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: AuraRange
+      value: 1.20000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: search_range
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 196352}
