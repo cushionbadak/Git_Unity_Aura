@@ -12,14 +12,14 @@ public class AttackAuraChange : EnemyAction
     public float aura_increase_max = 10;
 
     private float acting_timer = 0;
-    private NewEnemyUnit unit;
+    private ProbabilityAI unit;
 
     private bool can_update = true;
 
 	// Use this for initialization
 	void Start () {
 
-        unit = GetComponent<NewEnemyUnit>();
+		unit = GetComponent<ProbabilityAI>();
         if (unit == null)
         {
             if (Debug.isDebugBuild)
