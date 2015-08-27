@@ -7,7 +7,7 @@ public class cooldownS: MonoBehaviour{
 	public UnityEngine.UI.Button btn;
 	public float cooltime;
 	public bool disableOnStart = true;
-	float leftTime = 0;
+	float leftTimeS = 0;
 	
 	public GameObject skillupdate;
 	PlayerSkills _skillselect = null;
@@ -19,7 +19,7 @@ public class cooldownS: MonoBehaviour{
 		if(btn == null)
 			btn = gameObject.GetComponent<UnityEngine.UI.Button>();
 		if (disableOnStart) {
-			leftTime = 0f;
+			leftTimeS = 0f;
 			img.fillAmount = 1f;
 		}
 	}
@@ -50,31 +50,31 @@ public class cooldownS: MonoBehaviour{
 			cooltime = 0.1f;
 		}
 		
-		if (leftTime > 0) {
-			leftTime -= Time.deltaTime;
-			if (leftTime < 0) {
+		if (leftTimeS > 0) {
+			leftTimeS -= Time.deltaTime;
+			if (leftTimeS < 0) {
 				if (btn)
 					btn.enabled = true;
 			}
-			float ratio = 1.0f - (leftTime / cooltime);
+			float ratio = 1.0f - (leftTimeS / cooltime);
 			if (img)
 				img.fillAmount = ratio;
 		}
 		
-		if(Input.GetKeyDown(KeyCode.A) && leftTime<=0){
+		if(Input.GetKeyDown(KeyCode.S) && leftTimeS<=0){
 			ResetCoolTime();
 		}
 		
 	}
 	public bool CheckCoolTime(){
-		if(leftTime>0)
+		if(leftTimeS>0)
 			return false;
 		else
 			return true;
 	}
 	
 	public void ResetCoolTime(){
-		leftTime = cooltime;
+		leftTimeS = cooltime;
 		if(btn)
 			btn.enabled = false;
 	}

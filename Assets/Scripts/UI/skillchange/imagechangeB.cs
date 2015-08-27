@@ -11,9 +11,11 @@ public class imagechangeB : MonoBehaviour {
 	public Sprite tripleshock;
 	public Sprite towerinstall;
 	public Sprite spinningcross;
+	public Sprite tower;
+
 	public Sprite shugo;
 	PlayerSkills _skillselect = null;
-	
+
 	
 	// Use this for initialization
 	void Start () {
@@ -45,6 +47,9 @@ public class imagechangeB : MonoBehaviour {
 		}
 		if (_skillselect._skill_2 == PlayerSkills.skillSet.ShugokuOokiidesu) {
 			this.gameObject.GetComponent<Image> ().sprite = shugo;
+		}
+		if (_skillselect._skill_1 == PlayerSkills.skillSet.InstallTower) {
+			this.gameObject.GetComponent<Image> ().sprite = tower;
 		}
 	}
 }
