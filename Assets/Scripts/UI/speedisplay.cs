@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class speedisplay : MonoBehaviour {
-	
+	public float sp;
 	public GameObject player;
 	Player pl;
 	// Use this for initialization
@@ -13,7 +13,12 @@ public class speedisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		string str = "이동속도:" + pl.currentSpeed.ToString ();
+		if (pl.rangeUpPotionScale == 0) {
+			sp = pl.currentSpeed;
+		} else if (pl.rangeUpPotionScale != 0) {
+			sp = pl.currentSpeed * pl.speedUpPotionScale;
+		}
+		string str = "이동속도:" + sp.ToString ();
 		GetComponent<Text>().text = str;
 	}
 }

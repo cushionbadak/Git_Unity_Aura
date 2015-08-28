@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class auradisplay : MonoBehaviour {
-	
+	public float au;
 	public GameObject player;
 	Player pl;
 	// Use this for initialization
@@ -13,7 +13,13 @@ public class auradisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		string str = "오오라의 크기:" + pl.AuraRange.ToString ();
+		if (pl.rangeUpPotionScale == 0) {
+			au = pl.AuraRange;
+		} else if (pl.rangeUpPotionScale != 0) {
+			au = pl.AuraRange * pl.rangeUpPotionScale;
+		}
+
+		string str = "오오라의 크기:" + au.ToString ();
 		GetComponent<Text>().text = str;
 	}
 }

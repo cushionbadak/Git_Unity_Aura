@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class damagedisplay : MonoBehaviour {
-	
+	public float dam;
 	public GameObject player;
 	Player pl;
 	// Use this for initialization
@@ -13,7 +13,12 @@ public class damagedisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		string str = "데미지:" + pl.damage.ToString ();
+		if (pl.rangeUpPotionScale == 0) {
+			dam = pl.damage;
+		} else if (pl.rangeUpPotionScale != 0) {
+			dam = pl.damage * pl.powerUpPotionScale;
+		}
+		string str = "데미지:" + dam.ToString ();
 		GetComponent<Text>().text = str;
 	}
 }
