@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class sSsugo : MonoBehaviour {
-	public Button button;
 	public GameObject skillbringin;
 	PlayerSkills _skillselect;
 	
@@ -12,10 +11,11 @@ public class sSsugo : MonoBehaviour {
 		_skillselect = skillbringin.GetComponent<PlayerSkills> ();
 	}
 	
+	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetMouseButtonDown(0)){
-			_skillselect._skill_2 = PlayerSkills.skillSet.ShugokuOokiidesu;
-		}
+	}
+	public void clickonbutton(){
+		_skillselect._skill_2 = PlayerSkills.skillSet.ShugokuOokiidesu;
 	}
 }

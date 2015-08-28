@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class sDwindbiting : MonoBehaviour {
-	public Button button;
 	public GameObject skillbringin;
 	PlayerSkills _skillselect;
 	
@@ -14,8 +13,8 @@ public class sDwindbiting : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetMouseButtonDown(0)){
-			_skillselect._skill_3 = PlayerSkills.skillSet.WindBitingSnowBall;
-		}
+	}
+	public void clickonbutton(){
+		_skillselect._skill_3 = PlayerSkills.skillSet.WindBitingSnowBall;
 	}
 }

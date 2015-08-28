@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class sDlaser : MonoBehaviour {
-	public Button button;
 	public GameObject skillbringin;
 	PlayerSkills _skillselect;
 	
@@ -12,10 +11,11 @@ public class sDlaser : MonoBehaviour {
 		_skillselect = skillbringin.GetComponent<PlayerSkills> ();
 	}
 	
+	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetMouseButtonDown(0)){
-			_skillselect._skill_3 = PlayerSkills.skillSet.Laser;
-		}
+	}
+	public void clickonbutton(){
+		_skillselect._skill_3 = PlayerSkills.skillSet.Laser;
 	}
 }

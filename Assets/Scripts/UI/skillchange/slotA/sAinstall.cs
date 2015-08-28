@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class sAinstall : MonoBehaviour {
-	public Button button;
 	public GameObject skillbringin;
 	PlayerSkills _skillselect;
 	
@@ -14,8 +13,8 @@ public class sAinstall : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetMouseButtonDown(0)){
-			_skillselect._skill_1 = PlayerSkills.skillSet.InstallTower;
 		}
+	public void clickonbutton(){
+		_skillselect._skill_1 = PlayerSkills.skillSet.InstallTower;
 	}
 }

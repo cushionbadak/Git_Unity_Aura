@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class sAspin : MonoBehaviour {
-	public Button button;
+
 	public GameObject skillbringin;
 	PlayerSkills _skillselect;
 	
@@ -12,10 +12,11 @@ public class sAspin : MonoBehaviour {
 		_skillselect = skillbringin.GetComponent<PlayerSkills> ();
 	}
 	
+	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetMouseButtonDown(0)){
-			_skillselect._skill_1 = PlayerSkills.skillSet.SpinningCross;
-		}
+	}
+	public void clickonbutton(){
+		_skillselect._skill_1 = PlayerSkills.skillSet.SpinningCross;
 	}
 }
