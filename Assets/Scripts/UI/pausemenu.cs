@@ -66,4 +66,7 @@ public class pausemenu : MonoBehaviour {
 		skillCanvas.SetActive (false);
 		configCanvas.SetActive (true);
 	}
+	public void BackToMenu(){
+		Application.LoadLevel (0);
+	}
 }

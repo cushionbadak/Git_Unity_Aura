@@ -12,6 +12,7 @@ public class imagechangeD : MonoBehaviour {
 	public Sprite whindbiting;
 	public Sprite spinningcross;
 	public Sprite shugo;
+	public Sprite tower;
 	PlayerSkills _skillselect = null;
 	
 	
@@ -45,6 +46,9 @@ public class imagechangeD : MonoBehaviour {
 		}
 		if (_skillselect._skill_3 == PlayerSkills.skillSet.ShugokuOokiidesu) {
 			this.gameObject.GetComponent<Image> ().sprite = shugo;
+		}
+		if (_skillselect._skill_3 == PlayerSkills.skillSet.InstallTower) {
+			this.gameObject.GetComponent<Image> ().sprite = tower;
 		}
 	}
 }
