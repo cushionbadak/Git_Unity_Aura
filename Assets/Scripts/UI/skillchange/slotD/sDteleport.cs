@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class sDteleport : MonoBehaviour {
-	public Button button;
 	public GameObject skillbringin;
 	PlayerSkills _skillselect;
 	
@@ -12,11 +11,11 @@ public class sDteleport : MonoBehaviour {
 		_skillselect = skillbringin.GetComponent<PlayerSkills> ();
 	}
 	
+	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetMouseButtonDown(0)){
-			_skillselect._skill_3 = PlayerSkills.skillSet.Teleport;
-		}
+	}
+	public void clickonbutton(){
+		_skillselect._skill_3 = PlayerSkills.skillSet.Teleport;
 	}
 }
-
