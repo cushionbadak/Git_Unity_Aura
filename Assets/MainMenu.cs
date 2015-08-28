@@ -18,9 +18,16 @@ public class MainMenu : MonoBehaviour {
 		case 0:
 			Application.LoadLevel(1);
 			break;
-
+	
 		case 3:
 			Application.Quit();
+			break;
+
+		case 5:
+			Application.LoadLevel(5);
+			break;
+		case 6:
+			Application.LoadLevel(3);
 			break;
 		}
 	}
