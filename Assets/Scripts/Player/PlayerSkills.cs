@@ -308,7 +308,7 @@ public class PlayerSkills : Attack {
                 angle = 360 - angle;
             Vector3 euler = new Vector3(0, angle, 0);
             GameObject p_laser = (GameObject)Instantiate(pObject_laser, transform.position + frontVec * 6, Quaternion.Euler(euler));
-            p_laser.GetComponent<PlayerLaser>().damage = this.damage;
+            p_laser.GetComponent<PlayerLaser>().damage = _p.damage;
         }
     }
     void skill_WindBitingSnowBall() { }
@@ -321,7 +321,8 @@ public class PlayerSkills : Attack {
             steps_tsnextlink++;
 
             if (steps_tsnextlink == 1 || steps_tsnextlink == 2)
-            {
+			{
+				EffectManager.I.createEffect(this.gameObject, EffectManager.Effects.THREEHIT_SMALL);
                 
                 t_tsnextlink = .0f;
                 
@@ -329,7 +330,7 @@ public class PlayerSkills : Attack {
                 {
                     if (col.tag == "EnemyBody")
                     {
-                        damage = _p.damage * 5;
+                        damage = _p.damage * 2;
                         GameManager.I.attckToEnemy(this, col.gameObject);
                         EffectManager.I.createEffect(col.gameObject, EffectManager.Effects.THREEHIT_SMALL);
                         damage = _p.damage;
@@ -338,7 +339,8 @@ public class PlayerSkills : Attack {
                
             }
             else if (steps_tsnextlink == 3)
-            {
+			{
+				EffectManager.I.createEffect(this.gameObject, EffectManager.Effects.THREEHIT_LARGE);
                 on_tsnextlink = false;
                 on_tripleshock = false;
                 t_tsnextlink = .0f;
@@ -350,7 +352,7 @@ public class PlayerSkills : Attack {
                 {
                     if (col.tag == "EnemyBody")
                     {
-                        damage = _p.damage * 5;
+                        damage = _p.damage * 3;
                         GameManager.I.attckToEnemy(this, col.gameObject);
                         EffectManager.I.createEffect(col.gameObject, EffectManager.Effects.THREEHIT_LARGE);
                         damage = _p.damage;
@@ -377,7 +379,7 @@ public class PlayerSkills : Attack {
 
             Vector3 euler = new Vector3(90, 0, 0);
             GameObject p_tower = (GameObject)Instantiate(pObject_tower, transform.position, Quaternion.Euler(euler));
-            p_tower.GetComponentInChildren<PlayerTower>().damage = this.damage * tower_damage_scale;
+            p_tower.GetComponentInChildren<PlayerTower>().damage = _p.damage * tower_damage_scale;
         }
     }
 

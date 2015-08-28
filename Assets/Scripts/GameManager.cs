@@ -12,6 +12,7 @@ struct Temp
 
 public class GameManager : MonoBehaviour
 {
+	public regameInUI regame;
     public List<PlayerSkills.skillSet> skills;
 	public List<ItemStruct> haveItemList=new List<ItemStruct>();
     public GameObject DamageText;
@@ -48,8 +49,6 @@ public class GameManager : MonoBehaviour
 	{
         if (Game.current == null)
 		{
-
-
             index = 0;
             SaveLoad.Init();
             
@@ -114,7 +113,6 @@ public class GameManager : MonoBehaviour
             skills = Game.current.skills;
 
             index = Game.current.dialogIndex;
-            Debug.Log(index);
         }
     }
 
@@ -125,7 +123,7 @@ public class GameManager : MonoBehaviour
 
     // Use this for initialization
     void Start()
-    {
+    {	
         //Singleton
         if (uniqueInstance == null)
             uniqueInstance = this;
@@ -137,14 +135,18 @@ public class GameManager : MonoBehaviour
     {
         SaveLoad.LoadAll();
         Game.current = SaveLoad.savedGames[i];
-        Time.timeScale = 1.0f;
-		if (Game.current.currentChapter == 1) {
+		if (SaveLoad.savedGames[i] == null) {
+			SystemMessageManager.I.addMessage ("저장된 게임이 없습니다.");
+		} else {
+			Time.timeScale = 1.0f;
+			if (Game.current.currentChapter == 1) {
 			
-			Application.LoadLevel(4);
-		}
-		if (Game.current.currentChapter == 2) {
+				Application.LoadLevel (4);
+			}
+			if (Game.current.currentChapter == 2) {
 			
-			Application.LoadLevel(6);
+				Application.LoadLevel (6);
+			}
 		}
     }
 
@@ -193,10 +195,12 @@ public class GameManager : MonoBehaviour
         {
             if(isPlayerLive==false)
             {
-                Time.timeScale = 0.01f;
+                Time.timeScale = 0f;
+				regame.gameObject.SetActive(true);
             }
             if (pl.currentHP <= 0)
             {
+				pl.currentHP=0;
                 isPlayerLive = false;
             }
             if (Input.GetKeyDown(KeyCode.Alpha1))

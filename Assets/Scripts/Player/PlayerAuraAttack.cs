@@ -127,8 +127,13 @@ public class PlayerAuraAttack : Attack {
                 else
                     _p.currentHP = nextHP;
 			}
-            if(_p.isStickyBall)
-                GameManager.I.giveSnareToEnemy(enemy, 0.1f);
+			if(_p.isStickyBall){
+				int rand=Random.Range(0,2);
+				if(rand==0)
+				{
+					GameManager.I.giveSnareToEnemy(enemy, 0.1f);
+				}
+			}
             damage = originDamage;
         }
         else
@@ -145,7 +150,13 @@ public class PlayerAuraAttack : Attack {
                     _p.currentHP = nextHP;
             }
             if (_p.isStickyBall)
+			{
+				int rand=Random.Range(0,2);
+				if(rand==0)
+				{
                 GameManager.I.giveSnareToEnemy(enemy, 0.1f);
+				}
+			}
         }
         
     }
