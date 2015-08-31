@@ -1,0 +1,263 @@
+Initialize engine version: 5.1.2f1 (afd2369b692a)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics Family (ID=0xa16)
+    Vendor:   Intel
+    VRAM:     1020 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Jiseok Byun\Desktop\AURA_COLL\AURA_시연\Aura_Final_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Jiseok Byun\Desktop\AURA_COLL\AURA_시연\Aura_Final_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Jiseok Byun\Desktop\AURA_COLL\AURA_시연\Aura_Final_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Jiseok Byun\Desktop\AURA_COLL\AURA_시연\Aura_Final_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Jiseok Byun\Desktop\AURA_COLL\AURA_시연\Aura_Final_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Jiseok Byun\Desktop\AURA_COLL\AURA_시연\Aura_Final_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Jiseok Byun\Desktop\AURA_COLL\AURA_시연\Aura_Final_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\Jiseok Byun\Desktop\AURA_COLL\AURA_시연\Aura_Final_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\Jiseok Byun\Desktop\AURA_COLL\AURA_시연\Aura_Final_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Jiseok Byun\Desktop\AURA_COLL\AURA_시연\Aura_Final_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Jiseok Byun\Desktop\AURA_COLL\AURA_시연\Aura_Final_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Jiseok Byun\Desktop\AURA_COLL\AURA_시연\Aura_Final_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Jiseok Byun\Desktop\AURA_COLL\AURA_시연\Aura_Final_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Jiseok Byun\Desktop\AURA_COLL\AURA_시연\Aura_Final_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.053 seconds
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Jiseok Byun\Desktop\AURA_COLL\AURA_시연\Aura_Final_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Jiseok Byun\Desktop\AURA_COLL\AURA_시연\Aura_Final_Data\Managed\System.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 148c -> priority: 1 
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 6.425520 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 432.
+Total: 0.385557 ms (FindLiveObjects: 0.034361 ms CreateObjectMapping: 0.073630 ms MarkObjects: 0.262839 ms  DeleteObjects: 0.013387 ms)
+
+1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.484178 ms
+HDR and MultisampleAntiAliasing (in Forward Rendering Path) is not supported. This camera will render without HDR buffers. Disable Antialiasing in the Quality settings if you want to use HDR.
+ 
+(Filename:  Line: 2721)
+
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1340.
+Total: 2.504341 ms (FindLiveObjects: 0.189209 ms CreateObjectMapping: 0.262839 ms MarkObjects: 2.004544 ms  DeleteObjects: 0.045517 ms)
+
+0/(SceneStart) 0,0,0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+(0.0, 0.0, 0.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: e04 -> priority: 1 
+1/(Move) 0,0,0.0001<0.01
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+2/Prologue.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.096430 ms
+
+Unloading 194 unused Assets to reduce memory usage. Loaded Objects now: 738.
+Total: 0.979959 ms (FindLiveObjects: 0.050872 ms CreateObjectMapping: 0.044178 ms MarkObjects: 0.465882 ms  DeleteObjects: 0.418580 ms)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 1140 -> priority: 1 
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.498458 ms
+HDR and MultisampleAntiAliasing (in Forward Rendering Path) is not supported. This camera will render without HDR buffers. Disable Antialiasing in the Quality settings if you want to use HDR.
+ 
+(Filename:  Line: 2721)
+
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 4905.
+Total: 2.450346 ms (FindLiveObjects: 0.347626 ms CreateObjectMapping: 0.240527 ms MarkObjects: 1.842110 ms  DeleteObjects: 0.019188 ms)
+
+0/(SceneStart) 3.92,0,-3.67 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+(3.9, 0.0, -3.7)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+1/Chapter 1.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+2/“윽...!”
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+3/하은이 알 수 없는 방에서 일어난다. 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+4/(?)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+5/“어라…? 여기가 어디지?”
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+6/하은이 일어나려는 순간 연구원들의 말소리가 들려온다.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+7/“이번에 워우 신 확장팩이 나왔다며? 너 아직도 워우 하고 있냐?”
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+8/“어차피 달리 할 게임도 없어. 이번 확장팩이 망하면 나도 워우 접어야지...”
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+9/“에휴 워재…”
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+10/연구원들이 몇몇 주제로 대화를 나누다가 다시 연구에 집중한다.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+11/연구원들은 여러번 말다툼을 하더니 이만 자신의 일로 돌아갔다.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+12/'왜 내가 이런 곳에 있는거지?'
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+13/(!)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+14/하은이 두통에 얼굴을 찡그린다.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+15/'아무것도 생각나지 않아… 어쩌지? 저 사람들의 마음을 읽어볼까?'
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+16/'할아버지가 함부로 쓰지 말라고 하셨지만, 이런 위급 상황에는 괜찮을 거야…'
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+17/하은이 집중해서 연구원 1의 마음을 읽으려고 한다. 그러자 연구원 1이 고통스러워하며 바닥에 쓰러진다.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+18/(!) 1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+19/“이봐 무슨 일이야!”
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+20/“갑자기 왜이래? 이녀석”
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+21/“으아아아아 !!!”
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+22/연구원 1이 비명을 지르며 결국 기절해 버렸다. 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+23/“이...이럴 땐 어떻게 해야하지? 매뉴얼에 그런 사항이 있었나?”
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+24/“매뉴얼? 그런게 있었긴 했나?”
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+25/“…일단 비상벨을 누르자. 그리고 우리에게도 영향이 오기 전에 소장님께 알려야해.”
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+26/(Move) 0/-4,0,8<5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+27/연구원들이 비상 벨을 누르고 서둘러 방에서 빠져 나간다.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+28/'왜… 왜지? 어째서 저 사람이 쓰러진 거지?'
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+29/'어찌 된건지 모르겠지만, 어서 여기서 도망가야해!'
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+30/(End)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+31/(Destroy)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+32/(GameStart) 9.81,0,0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+PlayerBody
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+PlayerBody
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+PlayerBody
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+PlayerBody
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+10%의 흡혈을 얻는다
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+PlayerBody
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+PlayerBody
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+(44.7, 0.0, 36.8)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+(45.8, 0.0, 39.1)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
