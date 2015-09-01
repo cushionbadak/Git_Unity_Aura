@@ -47,8 +47,10 @@ public class NewGameManager : SingleTonBehaviour<NewGameManager> {
 		if ((state)mvStateMachine.GetCurrentState() != state.GAME)
 			return;
 
+
 		// calculate damage
 		if (attack.damage != 0) {
+			Debug.Log(from.name + " attacks " + target.name + " : " + attack.damage);
 			target.GiveDamage(attack.damage);
 		}
 		// give snare

@@ -4,6 +4,7 @@ using System.Collections;
 public class NewTestingScript : MonoBehaviour {
 	bool isMenuOn = false;
 
+	public GameObject stununit;
 	// Use this for initialization
 	void Start () {
 	
@@ -22,6 +23,10 @@ public class NewTestingScript : MonoBehaviour {
 				isMenuOn = true;
 				NewGameManager.Inst.OnMenuOn();
 			}
+		}
+
+		if (Input.GetKeyDown(KeyCode.A)) {
+			stununit.GetComponent<NewUnitObject>().GiveStun(3);
 		}
 	}
 }
