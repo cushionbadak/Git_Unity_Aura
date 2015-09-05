@@ -99,7 +99,7 @@ GameObject:
   - 65: {fileID: 236808}
   - 23: {fileID: 236807}
   - 114: {fileID: 236806}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (253)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   - 33: {fileID: 7016751}
   - 65: {fileID: 7016750}
   - 23: {fileID: 7016749}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (96)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -497,11 +497,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77328eb3fbe4cd545b316d7569103a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapM: {fileID: 408966432}
+  mapM: {fileID: 0}
+  ChildTs: []
   roomNum: 0
   playerIsIn: 0
   isCleared: 0
   isEmptyRoom: 0
+  Timesum: 0
 --- !u!114 &21984704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,7 +528,7 @@ GameObject:
   - 65: {fileID: 22910788}
   - 23: {fileID: 22910787}
   - 114: {fileID: 22910786}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (281)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -696,7 +698,7 @@ GameObject:
   - 65: {fileID: 25608283}
   - 23: {fileID: 25608282}
   - 114: {fileID: 25608281}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (235)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -781,7 +783,7 @@ GameObject:
   - 65: {fileID: 29273699}
   - 23: {fileID: 29273698}
   - 114: {fileID: 29273697}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (248)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -1108,70 +1110,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc834ea2ff2c05d48a2223a2e2513e20, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &45733917
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 196386, guid: 62868570f63ae1d4184ff3ced1893183, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 45733918}
-  - 114: {fileID: 45733920}
-  - 114: {fileID: 45733919}
-  m_Layer: 0
-  m_Name: ScriptManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &45733918
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 412424, guid: 62868570f63ae1d4184ff3ced1893183, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 45733917}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.8759727, y: 88.0325012, z: 50.5092392}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1899714136}
-  m_RootOrder: 5
---- !u!114 &45733919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11452510, guid: 62868570f63ae1d4184ff3ced1893183,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 45733917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e37112b0e430c04983d05dce810446b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BB: {fileID: 147060, guid: 06327f4dcd10fce48bc3f889f845dddf, type: 2}
-  plDum: {fileID: 1983892007}
-  npcGroup:
-  - {fileID: 58320542}
-  image: []
-  plReal: {fileID: 930706268}
-  p: {fileID: 45733920}
-  scriptMode: 1
-  index: 0
-  prevIndex: 0
---- !u!114 &45733920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11436916, guid: 62868570f63ae1d4184ff3ced1893183,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 45733917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90e6688bb75d65747943e2134611ee8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  file_name: chapter2
 --- !u!1 &45780837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,7 +1121,7 @@ GameObject:
   - 33: {fileID: 45780841}
   - 65: {fileID: 45780840}
   - 23: {fileID: 45780839}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (118)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -1256,7 +1194,7 @@ GameObject:
   - 33: {fileID: 46577198}
   - 65: {fileID: 46577197}
   - 23: {fileID: 46577196}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (21)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -1329,7 +1267,7 @@ GameObject:
   - 33: {fileID: 47504421}
   - 65: {fileID: 47504420}
   - 23: {fileID: 47504419}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (13)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -1446,10 +1384,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 48826685}
   m_LocalRotation: {x: .408217937, y: -.234569728, z: .109381676, w: .875426054}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: -1.67495179, y: 1.69428253, z: -3.50021172}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2096755465}
+  m_Father: {fileID: 1259044597}
   m_RootOrder: 0
 --- !u!1 &54836729
 GameObject:
@@ -1491,11 +1429,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77328eb3fbe4cd545b316d7569103a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapM: {fileID: 408966432}
+  mapM: {fileID: 0}
+  ChildTs: []
   roomNum: 0
   playerIsIn: 0
   isCleared: 0
   isEmptyRoom: 0
+  Timesum: 0
 --- !u!114 &54836732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1520,7 +1460,7 @@ GameObject:
   - 65: {fileID: 57053146}
   - 23: {fileID: 57053145}
   - 114: {fileID: 57053144}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (285)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -1619,7 +1559,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2096755465}
-  m_RootOrder: 7
+  m_RootOrder: 5
 --- !u!1 &62054386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,7 +1644,7 @@ GameObject:
   - 33: {fileID: 70060608}
   - 65: {fileID: 70060607}
   - 23: {fileID: 70060606}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (5)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -1777,7 +1717,7 @@ GameObject:
   - 33: {fileID: 72278126}
   - 65: {fileID: 72278125}
   - 23: {fileID: 72278124}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (46)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -2005,7 +1945,7 @@ GameObject:
   - 65: {fileID: 86644540}
   - 23: {fileID: 86644539}
   - 114: {fileID: 86644538}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (188)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -2089,7 +2029,7 @@ GameObject:
   - 33: {fileID: 89601260}
   - 65: {fileID: 89601259}
   - 23: {fileID: 89601258}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (77)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -2209,7 +2149,7 @@ GameObject:
   - 65: {fileID: 92758658}
   - 23: {fileID: 92758657}
   - 114: {fileID: 92758656}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (272)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -2667,7 +2607,7 @@ GameObject:
   - 33: {fileID: 105717637}
   - 65: {fileID: 105717636}
   - 23: {fileID: 105717635}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (84)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -2898,7 +2838,7 @@ GameObject:
   - 33: {fileID: 116013817}
   - 65: {fileID: 116013816}
   - 23: {fileID: 116013815}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (112)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -3056,7 +2996,7 @@ GameObject:
   - 33: {fileID: 121262710}
   - 65: {fileID: 121262709}
   - 23: {fileID: 121262708}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (67)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -3457,7 +3397,7 @@ GameObject:
   - 33: {fileID: 132369245}
   - 65: {fileID: 132369244}
   - 23: {fileID: 132369243}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (111)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -3530,7 +3470,7 @@ GameObject:
   - 33: {fileID: 132526978}
   - 65: {fileID: 132526977}
   - 23: {fileID: 132526976}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (119)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -3842,11 +3782,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 3
@@ -3889,7 +3829,7 @@ GameObject:
   - 33: {fileID: 151698872}
   - 65: {fileID: 151698871}
   - 23: {fileID: 151698870}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (82)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -4285,7 +4225,7 @@ GameObject:
   - 33: {fileID: 168730586}
   - 65: {fileID: 168730585}
   - 23: {fileID: 168730584}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (144)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -4347,10 +4287,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 168730582}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &173441082 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 157944, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
-  m_PrefabInternal: {fileID: 147143772}
 --- !u!4 &173441083 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402408, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
@@ -4366,7 +4302,7 @@ GameObject:
   - 33: {fileID: 177542178}
   - 65: {fileID: 177542177}
   - 23: {fileID: 177542176}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (124)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -4440,7 +4376,7 @@ GameObject:
   - 65: {fileID: 184488590}
   - 23: {fileID: 184488589}
   - 114: {fileID: 184488588}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (217)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -4627,7 +4563,7 @@ Transform:
   - {fileID: 1543104154}
   - {fileID: 763984209}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &192836396 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402408, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
@@ -4643,7 +4579,7 @@ GameObject:
   - 33: {fileID: 192941325}
   - 65: {fileID: 192941324}
   - 23: {fileID: 192941323}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (18)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -4716,7 +4652,7 @@ GameObject:
   - 33: {fileID: 195562822}
   - 65: {fileID: 195562821}
   - 23: {fileID: 195562820}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (92)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -4789,7 +4725,7 @@ GameObject:
   - 33: {fileID: 199132995}
   - 65: {fileID: 199132994}
   - 23: {fileID: 199132993}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (110)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -4863,7 +4799,7 @@ GameObject:
   - 65: {fileID: 201580131}
   - 23: {fileID: 201580130}
   - 114: {fileID: 201580129}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (227)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -4951,7 +4887,7 @@ GameObject:
   - 33: {fileID: 207306228}
   - 65: {fileID: 207306227}
   - 23: {fileID: 207306226}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (61)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -5296,11 +5232,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77328eb3fbe4cd545b316d7569103a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapM: {fileID: 408966432}
+  mapM: {fileID: 0}
+  ChildTs: []
   roomNum: 0
   playerIsIn: 0
   isCleared: 0
   isEmptyRoom: 0
+  Timesum: 0
 --- !u!114 &217971562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5328,7 +5266,7 @@ GameObject:
   - 33: {fileID: 222079318}
   - 65: {fileID: 222079317}
   - 23: {fileID: 222079316}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (37)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -5532,7 +5470,7 @@ GameObject:
   - 33: {fileID: 236088199}
   - 65: {fileID: 236088198}
   - 23: {fileID: 236088197}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (54)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -5841,7 +5779,7 @@ GameObject:
   - 65: {fileID: 245633537}
   - 23: {fileID: 245633536}
   - 114: {fileID: 245633535}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (165)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -5971,7 +5909,7 @@ GameObject:
   - 33: {fileID: 247786858}
   - 65: {fileID: 247786857}
   - 23: {fileID: 247786856}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (79)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -6075,10 +6013,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8d523d7f9829a34cbddacee87105cf2, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &254749432 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 157944, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
-  m_PrefabInternal: {fileID: 2010007753}
 --- !u!4 &254749433 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402408, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
@@ -6129,11 +6063,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77328eb3fbe4cd545b316d7569103a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapM: {fileID: 408966432}
+  mapM: {fileID: 0}
+  ChildTs: []
   roomNum: 0
   playerIsIn: 0
   isCleared: 0
   isEmptyRoom: 0
+  Timesum: 0
 --- !u!114 &258170283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6242,11 +6178,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 17
@@ -6629,7 +6565,7 @@ GameObject:
   - 65: {fileID: 270214220}
   - 23: {fileID: 270214219}
   - 114: {fileID: 270214218}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (244)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -6718,7 +6654,7 @@ GameObject:
   - 65: {fileID: 273932978}
   - 23: {fileID: 273932977}
   - 114: {fileID: 273932976}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (157)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -6803,7 +6739,7 @@ GameObject:
   - 65: {fileID: 277243631}
   - 23: {fileID: 277243630}
   - 114: {fileID: 277243629}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (150)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -7106,7 +7042,7 @@ GameObject:
   - 33: {fileID: 291557118}
   - 65: {fileID: 291557117}
   - 23: {fileID: 291557116}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (70)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -7492,7 +7428,7 @@ GameObject:
   - 33: {fileID: 317375352}
   - 65: {fileID: 317375351}
   - 23: {fileID: 317375350}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (45)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -7639,7 +7575,7 @@ GameObject:
   - 65: {fileID: 319156160}
   - 23: {fileID: 319156159}
   - 114: {fileID: 319156158}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (179)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -7797,7 +7733,7 @@ GameObject:
   - 65: {fileID: 327704013}
   - 23: {fileID: 327704012}
   - 114: {fileID: 327704011}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (170)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -7955,7 +7891,7 @@ GameObject:
   - 65: {fileID: 336317647}
   - 23: {fileID: 336317646}
   - 114: {fileID: 336317645}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (177)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -8040,7 +7976,7 @@ GameObject:
   - 65: {fileID: 345245543}
   - 23: {fileID: 345245542}
   - 114: {fileID: 345245541}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (240)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -8209,7 +8145,7 @@ GameObject:
   - 33: {fileID: 349166260}
   - 65: {fileID: 349166259}
   - 23: {fileID: 349166258}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (7)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -8283,7 +8219,7 @@ GameObject:
   - 65: {fileID: 353497739}
   - 23: {fileID: 353497738}
   - 114: {fileID: 353497737}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (176)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -8499,7 +8435,7 @@ GameObject:
   - 65: {fileID: 360222196}
   - 23: {fileID: 360222195}
   - 114: {fileID: 360222194}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (201)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -8695,11 +8631,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 14
@@ -8743,7 +8679,7 @@ GameObject:
   - 65: {fileID: 367589564}
   - 23: {fileID: 367589563}
   - 114: {fileID: 367589562}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (149)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -8816,10 +8752,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 367589560}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &368611094 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 157944, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
-  m_PrefabInternal: {fileID: 1900009910}
 --- !u!4 &368611095 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402408, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
@@ -8908,7 +8840,7 @@ GameObject:
   - 33: {fileID: 379696079}
   - 65: {fileID: 379696078}
   - 23: {fileID: 379696077}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (9)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -8974,10 +8906,6 @@ MeshFilter:
 Transform:
   m_PrefabParentObject: {fileID: 402408, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
   m_PrefabInternal: {fileID: 565812812}
---- !u!1 &384337684 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 157944, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
-  m_PrefabInternal: {fileID: 1292511494}
 --- !u!4 &384337685 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402408, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
@@ -9220,7 +9148,7 @@ GameObject:
   - 33: {fileID: 402683558}
   - 65: {fileID: 402683557}
   - 23: {fileID: 402683556}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (41)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -9291,7 +9219,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 406099655}
   m_Layer: 0
-  m_Name: NewPlayers
+  m_Name: Players
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9309,77 +9237,7 @@ Transform:
   m_Children:
   - {fileID: 448665496}
   m_Father: {fileID: 1259044597}
-  m_RootOrder: 2
---- !u!1 &408966432
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 172856, guid: 62868570f63ae1d4184ff3ced1893183, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 408966433}
-  - 114: {fileID: 408966434}
-  m_Layer: 0
-  m_Name: MapManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &408966433
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 443134, guid: 62868570f63ae1d4184ff3ced1893183, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 408966432}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1899714136}
-  m_RootOrder: 2
---- !u!114 &408966434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11403800, guid: 62868570f63ae1d4184ff3ced1893183,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 408966432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 899d855df27df1442a5fa405fe8d64d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurrentChapter: 2
-  mapStatus: 
-  chap1Doors:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  chap2Doors:
-  - {fileID: 437059115}
-  - {fileID: 1163863853}
-  - {fileID: 173441082}
-  - {fileID: 958117065}
-  - {fileID: 1796395775}
-  - {fileID: 1316313436}
-  - {fileID: 384337684}
-  - {fileID: 2073083697}
-  - {fileID: 1340354389}
-  - {fileID: 1419601877}
-  - {fileID: 1667415380}
-  - {fileID: 699223079}
-  - {fileID: 925899680}
-  - {fileID: 368611094}
-  - {fileID: 254749432}
-  - {fileID: 750879076}
-  - {fileID: 878294021}
-  - {fileID: 1340354389}
+  m_RootOrder: 3
 --- !u!1 &410977175
 GameObject:
   m_ObjectHideFlags: 0
@@ -9708,52 +9566,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 414262137}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &414653541
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 105634, guid: 62868570f63ae1d4184ff3ced1893183, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 414653542}
-  - 114: {fileID: 414653543}
-  m_Layer: 0
-  m_Name: CutSceneManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &414653542
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 460732, guid: 62868570f63ae1d4184ff3ced1893183, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 414653541}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1899714136}
-  m_RootOrder: 4
---- !u!114 &414653543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11423878, guid: 62868570f63ae1d4184ff3ced1893183,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 414653541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa15a60d1368df942bd55966e7e22e78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plDum: {fileID: 1983892007}
-  q: {fileID: 104952, guid: 0180863cec917384c8aa17de9a193807, type: 2}
-  ImageUIForm: {fileID: 0}
-  BB: {fileID: 147060, guid: 06327f4dcd10fce48bc3f889f845dddf, type: 2}
-  e: {fileID: 117772, guid: 8b8b05f239e56194a90d5f1865c202b5, type: 2}
-  black: {fileID: 0}
 --- !u!4 &415031861 stripped
 Transform:
   m_PrefabParentObject: {fileID: 459574, guid: 915969f0d314cb948aece4d051ccf31d, type: 2}
@@ -9769,7 +9581,7 @@ GameObject:
   - 33: {fileID: 416251073}
   - 65: {fileID: 416251072}
   - 23: {fileID: 416251071}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (1)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -9973,11 +9785,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 15
@@ -10021,7 +9833,7 @@ GameObject:
   - 33: {fileID: 430578144}
   - 65: {fileID: 430578143}
   - 23: {fileID: 430578142}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (62)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -10129,11 +9941,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 6
@@ -10165,10 +9977,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &437059115 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 157944, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
-  m_PrefabInternal: {fileID: 1093126026}
 --- !u!4 &437059116 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402408, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
@@ -10185,7 +9993,7 @@ GameObject:
   - 65: {fileID: 439986268}
   - 23: {fileID: 439986267}
   - 114: {fileID: 439986266}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (192)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -10385,13 +10193,26 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 150450, guid: d11b64ead5e3cea4f81584f03864bf4b, type: 2}
       propertyPath: m_Name
-      value: NewPlayer
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5402926, guid: d11b64ead5e3cea4f81584f03864bf4b, type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 121108, guid: d11b64ead5e3cea4f81584f03864bf4b, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 121108, guid: d11b64ead5e3cea4f81584f03864bf4b, type: 2}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11409090, guid: d11b64ead5e3cea4f81584f03864bf4b, type: 2}
     - {fileID: 13523324, guid: d11b64ead5e3cea4f81584f03864bf4b, type: 2}
     - {fileID: 11424740, guid: d11b64ead5e3cea4f81584f03864bf4b, type: 2}
     - {fileID: 11496090, guid: d11b64ead5e3cea4f81584f03864bf4b, type: 2}
+    - {fileID: 11430420, guid: d11b64ead5e3cea4f81584f03864bf4b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d11b64ead5e3cea4f81584f03864bf4b, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &448665496 stripped
@@ -10410,7 +10231,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 448665497}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a3982256df99b469e9d546f537fad8, type: 3}
+  m_Script: {fileID: 11500000, guid: 7222815badafe744aad80063b06f5ad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   HPMax: 100
@@ -10424,6 +10245,7 @@ MonoBehaviour:
   CanBeStunned: 1
   skill: 000000000000000000000000
   Level: 1
+  CollideRadius: .300000012
 --- !u!1 &448665499 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 121108, guid: d11b64ead5e3cea4f81584f03864bf4b, type: 2}
@@ -10439,12 +10261,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61a23cd416febc47aef35f110b3a147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSource: {fileID: 448665498}
+  isObjectPaused: 0
+  isAnimationPaused: 0
+  attackSource: {fileID: 0}
   attackDamage: 0
   attackDamageMultiply: 1
   ownerbody: {fileID: 448665497}
   auraHeight: .100000001
+  unit: {fileID: 0}
   attackTime: 1
+  attackTimer: 0
+  isAttackFrame: 0
   currentList: []
   nextList: []
 --- !u!1 &449671029
@@ -10459,7 +10286,7 @@ GameObject:
   - 65: {fileID: 449671033}
   - 23: {fileID: 449671032}
   - 114: {fileID: 449671031}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (194)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -10543,7 +10370,7 @@ GameObject:
   - 33: {fileID: 453259725}
   - 65: {fileID: 453259724}
   - 23: {fileID: 453259723}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (81)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -10632,7 +10459,7 @@ Transform:
   m_Children:
   - {fileID: 1065692769}
   m_Father: {fileID: 2096755465}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &456121315
 GameObject:
   m_ObjectHideFlags: 0
@@ -10730,7 +10557,7 @@ GameObject:
   - 65: {fileID: 456871973}
   - 23: {fileID: 456871972}
   - 114: {fileID: 456871971}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (218)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -10819,7 +10646,7 @@ GameObject:
   - 65: {fileID: 460456510}
   - 23: {fileID: 460456509}
   - 114: {fileID: 460456508}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (168)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -10903,7 +10730,7 @@ GameObject:
   - 33: {fileID: 462720288}
   - 65: {fileID: 462720287}
   - 23: {fileID: 462720286}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (114)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -11084,11 +10911,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 15
@@ -11132,7 +10959,7 @@ GameObject:
   - 33: {fileID: 471989555}
   - 65: {fileID: 471989554}
   - 23: {fileID: 471989553}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (121)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -11205,7 +11032,7 @@ GameObject:
   - 33: {fileID: 473177103}
   - 65: {fileID: 473177102}
   - 23: {fileID: 473177101}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (132)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -11278,7 +11105,7 @@ GameObject:
   - 33: {fileID: 475646531}
   - 65: {fileID: 475646530}
   - 23: {fileID: 475646529}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (15)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -11428,7 +11255,7 @@ GameObject:
   - 33: {fileID: 492068147}
   - 65: {fileID: 492068146}
   - 23: {fileID: 492068145}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (43)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -11575,7 +11402,7 @@ GameObject:
   - 65: {fileID: 493051840}
   - 23: {fileID: 493051839}
   - 114: {fileID: 493051838}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (219)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -11891,7 +11718,7 @@ GameObject:
   - 65: {fileID: 511206287}
   - 23: {fileID: 511206286}
   - 114: {fileID: 511206285}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (233)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -11975,7 +11802,7 @@ GameObject:
   - 33: {fileID: 514041230}
   - 65: {fileID: 514041229}
   - 23: {fileID: 514041228}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (97)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -12048,7 +11875,7 @@ GameObject:
   - 33: {fileID: 517959392}
   - 65: {fileID: 517959391}
   - 23: {fileID: 517959390}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (2)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -12121,7 +11948,7 @@ GameObject:
   - 33: {fileID: 520991561}
   - 65: {fileID: 520991560}
   - 23: {fileID: 520991559}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (10)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -12352,7 +12179,7 @@ GameObject:
   - 33: {fileID: 528737539}
   - 65: {fileID: 528737538}
   - 23: {fileID: 528737537}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (102)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -12426,7 +12253,7 @@ GameObject:
   - 65: {fileID: 530193092}
   - 23: {fileID: 530193091}
   - 114: {fileID: 530193090}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (251)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -12628,11 +12455,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77328eb3fbe4cd545b316d7569103a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapM: {fileID: 408966432}
+  mapM: {fileID: 0}
+  ChildTs: []
   roomNum: 1
   playerIsIn: 0
   isCleared: 0
   isEmptyRoom: 0
+  Timesum: 0
 --- !u!114 &539742152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12660,7 +12489,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6a4b1c070971d418ec348605a52bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapM: {fileID: 0}
   maxNum: 8
+  dor: {fileID: 0}
+  timeSum: 0
 --- !u!1001 &541865613
 Prefab:
   m_ObjectHideFlags: 0
@@ -12711,11 +12543,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 16
@@ -12801,7 +12633,7 @@ GameObject:
   - 65: {fileID: 544100698}
   - 23: {fileID: 544100697}
   - 114: {fileID: 544100696}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (266)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -12886,7 +12718,7 @@ GameObject:
   - 65: {fileID: 545126241}
   - 23: {fileID: 545126240}
   - 114: {fileID: 545126239}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (225)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -12974,7 +12806,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6a4b1c070971d418ec348605a52bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapM: {fileID: 0}
   maxNum: 8
+  dor: {fileID: 0}
+  timeSum: 0
 --- !u!1 &552267855
 GameObject:
   m_ObjectHideFlags: 0
@@ -13110,11 +12945,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 6
@@ -13192,7 +13027,7 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11475380, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: maxNum
       value: 0
@@ -13200,7 +13035,7 @@ Prefab:
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 0
@@ -13313,7 +13148,7 @@ GameObject:
   - 65: {fileID: 569980000}
   - 23: {fileID: 569979999}
   - 114: {fileID: 569979998}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (267)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -13556,7 +13391,7 @@ GameObject:
   - 65: {fileID: 584066670}
   - 23: {fileID: 584066669}
   - 114: {fileID: 584066668}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (270)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -13726,7 +13561,7 @@ GameObject:
   - 65: {fileID: 590995827}
   - 23: {fileID: 590995826}
   - 114: {fileID: 590995825}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (189)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -14184,7 +14019,7 @@ GameObject:
   - 65: {fileID: 599203994}
   - 23: {fileID: 599203993}
   - 114: {fileID: 599203992}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (206)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -14307,11 +14142,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 14
@@ -14401,7 +14236,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 625483395}
-  - 114: {fileID: 625483396}
   m_Layer: 0
   m_Name: SystemMessageManager
   m_TagString: Untagged
@@ -14416,25 +14250,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 625483394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: .315048218, y: -1.2757175, z: -2.88021183}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1899714136}
-  m_RootOrder: 3
---- !u!114 &625483396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11489858, guid: 62868570f63ae1d4184ff3ced1893183,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 625483394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 469c42c9356b7e747a8e2ab6189ef8bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mes: []
-  max: 5
+  m_Father: {fileID: 701186781}
+  m_RootOrder: 4
 --- !u!1 &632091278
 GameObject:
   m_ObjectHideFlags: 0
@@ -14447,7 +14267,7 @@ GameObject:
   - 65: {fileID: 632091282}
   - 23: {fileID: 632091281}
   - 114: {fileID: 632091280}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (257)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -14531,7 +14351,7 @@ GameObject:
   - 33: {fileID: 632133441}
   - 65: {fileID: 632133440}
   - 23: {fileID: 632133439}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (69)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -14643,11 +14463,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 2
@@ -14780,7 +14600,7 @@ GameObject:
   - 65: {fileID: 635624691}
   - 23: {fileID: 635624690}
   - 114: {fileID: 635624689}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (284)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -15111,7 +14931,7 @@ GameObject:
   - 33: {fileID: 650922586}
   - 65: {fileID: 650922585}
   - 23: {fileID: 650922584}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (50)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -15188,7 +15008,7 @@ GameObject:
   - 33: {fileID: 653149236}
   - 65: {fileID: 653149235}
   - 23: {fileID: 653149234}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (143)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -15381,7 +15201,7 @@ GameObject:
   - 65: {fileID: 655765408}
   - 23: {fileID: 655765407}
   - 114: {fileID: 655765406}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (178)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -15465,7 +15285,7 @@ GameObject:
   - 33: {fileID: 656905729}
   - 65: {fileID: 656905728}
   - 23: {fileID: 656905727}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (11)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -15623,7 +15443,7 @@ GameObject:
   - 33: {fileID: 662916790}
   - 65: {fileID: 662916789}
   - 23: {fileID: 662916788}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (122)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -15854,7 +15674,7 @@ GameObject:
   - 33: {fileID: 669732756}
   - 65: {fileID: 669732755}
   - 23: {fileID: 669732754}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (25)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -15928,7 +15748,7 @@ GameObject:
   - 65: {fileID: 670106830}
   - 23: {fileID: 670106829}
   - 114: {fileID: 670106828}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (204)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -16047,11 +15867,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 2
@@ -16095,7 +15915,7 @@ GameObject:
   - 65: {fileID: 683976301}
   - 23: {fileID: 683976300}
   - 114: {fileID: 683976299}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (275)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -16218,11 +16038,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 16
@@ -16266,7 +16086,7 @@ GameObject:
   - 65: {fileID: 685457194}
   - 23: {fileID: 685457193}
   - 114: {fileID: 685457192}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (213)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -16594,7 +16414,7 @@ GameObject:
   - 65: {fileID: 692724819}
   - 23: {fileID: 692724818}
   - 114: {fileID: 692724817}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (229)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -16679,7 +16499,7 @@ GameObject:
   - 65: {fileID: 692980623}
   - 23: {fileID: 692980622}
   - 114: {fileID: 692980621}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (263)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -16910,10 +16730,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 696418315}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &699223079 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 157944, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
-  m_PrefabInternal: {fileID: 2025049583}
 --- !u!4 &699223080 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402408, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
@@ -16927,7 +16743,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 701186781}
   m_Layer: 0
-  m_Name: NewSystem
+  m_Name: System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16947,8 +16763,9 @@ Transform:
   - {fileID: 1441500217}
   - {fileID: 1758783937}
   - {fileID: 1702114874}
+  - {fileID: 625483395}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &703277993
 GameObject:
   m_ObjectHideFlags: 0
@@ -16961,7 +16778,7 @@ GameObject:
   - 65: {fileID: 703277997}
   - 23: {fileID: 703277996}
   - 114: {fileID: 703277995}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (200)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -17088,7 +16905,7 @@ GameObject:
   - 65: {fileID: 706533408}
   - 23: {fileID: 706533407}
   - 114: {fileID: 706533406}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (228)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -17334,7 +17151,7 @@ GameObject:
   - 33: {fileID: 721876344}
   - 65: {fileID: 721876343}
   - 23: {fileID: 721876342}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (28)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -17412,7 +17229,7 @@ GameObject:
   - 65: {fileID: 723719604}
   - 23: {fileID: 723719603}
   - 114: {fileID: 723719602}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (264)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -17613,6 +17430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 129957fad8dd84f46814025350b82c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isObjectPaused: 0
+  isAnimationPaused: 0
   HPMax: 100
   HPCurrent: 100
   Speed: 7
@@ -17622,6 +17441,11 @@ MonoBehaviour:
   CanBeKnockBacked: 1
   CanBeSnared: 1
   CanBeStunned: 1
+  isDead: 0
+  renderer: {fileID: 0}
+  rigid: {fileID: 0}
+  prevSpeed: 0
+  prevAuraRange: 0
 --- !u!23 &725804580
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17726,35 +17550,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d07088ce6c0e6d4a89441162249fa6a, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &732308660
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 732308661}
-  m_Layer: 0
-  m_Name: System
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &732308661
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 732308660}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1047364052}
-  - {fileID: 1899714136}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
 --- !u!1 &741948653
 GameObject:
   m_ObjectHideFlags: 0
@@ -17925,7 +17720,7 @@ GameObject:
   - 65: {fileID: 744148350}
   - 23: {fileID: 744148349}
   - 114: {fileID: 744148348}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (236)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -18009,7 +17804,7 @@ GameObject:
   - 33: {fileID: 744639495}
   - 65: {fileID: 744639494}
   - 23: {fileID: 744639493}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (14)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -18137,7 +17932,7 @@ GameObject:
   - 65: {fileID: 750161052}
   - 23: {fileID: 750161051}
   - 114: {fileID: 750161050}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (158)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -18210,10 +18005,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 750161048}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &750879076 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 157944, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
-  m_PrefabInternal: {fileID: 1862228185}
 --- !u!4 &750879077 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402408, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
@@ -18230,7 +18021,7 @@ GameObject:
   - 65: {fileID: 757168284}
   - 23: {fileID: 757168283}
   - 114: {fileID: 757168282}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (195)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -18387,7 +18178,7 @@ GameObject:
   - 33: {fileID: 762415504}
   - 65: {fileID: 762415503}
   - 23: {fileID: 762415502}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (108)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -18511,7 +18302,7 @@ GameObject:
   - 65: {fileID: 765613701}
   - 23: {fileID: 765613700}
   - 114: {fileID: 765613699}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (214)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -18596,7 +18387,7 @@ GameObject:
   - 65: {fileID: 768020109}
   - 23: {fileID: 768020108}
   - 114: {fileID: 768020107}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (279)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -18680,7 +18471,7 @@ GameObject:
   - 33: {fileID: 773362384}
   - 65: {fileID: 773362383}
   - 23: {fileID: 773362382}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (55)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -18753,7 +18544,7 @@ GameObject:
   - 33: {fileID: 774830091}
   - 65: {fileID: 774830090}
   - 23: {fileID: 774830089}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (64)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -18912,7 +18703,7 @@ GameObject:
   - 65: {fileID: 776132837}
   - 23: {fileID: 776132836}
   - 114: {fileID: 776132835}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (169)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -18997,7 +18788,7 @@ GameObject:
   - 65: {fileID: 777930553}
   - 23: {fileID: 777930552}
   - 114: {fileID: 777930551}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (268)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -19082,7 +18873,7 @@ GameObject:
   - 65: {fileID: 779611099}
   - 23: {fileID: 779611098}
   - 114: {fileID: 779611097}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (286)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -19167,7 +18958,7 @@ GameObject:
   - 65: {fileID: 785709939}
   - 23: {fileID: 785709938}
   - 114: {fileID: 785709937}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (212)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -19460,11 +19251,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11475380, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: maxNum
       value: 8
@@ -19723,7 +19514,7 @@ GameObject:
   - 65: {fileID: 802008647}
   - 23: {fileID: 802008646}
   - 114: {fileID: 802008645}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (226)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -19808,7 +19599,7 @@ GameObject:
   - 65: {fileID: 803786021}
   - 23: {fileID: 803786020}
   - 114: {fileID: 803786019}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (287)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -19893,7 +19684,7 @@ GameObject:
   - 65: {fileID: 804718380}
   - 23: {fileID: 804718379}
   - 114: {fileID: 804718378}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (154)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -19978,7 +19769,7 @@ GameObject:
   - 65: {fileID: 806851925}
   - 23: {fileID: 806851924}
   - 114: {fileID: 806851923}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (243)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -20091,11 +19882,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77328eb3fbe4cd545b316d7569103a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapM: {fileID: 408966432}
+  mapM: {fileID: 0}
+  ChildTs: []
   roomNum: 0
   playerIsIn: 0
   isCleared: 0
   isEmptyRoom: 1
+  Timesum: 0
 --- !u!114 &810959444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20266,7 +20059,7 @@ GameObject:
   - 65: {fileID: 823655653}
   - 23: {fileID: 823655652}
   - 114: {fileID: 823655651}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (250)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -20350,7 +20143,7 @@ GameObject:
   - 33: {fileID: 826696888}
   - 65: {fileID: 826696887}
   - 23: {fileID: 826696886}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (66)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -20474,7 +20267,7 @@ GameObject:
   - 65: {fileID: 840861172}
   - 23: {fileID: 840861171}
   - 114: {fileID: 840861170}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (180)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -20715,7 +20508,7 @@ GameObject:
   - 33: {fileID: 846406924}
   - 65: {fileID: 846406923}
   - 23: {fileID: 846406922}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (65)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -20831,7 +20624,7 @@ GameObject:
   - 65: {fileID: 850482504}
   - 23: {fileID: 850482503}
   - 114: {fileID: 850482502}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (231)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -20916,7 +20709,7 @@ GameObject:
   - 65: {fileID: 860199760}
   - 23: {fileID: 860199759}
   - 114: {fileID: 860199758}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (255)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -21000,7 +20793,7 @@ GameObject:
   - 33: {fileID: 863991818}
   - 65: {fileID: 863991817}
   - 23: {fileID: 863991816}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (74)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -21073,7 +20866,7 @@ GameObject:
   - 33: {fileID: 865671488}
   - 65: {fileID: 865671487}
   - 23: {fileID: 865671486}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (26)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -21467,10 +21260,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 878186729}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &878294021 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 157944, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
-  m_PrefabInternal: {fileID: 1811074414}
 --- !u!4 &878294022 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402408, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
@@ -21487,7 +21276,7 @@ GameObject:
   - 65: {fileID: 878524650}
   - 23: {fileID: 878524649}
   - 114: {fileID: 878524648}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (197)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -21702,7 +21491,7 @@ GameObject:
   - 33: {fileID: 886617084}
   - 65: {fileID: 886617083}
   - 23: {fileID: 886617082}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (24)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -21776,7 +21565,7 @@ GameObject:
   - 65: {fileID: 890527163}
   - 23: {fileID: 890527162}
   - 114: {fileID: 890527161}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (237)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -21933,7 +21722,7 @@ GameObject:
   - 33: {fileID: 898218424}
   - 65: {fileID: 898218423}
   - 23: {fileID: 898218422}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (131)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -22047,11 +21836,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77328eb3fbe4cd545b316d7569103a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapM: {fileID: 408966432}
+  mapM: {fileID: 0}
+  ChildTs: []
   roomNum: 0
   playerIsIn: 0
   isCleared: 0
   isEmptyRoom: 0
+  Timesum: 0
 --- !u!114 &900749432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22377,7 +22168,7 @@ GameObject:
   - 65: {fileID: 911799415}
   - 23: {fileID: 911799414}
   - 114: {fileID: 911799413}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (160)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -22462,7 +22253,7 @@ GameObject:
   - 65: {fileID: 912654865}
   - 23: {fileID: 912654864}
   - 114: {fileID: 912654863}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (185)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -22620,10 +22411,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 915862668}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &925899680 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 157944, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
-  m_PrefabInternal: {fileID: 1954597629}
 --- !u!4 &925899681 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402408, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
@@ -22640,7 +22427,7 @@ GameObject:
   - 65: {fileID: 927101041}
   - 23: {fileID: 927101040}
   - 114: {fileID: 927101039}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (166)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -22724,7 +22511,7 @@ GameObject:
   - 33: {fileID: 930557486}
   - 65: {fileID: 930557485}
   - 23: {fileID: 930557484}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (106)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -22786,10 +22573,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 930557482}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &930706268 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 150450, guid: d11b64ead5e3cea4f81584f03864bf4b, type: 2}
-  m_PrefabInternal: {fileID: 1495304346}
 --- !u!1 &931856128
 GameObject:
   m_ObjectHideFlags: 0
@@ -22802,7 +22585,7 @@ GameObject:
   - 65: {fileID: 931856132}
   - 23: {fileID: 931856131}
   - 114: {fileID: 931856130}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (152)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -23118,7 +22901,7 @@ GameObject:
   - 65: {fileID: 942624122}
   - 23: {fileID: 942624121}
   - 114: {fileID: 942624120}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (283)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -23202,7 +22985,7 @@ GameObject:
   - 33: {fileID: 946905932}
   - 65: {fileID: 946905931}
   - 23: {fileID: 946905930}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (76)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -23273,7 +23056,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 948928271}
   m_Layer: 0
-  m_Name: NewEnemies
+  m_Name: Enemies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23291,7 +23074,7 @@ Transform:
   m_Children:
   - {fileID: 1355621856}
   m_Father: {fileID: 1259044597}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &950026962
 GameObject:
   m_ObjectHideFlags: 0
@@ -23304,7 +23087,7 @@ GameObject:
   - 65: {fileID: 950026966}
   - 23: {fileID: 950026965}
   - 114: {fileID: 950026964}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (245)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -23388,7 +23171,7 @@ GameObject:
   - 33: {fileID: 950417956}
   - 65: {fileID: 950417955}
   - 23: {fileID: 950417954}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (89)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -23461,7 +23244,7 @@ GameObject:
   - 33: {fileID: 952214129}
   - 65: {fileID: 952214128}
   - 23: {fileID: 952214127}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (125)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -23608,10 +23391,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 953622021}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &958117065 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 157944, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
-  m_PrefabInternal: {fileID: 678315436}
 --- !u!4 &958117066 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402408, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
@@ -23631,7 +23410,7 @@ GameObject:
   - 33: {fileID: 962843456}
   - 65: {fileID: 962843455}
   - 23: {fileID: 962843454}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (57)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -23705,7 +23484,7 @@ GameObject:
   - 65: {fileID: 964057804}
   - 23: {fileID: 964057803}
   - 114: {fileID: 964057802}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (172)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -23835,7 +23614,7 @@ GameObject:
   - 33: {fileID: 965205403}
   - 65: {fileID: 965205402}
   - 23: {fileID: 965205401}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (27)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -23909,7 +23688,7 @@ GameObject:
   - 65: {fileID: 967133162}
   - 23: {fileID: 967133161}
   - 114: {fileID: 967133160}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (280)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -24078,7 +23857,7 @@ GameObject:
   - 33: {fileID: 983653417}
   - 65: {fileID: 983653416}
   - 23: {fileID: 983653415}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (12)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -24152,7 +23931,7 @@ GameObject:
   - 65: {fileID: 986717904}
   - 23: {fileID: 986717903}
   - 114: {fileID: 986717902}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (256)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -24565,7 +24344,7 @@ GameObject:
   - 65: {fileID: 1001573904}
   - 23: {fileID: 1001573903}
   - 114: {fileID: 1001573902}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (159)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -24720,7 +24499,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1007662554}
   m_Layer: 15
-  m_Name: NewDoors
+  m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24754,7 +24533,7 @@ Transform:
   - {fileID: 271916245}
   - {fileID: 1576602890}
   m_Father: {fileID: 1259044597}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &1008306315
 GameObject:
   m_ObjectHideFlags: 0
@@ -24767,7 +24546,7 @@ GameObject:
   - 65: {fileID: 1008306319}
   - 23: {fileID: 1008306318}
   - 114: {fileID: 1008306317}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (187)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -24851,7 +24630,7 @@ GameObject:
   - 33: {fileID: 1010514725}
   - 65: {fileID: 1010514724}
   - 23: {fileID: 1010514723}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (58)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -25094,7 +24873,7 @@ GameObject:
   - 33: {fileID: 1019274262}
   - 65: {fileID: 1019274261}
   - 23: {fileID: 1019274260}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (22)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -25167,7 +24946,7 @@ GameObject:
   - 33: {fileID: 1019735347}
   - 65: {fileID: 1019735346}
   - 23: {fileID: 1019735345}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (20)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -25240,7 +25019,7 @@ GameObject:
   - 33: {fileID: 1020249779}
   - 65: {fileID: 1020249778}
   - 23: {fileID: 1020249777}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (36)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -25342,11 +25121,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77328eb3fbe4cd545b316d7569103a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapM: {fileID: 408966432}
+  mapM: {fileID: 0}
+  ChildTs: []
   roomNum: 0
   playerIsIn: 0
   isCleared: 0
   isEmptyRoom: 1
+  Timesum: 0
 --- !u!114 &1036775478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25421,7 +25202,7 @@ GameObject:
   - 65: {fileID: 1041616383}
   - 23: {fileID: 1041616382}
   - 114: {fileID: 1041616381}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (205)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -25494,53 +25275,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1041616379}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &1047364051
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 732308661}
-    m_Modifications:
-    - target: {fileID: 450998, guid: 9284bdd9f5b941044830cced56f15d6f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 141.350739
-      objectReference: {fileID: 0}
-    - target: {fileID: 450998, guid: 9284bdd9f5b941044830cced56f15d6f, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 18.3335133
-      objectReference: {fileID: 0}
-    - target: {fileID: 450998, guid: 9284bdd9f5b941044830cced56f15d6f, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 96.8070145
-      objectReference: {fileID: 0}
-    - target: {fileID: 450998, guid: 9284bdd9f5b941044830cced56f15d6f, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 450998, guid: 9284bdd9f5b941044830cced56f15d6f, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 450998, guid: 9284bdd9f5b941044830cced56f15d6f, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 450998, guid: 9284bdd9f5b941044830cced56f15d6f, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 450998, guid: 9284bdd9f5b941044830cced56f15d6f, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11444068, guid: 9284bdd9f5b941044830cced56f15d6f, type: 2}
-  m_ParentPrefab: {fileID: 100100000, guid: 9284bdd9f5b941044830cced56f15d6f, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1047364052 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 450998, guid: 9284bdd9f5b941044830cced56f15d6f, type: 2}
-  m_PrefabInternal: {fileID: 1047364051}
 --- !u!1 &1049602687
 GameObject:
   m_ObjectHideFlags: 0
@@ -25722,7 +25456,7 @@ GameObject:
   - 33: {fileID: 1055468281}
   - 65: {fileID: 1055468280}
   - 23: {fileID: 1055468279}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (17)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -25834,11 +25568,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 17
@@ -26033,7 +25767,7 @@ GameObject:
   - 65: {fileID: 1066050941}
   - 23: {fileID: 1066050940}
   - 114: {fileID: 1066050939}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (269)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -26122,7 +25856,7 @@ GameObject:
   - 65: {fileID: 1073924903}
   - 23: {fileID: 1073924902}
   - 114: {fileID: 1073924901}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (163)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -26206,7 +25940,7 @@ GameObject:
   - 33: {fileID: 1082334724}
   - 65: {fileID: 1082334723}
   - 23: {fileID: 1082334722}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (53)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -26437,7 +26171,7 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11475380, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: maxNum
       value: 0
@@ -26445,7 +26179,7 @@ Prefab:
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 0
@@ -26647,7 +26381,7 @@ GameObject:
   - 65: {fileID: 1097844323}
   - 23: {fileID: 1097844322}
   - 114: {fileID: 1097844321}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (239)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -27147,7 +26881,7 @@ GameObject:
   - 81: {fileID: 1107684636}
   - 114: {fileID: 1107684641}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: PlayerCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27214,11 +26948,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1107684635}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: -1.67495179, y: -.305717468, z: -13.5002117}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2096755465}
-  m_RootOrder: 6
+  m_Father: {fileID: 1186231573}
+  m_RootOrder: 0
 --- !u!114 &1107684641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27227,12 +26961,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1107684635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8d3968294210ba4a9d2bb96dfa74a16, type: 3}
+  m_Script: {fileID: 11500000, guid: 93559b71e49914447a6e549d83b0a908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Target: {fileID: 448665496}
   m_AutoTargetPlayer: 1
-  m_UpdateType: 1
+  m_UpdateType: 0
   m_MoveSpeed: 3
   m_TurnSpeed: 1
   m_RollSpeed: .200000003
@@ -27337,7 +27071,7 @@ GameObject:
   - 33: {fileID: 1109552610}
   - 65: {fileID: 1109552609}
   - 23: {fileID: 1109552608}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (73)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -27418,7 +27152,7 @@ GameObject:
   - 33: {fileID: 1111563987}
   - 65: {fileID: 1111563986}
   - 23: {fileID: 1111563985}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (8)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -27605,11 +27339,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77328eb3fbe4cd545b316d7569103a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapM: {fileID: 408966432}
+  mapM: {fileID: 0}
+  ChildTs: []
   roomNum: 0
   playerIsIn: 0
   isCleared: 0
   isEmptyRoom: 0
+  Timesum: 0
 --- !u!114 &1116897770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27633,7 +27369,7 @@ GameObject:
   - 33: {fileID: 1123041602}
   - 65: {fileID: 1123041601}
   - 23: {fileID: 1123041600}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (99)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -27864,7 +27600,7 @@ GameObject:
   - 33: {fileID: 1124502569}
   - 65: {fileID: 1124502568}
   - 23: {fileID: 1124502567}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (147)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -27937,7 +27673,7 @@ GameObject:
   - 33: {fileID: 1125939417}
   - 65: {fileID: 1125939416}
   - 23: {fileID: 1125939415}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (32)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -28269,7 +28005,7 @@ GameObject:
   - 33: {fileID: 1131514158}
   - 65: {fileID: 1131514157}
   - 23: {fileID: 1131514156}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (128)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -28435,7 +28171,7 @@ GameObject:
   - 33: {fileID: 1140437516}
   - 65: {fileID: 1140437515}
   - 23: {fileID: 1140437514}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (116)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -28509,7 +28245,7 @@ GameObject:
   - 65: {fileID: 1141314927}
   - 23: {fileID: 1141314926}
   - 114: {fileID: 1141314925}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (271)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -28667,7 +28403,7 @@ GameObject:
   - 65: {fileID: 1146073559}
   - 23: {fileID: 1146073558}
   - 114: {fileID: 1146073557}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (161)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -28767,7 +28503,7 @@ Transform:
   m_Children:
   - {fileID: 1983892008}
   m_Father: {fileID: 2096755465}
-  m_RootOrder: 8
+  m_RootOrder: 6
 --- !u!1 &1149569661
 GameObject:
   m_ObjectHideFlags: 0
@@ -28779,7 +28515,7 @@ GameObject:
   - 33: {fileID: 1149569665}
   - 65: {fileID: 1149569664}
   - 23: {fileID: 1149569663}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (78)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -28852,7 +28588,7 @@ GameObject:
   - 33: {fileID: 1150506333}
   - 65: {fileID: 1150506332}
   - 23: {fileID: 1150506331}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (101)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -29096,7 +28832,7 @@ GameObject:
   - 65: {fileID: 1155253954}
   - 23: {fileID: 1155253953}
   - 114: {fileID: 1155253952}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (274)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -29254,10 +28990,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1160736116}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1163863853 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 157944, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
-  m_PrefabInternal: {fileID: 1435133042}
 --- !u!4 &1163863854 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402408, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
@@ -29358,7 +29090,7 @@ GameObject:
   - 33: {fileID: 1166115018}
   - 65: {fileID: 1166115017}
   - 23: {fileID: 1166115016}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (126)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -29516,7 +29248,7 @@ GameObject:
   - 33: {fileID: 1174796542}
   - 65: {fileID: 1174796541}
   - 23: {fileID: 1174796540}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (68)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -29590,7 +29322,7 @@ GameObject:
   - 65: {fileID: 1175817427}
   - 23: {fileID: 1175817426}
   - 114: {fileID: 1175817425}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (261)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -29675,7 +29407,7 @@ GameObject:
   - 65: {fileID: 1178237273}
   - 23: {fileID: 1178237272}
   - 114: {fileID: 1178237271}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (221)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -29833,7 +29565,7 @@ GameObject:
   - 65: {fileID: 1179876020}
   - 23: {fileID: 1179876019}
   - 114: {fileID: 1179876018}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (209)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -29952,6 +29684,34 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 915969f0d314cb948aece4d051ccf31d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1186231572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1186231573}
+  m_Layer: 0
+  m_Name: Cameras
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1186231573
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1186231572}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1107684640}
+  m_Father: {fileID: 1259044597}
+  m_RootOrder: 6
 --- !u!1 &1186778149
 GameObject:
   m_ObjectHideFlags: 0
@@ -30004,7 +29764,7 @@ GameObject:
   - 65: {fileID: 1194641282}
   - 23: {fileID: 1194641281}
   - 114: {fileID: 1194641280}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (262)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -30088,7 +29848,7 @@ GameObject:
   - 33: {fileID: 1194788096}
   - 65: {fileID: 1194788095}
   - 23: {fileID: 1194788094}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (51)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -30408,7 +30168,7 @@ GameObject:
   - 33: {fileID: 1203250553}
   - 65: {fileID: 1203250552}
   - 23: {fileID: 1203250551}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (123)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -30482,7 +30242,7 @@ GameObject:
   - 65: {fileID: 1206640109}
   - 23: {fileID: 1206640108}
   - 114: {fileID: 1206640107}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (181)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -30567,7 +30327,7 @@ GameObject:
   - 65: {fileID: 1218805497}
   - 23: {fileID: 1218805496}
   - 114: {fileID: 1218805495}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (202)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -30809,7 +30569,7 @@ GameObject:
   - 33: {fileID: 1238198285}
   - 65: {fileID: 1238198284}
   - 23: {fileID: 1238198283}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (88)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -30925,11 +30685,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: isTrans
       value: 0
@@ -30977,7 +30737,7 @@ GameObject:
   - 65: {fileID: 1251326108}
   - 23: {fileID: 1251326107}
   - 114: {fileID: 1251326106}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (156)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -31219,7 +30979,7 @@ GameObject:
   - 33: {fileID: 1254669044}
   - 65: {fileID: 1254669043}
   - 23: {fileID: 1254669042}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (47)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -31292,7 +31052,7 @@ GameObject:
   - 33: {fileID: 1254670136}
   - 65: {fileID: 1254670135}
   - 23: {fileID: 1254670134}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (127)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -31436,7 +31196,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1259044597}
   m_Layer: 0
-  m_Name: NewEntity
+  m_Name: Entity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31452,13 +31212,15 @@ Transform:
   m_LocalPosition: {x: 1.67495179, y: 1.30571747, z: 3.50021172}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 48826687}
   - {fileID: 1398082919}
   - {fileID: 948928271}
   - {fileID: 406099655}
   - {fileID: 1357269709}
   - {fileID: 1007662554}
+  - {fileID: 1186231573}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &1259271703
 GameObject:
   m_ObjectHideFlags: 0
@@ -31501,12 +31263,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dff06d83e8577a4a9e5f3f8ca8d59cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isObjectPaused: 0
+  isAnimationPaused: 0
   attackSource: {fileID: 725804579}
   attackDamage: 0
   attackDamageMultiply: 1
   ownerbody: {fileID: 725804577}
   auraHeight: .100000001
+  unit: {fileID: 0}
   attackTime: 1
+  attackTimer: 0
+  isAttackFrame: 0
 --- !u!23 &1259271706
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31933,7 +31700,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1275487344}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: MapCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32252,7 +32019,7 @@ GameObject:
   - 65: {fileID: 1277512905}
   - 23: {fileID: 1277512904}
   - 114: {fileID: 1277512903}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (199)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -32523,11 +32290,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77328eb3fbe4cd545b316d7569103a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapM: {fileID: 408966432}
+  mapM: {fileID: 0}
+  ChildTs: []
   roomNum: 0
   playerIsIn: 0
   isCleared: 0
   isEmptyRoom: 0
+  Timesum: 0
 --- !u!114 &1284963007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32636,7 +32405,7 @@ GameObject:
   - 33: {fileID: 1288141752}
   - 65: {fileID: 1288141751}
   - 23: {fileID: 1288141750}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (90)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -32821,11 +32590,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 15
@@ -32919,7 +32688,7 @@ GameObject:
   - 65: {fileID: 1293092410}
   - 23: {fileID: 1293092409}
   - 114: {fileID: 1293092408}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (183)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -33226,7 +32995,7 @@ GameObject:
   - 33: {fileID: 1305561825}
   - 65: {fileID: 1305561824}
   - 23: {fileID: 1305561823}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (103)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -33384,7 +33153,7 @@ GameObject:
   - 33: {fileID: 1308901172}
   - 65: {fileID: 1308901171}
   - 23: {fileID: 1308901170}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (130)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -33543,7 +33312,7 @@ GameObject:
   - 65: {fileID: 1309329176}
   - 23: {fileID: 1309329175}
   - 114: {fileID: 1309329174}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (234)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -33673,7 +33442,7 @@ GameObject:
   - 33: {fileID: 1314038410}
   - 65: {fileID: 1314038409}
   - 23: {fileID: 1314038408}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (135)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -33781,10 +33550,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc834ea2ff2c05d48a2223a2e2513e20, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1316313436 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 157944, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
-  m_PrefabInternal: {fileID: 602362860}
 --- !u!4 &1316313437 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402408, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
@@ -33800,7 +33565,7 @@ GameObject:
   - 33: {fileID: 1316424781}
   - 65: {fileID: 1316424780}
   - 23: {fileID: 1316424779}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (40)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -33873,7 +33638,7 @@ GameObject:
   - 33: {fileID: 1317696333}
   - 65: {fileID: 1317696332}
   - 23: {fileID: 1317696331}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (87)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -34111,7 +33876,7 @@ GameObject:
   - 33: {fileID: 1321624398}
   - 65: {fileID: 1321624397}
   - 23: {fileID: 1321624396}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (91)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -34185,7 +33950,7 @@ GameObject:
   - 65: {fileID: 1324144154}
   - 23: {fileID: 1324144153}
   - 114: {fileID: 1324144152}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (190)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -34273,7 +34038,7 @@ GameObject:
   - 33: {fileID: 1333326094}
   - 65: {fileID: 1333326093}
   - 23: {fileID: 1333326092}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (16)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -34335,56 +34100,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1333326090}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1333978398
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 158006, guid: 62868570f63ae1d4184ff3ced1893183, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1333978399}
-  - 114: {fileID: 1333978400}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1333978399
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 454296, guid: 62868570f63ae1d4184ff3ced1893183, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1333978398}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.99000001, y: -.0300000012, z: -.620000005}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1899714136}
-  m_RootOrder: 1
---- !u!114 &1333978400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11468078, guid: 62868570f63ae1d4184ff3ced1893183,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1333978398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96a9d1e67f293124481f5dd648fe5b45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skills: 
-  DamageText: {fileID: 118930, guid: 9e660c2fe652ca64d99a0169116fe9bf, type: 2}
-  mapM: {fileID: 408966434}
-  canSave: 0
-  pl: {fileID: 1809805660}
-  index: 0
-  isPlayerLive: 1
-  isSnare: 0
-  curSceneLevel: 0
-  box: []
 --- !u!1 &1334654024
 GameObject:
   m_ObjectHideFlags: 0
@@ -34397,7 +34112,7 @@ GameObject:
   - 65: {fileID: 1334654028}
   - 23: {fileID: 1334654027}
   - 114: {fileID: 1334654026}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (277)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -34570,7 +34285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6a4b1c070971d418ec348605a52bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapM: {fileID: 0}
   maxNum: 8
+  dor: {fileID: 0}
+  timeSum: 0
 --- !u!1 &1340304532
 GameObject:
   m_ObjectHideFlags: 0
@@ -34582,7 +34300,7 @@ GameObject:
   - 33: {fileID: 1340304536}
   - 65: {fileID: 1340304535}
   - 23: {fileID: 1340304534}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (120)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -34644,10 +34362,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1340304532}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1340354389 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 157944, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
-  m_PrefabInternal: {fileID: 265520169}
 --- !u!4 &1340354390 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402408, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
@@ -34821,7 +34535,7 @@ GameObject:
   - 33: {fileID: 1346998941}
   - 65: {fileID: 1346998940}
   - 23: {fileID: 1346998939}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (3)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -35053,7 +34767,7 @@ GameObject:
   - 65: {fileID: 1351632149}
   - 23: {fileID: 1351632148}
   - 114: {fileID: 1351632147}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (282)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -35376,7 +35090,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1357269709}
   m_Layer: 0
-  m_Name: NewAttacks
+  m_Name: Attacks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35393,7 +35107,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1259044597}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &1360916224
 GameObject:
   m_ObjectHideFlags: 0
@@ -35406,7 +35120,7 @@ GameObject:
   - 65: {fileID: 1360916228}
   - 23: {fileID: 1360916227}
   - 114: {fileID: 1360916226}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (258)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -35495,7 +35209,7 @@ GameObject:
   - 65: {fileID: 1363098554}
   - 23: {fileID: 1363098553}
   - 114: {fileID: 1363098552}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (186)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -35930,7 +35644,7 @@ GameObject:
   - 65: {fileID: 1374811544}
   - 23: {fileID: 1374811543}
   - 114: {fileID: 1374811542}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (162)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -36160,7 +35874,7 @@ GameObject:
   - 33: {fileID: 1389893010}
   - 65: {fileID: 1389893009}
   - 23: {fileID: 1389893008}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (48)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -36450,7 +36164,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1398082919}
   m_Layer: 0
-  m_Name: NewMap
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36469,7 +36183,7 @@ Transform:
   - {fileID: 1275487344}
   - {fileID: 1626985716}
   m_Father: {fileID: 1259044597}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1001 &1402811499
 Prefab:
   m_ObjectHideFlags: 0
@@ -36740,11 +36454,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 10
@@ -36787,7 +36501,7 @@ GameObject:
   - 33: {fileID: 1411870941}
   - 65: {fileID: 1411870940}
   - 23: {fileID: 1411870939}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (129)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -37023,10 +36737,6 @@ MeshFilter:
 Transform:
   m_PrefabParentObject: {fileID: 466720, guid: 2d07088ce6c0e6d4a89441162249fa6a, type: 2}
   m_PrefabInternal: {fileID: 264970162}
---- !u!1 &1419601877 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 157944, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
-  m_PrefabInternal: {fileID: 1621173294}
 --- !u!4 &1419601878 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402408, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
@@ -37042,7 +36752,7 @@ GameObject:
   - 33: {fileID: 1423865030}
   - 65: {fileID: 1423865029}
   - 23: {fileID: 1423865028}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (80)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -37177,11 +36887,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77328eb3fbe4cd545b316d7569103a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapM: {fileID: 408966432}
+  mapM: {fileID: 0}
+  ChildTs: []
   roomNum: 0
   playerIsIn: 0
   isCleared: 0
   isEmptyRoom: 0
+  Timesum: 0
 --- !u!114 &1423971712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37337,7 +37049,7 @@ GameObject:
   - 65: {fileID: 1433322478}
   - 23: {fileID: 1433322477}
   - 114: {fileID: 1433322476}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (276)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -37456,11 +37168,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 1
@@ -37745,7 +37457,7 @@ GameObject:
   - 4: {fileID: 1441500217}
   - 114: {fileID: 1441500216}
   m_Layer: 0
-  m_Name: NewGameManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37759,7 +37471,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1441500215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c64bdd0ddbbf654a9477342c1557cb3, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b236dfd43cf9cd4393c0bf43f3c2bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1441500217
@@ -37831,7 +37543,7 @@ GameObject:
   - 33: {fileID: 1443320848}
   - 65: {fileID: 1443320847}
   - 23: {fileID: 1443320846}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (71)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -37977,7 +37689,7 @@ GameObject:
   - 33: {fileID: 1447727774}
   - 65: {fileID: 1447727773}
   - 23: {fileID: 1447727772}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (86)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -38059,7 +37771,7 @@ GameObject:
   - 65: {fileID: 1464227023}
   - 23: {fileID: 1464227022}
   - 114: {fileID: 1464227021}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (223)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -38217,7 +37929,7 @@ GameObject:
   - 65: {fileID: 1467313287}
   - 23: {fileID: 1467313286}
   - 114: {fileID: 1467313285}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (278)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -38333,7 +38045,7 @@ Transform:
   - {fileID: 368611095}
   - {fileID: 254749433}
   m_Father: {fileID: 2096755465}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &1471963782
 GameObject:
   m_ObjectHideFlags: 0
@@ -38345,7 +38057,7 @@ GameObject:
   - 33: {fileID: 1471963786}
   - 65: {fileID: 1471963785}
   - 23: {fileID: 1471963784}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (113)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -38418,7 +38130,7 @@ GameObject:
   - 33: {fileID: 1475521999}
   - 65: {fileID: 1475521998}
   - 23: {fileID: 1475521997}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (139)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -38565,7 +38277,7 @@ GameObject:
   - 65: {fileID: 1478775398}
   - 23: {fileID: 1478775397}
   - 114: {fileID: 1478775396}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (210)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -38780,7 +38492,7 @@ GameObject:
   - 33: {fileID: 1487598792}
   - 65: {fileID: 1487598791}
   - 23: {fileID: 1487598790}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (145)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -38930,7 +38642,7 @@ GameObject:
   - 33: {fileID: 1492658733}
   - 65: {fileID: 1492658732}
   - 23: {fileID: 1492658731}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (93)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -39029,7 +38741,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 472234, guid: d11b64ead5e3cea4f81584f03864bf4b, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2364346, guid: d11b64ead5e3cea4f81584f03864bf4b, type: 2}
       propertyPath: m_SortingOrder
@@ -39077,7 +38789,7 @@ GameObject:
   - 33: {fileID: 1496065366}
   - 65: {fileID: 1496065365}
   - 23: {fileID: 1496065364}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -39238,7 +38950,7 @@ GameObject:
   - 33: {fileID: 1497732746}
   - 65: {fileID: 1497732745}
   - 23: {fileID: 1497732744}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (140)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -39767,7 +39479,7 @@ GameObject:
   - 65: {fileID: 1514327482}
   - 23: {fileID: 1514327481}
   - 114: {fileID: 1514327480}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (273)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -39852,7 +39564,7 @@ GameObject:
   - 65: {fileID: 1514792884}
   - 23: {fileID: 1514792883}
   - 114: {fileID: 1514792882}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (260)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -39965,11 +39677,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77328eb3fbe4cd545b316d7569103a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapM: {fileID: 408966432}
+  mapM: {fileID: 0}
+  ChildTs: []
   roomNum: 0
   playerIsIn: 0
   isCleared: 0
   isEmptyRoom: 0
+  Timesum: 0
 --- !u!114 &1515018448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40128,7 +39842,7 @@ GameObject:
   - 33: {fileID: 1526452392}
   - 65: {fileID: 1526452391}
   - 23: {fileID: 1526452390}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (23)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -40400,11 +40114,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77328eb3fbe4cd545b316d7569103a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapM: {fileID: 408966432}
+  mapM: {fileID: 0}
+  ChildTs: []
   roomNum: 0
   playerIsIn: 0
   isCleared: 0
   isEmptyRoom: 0
+  Timesum: 0
 --- !u!114 &1537133947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40429,7 +40145,7 @@ GameObject:
   - 65: {fileID: 1538606116}
   - 23: {fileID: 1538606115}
   - 114: {fileID: 1538606114}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (175)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -40514,7 +40230,7 @@ GameObject:
   - 65: {fileID: 1540337560}
   - 23: {fileID: 1540337559}
   - 114: {fileID: 1540337558}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (164)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -40684,7 +40400,7 @@ GameObject:
   - 65: {fileID: 1541128787}
   - 23: {fileID: 1541128786}
   - 114: {fileID: 1541128785}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (242)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -40841,7 +40557,7 @@ GameObject:
   - 33: {fileID: 1542879350}
   - 65: {fileID: 1542879349}
   - 23: {fileID: 1542879348}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (136)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -41029,7 +40745,7 @@ GameObject:
   - 33: {fileID: 1544211268}
   - 65: {fileID: 1544211267}
   - 23: {fileID: 1544211266}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (133)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -41107,7 +40823,7 @@ GameObject:
   - 65: {fileID: 1546422623}
   - 23: {fileID: 1546422622}
   - 114: {fileID: 1546422621}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (203)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -41783,7 +41499,7 @@ GameObject:
   - 33: {fileID: 1559879364}
   - 65: {fileID: 1559879363}
   - 23: {fileID: 1559879362}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (75)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -42258,11 +41974,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 3
@@ -42628,7 +42344,7 @@ GameObject:
   - 33: {fileID: 1601799731}
   - 65: {fileID: 1601799730}
   - 23: {fileID: 1601799729}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (85)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -42912,7 +42628,7 @@ GameObject:
   - 65: {fileID: 1609247951}
   - 23: {fileID: 1609247950}
   - 114: {fileID: 1609247949}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (241)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -43115,7 +42831,7 @@ GameObject:
   - 33: {fileID: 1617052864}
   - 65: {fileID: 1617052863}
   - 23: {fileID: 1617052862}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (104)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -43231,11 +42947,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 10
@@ -43283,7 +42999,7 @@ GameObject:
   - 65: {fileID: 1623188376}
   - 23: {fileID: 1623188375}
   - 114: {fileID: 1623188374}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (207)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -43396,7 +43112,7 @@ Transform:
   - {fileID: 21984702}
   - {fileID: 1515018446}
   m_Father: {fileID: 2096755465}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &1626985716 stripped
 Transform:
   m_PrefabParentObject: {fileID: 435004, guid: 7ada3b9581c099c4981842c62113189a, type: 2}
@@ -43609,7 +43325,7 @@ GameObject:
   - 65: {fileID: 1648373756}
   - 23: {fileID: 1648373755}
   - 114: {fileID: 1648373754}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (254)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -43693,7 +43409,7 @@ GameObject:
   - 33: {fileID: 1649489971}
   - 65: {fileID: 1649489970}
   - 23: {fileID: 1649489969}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (109)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -43929,7 +43645,7 @@ GameObject:
   - 65: {fileID: 1661191827}
   - 23: {fileID: 1661191826}
   - 114: {fileID: 1661191825}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (173)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -44002,10 +43718,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1661191823}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1667415380 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 157944, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
-  m_PrefabInternal: {fileID: 1835109518}
 --- !u!4 &1667415381 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402408, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
@@ -44022,7 +43734,7 @@ GameObject:
   - 65: {fileID: 1667557951}
   - 23: {fileID: 1667557950}
   - 114: {fileID: 1667557949}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (208)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -44411,7 +44123,7 @@ GameObject:
   - 65: {fileID: 1689617768}
   - 23: {fileID: 1689617767}
   - 114: {fileID: 1689617766}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (193)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -44496,7 +44208,7 @@ GameObject:
   - 65: {fileID: 1690827439}
   - 23: {fileID: 1690827438}
   - 114: {fileID: 1690827437}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (224)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -44580,7 +44292,7 @@ GameObject:
   - 33: {fileID: 1691142445}
   - 65: {fileID: 1691142444}
   - 23: {fileID: 1691142443}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (72)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -44877,9 +44589,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1702114874}
-  - 114: {fileID: 1702114875}
+  - 114: {fileID: 1702114876}
   m_Layer: 0
-  m_Name: NewEffectManager
+  m_Name: EffectManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44897,7 +44609,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 701186781}
   m_RootOrder: 3
---- !u!114 &1702114875
+--- !u!114 &1702114876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -44905,7 +44617,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1702114873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ef303353251101468dcc868bafb4b79, type: 3}
+  m_Script: {fileID: 11500000, guid: ceabb9f3e33219944805f13a0139eb26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackEffect: {fileID: 0}
@@ -45192,7 +44904,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &1725259920
 GameObject:
   m_ObjectHideFlags: 0
@@ -45205,7 +44917,7 @@ GameObject:
   - 65: {fileID: 1725259924}
   - 23: {fileID: 1725259923}
   - 114: {fileID: 1725259922}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (216)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -45306,7 +45018,7 @@ Transform:
   - {fileID: 269931833}
   - {fileID: 1581341382}
   m_Father: {fileID: 2096755465}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1 &1726213907
 GameObject:
   m_ObjectHideFlags: 0
@@ -45391,7 +45103,7 @@ GameObject:
   - 33: {fileID: 1732119864}
   - 65: {fileID: 1732119863}
   - 23: {fileID: 1732119862}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (134)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -45691,7 +45403,7 @@ GameObject:
   - 33: {fileID: 1755488855}
   - 65: {fileID: 1755488854}
   - 23: {fileID: 1755488853}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (44)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -45761,9 +45473,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1758783937}
-  - 114: {fileID: 1758783938}
+  - 114: {fileID: 1758783939}
   m_Layer: 0
-  m_Name: NewEntityManager
+  m_Name: EntityManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45781,7 +45493,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 701186781}
   m_RootOrder: 2
---- !u!114 &1758783938
+--- !u!114 &1758783939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -45789,12 +45501,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1758783936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35c3c181fc6c0d74d8d2a6caa46c5df2, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c0ffe42c2b91284bb71ca5dbbf1fd1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyCategory: {fileID: 0}
-  PlayerCategory: {fileID: 0}
-  AttackCategory: {fileID: 0}
+  EnemyCategory: {fileID: 948928270}
+  PlayerCategory: {fileID: 406099654}
+  AttackCategory: {fileID: 1357269708}
 --- !u!1 &1761202583
 GameObject:
   m_ObjectHideFlags: 0
@@ -45807,7 +45519,7 @@ GameObject:
   - 65: {fileID: 1761202587}
   - 23: {fileID: 1761202586}
   - 114: {fileID: 1761202585}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (249)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -45920,11 +45632,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77328eb3fbe4cd545b316d7569103a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapM: {fileID: 408966432}
+  mapM: {fileID: 0}
+  ChildTs: []
   roomNum: 0
   playerIsIn: 0
   isCleared: 0
   isEmptyRoom: 0
+  Timesum: 0
 --- !u!114 &1762115752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45952,7 +45666,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6a4b1c070971d418ec348605a52bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapM: {fileID: 0}
   maxNum: 8
+  dor: {fileID: 0}
+  timeSum: 0
 --- !u!1 &1772876827
 GameObject:
   m_ObjectHideFlags: 0
@@ -45965,7 +45682,7 @@ GameObject:
   - 65: {fileID: 1772876831}
   - 23: {fileID: 1772876830}
   - 114: {fileID: 1772876829}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (167)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -46138,7 +45855,7 @@ GameObject:
   - 33: {fileID: 1787743074}
   - 65: {fileID: 1787743073}
   - 23: {fileID: 1787743072}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (98)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -46211,7 +45928,7 @@ GameObject:
   - 33: {fileID: 1788722596}
   - 65: {fileID: 1788722595}
   - 23: {fileID: 1788722594}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (38)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -46285,7 +46002,7 @@ GameObject:
   - 65: {fileID: 1796280293}
   - 23: {fileID: 1796280292}
   - 114: {fileID: 1796280291}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (247)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -46358,10 +46075,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1796280289}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1796395775 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 157944, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
-  m_PrefabInternal: {fileID: 433535883}
 --- !u!4 &1796395776 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402408, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
@@ -46536,7 +46249,7 @@ GameObject:
   - 65: {fileID: 1802036432}
   - 23: {fileID: 1802036431}
   - 114: {fileID: 1802036430}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (196)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -46655,11 +46368,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 1
@@ -46702,7 +46415,7 @@ GameObject:
   - 33: {fileID: 1806677409}
   - 65: {fileID: 1806677408}
   - 23: {fileID: 1806677407}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (39)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -46810,12 +46523,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 915969f0d314cb948aece4d051ccf31d, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1809805660 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11409090, guid: d11b64ead5e3cea4f81584f03864bf4b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1495304346}
-  m_Script: {fileID: 11500000, guid: a220cc4c3d1c1184c8bf768b4b7e8746, type: 3}
 --- !u!1001 &1811074414
 Prefab:
   m_ObjectHideFlags: 0
@@ -46862,11 +46569,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 15
@@ -46983,7 +46690,7 @@ GameObject:
   - 33: {fileID: 1819962537}
   - 65: {fileID: 1819962536}
   - 23: {fileID: 1819962535}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (56)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -47197,6 +46904,10 @@ Prefab:
       propertyPath: m_SortingOrder
       value: -5
       objectReference: {fileID: 0}
+    - target: {fileID: 158108, guid: 7ada3b9581c099c4981842c62113189a, type: 2}
+      propertyPath: m_Name
+      value: MapRenderer
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ada3b9581c099c4981842c62113189a, type: 2}
   m_IsPrefabParent: 0
@@ -47211,7 +46922,7 @@ GameObject:
   - 33: {fileID: 1829795725}
   - 65: {fileID: 1829795724}
   - 23: {fileID: 1829795723}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (29)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -47285,7 +46996,7 @@ GameObject:
   - 65: {fileID: 1833932895}
   - 23: {fileID: 1833932894}
   - 114: {fileID: 1833932893}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (155)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -47412,11 +47123,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 11
@@ -47464,7 +47175,7 @@ GameObject:
   - 65: {fileID: 1837370541}
   - 23: {fileID: 1837370540}
   - 114: {fileID: 1837370539}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (259)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -47694,7 +47405,7 @@ GameObject:
   - 33: {fileID: 1841604059}
   - 65: {fileID: 1841604058}
   - 23: {fileID: 1841604057}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (49)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -47767,7 +47478,7 @@ GameObject:
   - 33: {fileID: 1842025013}
   - 65: {fileID: 1842025012}
   - 23: {fileID: 1842025011}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (6)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -47840,7 +47551,7 @@ GameObject:
   - 33: {fileID: 1843016155}
   - 65: {fileID: 1843016154}
   - 23: {fileID: 1843016153}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (34)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -47914,7 +47625,7 @@ GameObject:
   - 65: {fileID: 1843247554}
   - 23: {fileID: 1843247553}
   - 114: {fileID: 1843247552}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (211)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -47999,7 +47710,7 @@ GameObject:
   - 65: {fileID: 1843392994}
   - 23: {fileID: 1843392993}
   - 114: {fileID: 1843392992}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (220)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -48087,7 +47798,7 @@ GameObject:
   - 33: {fileID: 1846846013}
   - 65: {fileID: 1846846012}
   - 23: {fileID: 1846846011}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (60)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -48357,11 +48068,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 15
@@ -48405,7 +48116,7 @@ GameObject:
   - 33: {fileID: 1862569722}
   - 65: {fileID: 1862569721}
   - 23: {fileID: 1862569720}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (138)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -48551,7 +48262,7 @@ GameObject:
   - 33: {fileID: 1866274199}
   - 65: {fileID: 1866274198}
   - 23: {fileID: 1866274197}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (42)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -48971,7 +48682,7 @@ GameObject:
   - 65: {fileID: 1889547330}
   - 23: {fileID: 1889547329}
   - 114: {fileID: 1889547328}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (222)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -49133,39 +48844,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1893451746}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1899714135
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 158230, guid: 62868570f63ae1d4184ff3ced1893183, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1899714136}
-  m_Layer: 0
-  m_Name: Managers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1899714136
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 433678, guid: 62868570f63ae1d4184ff3ced1893183, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1899714135}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.99000001, y: .0300000012, z: .620000005}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1912677893}
-  - {fileID: 1333978399}
-  - {fileID: 408966433}
-  - {fileID: 625483395}
-  - {fileID: 414653542}
-  - {fileID: 45733918}
-  m_Father: {fileID: 732308661}
-  m_RootOrder: 1
 --- !u!1001 &1900009910
 Prefab:
   m_ObjectHideFlags: 0
@@ -49220,11 +48898,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: isTrans
       value: 0
@@ -49356,7 +49034,7 @@ GameObject:
   - 33: {fileID: 1911130177}
   - 65: {fileID: 1911130176}
   - 23: {fileID: 1911130175}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (146)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -49491,69 +49169,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1912419934}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1912677892
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 148142, guid: 62868570f63ae1d4184ff3ced1893183, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1912677893}
-  - 114: {fileID: 1912677894}
-  m_Layer: 0
-  m_Name: EffectManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1912677893
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 414268, guid: 62868570f63ae1d4184ff3ced1893183, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1912677892}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.99000001, y: -.0300000012, z: -.620000005}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1899714136}
-  m_RootOrder: 0
---- !u!114 &1912677894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11471024, guid: 62868570f63ae1d4184ff3ced1893183,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1912677892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ef303353251101468dcc868bafb4b79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackEffect: {fileID: 172158, guid: 5265daaf9cfb272469922c3272aae033, type: 2}
-  expEffect: {fileID: 130788, guid: 6c99426e2d801c141ba7e9877e8f0448, type: 2}
-  knockback: {fileID: 115786, guid: e1ab463ef643c1641904688ad6790ede, type: 2}
-  hit_short: {fileID: 128552, guid: d99302f271291c64e963855b16185aee, type: 2}
-  hit_long: {fileID: 134436, guid: e5e886b99ca3a354c820a3abbaeae591, type: 2}
-  EXP: {fileID: 130788, guid: 6c99426e2d801c141ba7e9877e8f0448, type: 2}
-  Fire: {fileID: 0}
-  LightBombEffect: {fileID: 0}
-  LevelUpEffect: {fileID: 160822, guid: 1362bee4775ecc040bb6215d95d77491, type: 2}
-  PressT: {fileID: 0}
-  ShockWaveEffect: {fileID: 0}
-  DustCloudWithImpactEffect: {fileID: 0}
-  DustCloudEffect: {fileID: 0}
-  MonsterSummonEffect: {fileID: 0}
-  FireBombEffect: {fileID: 100618, guid: 74b1b9845a3bca746b2ff8b37dac761d, type: 2}
-  ThunderShoesEffect: {fileID: 139490, guid: 68d7a3e61b562584680bae12ae790efb, type: 2}
-  BossThunderEffect: {fileID: 0}
-  RedHealEffect: {fileID: 0}
-  TeleportEffect: {fileID: 0}
-  VortexEffect: {fileID: 0}
-  Threehit_SmallEffect: {fileID: 0}
-  Threehit_LargeEffect: {fileID: 0}
-  CrosshitEffect: {fileID: 0}
 --- !u!1 &1912857510
 GameObject:
   m_ObjectHideFlags: 0
@@ -49639,7 +49254,7 @@ GameObject:
   - 65: {fileID: 1914639835}
   - 23: {fileID: 1914639834}
   - 114: {fileID: 1914639833}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (238)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -49770,7 +49385,7 @@ GameObject:
   - 65: {fileID: 1918579455}
   - 23: {fileID: 1918579454}
   - 114: {fileID: 1918579453}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (191)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -49855,7 +49470,7 @@ GameObject:
   - 65: {fileID: 1921528154}
   - 23: {fileID: 1921528153}
   - 114: {fileID: 1921528152}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (182)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -49940,7 +49555,7 @@ GameObject:
   - 65: {fileID: 1924324401}
   - 23: {fileID: 1924324400}
   - 114: {fileID: 1924324399}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (153)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -50186,11 +49801,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 11
@@ -50565,11 +50180,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: isTrans
       value: 0
@@ -50697,11 +50312,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 9
@@ -50744,7 +50359,7 @@ GameObject:
   - 33: {fileID: 1955900510}
   - 65: {fileID: 1955900509}
   - 23: {fileID: 1955900508}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (105)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -50817,7 +50432,7 @@ GameObject:
   - 33: {fileID: 1956373112}
   - 65: {fileID: 1956373111}
   - 23: {fileID: 1956373110}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (95)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -50979,7 +50594,7 @@ GameObject:
   - 33: {fileID: 1966019915}
   - 65: {fileID: 1966019914}
   - 23: {fileID: 1966019913}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (31)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -51125,7 +50740,7 @@ GameObject:
   - 33: {fileID: 1967173390}
   - 65: {fileID: 1967173389}
   - 23: {fileID: 1967173388}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (52)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -51310,11 +50925,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 15
@@ -51430,7 +51045,7 @@ GameObject:
   - 33: {fileID: 1971860509}
   - 65: {fileID: 1971860508}
   - 23: {fileID: 1971860507}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (83)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -51588,7 +51203,7 @@ GameObject:
   - 33: {fileID: 1978278274}
   - 65: {fileID: 1978278273}
   - 23: {fileID: 1978278272}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (4)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -51765,10 +51380,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 59d0f74afe0a1cf4c999b939b37b45c4, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1983892007 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 179970, guid: 59d0f74afe0a1cf4c999b939b37b45c4, type: 2}
-  m_PrefabInternal: {fileID: 1983892006}
 --- !u!4 &1983892008 stripped
 Transform:
   m_PrefabParentObject: {fileID: 422232, guid: 59d0f74afe0a1cf4c999b939b37b45c4, type: 2}
@@ -51870,7 +51481,7 @@ GameObject:
   - 65: {fileID: 1992940178}
   - 23: {fileID: 1992940177}
   - 114: {fileID: 1992940176}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (198)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -52125,7 +51736,7 @@ GameObject:
   - 65: {fileID: 1996931149}
   - 23: {fileID: 1996931148}
   - 114: {fileID: 1996931147}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (151)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -52209,7 +51820,7 @@ GameObject:
   - 33: {fileID: 1996971103}
   - 65: {fileID: 1996971102}
   - 23: {fileID: 1996971101}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (100)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -52283,7 +51894,7 @@ GameObject:
   - 65: {fileID: 1998515173}
   - 23: {fileID: 1998515172}
   - 114: {fileID: 1998515171}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (232)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -52444,7 +52055,7 @@ GameObject:
   - 33: {fileID: 2003582645}
   - 65: {fileID: 2003582644}
   - 23: {fileID: 2003582643}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (63)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -52629,11 +52240,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: isTrans
       value: 0
@@ -52950,11 +52561,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11475380, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: maxNum
       value: 8
@@ -53213,11 +52824,11 @@ Prefab:
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: mapM
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428600, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: MapManager
       value: 
-      objectReference: {fileID: 408966432}
+      objectReference: {fileID: 0}
     - target: {fileID: 11419750, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
       propertyPath: roomNum
       value: 9
@@ -53260,7 +52871,7 @@ GameObject:
   - 33: {fileID: 2043187575}
   - 65: {fileID: 2043187574}
   - 23: {fileID: 2043187573}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (142)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -53333,7 +52944,7 @@ GameObject:
   - 33: {fileID: 2043340821}
   - 65: {fileID: 2043340820}
   - 23: {fileID: 2043340819}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (117)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -53565,7 +53176,7 @@ GameObject:
   - 65: {fileID: 2050899737}
   - 23: {fileID: 2050899736}
   - 114: {fileID: 2050899735}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (148)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -53649,7 +53260,7 @@ GameObject:
   - 33: {fileID: 2051237974}
   - 65: {fileID: 2051237973}
   - 23: {fileID: 2051237972}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (59)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -53723,7 +53334,7 @@ GameObject:
   - 65: {fileID: 2065944268}
   - 23: {fileID: 2065944267}
   - 114: {fileID: 2065944266}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (184)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -53796,10 +53407,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2065944264}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2073083697 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 157944, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
-  m_PrefabInternal: {fileID: 541865613}
 --- !u!4 &2073083698 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402408, guid: e512895d4a2983449b11340a62e0fb39, type: 2}
@@ -53973,7 +53580,7 @@ GameObject:
   - 33: {fileID: 2082541399}
   - 65: {fileID: 2082541398}
   - 23: {fileID: 2082541397}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (115)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -54132,7 +53739,7 @@ GameObject:
   - 65: {fileID: 2087770824}
   - 23: {fileID: 2087770823}
   - 114: {fileID: 2087770822}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (230)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -54216,7 +53823,7 @@ GameObject:
   - 33: {fileID: 2091737303}
   - 65: {fileID: 2091737302}
   - 23: {fileID: 2091737301}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (94)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -54290,7 +53897,7 @@ GameObject:
   - 65: {fileID: 2095601485}
   - 23: {fileID: 2095601484}
   - 114: {fileID: 2095601483}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (252)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -54374,7 +53981,7 @@ GameObject:
   - 33: {fileID: 2096267467}
   - 65: {fileID: 2096267466}
   - 23: {fileID: 2096267465}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (19)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -54450,7 +54057,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2096755465
 Transform:
   m_ObjectHideFlags: 0
@@ -54461,17 +54068,15 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 48826687}
   - {fileID: 1726016424}
   - {fileID: 1471951738}
   - {fileID: 1497799701}
   - {fileID: 1625350730}
   - {fileID: 455874400}
-  - {fileID: 1107684640}
   - {fileID: 58320543}
   - {fileID: 1147482888}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1001 &2103105705
 Prefab:
   m_ObjectHideFlags: 0
@@ -54530,7 +54135,7 @@ GameObject:
   - 65: {fileID: 2104518048}
   - 23: {fileID: 2104518047}
   - 114: {fileID: 2104518046}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (174)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -54700,7 +54305,7 @@ GameObject:
   - 65: {fileID: 2108194941}
   - 23: {fileID: 2108194940}
   - 114: {fileID: 2108194939}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (215)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -54785,7 +54390,7 @@ GameObject:
   - 65: {fileID: 2109374400}
   - 23: {fileID: 2109374399}
   - 114: {fileID: 2109374398}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (265)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -54869,7 +54474,7 @@ GameObject:
   - 33: {fileID: 2110930596}
   - 65: {fileID: 2110930595}
   - 23: {fileID: 2110930594}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (107)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -54942,7 +54547,7 @@ GameObject:
   - 33: {fileID: 2116099747}
   - 65: {fileID: 2116099746}
   - 23: {fileID: 2116099745}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (137)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -55015,7 +54620,7 @@ GameObject:
   - 33: {fileID: 2119305289}
   - 65: {fileID: 2119305288}
   - 23: {fileID: 2119305287}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (141)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -55173,7 +54778,7 @@ GameObject:
   - 33: {fileID: 2127249083}
   - 65: {fileID: 2127249082}
   - 23: {fileID: 2127249081}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (33)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -55246,7 +54851,7 @@ GameObject:
   - 33: {fileID: 2129654425}
   - 65: {fileID: 2129654424}
   - 23: {fileID: 2129654423}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (30)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -55405,7 +55010,7 @@ GameObject:
   - 65: {fileID: 2132247502}
   - 23: {fileID: 2132247501}
   - 114: {fileID: 2132247500}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (171)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -55489,7 +55094,7 @@ GameObject:
   - 33: {fileID: 2133033077}
   - 65: {fileID: 2133033076}
   - 23: {fileID: 2133033075}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (35)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
@@ -55636,7 +55241,7 @@ GameObject:
   - 65: {fileID: 2139329320}
   - 23: {fileID: 2139329319}
   - 114: {fileID: 2139329318}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Cube (246)
   m_TagString: MapObject
   m_Icon: {fileID: 0}
