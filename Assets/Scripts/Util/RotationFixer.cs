@@ -9,19 +9,19 @@ public class RotationFixer : MonoBehaviour
     {
         public bool x, y, z;
     }
-    
+
     [SerializeField]
     public fixable fix;
 
 
-	// Use this for initialization
-	void Start () 
-	{
-	
-	}
-	
-	void LateUpdate () 
-	{
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    void LateUpdate()
+    {
         Vector3 angle = transform.localEulerAngles;
         if (fix.x)
             angle.x = fixangle.x;
@@ -31,5 +31,5 @@ public class RotationFixer : MonoBehaviour
             angle.z = fixangle.z;
 
         transform.localEulerAngles = angle;
-	}
+    }
 }

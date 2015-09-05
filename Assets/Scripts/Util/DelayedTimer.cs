@@ -8,7 +8,8 @@ using System.Collections;
 /// <returns> delta time of current frame </returns>
 public delegate float DELTA_TIME_FUNCTION();
 
-public class DelayedTimer {
+public class DelayedTimer
+{
 
 
     /// <summary>

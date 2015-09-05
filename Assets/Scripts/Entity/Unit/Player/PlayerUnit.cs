@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerUnit : UnitObject {
+public class PlayerUnit : UnitObject
+{
 
-	[SerializeField]
-	SkillData.SkillName[] skill = new SkillData.SkillName[3] {
-		SkillData.SkillName.Nothing,
-		SkillData.SkillName.Nothing,
-		SkillData.SkillName.Nothing
-	};
+    [SerializeField]
+    public SkillData.SkillName[] skill = new SkillData.SkillName[3] {
+        SkillData.SkillName.Nothing,
+        SkillData.SkillName.Nothing,
+        SkillData.SkillName.Nothing
+    };
 
-	public int Level = 1;
+    public int Level = 1;
 
     public float CollideRadius = 0.5f;
 
@@ -20,20 +21,22 @@ public class PlayerUnit : UnitObject {
     {
         base.OnStart();
 
-        if(MoveColliderMask == -1)
+        if (MoveColliderMask == -1)
             MoveColliderMask = LayerMask.GetMask(new string[] { "Walls" });
     }
 
-    protected override void OnStateAct() {
-		base.OnStateAct();
+    protected override void OnStateAct()
+    {
+        base.OnStateAct();
 
-		Move();
-	}
+        Move();
+    }
 
 
-	void Move() {
-		float movingDistance = Speed * GetDeltaTime();
-		Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+    void Move()
+    {
+        float movingDistance = Speed * GetDeltaTime();
+        Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         dir.Normalize();
 
         // check with raycast
@@ -51,18 +54,21 @@ public class PlayerUnit : UnitObject {
                 movingDistance = hit.distance - CollideRadius;
             }
         }
-     
+
         transform.position += dir * movingDistance;
-	}
+    }
 
-	protected override void OnStateDie() {
-		base.OnStateDie();
-		if (mvStateMachine.IsFirstFrame()) {
-			Time.timeScale = 0.1f;
-		}
-	}
+    protected override void OnStateDie()
+    {
+        base.OnStateDie();
+        if (mvStateMachine.IsFirstFrame())
+        {
+            Time.timeScale = 0.1f;
+        }
+    }
 
-	public virtual void OnLevelUp() {
+    public virtual void OnLevelUp()
+    {
 
-	}
+    }
 }

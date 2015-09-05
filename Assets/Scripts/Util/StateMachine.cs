@@ -10,7 +10,7 @@ public class StateMachine<T>
 {
     private bool is_init_statemachine = true;
 
-    private Dictionary<T, FUNC_STATE_UPDATE> state_func_map = new Dictionary<T,FUNC_STATE_UPDATE>();
+    private Dictionary<T, FUNC_STATE_UPDATE> state_func_map = new Dictionary<T, FUNC_STATE_UPDATE>();
     private T prev_state = default(T);
     private T current_state = default(T);
     private T next_state = default(T);
@@ -75,4 +75,4 @@ public class StateMachine<T>
     {
         return is_first_frame;
     }
-};
+}
