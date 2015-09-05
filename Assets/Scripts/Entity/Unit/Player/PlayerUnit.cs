@@ -13,7 +13,18 @@ public class PlayerUnit : UnitObject {
 	public int Level = 1;
 
     public float CollideRadius = 0.5f;
-	protected override void OnStateAct() {
+
+    public int MoveColliderMask = -1;
+
+    protected override void OnStart()
+    {
+        base.OnStart();
+
+        if(MoveColliderMask == -1)
+            MoveColliderMask = LayerMask.GetMask(new string[] { "Walls" });
+    }
+
+    protected override void OnStateAct() {
 		base.OnStateAct();
 
 		Move();
@@ -24,26 +35,24 @@ public class PlayerUnit : UnitObject {
 		float movingDistance = Speed * GetDeltaTime();
 		Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         dir.Normalize();
-        Vector3 nextDeltaPosition = dir * movingDistance;
 
         // check with raycast
-        var collidermask = LayerMask.GetMask(new string[] { "Walls" });
         RaycastHit hit;
-        bool ishit = Physics.Raycast(transform.position, dir, out hit, movingDistance + CollideRadius, collidermask);
+        bool ishit = Physics.Raycast(transform.position, dir, out hit, movingDistance + CollideRadius, MoveColliderMask);
         if (ishit)
         {
             //Debug.Log(hit.distance);
             if (hit.distance < CollideRadius)
             {
-                nextDeltaPosition = new Vector3(0, 0, 0);
+                movingDistance = 0;
             }
             else
             {
-                nextDeltaPosition = dir * (hit.distance - CollideRadius);
+                movingDistance = hit.distance - CollideRadius;
             }
         }
      
-        transform.position += nextDeltaPosition;
+        transform.position += dir * movingDistance;
 	}
 
 	protected override void OnStateDie() {

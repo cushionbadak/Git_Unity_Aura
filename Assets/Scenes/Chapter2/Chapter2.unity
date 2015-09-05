@@ -10246,6 +10246,7 @@ MonoBehaviour:
   skill: 000000000000000000000000
   Level: 1
   CollideRadius: .300000012
+  MoveColliderMask: -1
 --- !u!1 &448665499 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 121108, guid: d11b64ead5e3cea4f81584f03864bf4b, type: 2}
@@ -10258,22 +10259,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 448665499}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a61a23cd416febc47aef35f110b3a147, type: 3}
+  m_Script: {fileID: 11500000, guid: 77fb0318ab2d5204ea1a1a269ac76cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isObjectPaused: 0
-  isAnimationPaused: 0
-  attackSource: {fileID: 0}
+  attackSource: {fileID: 448665498}
   attackDamage: 0
   attackDamageMultiply: 1
   ownerbody: {fileID: 448665497}
   auraHeight: .100000001
-  unit: {fileID: 0}
   attackTime: 1
-  attackTimer: 0
-  isAttackFrame: 0
   currentList: []
   nextList: []
+--- !u!4 &448665502 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 456462, guid: d11b64ead5e3cea4f81584f03864bf4b, type: 2}
+  m_PrefabInternal: {fileID: 448665495}
 --- !u!1 &449671029
 GameObject:
   m_ObjectHideFlags: 0
@@ -17398,8 +17398,8 @@ GameObject:
   - 33: {fileID: 725804582}
   - 135: {fileID: 725804581}
   - 23: {fileID: 725804580}
-  - 114: {fileID: 725804579}
   - 54: {fileID: 725804583}
+  - 114: {fileID: 725804579}
   m_Layer: 0
   m_Name: EnemyBody
   m_TagString: EnemyBody
@@ -17427,11 +17427,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 725804577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 129957fad8dd84f46814025350b82c85, type: 3}
+  m_Script: {fileID: 11500000, guid: 4775c0dba2fe2ea419c136e98661833e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isObjectPaused: 0
-  isAnimationPaused: 0
   HPMax: 100
   HPCurrent: 100
   Speed: 7
@@ -17441,11 +17439,6 @@ MonoBehaviour:
   CanBeKnockBacked: 1
   CanBeSnared: 1
   CanBeStunned: 1
-  isDead: 0
-  renderer: {fileID: 0}
-  rigid: {fileID: 0}
-  prevSpeed: 0
-  prevAuraRange: 0
 --- !u!23 &725804580
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26964,10 +26957,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93559b71e49914447a6e549d83b0a908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 448665496}
-  m_AutoTargetPlayer: 1
-  m_UpdateType: 0
-  m_MoveSpeed: 3
+  m_Target: {fileID: 448665502}
+  m_AutoTargetPlayer: 0
+  m_UpdateType: 1
+  m_MoveSpeed: 7
   m_TurnSpeed: 1
   m_RollSpeed: .200000003
   m_FollowVelocity: 0
@@ -31260,20 +31253,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1259271703}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dff06d83e8577a4a9e5f3f8ca8d59cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 928434b1605d1384b946a5c65f12cdf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isObjectPaused: 0
-  isAnimationPaused: 0
   attackSource: {fileID: 725804579}
   attackDamage: 0
   attackDamageMultiply: 1
   ownerbody: {fileID: 725804577}
   auraHeight: .100000001
-  unit: {fileID: 0}
   attackTime: 1
-  attackTimer: 0
-  isAttackFrame: 0
 --- !u!23 &1259271706
 MeshRenderer:
   m_ObjectHideFlags: 0

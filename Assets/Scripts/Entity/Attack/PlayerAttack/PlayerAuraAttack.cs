@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class NewPlayerAuraAttack : AttackObject {
+public class PlayerAuraAttack : AttackObject {
 	// status
 	public GameObject ownerbody = null;
 	public float auraHeight = 0.1f;
